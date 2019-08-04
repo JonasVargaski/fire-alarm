@@ -4,6 +4,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "variaveisGlobais.h"
+#include "eeprom.h"
 
 void lerParametros() {
     char i = 0;
@@ -26,7 +27,7 @@ void lerParametros() {
     dias_restante_teste = readEEPROM_ext(10);
     horario_de_teste = readEEPROM_ext(11);
     tempo_limite_teste_estacionaria = readEEPROM_ext(13);
-
+    // 14 reservado
 
     for (i = 0; i < 11; i++) {
         tel1[i] = readEEPROM_ext(20 + i);

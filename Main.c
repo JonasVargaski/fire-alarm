@@ -39,31 +39,34 @@
  5 = FALHA PRINCIPAL
  */
 
-void interrupt TIMER0() {
+void interrupt TIMER() {
     if (TMR0IF) { //TIMER 0 OVERFLOW 100ms; Interrupção;
         TMR0IF = 0x00;
         TMR0H = 0x3C;
         TMR0L = 0xB0;
-        readButtons();
+
+        blinkk = ~blinkk; // efeito de piscar lcd
         base_sec++;
         intervalo_leitura_adc++;
 
         lerTransdutor();
-
-        blinkk = ~blinkk;
-
+        readButtons();
 
         if (base_sec > 9) { // Base de tempo de 1 segundo
             base_sec = 0;
             timer();
+            if (RCSTAbits.OERR) { // reset da serial caso travar
+                RCSTAbits.CREN = 0;
+                RCSTAbits.CREN = 1;
+            }
         }
     }
-    ////////////////// INTERRUPÇAO UART //////////////////////////////////////////////////
-
-    if (RCIF) { //UART Rx Interrupt 
-        RCIF = 0x00; // zera flag quando RCREG é lido;    
-        //        char c = RCREG;
-        tratarSerial(RCREG);
+    if (RCIF) { //UART Rx interrupção
+        char c = RCREG;
+        if (c != '\n' && c != '\r') {
+            bufferSerial[cbf++] = c;
+        }
+        if (cbf >= 60) cbf = 0;
     }
 }
 
@@ -82,9 +85,10 @@ void main() {
     lerParametros(); // Carrega variuaveis da eeprom.
     delay(50);
 
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     while (1) {
+
+
         asm("CLRWDT"); // Reinicia WDT
 
         if (FALTA_ENERGIA) {
@@ -93,23 +97,24 @@ void main() {
         acaoBombas();
         acaoTesteBomasProgramado();
         setShiftREG();
+        getSinalSIM800L();
 
         switch (menu_posi) {
             case 0:
-//                telaPrincipal();
-                telaTeste();
+                telaPrincipal();
+                //                telaTeste();
                 break;
             case 1: // 1 tela do menu
-                sprintf(&line1[1], "RELOGIO/DATA");
-                sprintf(&line2[1], "AJUSTE PRESSAO");
-                sprintf(&line3[1], "AJUSTE COMBUSTAO");
-                sprintf(&line4[1], "TEL/DISCADORA");
+                sprintf(&line1[1], "DATA/HORA");
+                sprintf(&line2[1], "PRESSAO DA REDE");
+                sprintf(&line3[1], "PARTIDA COMBUSTAO");
+                sprintf(&line4[1], "TELEFONES");
                 break;
             case 2:
-                sprintf(&line1[1], "TESTE BOMBAS");
+                sprintf(&line1[1], "PERIODO DE TESTES");
                 sprintf(&line2[1], "DATALOGER");
                 sprintf(&line3[1], "INFO VERSAO");
-                sprintf(&line4[1], "INICIAR TESTES");
+                sprintf(&line4[1], "Iniciar Testes");
                 break;
             case 20:
                 tela_ajusteRTC();
@@ -189,7 +194,7 @@ void main() {
                     if (btPress(b_ok)) {
                         _menu_posi = menu_posi;
                         menu_posi = 25; // data loger
-                        dtl_visualiza_log = 1; // para abrir o log carregado ja, evitar ficar lendo eeprom direto
+                        dtl_carregar_log = 1; // para abrir o log carregado ja, evitar ficar lendo eeprom direto
                     }
                     break;
                 case 7:

@@ -3295,6 +3295,8 @@ TRISDbits.RD1 = 0;
 TRISDbits.RD0 = 0;
 
 
+TRISCbits.TRISC6 = 0;
+TRISCbits.TRISC7 = 1;
 TXSTAbits.TXEN = 1;
 TXSTAbits.BRGH = 1;
 TXSTAbits.SYNC = 0;
@@ -3303,10 +3305,6 @@ RCSTAbits.CREN = 1;
 
 
 SPBRG = 25;
-TRISCbits.TRISC6 = 0;
-TRISCbits.TRISC7 = 1;
-
-
 INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
 PIR1bits.RCIF = 0;
@@ -3330,11 +3328,25 @@ TRISEbits.RE1 = 0;
 TRISEbits.RE2 = 0;
 }
 
-# 23 "variaveisGlobais.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+typedef unsigned char bool;
+
+# 26 "variaveisGlobais.h"
 unsigned char line1[21];
 unsigned char line2[21];
 unsigned char line3[21];
 unsigned char line4[21];
+
+unsigned char intensidadeSinal = ' ';
+unsigned char telefoneSelecionado = 0;
+
+unsigned char timerVerificarSinal = 5;
+unsigned char timerEtapaComunicacao = 0;
+unsigned int etapaComunicacao = 0;
+unsigned bool gsmOcupado = 0;
+
+
+
 
 unsigned char base_sec = 0, _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
 unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
@@ -3344,7 +3356,7 @@ unsigned char status_jockey = 1, status_principal = 1, status_estacionaria = 1, 
 int horimetro = 0, tempo_teste_bombas = 300;
 unsigned char tempo_limite_estacionaria = 0, estacionaria_Ligada = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0, tempo_corrido_teste_estacionaria = 0, tempo_coun_estacionaria = 0;
 unsigned char estagio_envio_SMS = 0, tel_selecionado = 0, teste_sms_run = 0, timer_envio_sms = 0;
-unsigned char dtl_pos = 0, dtl_dia = 0, dtl_mes = 0, dtl_ano = 0, dtl_jockey = 0, dtl_principal = 0, dtl_estacionaria = 0, dtl_visualiza_log = 0;
+
 unsigned char tempo_reenvio_SMS = 5;
 unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
 unsigned char falha = 0, teste_run = 0, incendio = 0;
@@ -3650,28 +3662,33 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
-typedef unsigned char bool;
-
-# 11 "serial.h"
-unsigned char bufferSerial[80];
+# 12 "serial.h"
+unsigned char bufferSerial[60];
 unsigned char bufferAUX[20];
+unsigned char cbf = 0;
 
 void putch(char c) {
 while (!TXSTAbits.TRMT);
 TXREG = c;
 }
 
+void writeChar(char *hex) {
+while (!TXSTAbits.TRMT);
+TXREG = hex;
+}
+
 bool aguardaBuffer(char *str) {
-return strstr(bufferSerial, str) != (0);
+if (strstr(bufferSerial, str) != (0)) {
+delay(150);
+return 1;
+}
+return 0;
 }
 
 void limparBuffer() {
+cbf = 0;
 memset(bufferSerial, 0, sizeof (bufferSerial));
-}
-
-void tratarSerial(c) {
-sprintf(bufferSerial, "%s%c", bufferSerial, c);
+delay(150);
 }
 
 char* getSerial(char * str, char end) {
@@ -3691,6 +3708,75 @@ sprintf(bufferAUX, "%s%c", bufferAUX, ret[i]);
 }
 return 0;
 }
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 86
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
 
 
 # 7 "config.h"
@@ -3743,13 +3829,279 @@ return 0;
 
 #pragma config EBTRB = ON
 
-# 11 "comunicacao.h"
-void enviaSMS(unsigned char tipo) {
+# 5 "I2C.h"
+void I2C_Master_Init(const unsigned long c);
+void I2C_Wait();
+void I2C_Start();
+void I2C_Restart();
+void I2C_Stop();
+void I2C_Write(unsigned d);
+unsigned short I2C_Read(unsigned short a);
 
+
+# 7 "config.h"
+#pragma config OSC = HS
+#pragma config OSCS = OFF
+
+
+#pragma config PWRT = OFF
+#pragma config BOR = ON
+#pragma config BORV = 20
+
+
+#pragma config WDT = ON
+#pragma config WDTPS = 128
+
+
+#pragma config CCP2MUX = ON
+
+
+#pragma config STVR = ON
+#pragma config LVP = OFF
+
+
+#pragma config CP0 = ON
+#pragma config CP1 = ON
+#pragma config CP2 = ON
+#pragma config CP3 = ON
+
+
+#pragma config CPB = OFF
+#pragma config CPD = ON
+
+
+#pragma config WRT0 = ON
+#pragma config WRT1 = ON
+#pragma config WRT2 = ON
+#pragma config WRT3 = ON
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = ON
+
+# 20 "ds1307.h"
+typedef struct {
+unsigned char day;
+unsigned char sec;
+unsigned char min;
+unsigned char hour;
+unsigned char date;
+unsigned char month;
+unsigned char year;
+} RTCCTimeDate;
+
+
+RTCCTimeDate rtc;
+
+
+
+
+void setDS1307TimeDate(RTCCTimeDate* ptrToUserVal) {
+
+I2C_Start();
+I2C_Write(0xD0);
+I2C_Write(0x00);
+I2C_Write(DECtoBCD(ptrToUserVal-> sec));
+I2C_Write(DECtoBCD(ptrToUserVal-> min));
+I2C_Write(DECtoBCD(ptrToUserVal-> hour));
+I2C_Write(DECtoBCD(ptrToUserVal-> day));
+I2C_Write(DECtoBCD(ptrToUserVal-> date));
+I2C_Write(DECtoBCD(ptrToUserVal-> month));
+I2C_Write(DECtoBCD(ptrToUserVal-> year));
+I2C_Stop();
+
+}
+
+void getDS1307TimeDate(RTCCTimeDate* ptrToUserVal) {
+
+I2C_Start();
+I2C_Write(0xD0);
+I2C_Write(0x00);
+I2C_Restart();
+I2C_Write(0xD1);
+ptrToUserVal->sec = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> min = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> hour = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> day = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> date = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> month = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> year = BCDtoDEC(I2C_Read(0));
+I2C_Stop();
+
+
+}
+
+void getDS1307Time(RTCCTimeDate* ptrToUserVal) {
+
+I2C_Start();
+I2C_Write(0xD0);
+I2C_Write(0x00);
+I2C_Restart();
+I2C_Write(0xD1);
+ptrToUserVal-> sec = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> min = BCDtoDEC(I2C_Read(1));
+ptrToUserVal-> hour = BCDtoDEC(I2C_Read(0));
+I2C_Stop();
+
+
+}
+
+void setDS1307Time(RTCCTimeDate* ptrToUserVal) {
+
+I2C_Start();
+I2C_Write(0xD0);
+I2C_Write(0x00);
+I2C_Write(DECtoBCD(ptrToUserVal-> sec));
+I2C_Write(DECtoBCD(ptrToUserVal-> min));
+I2C_Write(DECtoBCD(ptrToUserVal->hour));
+I2C_Stop();
+
+}
+
+void RTC_Init(void) {
+
+I2C_Start();
+I2C_Write(0xD0);
+I2C_Write(0x07);
+I2C_Write(0x00);
+I2C_Stop();
+}
+
+
+validaRTC() {
+if (rtc.date > 31) rtc.date = 0;
+if (rtc.hour > 23) rtc.hour = 0;
+if (rtc.min > 59) rtc.min = 0;
+if (rtc.month > 12) rtc.month = 0;
+if (rtc.sec > 59) rtc.sec = 0;
+if (rtc.year > 99) rtc.year = 0;
+}
+
+# 13 "comunicacao.h"
+void getSinalSIM800L() {
+if (!timerVerificarSinal) {
+if (!gsmOcupado) {
+switch (etapaComunicacao) {
+case 0:
+limparBuffer();
+printf("AT+CSQ\r\n");
+timerEtapaComunicacao = 10;
+etapaComunicacao = 1;
+break;
+case 1:
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+writeChar(0x1A);
+intensidadeSinal = 'x';
+}
+if (aguardaBuffer("+CSQ: ")) {
+int sinal = atoi(getSerial("+CSQ: ", ','));
+if (sinal < 10) {
+intensidadeSinal = ' ';
+} else if (sinal >= 10 && sinal <= 14) {
+intensidadeSinal = 0x02;
+} else if (sinal >= 16 && sinal <= 19) {
+intensidadeSinal = 0x03;
+} else if (sinal >= 20 && sinal <= 30) {
+intensidadeSinal = 0x04;
+}
+etapaComunicacao = 0;
+timerVerificarSinal = 15;
+}
+break;
+default:
+etapaComunicacao = 0;
+}
+}
+}
+}
+
+void comunicarTeste() {
+switch (etapaComunicacao) {
+case 0:
+limparBuffer();
+printf("AT\r\n");
+etapaComunicacao++;
+timerEtapaComunicacao = 5;
+break;
+case 1:
+if (aguardaBuffer("OK")) {
+limparBuffer();
+printf("AT+CMGF=1\r\n");
+etapaComunicacao++;
+timerEtapaComunicacao = 5;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+writeChar(0x1A);
+}
+break;
+case 2:
+if (aguardaBuffer("OK")) {
+limparBuffer();
+printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+timerEtapaComunicacao = 5;
+etapaComunicacao++;
+break;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
+break;
+case 3:
+if (aguardaBuffer(">")) {
+limparBuffer();
+printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
+_hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
+delay(200);
+writeChar(0x1A);
+etapaComunicacao++;
+timerEtapaComunicacao = 30;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
+break;
+case 4:
+if (aguardaBuffer("OK")) {
+if (telefoneSelecionado == 0) {
+telefoneSelecionado = 1;
+} else {
+telefoneSelecionado = 0;
+gsmOcupado = 0;
+}
+etapaComunicacao = 0;
+}
+if (aguardaBuffer("ERROR")) {
+etapaComunicacao = 0;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
+break;
+default:
+etapaComunicacao = 0;
+break;
+
+}
+}
+
+void enviaSMS(unsigned char tipo) {
 switch (estagio_envio_SMS) {
 case 0:
+limparBuffer();
 printf("AT\r\n");
-if (getRespostaUART("OK", 400)) {
+if (aguardaBuffer("OK")) {
 estagio_envio_SMS++;
 status_SIM800L = 1;
 } else {
@@ -3767,8 +4119,9 @@ return;
 break;
 case 1:
 if (tempo_reenvio_SMS >= 2) {
+limparBuffer();
 printf("AT+CMGF=1\r\n");
-if (getRespostaUART("OK", 600)) {
+if (aguardaBuffer("OK")) {
 estagio_envio_SMS++;
 timer_envio_sms = 0;
 } else {
@@ -3781,8 +4134,9 @@ return;
 }
 break;
 case 2:
+limparBuffer();
 printf("AT+CMGS=\"+55%s\"\r\n", tel_selecionado == 0 ? tel1 : tel2);
-if (getRespostaUART(">", 800)) {
+if (aguardaBuffer(">")) {
 estagio_envio_SMS++;
 } else {
 estagio_envio_SMS = 0;
@@ -3816,6 +4170,7 @@ estagio_envio_SMS++;
 break;
 case 6:
 if (tipo == 1) {
+limparBuffer();
 printf("ATD 0%s;\r\n", tel_selecionado == 0 ? tel1 : tel2);
 estagio_envio_SMS++;
 timer_envio_sms = 0;
@@ -3844,15 +4199,6 @@ default: estagio_envio_SMS = 0;
 break;
 }
 }
-
-# 5 "I2C.h"
-void I2C_Master_Init(const unsigned long c);
-void I2C_Wait();
-void I2C_Start();
-void I2C_Restart();
-void I2C_Stop();
-void I2C_Write(unsigned d);
-unsigned short I2C_Read(unsigned short a);
 
 
 # 7 "config.h"
@@ -3951,39 +4297,27 @@ return data;
 
 # 9 "logs.h"
 void salvarLOG() {
-char dtl_ultimo_registro = readEEPROM_ext(14);
-switch (dtl_ultimo_registro) {
-case 0:
-writeEEPROM_ext(60, _dia);
-writeEEPROM_ext(61, _mes);
-writeEEPROM_ext(62, _ano);
-writeEEPROM_ext(63, status_jockey);
-writeEEPROM_ext(64, status_principal);
-writeEEPROM_ext(65, status_estacionaria);
-writeEEPROM_ext(14, 1);
-break;
-case 1:
-writeEEPROM_ext(66, _dia);
-writeEEPROM_ext(67, _mes);
-writeEEPROM_ext(68, _ano);
-writeEEPROM_ext(69, status_jockey);
-writeEEPROM_ext(70, status_principal);
-writeEEPROM_ext(71, status_estacionaria);
-writeEEPROM_ext(14, 2);
-break;
-case 2:
-writeEEPROM_ext(72, _dia);
-writeEEPROM_ext(73, _mes);
-writeEEPROM_ext(74, _ano);
-writeEEPROM_ext(75, status_jockey);
-writeEEPROM_ext(76, status_principal);
-writeEEPROM_ext(77, status_estacionaria);
-writeEEPROM_ext(14, 0);
-break;
-default:
-writeEEPROM_ext(14, 0);
-break;
+unsigned int ultimoLogSalvo = readEEPROM_ext(14);
+if (ultimoLogSalvo < 60 || ultimoLogSalvo > 250) {
+ultimoLogSalvo = 60;
+}
+writeEEPROM_ext(ultimoLogSalvo, _dia);
+writeEEPROM_ext(++ultimoLogSalvo, _mes);
+writeEEPROM_ext(++ultimoLogSalvo, _ano);
+writeEEPROM_ext(++ultimoLogSalvo, _hor);
+writeEEPROM_ext(++ultimoLogSalvo, _min);
+writeEEPROM_ext(++ultimoLogSalvo, status_jockey);
+writeEEPROM_ext(++ultimoLogSalvo, status_principal);
+writeEEPROM_ext(++ultimoLogSalvo, status_estacionaria);
 
+writeEEPROM_ext(14, ++ultimoLogSalvo);
+}
+
+void apagarLOGS() {
+char b = 0;
+writeEEPROM_ext(14, 60);
+for (b = 60; b < 250; b++) {
+writeEEPROM_ext(b, 0);
 }
 }
 
@@ -4380,157 +4714,11 @@ break;
 }
 }
 
-
-# 7 "config.h"
-#pragma config OSC = HS
-#pragma config OSCS = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = ON
-#pragma config BORV = 20
-
-
-#pragma config WDT = ON
-#pragma config WDTPS = 128
-
-
-#pragma config CCP2MUX = ON
-
-
-#pragma config STVR = ON
-#pragma config LVP = OFF
-
-
-#pragma config CP0 = ON
-#pragma config CP1 = ON
-#pragma config CP2 = ON
-#pragma config CP3 = ON
-
-
-#pragma config CPB = OFF
-#pragma config CPD = ON
-
-
-#pragma config WRT0 = ON
-#pragma config WRT1 = ON
-#pragma config WRT2 = ON
-#pragma config WRT3 = ON
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = ON
-
-# 20 "ds1307.h"
-typedef struct {
-unsigned char day;
-unsigned char sec;
-unsigned char min;
-unsigned char hour;
-unsigned char date;
-unsigned char month;
-unsigned char year;
-} RTCCTimeDate;
-
-
-RTCCTimeDate rtc;
-
-
-
-
-void setDS1307TimeDate(RTCCTimeDate* ptrToUserVal) {
-
-I2C_Start();
-I2C_Write(0xD0);
-I2C_Write(0x00);
-I2C_Write(DECtoBCD(ptrToUserVal-> sec));
-I2C_Write(DECtoBCD(ptrToUserVal-> min));
-I2C_Write(DECtoBCD(ptrToUserVal-> hour));
-I2C_Write(DECtoBCD(ptrToUserVal-> day));
-I2C_Write(DECtoBCD(ptrToUserVal-> date));
-I2C_Write(DECtoBCD(ptrToUserVal-> month));
-I2C_Write(DECtoBCD(ptrToUserVal-> year));
-I2C_Stop();
-
-}
-
-void getDS1307TimeDate(RTCCTimeDate* ptrToUserVal) {
-
-I2C_Start();
-I2C_Write(0xD0);
-I2C_Write(0x00);
-I2C_Restart();
-I2C_Write(0xD1);
-ptrToUserVal->sec = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> min = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> hour = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> day = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> date = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> month = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> year = BCDtoDEC(I2C_Read(0));
-I2C_Stop();
-
-
-}
-
-void getDS1307Time(RTCCTimeDate* ptrToUserVal) {
-
-I2C_Start();
-I2C_Write(0xD0);
-I2C_Write(0x00);
-I2C_Restart();
-I2C_Write(0xD1);
-ptrToUserVal-> sec = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> min = BCDtoDEC(I2C_Read(1));
-ptrToUserVal-> hour = BCDtoDEC(I2C_Read(0));
-I2C_Stop();
-
-
-}
-
-void setDS1307Time(RTCCTimeDate* ptrToUserVal) {
-
-I2C_Start();
-I2C_Write(0xD0);
-I2C_Write(0x00);
-I2C_Write(DECtoBCD(ptrToUserVal-> sec));
-I2C_Write(DECtoBCD(ptrToUserVal-> min));
-I2C_Write(DECtoBCD(ptrToUserVal->hour));
-I2C_Stop();
-
-}
-
-void RTC_Init(void) {
-
-I2C_Start();
-I2C_Write(0xD0);
-I2C_Write(0x07);
-I2C_Write(0x00);
-I2C_Stop();
-}
-
-
-validaRTC() {
-if (rtc.date > 31) rtc.date = 0;
-if (rtc.hour > 23) rtc.hour = 0;
-if (rtc.min > 59) rtc.min = 0;
-if (rtc.month > 12) rtc.month = 0;
-if (rtc.sec > 59) rtc.sec = 0;
-if (rtc.year > 99) rtc.year = 0;
-}
-
 # 9 "temporizador.h"
 void timer() {
+
+timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
+timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
 
 if (ajst_rtc) {
 return;
@@ -4587,7 +4775,7 @@ _ano = rtc.year;
 }
 }
 
-# 8 "util.h"
+# 9 "util.h"
 void lerParametros() {
 char i = 0;
 char verifica_memoria_nova = 0;
@@ -4812,11 +5000,12 @@ line4[i] = ' ';
 }
 
 void criarCaracteresCGRAM() {
-const char character[4][8] = {
-0x00, 0x1F, 0x15, 0x15, 0x0E, 0x04, 0x04, 0x04,
+const char character[6][8] = {
+0x00, 0x1F, 0x0E, 0x04, 0x04, 0x04, 0x04, 0x04,
 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x10, 0x10,
 0x00, 0x00, 0x00, 0x04, 0x04, 0x14, 0x14, 0x14,
 0x00, 0x01, 0x01, 0x05, 0x05, 0x15, 0x15, 0x15,
+0x0A, 0x0A, 0x1F, 0x11, 0x11, 0x0E, 0x04, 0x04,
 };
 Lcd_Cmd(0b0100);
 Lcd_Cmd(0b0000);
@@ -4840,16 +5029,24 @@ line[i] = ' ';
 }
 }
 
-# 9 "tela_PRINCIPAL.h"
+# 10 "tela_PRINCIPAL.h"
 void telaPrincipal() {
-if (pressao == 99) {
-sprintf(line1, "- ERRO  TRANSDUTOR ");
-clearShiftREG();
-} else {
 
 line1[0] = 0x01;
-line1[1] = 0x03;
+line1[1] = intensidadeSinal;
+line1[19] = 0x05;
+
+if (!PORTCbits.RC0) {
+blink(line1, 19, 20);
 }
+
+if (pressao == 99) {
+sprintf(line2, "- ERRO  TRANSDUTOR");
+clearShiftREG();
+} else {
+sprintf(&line3[2], "Pressao %s bar", (intToFloatStr(pressao)));
+}
+
 if (status_estacionaria == 0) {
 falha = 1;
 } else if (status_jockey == 10) {
@@ -4858,7 +5055,6 @@ falha = 6;
 falha = 5;
 }
 if (falha != 0 || incendio == 1) {
-
 sprintf(line4, "Press ESC p/ Reset");
 if (btPress(1)) {
 incendio = 0;
@@ -4871,41 +5067,12 @@ tempo_partida = 0;
 falha = 0;
 clearShiftREG();
 }
-switch (falha) {
-case 0:
-sprintf(line2, "     SISTEMA OK");
-break;
-case 1:
-sprintf(line2, "FALHA COMBUSTAO ");
-break;
-case 2:
-sprintf(line2, "FALHA RELOGIO ");
-break;
-case 3:
-sprintf(line2, "FALHA ELETRICA ");
-break;
-case 4:
-falha = 0;
-break;
-case 5:
-sprintf(line2, "FALHA PRINCIPAL ");
-break;
-case 6:
-sprintf(line2, "FALHA JOCKEY ");
-break;
-default:
-falha = 0;
-break;
-}
-} else {
-sprintf(line2, "     SISTEMA OK");
-sprintf(line4, "  Press OK p/ MENU");
 }
 if (incendio) {
 sprintf(line3, " ALERTA DE INCENDIO");
-} else {
-sprintf(line3, " %02d:%02d:%02d %02d/%02d/%02d", _hor, _min, _sec, _dia, _mes, _ano);
 }
+
+sprintf(line4, " %02d:%02d:%02d %02d/%02d/%02d", _hor, _min, _sec, _dia, _mes, _ano);
 
 if (btPress(4)) {
 menu_posi++;
@@ -5034,66 +5201,64 @@ break;
 }
 }
 
-# 7 "tela_DATALOGER.h"
+# 9 "tela_DATALOGER.h"
+unsigned char dtl_posicao = 60, dtl_dia = 0, dtl_mes = 0, dtl_ano = 0, dtl_hora = 0, dtl_min = 0, dtl_jockey = 0, dtl_principal = 0, dtl_estacionaria = 0, dtl_carregar_log = 0;
+unsigned char totalLogs = 0, dtl_posi_visualizar = 0;
+
 void dataLoger() {
-sprintf(line1, "#%d DATA: %02d/%02d/%02d", dtl_pos, dtl_dia, dtl_mes, dtl_ano);
-sprintf(line2, "JOKEY - %s ", dtl_jockey == 1 ? "OK" : "ERRO");
-sprintf(line3, "PRINCIPAL - %s ", dtl_principal == 1 ? "OK" : "ERRO");
-sprintf(line4, "COMBUSTAO - %s ", dtl_estacionaria == 1 ? "OK" : "ERRO");
+sprintf(line1, "Data: %02d/%02d/%02d %02d:%02d", dtl_dia, dtl_mes, dtl_ano, dtl_hora, dtl_min);
+sprintf(line2, "Jokey: %s", dtl_jockey == 1 ? "OK" : "ERRO");
+sprintf(&line2[14], "#%02d/%02d", (dtl_posi_visualizar + 1), totalLogs);
+sprintf(line3, "Principal: %s", dtl_principal == 1 ? "OK" : "ERRO");
+sprintf(line4, "Combustao: %s", dtl_estacionaria == 1 ? "OK" : "ERRO");
 
 if (btPress(1)) {
 option_posi = 0;
 menu_posi = _menu_posi;
 }
+if (btPress(4)) {
+
+salvarLOG();
+
+}
 if (btPress(2)) {
-dtl_pos--;
-dtl_visualiza_log = 1;
+dtl_posicao -= 8;
+if (dtl_posicao < 60) {
+dtl_posicao = 60;
+}
+dtl_carregar_log = 1;
 }
 if (btPress(3)) {
-dtl_pos++;
-dtl_visualiza_log = 1;
+if ((dtl_posi_visualizar + 1) >= totalLogs) {
+return;
 }
-if (dtl_visualiza_log == 1) {
-switch (dtl_pos) {
-case 0:
-dtl_dia = readEEPROM_ext(60);
-dtl_mes = readEEPROM_ext(61);
-dtl_ano = readEEPROM_ext(62);
-dtl_jockey = readEEPROM_ext(63);
-dtl_principal = readEEPROM_ext(64);
-dtl_estacionaria = readEEPROM_ext(65);
-dtl_visualiza_log = 0;
-break;
-case 1:
-dtl_dia = readEEPROM_ext(66);
-dtl_mes = readEEPROM_ext(67);
-dtl_ano = readEEPROM_ext(68);
-dtl_jockey = readEEPROM_ext(69);
-dtl_principal = readEEPROM_ext(70);
-dtl_estacionaria = readEEPROM_ext(71);
-dtl_visualiza_log = 0;
-break;
-case 2:
-dtl_dia = readEEPROM_ext(72);
-dtl_mes = readEEPROM_ext(73);
-dtl_ano = readEEPROM_ext(74);
-dtl_jockey = readEEPROM_ext(75);
-dtl_principal = readEEPROM_ext(76);
-dtl_estacionaria = readEEPROM_ext(77);
-dtl_visualiza_log = 0;
-break;
-default: dtl_pos = 0;
-dtl_visualiza_log = 1;
-break;
+dtl_posicao += 8;
+dtl_carregar_log = 1;
 }
+
+if (dtl_carregar_log == 1) {
+char logs = readEEPROM_ext(14);
+totalLogs = (logs - 60) / 8;
+
+dtl_posi_visualizar = (dtl_posicao - 60) / 8;
+
+dtl_dia = readEEPROM_ext(dtl_posicao);
+dtl_mes = readEEPROM_ext((dtl_posicao + 1));
+dtl_ano = readEEPROM_ext((dtl_posicao + 2));
+dtl_hora = readEEPROM_ext((dtl_posicao + 3));
+dtl_min = readEEPROM_ext((dtl_posicao + 4));
+dtl_jockey = readEEPROM_ext((dtl_posicao + 5));
+dtl_principal = readEEPROM_ext((dtl_posicao + 6));
+dtl_estacionaria = readEEPROM_ext((dtl_posicao + 7));
+dtl_carregar_log = 0;
 }
 }
 
-# 8 "tela_INFORMACOES.h"
+# 7 "tela_INFORMACOES.h"
 void informacoes() {
-sprintf(line1, "  CONTRA FOGO JUNG");
-sprintf(line2, "    48 3466-2875");
-
+sprintf(line1, "TECHNOW");
+sprintf(line2, "Sistemas embarcados");
+sprintf(line3, "   48 99906-5651");
 sprintf(line4, "versao - %s", "Aug 04 2019");
 if (btPress(1)) {
 menu_posi = _menu_posi;
@@ -5104,8 +5269,7 @@ menu_posi = _menu_posi;
 void configuraTelefones() {
 sprintf(&line1[1], "T1: %s", tel1);
 sprintf(&line2[1], "T2: %s", tel2);
-sprintf(&line3[1], "%s", teste_sms_run == 1 ? "ENVIANDO SMS... " : "ENVIAR SMS TESTE");
-sprintf(&line4[1], "GSM: %s", status_SIM800L == 1 ? "OK  " : "ERRO");
+sprintf(&line3[1], "%s", gsmOcupado ? "enviando... " : "Enviar sms teste");
 
 if (ajust_tel == 0) {
 if (btPress(3)) {
@@ -5113,7 +5277,7 @@ option_posi--;
 } else if (btPress(2)) {
 option_posi++;
 } else if (btPress(1)) {
-teste_sms_run = 0;
+gsmOcupado = 0;
 tempo_reenvio_SMS = 5;
 option_posi = 0;
 tel_posi = 0;
@@ -5125,7 +5289,6 @@ writeEEPROM_ext((40 + i), tel2[i]);
 }
 menu_posi = _menu_posi;
 }
-
 }
 if (ajust_tel == 1) {
 if (btPress(4)) {
@@ -5136,14 +5299,8 @@ ajust_tel = 0;
 }
 }
 
-
 switch (option_posi) {
 case 0:
-
-option_posi = 1;
-break;
-
-case 1:
 line1[0] = '>';
 if (btPress(4)) {
 ajust_tel = 1;
@@ -5165,7 +5322,7 @@ tel1[tel_posi] = 48;
 }
 }
 break;
-case 2:
+case 1:
 line2[0] = '>';
 if (btPress(4)) {
 ajust_tel = 1;
@@ -5187,24 +5344,20 @@ tel2[tel_posi] = 48;
 }
 }
 break;
-case 3:
+case 2:
 line3[0] = '>';
-if (btPress(4)) {
-teste_sms_run = 1;
-tel_selecionado = 0;
-tempo_reenvio_SMS = 6;
+if (btPress(4) && intensidadeSinal != 'x') {
+gsmOcupado = 1;
+telefoneSelecionado = 0;
 }
 break;
 
 default:option_posi = 0;
 break;
 }
-if (teste_sms_run == 1 && status_SIM800L == 1) {
-
-} else {
-teste_sms_run = 0;
+if (gsmOcupado) {
+comunicarTeste();
 }
-
 }
 
 # 7 "tela_ESTACIONARIA.h"
@@ -5325,117 +5478,45 @@ break;
 }
 }
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
-typedef unsigned short wchar_t;
-
-# 15
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 53
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-# 86
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
 # 10 "tela_TESTE.h"
 void telaTeste() {
-sprintf(line1, "TELA TESTE");
-delay(4000);
-printf("AT+CSQ\r\n");
-delay(100);
-
-if (aguardaBuffer("+CSQ: ")) {
-int sinal = atoi(getSerial("+CSQ: ", ','));
-
-# 25
-sprintf(line3, "Sinal: %d", sinal);
-limparBuffer();
-}
+line1[0] = 0x01;
+line1[1] = intensidadeSinal;
+sprintf(&line1[3], "%s", bufferSerial);
+sprintf(line2, "etapa %d", etapaComunicacao);
+sprintf(line3, "tetapa %d ", timerEtapaComunicacao);
+sprintf(line4, "tsinal %d", timerVerificarSinal);
 }
 
 # 42 "Main.c"
-void interrupt TIMER0() {
+void interrupt TIMER() {
 if (TMR0IF) {
 TMR0IF = 0x00;
 TMR0H = 0x3C;
 TMR0L = 0xB0;
-readButtons();
+
+blinkk = ~blinkk;
 base_sec++;
 intervalo_leitura_adc++;
 
 lerTransdutor();
-
-blinkk = ~blinkk;
-
+readButtons();
 
 if (base_sec > 9) {
 base_sec = 0;
 timer();
+if (RCSTAbits.OERR) {
+RCSTAbits.CREN = 0;
+RCSTAbits.CREN = 1;
 }
 }
-
-
+}
 if (RCIF) {
-RCIF = 0x00;
-
-tratarSerial(RCREG);
+char c = RCREG;
+if (c != '\n' && c != '\r') {
+bufferSerial[cbf++] = c;
+}
+if (cbf >= 60) cbf = 0;
 }
 }
 
@@ -5455,8 +5536,9 @@ lerParametros();
 delay(50);
 
 
-
 while (1) {
+
+
 asm("CLRWDT");
 
 if (!PORTCbits.RC0) {
@@ -5465,23 +5547,24 @@ falha = 3;
 acaoBombas();
 acaoTesteBomasProgramado();
 setShiftREG();
+getSinalSIM800L();
 
 switch (menu_posi) {
 case 0:
+telaPrincipal();
 
-telaTeste();
 break;
 case 1:
-sprintf(&line1[1], "RELOGIO/DATA");
-sprintf(&line2[1], "AJUSTE PRESSAO");
-sprintf(&line3[1], "AJUSTE COMBUSTAO");
-sprintf(&line4[1], "TEL/DISCADORA");
+sprintf(&line1[1], "DATA/HORA");
+sprintf(&line2[1], "PRESSAO DA REDE");
+sprintf(&line3[1], "PARTIDA COMBUSTAO");
+sprintf(&line4[1], "TELEFONES");
 break;
 case 2:
-sprintf(&line1[1], "TESTE BOMBAS");
+sprintf(&line1[1], "PERIODO DE TESTES");
 sprintf(&line2[1], "DATALOGER");
 sprintf(&line3[1], "INFO VERSAO");
-sprintf(&line4[1], "INICIAR TESTES");
+sprintf(&line4[1], "Iniciar Testes");
 break;
 case 20:
 tela_ajusteRTC();
@@ -5561,7 +5644,7 @@ menu_posi = 2;
 if (btPress(4)) {
 _menu_posi = menu_posi;
 menu_posi = 25;
-dtl_visualiza_log = 1;
+dtl_carregar_log = 1;
 }
 break;
 case 7:

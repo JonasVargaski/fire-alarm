@@ -9,8 +9,7 @@
 void configuraTelefones() {
     sprintf(&line1[1], "T1: %s", tel1);
     sprintf(&line2[1], "T2: %s", tel2);
-    sprintf(&line3[1], "%s", teste_sms_run == 1 ? "ENVIANDO SMS... " : "ENVIAR SMS TESTE");
-    sprintf(&line4[1], "GSM: %s", status_SIM800L == 1 ? "OK  " : "ERRO");
+    sprintf(&line3[1], "%s", gsmOcupado ? "enviando... " : "Enviar sms teste");
 
     if (ajust_tel == 0) { // se nao tiver sendo alterado o telefone
         if (btPress(b_mais)) {
@@ -18,7 +17,7 @@ void configuraTelefones() {
         } else if (btPress(b_menos)) {
             option_posi++;
         } else if (btPress(b_esc)) {
-            teste_sms_run = 0;
+            gsmOcupado = false;
             tempo_reenvio_SMS = 5; // reseta tempo para reenvio de sms
             option_posi = 0;
             tel_posi = 0;
@@ -30,7 +29,6 @@ void configuraTelefones() {
             }
             menu_posi = _menu_posi;
         }
-
     }
     if (ajust_tel == 1) {
         if (btPress(b_ok)) {
@@ -41,14 +39,8 @@ void configuraTelefones() {
         }
     }
 
-
     switch (option_posi) {
         case 0:
-            //            enviaSMS(3); // Checa Status do modulo;
-            option_posi = 1;
-            break;
-
-        case 1:
             line1[0] = '>';
             if (btPress(b_ok)) {
                 ajust_tel = 1;
@@ -70,7 +62,7 @@ void configuraTelefones() {
                 }
             }
             break;
-        case 2:
+        case 1:
             line2[0] = '>';
             if (btPress(b_ok)) {
                 ajust_tel = 1;
@@ -92,24 +84,20 @@ void configuraTelefones() {
                 }
             }
             break;
-        case 3:
+        case 2:
             line3[0] = '>';
-            if (btPress(b_ok)) {
-                teste_sms_run = 1;
-                tel_selecionado = 0;
-                tempo_reenvio_SMS = 6; // Para desconsiderar o tempo, e enviare quando apertar
+            if (btPress(b_ok) && intensidadeSinal != 'x') {
+                gsmOcupado = true;
+                telefoneSelecionado = 0;
             }
             break;
 
         default:option_posi = 0;
             break;
     }
-    if (teste_sms_run == 1 && status_SIM800L == OK) { // Se apertar pra testar vai enviar sms
-        //        enviaSMS(2);
-    } else {
-        teste_sms_run = 0;
+    if (gsmOcupado) { // ENVIAR MENSAGENS DE TEXTO PARA TESTE DO MODULO
+        comunicarTeste();
     }
-
 }
 
 

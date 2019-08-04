@@ -24,6 +24,8 @@ void configuraRegistradores() {
     TRISDbits.RD0 = 0;
 
     //CONFIGURAÇÃO SERIAL
+    TRISCbits.TRISC6 = 0; // configura TX como saida
+    TRISCbits.TRISC7 = 1; // configura RX como entrada
     TXSTAbits.TXEN = 1; //Habilita Transmissao pela EUSART
     TXSTAbits.BRGH = 1; // modo velocidade alta
     TXSTAbits.SYNC = 0; // Modo assincrono
@@ -32,10 +34,6 @@ void configuraRegistradores() {
     //9600 = 51  0.160% err @8mhz
     //19200 = 25  0.160% err @8mhz
     SPBRG = 25; // crystal 8mhz baudrate 19200bps
-    TRISCbits.TRISC6 = 0; // configura TX como saida
-    TRISCbits.TRISC7 = 1; // configura RX como entrada
-    
-    //Interrupçao UART
     INTCONbits.GIE = 1; // Habilita interrupçao global
     INTCONbits.PEIE = 1; // Habilita interrupçao por perifericos
     PIR1bits.RCIF = 0; // Limpa flag de recepçao uart

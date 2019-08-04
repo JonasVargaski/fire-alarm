@@ -1,8 +1,8 @@
  build/default/production/Main.d  \
  build/default/production/Main.p1:  \
  Main.c  \
-temporizador.h  \
 ds1307.h  \
+temporizador.h  \
 I2C.h  \
 comunicacao.h  \
 tela_RELOGIO.h  \

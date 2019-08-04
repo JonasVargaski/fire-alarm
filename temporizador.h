@@ -7,6 +7,9 @@
 #include "eeprom.h"
 
 void timer() {
+    
+    timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
+    timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
 
     if (ajst_rtc) { // Se tiver sendo ajustado entao ele nao soma as variavies
         return;

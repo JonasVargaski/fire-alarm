@@ -17,7 +17,6 @@
       <itemPath>variaveisGlobais.h</itemPath>
       <itemPath>teclado.h</itemPath>
       <itemPath>controle.h</itemPath>
-      <itemPath>SIM800L.h</itemPath>
       <itemPath>temporizador.h</itemPath>
       <itemPath>transdutor.h</itemPath>
       <itemPath>util.h</itemPath>
@@ -30,6 +29,8 @@
       <itemPath>tela_RELOGIO.h</itemPath>
       <itemPath>tela_TELEFONES.h</itemPath>
       <itemPath>tela_TESTE_BOMBAS.h</itemPath>
+      <itemPath>tela_TESTE.h</itemPath>
+      <itemPath>registradores.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

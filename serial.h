@@ -6,26 +6,35 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include "function.h"
 
 
-unsigned char bufferSerial[80];
+unsigned char bufferSerial[60];
 unsigned char bufferAUX[20];
+unsigned char cbf = 0;
 
 void putch(char c) {
     while (!TXSTAbits.TRMT);
     TXREG = c;
 }
 
+void writeChar(char *hex) {
+    while (!TXSTAbits.TRMT);
+    TXREG = hex;
+}
+
 bool aguardaBuffer(char *str) {
-    return strstr(bufferSerial, str) != NULL;
+    if (strstr(bufferSerial, str) != NULL) {
+        delay(150);
+        return true;
+    }
+    return false;
 }
 
 void limparBuffer() {
+    cbf = 0;
     memset(bufferSerial, 0, sizeof (bufferSerial));
-}
-
-void tratarSerial(c) {
-    sprintf(bufferSerial, "%s%c", bufferSerial, c);
+    delay(150);
 }
 
 char* getSerial(char * str, char end) {
