@@ -10,10 +10,12 @@ void tela_testeBombas() {
     sprintf(line1, "#Proximo em %2d dias", (intervalo_teste_dia - dias_restante_teste));
     sprintf(line2, "INTERVALO: %2d dias", intervalo_teste_dia);
     sprintf(line3, "HORARIO: %02d horas", horario_de_teste);
+    sprintf(line4, "ATIVAR: %s", habilitaTesteAutomatico == 0 ? "Nao" : "Sim");
 
     if (btPress(b_esc)) {
         writeEEPROM_ext(6, intervalo_teste_dia);
         writeEEPROM_ext(11, horario_de_teste);
+        writeEEPROM_ext(15, habilitaTesteAutomatico);
         menu_posi = _menu_posi;
     }
     if (btPress(b_ok)) {
@@ -39,6 +41,15 @@ void tela_testeBombas() {
             }
             if (horario_de_teste > 23 || horario_de_teste < 0) {
                 horario_de_teste = 0;
+            }
+            break;
+        case 2:
+            blink(line4, 9, 11);
+            if (btPress(b_mais)) {
+                habilitaTesteAutomatico = 1;
+            }
+            if (btPress(b_menos)) {
+                habilitaTesteAutomatico = 0;
             }
             break;
         default:option_posi = 0;

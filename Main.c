@@ -29,31 +29,24 @@
 
 #include "tela_TESTE.h"
 
-/*//////// CODIGOS DE FALHAS, AVISOS E DESCRICAO  /////////////////////////////
- * Variavél = falha 
- 
- 1 = FALHA COMBUSTAO
- 2 = FALHA NO RELOGIO
- 3 = FALHA ELÈTRICA
- 6 = FALHA JOCKEY
- 5 = FALHA PRINCIPAL
- */
-
 void interrupt TIMER() {
     if (TMR0IF) { //TIMER 0 OVERFLOW 100ms; Interrupção;
         TMR0IF = 0x00;
         TMR0H = 0x3C;
         TMR0L = 0xB0;
 
-        blinkk = ~blinkk; // efeito de piscar lcd
         base_sec++;
-        intervalo_leitura_adc++;
+
+        if (base_sec == 5) {
+            blinkk = ~blinkk; // efeito de piscar lcd
+        }
 
         lerTransdutor();
         readButtons();
 
         if (base_sec > 9) { // Base de tempo de 1 segundo
             base_sec = 0;
+            blinkk = ~blinkk; // efeito de piscar lcd
             timer();
             if (RCSTAbits.OERR) { // reset da serial caso travar
                 RCSTAbits.CREN = 0;
@@ -87,17 +80,17 @@ void main() {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     while (1) {
-
-
         asm("CLRWDT"); // Reinicia WDT
 
-        if (FALTA_ENERGIA) {
-            falha = 3; // falha elétrica 
+        if (!executandoTeste || pressao > 99 || pressao < 0) { // se nao tiver em teste das bombas executa.
+            acaoBombas();
         }
-        acaoBombas();
-        acaoTesteBomasProgramado();
-        setShiftREG();
-        getSinalSIM800L();
+
+        verificarIntervaloTesteBombas();
+
+        setShiftREG(); // controle das saidas reles
+        getSinalSIM800L(); // pega intensidade do sinal do modulo gsm
+
 
         switch (menu_posi) {
             case 0:
@@ -209,9 +202,10 @@ void main() {
                     line4[0] = '>';
                     menu_posi = 2;
                     if (btPress(b_ok)) {
-                        if (!incendio) {
+                        if (!ocorrendoIncendio) {
                             menu_posi = 28;
-                            teste_run = 2;
+                            executandoTeste = true;
+                            etapaTesteBombas = 0;
                         }
                     }
                     break;
@@ -233,7 +227,7 @@ void main() {
         }
 
         if (menu_posi != 28) { // se nao tiver na tela de teste nao interfere no funcionamento
-            teste_run = 0;
+            executandoTeste = false;
             shift[rl_sol_despressurizacao] = 0; // Garante que a solenoide ladrão nao seja ativada a nao ser que estaja na tela de teste
         }
         atualizarLCD(line1, line2, line3, line4);

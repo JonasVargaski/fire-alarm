@@ -67,15 +67,19 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "13 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\comunicacao.h
 [v _getSinalSIM800L getSinalSIM800L `(v  1 e 1 0 ]
-"51
+"57
 [v _comunicarTeste comunicarTeste `(v  1 e 1 0 ]
-"16 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
-[v _acaoBombas acaoBombas `(v  1 e 1 0 ]
-"54
-[v _partidaBombaEstacionaria partidaBombaEstacionaria `(v  1 e 1 0 ]
-"112
-[v _acaoTesteBomasProgramado acaoTesteBomasProgramado `(v  1 e 1 0 ]
 "124
+[v _enviaSMS enviaSMS `(v  1 e 1 0 ]
+"18 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
+[v _acaoBombas acaoBombas `(v  1 e 1 0 ]
+"58
+[v _partidaBombaEstacionaria partidaBombaEstacionaria `(v  1 e 1 0 ]
+"114
+[v _verificarIntervaloTesteBombas verificarIntervaloTesteBombas `(v  1 e 1 0 ]
+"126
+[v _drenarPressao drenarPressao `(v  1 e 1 0 ]
+"135
 [v _acaoTesteBombas acaoTesteBombas `(v  1 e 1 0 ]
 "36 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\ds1307.h
 [v _setDS1307TimeDate setDS1307TimeDate `(v  1 e 1 0 ]
@@ -148,9 +152,9 @@
 [v _blink blink `(v  1 e 1 0 ]
 "9 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\logs.h
 [v _salvarLOG salvarLOG `(v  1 e 1 0 ]
-"42 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
+"32 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
 [v _TIMER TIMER `II(v  1 e 1 0 ]
-"73
+"66
 [v _main main `(v  1 e 1 0 ]
 "7 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\registradores.h
 [v _configuraRegistradores configuraRegistradores `(v  1 e 1 0 ]
@@ -181,6 +185,8 @@
 "7 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_INFORMACOES.h
 [v _informacoes informacoes `(v  1 e 1 0 ]
 "10 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_PRINCIPAL.h
+[v _resetParametros resetParametros `(v  1 e 1 0 ]
+"21
 [v _telaPrincipal telaPrincipal `(v  1 e 1 0 ]
 "11 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_RELOGIO.h
 [v _tela_ajusteRTC tela_ajusteRTC `(v  1 e 1 0 ]
@@ -262,7 +268,7 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "362
-[s S869 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S803 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -271,7 +277,7 @@
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S878 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S812 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -280,12 +286,12 @@
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S887 . 1 `uc 1 . 1 0 :1:0 
+[s S821 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S891 . 1 `S173 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 `S887 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES891  1 e 1 @3970 ]
+[u S825 . 1 `S173 1 . 1 0 `S803 1 . 1 0 `S812 1 . 1 0 `S821 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES825  1 e 1 @3970 ]
 [s S133 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
@@ -296,7 +302,7 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "518
-[s S822 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S886 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -305,11 +311,11 @@
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S831 . 1 `uc 1 . 1 0 :7:0 
+[s S895 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S834 . 1 `S133 1 . 1 0 `S822 1 . 1 0 `S831 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES834  1 e 1 @3971 ]
+[u S898 . 1 `S133 1 . 1 0 `S886 1 . 1 0 `S895 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES898  1 e 1 @3971 ]
 [s S498 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
@@ -641,27 +647,45 @@
 "10
 [v _totalLogs totalLogs `uc  1 e 1 0 ]
 [v _dtl_posi_visualizar dtl_posi_visualizar `uc  1 e 1 0 ]
-"26 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\variaveisGlobais.h
+"23 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\variaveisGlobais.h
 [v _line1 line1 `[21]uc  1 e 21 0 ]
-"27
+"24
 [v _line2 line2 `[21]uc  1 e 21 0 ]
-"28
+"25
 [v _line3 line3 `[21]uc  1 e 21 0 ]
-"29
+"26
 [v _line4 line4 `[21]uc  1 e 21 0 ]
-"31
+"28
 [v _intensidadeSinal intensidadeSinal `uc  1 e 1 0 ]
-"32
+"29
 [v _telefoneSelecionado telefoneSelecionado `uc  1 e 1 0 ]
-"34
+"31
 [v _timerVerificarSinal timerVerificarSinal `uc  1 e 1 0 ]
-"35
+"32
+[v _timerReenvioSMS timerReenvioSMS `uc  1 e 1 0 ]
+"33
 [v _timerEtapaComunicacao timerEtapaComunicacao `uc  1 e 1 0 ]
-"36
+"34
 [v _etapaComunicacao etapaComunicacao `ui  1 e 2 0 ]
-"37
+"35
 [v _gsmOcupado gsmOcupado `uc  1 e 1 0 ]
+"37
+[v _codigoErro codigoErro `uc  1 e 1 0 ]
+"38
+[v _ocorrendoIncendio ocorrendoIncendio `uc  1 e 1 0 ]
+"39
+[v _executandoTeste executandoTeste `uc  1 e 1 0 ]
+"41
+[v _flagEstacionariaLigada flagEstacionariaLigada `uc  1 e 1 0 ]
 "42
+[v _habilitaTesteAutomatico habilitaTesteAutomatico `uc  1 e 1 0 ]
+"43
+[v _etapaTesteBombas etapaTesteBombas `uc  1 e 1 0 ]
+"45
+[v _timerTesteBombas timerTesteBombas `ui  1 e 2 0 ]
+"46
+[v _horimetro horimetro `ui  1 e 2 0 ]
+"49
 [v _base_sec base_sec `uc  1 e 1 0 ]
 [v __sec _sec `uc  1 e 1 0 ]
 [v __min _min `uc  1 e 1 0 ]
@@ -670,73 +694,59 @@
 [v __mes _mes `uc  1 e 1 0 ]
 [v __ano _ano `uc  1 e 1 0 ]
 [v __sec_partida _sec_partida `uc  1 e 1 0 ]
-[v __sec_aux _sec_aux `uc  1 e 1 0 ]
-"43
+"50
 [v _intervalo_teste_dia intervalo_teste_dia `uc  1 e 1 0 ]
 [v _dias_restante_teste dias_restante_teste `uc  1 e 1 0 ]
 [v _horario_de_teste horario_de_teste `uc  1 e 1 0 ]
-"44
-[v _pressao pressao `uc  1 e 1 0 ]
+"51
+[v _pressao pressao `i  1 e 2 0 ]
+"52
 [v _qtd_leitura qtd_leitura `uc  1 e 1 0 ]
-[v _intervalo_leitura_adc intervalo_leitura_adc `uc  1 e 1 0 ]
-"45
+"53
 [v __tensao _tensao `f  1 e 3 0 ]
-"46
+"54
 [v _status_jockey status_jockey `uc  1 e 1 0 ]
 [v _status_principal status_principal `uc  1 e 1 0 ]
 [v _status_estacionaria status_estacionaria `uc  1 e 1 0 ]
-[v _status_SIM800L status_SIM800L `uc  1 e 1 0 ]
-"47
-[v _horimetro horimetro `i  1 e 2 0 ]
-[v _tempo_teste_bombas tempo_teste_bombas `i  1 e 2 0 ]
-"48
+"55
 [v _tempo_limite_estacionaria tempo_limite_estacionaria `uc  1 e 1 0 ]
-[v _estacionaria_Ligada estacionaria_Ligada `uc  1 e 1 0 ]
 [v _tempo_partida tempo_partida `uc  1 e 1 0 ]
 [v _tempo_limite_partida tempo_limite_partida `uc  1 e 1 0 ]
 [v _tempo_limite_teste_estacionaria tempo_limite_teste_estacionaria `uc  1 e 1 0 ]
-[v _tempo_corrido_teste_estacionaria tempo_corrido_teste_estacionaria `uc  1 e 1 0 ]
-[v _tempo_coun_estacionaria tempo_coun_estacionaria `uc  1 e 1 0 ]
-"49
-[v _estagio_envio_SMS estagio_envio_SMS `uc  1 e 1 0 ]
-[v _tel_selecionado tel_selecionado `uc  1 e 1 0 ]
-[v _teste_sms_run teste_sms_run `uc  1 e 1 0 ]
-[v _timer_envio_sms timer_envio_sms `uc  1 e 1 0 ]
-"51
-[v _tempo_reenvio_SMS tempo_reenvio_SMS `uc  1 e 1 0 ]
-"52
+"58
 [v _sp_pressao_rede sp_pressao_rede `uc  1 e 1 0 ]
 [v _sp_jockey sp_jockey `uc  1 e 1 0 ]
 [v _sp_principal sp_principal `uc  1 e 1 0 ]
 [v _sp_estacionaria sp_estacionaria `uc  1 e 1 0 ]
-"53
-[v _falha falha `uc  1 e 1 0 ]
-[v _teste_run teste_run `uc  1 e 1 0 ]
-[v _incendio incendio `uc  1 e 1 0 ]
-"55
+"60
 [v _option_posi option_posi `uc  1 e 1 0 ]
 [v _menu_posi menu_posi `uc  1 e 1 0 ]
 [v __menu_posi _menu_posi `uc  1 e 1 0 ]
 [v _sub_menu_posi sub_menu_posi `uc  1 e 1 0 ]
-"56
+"61
 [v _tel_posi tel_posi `uc  1 e 1 0 ]
 [v _ajust_tel ajust_tel `uc  1 e 1 0 ]
-"57
-[v _ajst_rtc ajst_rtc `b  1 e 0 0 ]
-[v _blinkk blinkk `b  1 e 0 0 ]
-"63
-[v _tel1 tel1 `[12]uc  1 e 12 0 ]
+"62
+[v _ajst_rtc ajst_rtc `uc  1 e 1 0 ]
+[v _blinkk blinkk `uc  1 e 1 0 ]
 "64
+[v _tel1 tel1 `[12]uc  1 e 12 0 ]
+"65
 [v _tel2 tel2 `[12]uc  1 e 12 0 ]
-"73 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
+"66 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"241
+"235
+} 0
+"114 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
+[v _verificarIntervaloTesteBombas verificarIntervaloTesteBombas `(v  1 e 1 0 ]
+{
+"124
 } 0
 "8 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_TESTE_BOMBAS.h
 [v _tela_testeBombas tela_testeBombas `(v  1 e 1 0 ]
 {
-"47
+"58
 } 0
 "11 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_RELOGIO.h
 [v _tela_ajusteRTC tela_ajusteRTC `(v  1 e 1 0 ]
@@ -767,10 +777,15 @@
 [v DECtoBCD@val val `uc  1 a 1 8 ]
 "30
 } 0
-"10 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_PRINCIPAL.h
+"21 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_PRINCIPAL.h
 [v _telaPrincipal telaPrincipal `(v  1 e 1 0 ]
 {
-"58
+"68
+} 0
+"10
+[v _resetParametros resetParametros `(v  1 e 1 0 ]
+{
+"19
 } 0
 "37 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\shift595.h
 [v _setShiftREG setShiftREG `(v  1 e 1 0 ]
@@ -786,7 +801,7 @@
 [v lerParametros@i i `uc  1 a 1 21 ]
 "11
 [v lerParametros@verifica_memoria_nova verifica_memoria_nova `uc  1 a 1 20 ]
-"38
+"39
 } 0
 "48 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\eeprom.h
 [v _readEEPROM16_ext readEEPROM16_ext `(ui  1 e 2 0 ]
@@ -808,33 +823,33 @@
 "13 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\comunicacao.h
 [v _getSinalSIM800L getSinalSIM800L `(v  1 e 1 0 ]
 {
-"30
-[v getSinalSIM800L@sinal sinal `i  1 a 2 74 ]
-"49
+"36
+[v getSinalSIM800L@sinal sinal `i  1 a 2 72 ]
+"55
 } 0
 "40 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
 [v _getSerial getSerial `(*.39uc  1 e 2 0 ]
 {
 "46
-[v getSerial@i i `uc  1 a 1 62 ]
+[v getSerial@i i `uc  1 a 1 60 ]
 "43
-[v getSerial@ret ret `*.39uc  1 a 2 63 ]
+[v getSerial@ret ret `*.39uc  1 a 2 61 ]
 "42
-[v getSerial@length length `ui  1 a 2 60 ]
+[v getSerial@length length `ui  1 a 2 58 ]
 "40
-[v getSerial@str str `*.25uc  1 p 2 55 ]
-[v getSerial@end end `uc  1 p 1 57 ]
+[v getSerial@str str `*.25uc  1 p 2 53 ]
+[v getSerial@end end `uc  1 p 1 55 ]
 "56
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
 [v _atoi atoi `(i  1 e 2 0 ]
 {
 "7
-[v atoi@a a `i  1 a 2 70 ]
+[v atoi@a a `i  1 a 2 68 ]
 "8
-[v atoi@sign sign `uc  1 a 1 69 ]
+[v atoi@sign sign `uc  1 a 1 67 ]
 "5
-[v atoi@s s `*.39Cuc  1 p 2 65 ]
+[v atoi@s s `*.39Cuc  1 p 2 63 ]
 "24
 } 0
 "52 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\ds1307.h
@@ -855,9 +870,9 @@
 "12 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_DATALOGER.h
 [v _dataLoger dataLoger `(v  1 e 1 0 ]
 {
-"44
-[v dataLoger@logs logs `uc  1 a 1 66 ]
-"59
+"43
+[v dataLoger@logs logs `uc  1 a 1 64 ]
+"58
 } 0
 "152 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\lcd.h
 [v _criarCaracteresCGRAM criarCaracteresCGRAM `(v  1 e 1 0 ]
@@ -869,7 +884,7 @@
 [v criarCaracteresCGRAM@j j `uc  1 a 1 58 ]
 [v criarCaracteresCGRAM@k k `uc  1 a 1 57 ]
 "152
-[v criarCaracteresCGRAM@F2961 F2961 `C[6][8]uc  1 s 48 F2961 ]
+[v criarCaracteresCGRAM@F2954 F2954 `C[6][8]uc  1 s 48 F2954 ]
 "171
 } 0
 "7 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_ESTACIONARIA.h
@@ -880,85 +895,14 @@
 "9 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\tela_TELEFONES.h
 [v _configuraTelefones configuraTelefones `(v  1 e 1 0 ]
 {
-"25
-[v configuraTelefones@i i `uc  1 a 1 73 ]
-"101
+"24
+[v configuraTelefones@i i `uc  1 a 1 67 ]
+"100
 } 0
-"51 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\comunicacao.h
+"57 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\comunicacao.h
 [v _comunicarTeste comunicarTeste `(v  1 e 1 0 ]
 {
-"119
-} 0
-"21 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
-[v _writeChar writeChar `(v  1 e 1 0 ]
-{
-[v writeChar@hex hex `*.39uc  1 p 2 0 ]
-"24
-} 0
-"13 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\printf.c
-[v _printf printf `(i  1 e 2 0 ]
-{
-[s S1591 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
-"21
-[v printf@pb pb `S1591  1 a 4 55 ]
-"15
-[v printf@ap ap `[1]*.39v  1 a 2 53 ]
-"13
-[v printf@f f `*.25Cuc  1 p 2 33 ]
-"28
-} 0
-"34 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
-[v _limparBuffer limparBuffer `(v  1 e 1 0 ]
-{
-"38
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
-[v _memset memset `(*.39v  1 e 2 0 ]
-{
-"15
-[v memset@p p `*.39uc  1 a 2 6 ]
-"8
-[v memset@p1 p1 `*.39v  1 p 2 0 ]
-[v memset@c c `i  1 p 2 2 ]
-[v memset@n n `ui  1 p 2 4 ]
-"22
-} 0
-"26 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
-[v _aguardaBuffer aguardaBuffer `(uc  1 e 1 0 ]
-{
-[v aguardaBuffer@str str `*.25uc  1 p 2 19 ]
-"32
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strstr.c
-[v _strstr strstr `(*.39uc  1 e 2 0 ]
-{
-[v strstr@s1 s1 `*.39Cuc  1 p 2 15 ]
-[v strstr@s2 s2 `*.25Cuc  1 p 2 17 ]
-"12
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strncmp.c
-[v _strncmp strncmp `(i  1 e 2 0 ]
-{
-[v strncmp@s1 s1 `*.39Cuc  1 p 2 6 ]
-[v strncmp@s2 s2 `*.25Cuc  1 p 2 8 ]
-[v strncmp@len len `ui  1 p 2 10 ]
-"14
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-"6
-[v strlen@cp cp `*.35Cuc  1 a 2 4 ]
-"4
-[v strlen@s s `*.35Cuc  1 p 2 0 ]
-"13
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strchr.c
-[v _strchr strchr `(*.39uc  1 e 2 0 ]
-{
-[v strchr@ptr ptr `*.39Cuc  1 p 2 0 ]
-[v strchr@chr chr `i  1 p 2 2 ]
-"11
+"122
 } 0
 "7 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\registradores.h
 [v _configuraRegistradores configuraRegistradores `(v  1 e 1 0 ]
@@ -1029,17 +973,14 @@
 [v blink@end end `uc  1 p 1 3 ]
 "180
 } 0
-"112 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
-[v _acaoTesteBomasProgramado acaoTesteBomasProgramado `(v  1 e 1 0 ]
-{
-"122
-} 0
-"124
+"135 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
 [v _acaoTesteBombas acaoTesteBombas `(v  1 e 1 0 ]
 {
-"129
-[v acaoTesteBombas@i i `uc  1 a 1 83 ]
-"247
+"143
+[v acaoTesteBombas@i i `uc  1 a 1 88 ]
+"140
+[v acaoTesteBombas@intervalo intervalo `uc  1 a 1 87 ]
+"274
 } 0
 "9 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\logs.h
 [v _salvarLOG salvarLOG `(v  1 e 1 0 ]
@@ -1088,30 +1029,113 @@
 {
 [v intToFloatStr@valor valor `uc  1 a 1 wreg ]
 "50
-[v intToFloatStr@conv conv `[4]uc  1 a 4 62 ]
+[v intToFloatStr@conv conv `[4]uc  1 a 4 59 ]
 "55
-[v intToFloatStr@end end `[4]uc  1 a 4 58 ]
+[v intToFloatStr@end end `[4]uc  1 a 4 55 ]
 "49
-[v intToFloatStr@pr pr `i  1 a 2 66 ]
+[v intToFloatStr@pr pr `i  1 a 2 64 ]
 "48
 [v intToFloatStr@valor valor `uc  1 a 1 wreg ]
 "49
 [v intToFloatStr@F2544 F2544 `[4]uc  1 s 4 F2544 ]
-[v intToFloatStr@valor valor `uc  1 a 1 57 ]
+[v intToFloatStr@valor valor `uc  1 a 1 63 ]
 "58
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"35
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"42
+} 0
+"126 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
+[v _drenarPressao drenarPressao `(v  1 e 1 0 ]
+{
+"133
 } 0
 "13 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S1591 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1593 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "29
-[v sprintf@pb pb `S1591  1 a 4 51 ]
+[v sprintf@pb pb `S1593  1 a 4 49 ]
 "28
-[v sprintf@ap ap `[1]*.39v  1 a 2 49 ]
+[v sprintf@ap ap `[1]*.39v  1 a 2 47 ]
 "13
 [v sprintf@wh wh `*.39uc  1 p 2 33 ]
 [v sprintf@f f `*.35Cuc  1 p 2 35 ]
 "38
+} 0
+"30 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\shift595.h
+[v _clearShiftREG clearShiftREG `(v  1 e 1 0 ]
+{
+"31
+[v clearShiftREG@i i `uc  1 a 1 0 ]
+"35
+} 0
+"59 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\teclado.h
+[v _btPress btPress `(uc  1 e 1 0 ]
+{
+[v btPress@bt bt `uc  1 a 1 wreg ]
+[v btPress@bt bt `uc  1 a 1 wreg ]
+[v btPress@bt bt `uc  1 a 1 0 ]
+"87
+} 0
+"18 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
+[v _acaoBombas acaoBombas `(v  1 e 1 0 ]
+{
+"56
+} 0
+"58
+[v _partidaBombaEstacionaria partidaBombaEstacionaria `(v  1 e 1 0 ]
+{
+[v partidaBombaEstacionaria@acao acao `uc  1 a 1 wreg ]
+[v partidaBombaEstacionaria@acao acao `uc  1 a 1 wreg ]
+[v partidaBombaEstacionaria@acao acao `uc  1 a 1 3 ]
+"112
+} 0
+"124 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\comunicacao.h
+[v _enviaSMS enviaSMS `(v  1 e 1 0 ]
+{
+[v enviaSMS@tipo tipo `uc  1 a 1 wreg ]
+[v enviaSMS@tipo tipo `uc  1 a 1 wreg ]
+[v enviaSMS@tipo tipo `uc  1 a 1 71 ]
+"223
+} 0
+"21 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
+[v _writeChar writeChar `(v  1 e 1 0 ]
+{
+[v writeChar@hex hex `*.39uc  1 p 2 0 ]
+"24
+} 0
+"13 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+[s S1593 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"21
+[v printf@pb pb `S1593  1 a 4 55 ]
+"15
+[v printf@ap ap `[1]*.39v  1 a 2 53 ]
+"13
+[v printf@f f `*.25Cuc  1 p 2 33 ]
+"28
 } 0
 "458 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c
 [v __doprnt _doprnt `(i  1 e 2 0 ]
@@ -1130,9 +1154,9 @@
 [v __doprnt@flag flag `uc  1 a 1 27 ]
 "506
 [v __doprnt@prec prec `c  1 a 1 22 ]
-[s S1591 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1593 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "458
-[v __doprnt@pb pb `*.39S1591  1 p 2 12 ]
+[v __doprnt@pb pb `*.39S1593  1 p 2 12 ]
 [v __doprnt@f f `*.35Cuc  1 p 2 14 ]
 [v __doprnt@ap ap `*.39*.39v  1 p 2 16 ]
 "1541
@@ -1186,57 +1210,58 @@
 [v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
 "31
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
+"34 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
+[v _limparBuffer limparBuffer `(v  1 e 1 0 ]
 {
-"11
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"8
-[v ___awmod@dividend dividend `i  1 p 2 0 ]
-[v ___awmod@divisor divisor `i  1 p 2 2 ]
-"35
+"38
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
 {
-"11
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"15
+[v memset@p p `*.39uc  1 a 2 6 ]
+"8
+[v memset@p1 p1 `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"22
+} 0
+"26 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\serial.h
+[v _aguardaBuffer aguardaBuffer `(uc  1 e 1 0 ]
+{
+[v aguardaBuffer@str str `*.25uc  1 p 2 19 ]
+"32
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strstr.c
+[v _strstr strstr `(*.39uc  1 e 2 0 ]
+{
+[v strstr@s1 s1 `*.39Cuc  1 p 2 15 ]
+[v strstr@s2 s2 `*.25Cuc  1 p 2 17 ]
 "12
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"8
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
-"42
 } 0
-"30 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\shift595.h
-[v _clearShiftREG clearShiftREG `(v  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
 {
-"31
-[v clearShiftREG@i i `uc  1 a 1 0 ]
-"35
+[v strncmp@s1 s1 `*.39Cuc  1 p 2 6 ]
+[v strncmp@s2 s2 `*.25Cuc  1 p 2 8 ]
+[v strncmp@len len `ui  1 p 2 10 ]
+"14
 } 0
-"59 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\teclado.h
-[v _btPress btPress `(uc  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
 {
-[v btPress@bt bt `uc  1 a 1 wreg ]
-[v btPress@bt bt `uc  1 a 1 wreg ]
-[v btPress@bt bt `uc  1 a 1 0 ]
-"87
+"6
+[v strlen@cp cp `*.35Cuc  1 a 2 4 ]
+"4
+[v strlen@s s `*.35Cuc  1 p 2 0 ]
+"13
 } 0
-"16 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
-[v _acaoBombas acaoBombas `(v  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\strchr.c
+[v _strchr strchr `(*.39uc  1 e 2 0 ]
 {
-"52
-} 0
-"54
-[v _partidaBombaEstacionaria partidaBombaEstacionaria `(v  1 e 1 0 ]
-{
-[v partidaBombaEstacionaria@acao acao `uc  1 a 1 wreg ]
-[v partidaBombaEstacionaria@acao acao `uc  1 a 1 wreg ]
-[v partidaBombaEstacionaria@acao acao `uc  1 a 1 3 ]
-"110
+[v strchr@ptr ptr `*.39Cuc  1 p 2 0 ]
+[v strchr@chr chr `i  1 p 2 2 ]
+"11
 } 0
 "16 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\function.c
 [v _delay delay `(v  1 e 1 0 ]
@@ -1314,17 +1339,17 @@
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "31
 } 0
-"42 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
+"32 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
 [v _TIMER TIMER `II(v  1 e 1 0 ]
 {
-"65
+"58
 [v TIMER@c c `uc  1 a 1 66 ]
-"71
+"64
 } 0
 "9 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\temporizador.h
 [v _timer timer `(v  1 e 1 0 ]
 {
-"67
+"59
 } 0
 "52 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\ds1307.h
 [v i2_getDS1307TimeDate getDS1307TimeDate `(v  1 e 1 0 ]
@@ -1417,7 +1442,7 @@
 [v lerTransdutor@_pressao _pressao `f  1 a 3 42 ]
 "8
 [v lerTransdutor@i i `uc  1 a 1 41 ]
-"30
+"32
 } 0
 "8 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\adc.h
 [v _readADC readADC `(ui  1 e 2 0 ]

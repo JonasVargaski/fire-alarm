@@ -22,9 +22,15 @@ void getSinalSIM800L() {
                     break;
                 case 1:
                     if (!timerEtapaComunicacao) {
-                        etapaComunicacao = 0;
-                        writeChar(0x1A);
-                        intensidadeSinal = 'x'; // se o modulo nao responder exibe um x indicando erro no modulo.
+                        printf("AT\r\n");
+                        delay(100);
+                        if (aguardaBuffer("OK")) {
+                            etapaComunicacao = 0;
+                        } else {
+                            etapaComunicacao = 0;
+                            writeChar(0x1A);
+                            intensidadeSinal = 'x'; // se o modulo nao responder exibe um x indicando erro no modulo.
+                        }
                     }
                     if (aguardaBuffer("+CSQ: ")) {
                         int sinal = atoi(getSerial("+CSQ: ", ','));
@@ -38,7 +44,7 @@ void getSinalSIM800L() {
                             intensidadeSinal = ICONE_SINAL_BOM;
                         }
                         etapaComunicacao = 0;
-                        timerVerificarSinal = 15; // verificar sinal a cada 15 segundos.
+                        timerVerificarSinal = 6; // verificar sinal a cada 6 segundos.
                     }
                     break;
                 default:
@@ -83,9 +89,9 @@ void comunicarTeste() {
         case 3:
             if (aguardaBuffer(">")) {
                 limparBuffer();
-                printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
-                        _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
-                delay(200);
+                printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
+                        _dia, _mes, _ano, _hor, _min, _sec, __DATE__);
+                delay(1000);
                 writeChar(0x1A);
                 etapaComunicacao++;
                 timerEtapaComunicacao = 30; // Tempo que fica no aguardo até enviar o sms
@@ -104,10 +110,7 @@ void comunicarTeste() {
                 }
                 etapaComunicacao = 0;
             }
-            if (aguardaBuffer("ERROR")) {
-                etapaComunicacao = 0;
-            }
-            if (!timerEtapaComunicacao) {
+            if (aguardaBuffer("ERROR") || !timerEtapaComunicacao) {
                 etapaComunicacao = 0;
             }
             break;
@@ -118,106 +121,103 @@ void comunicarTeste() {
     }
 }
 
-void enviaSMS(unsigned char tipo) { // 1 para disparo , 2 para teste de bombas, 3 para atualizar status
-    switch (estagio_envio_SMS) {
+void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
+    if (timerReenvioSMS) return;
+
+    switch (etapaComunicacao) {
         case 0:
             limparBuffer();
             printf("AT\r\n");
-            if (aguardaBuffer("OK")) {
-                estagio_envio_SMS++;
-                status_SIM800L = OK;
-            } else {
-                while (!TXSTAbits.TRMT); // verifica se ainda tem dados para serem transmitidos
-                TXREG = 0x1A; // Envia final de mensagen
-                delay(15);
-                printf("ATH0\r\n"); // desconecta chamada
-                estagio_envio_SMS = 0;
-                status_SIM800L = ERRO;
-            }
-            if (tipo == 3) { // Retorna se for somente para atualizar status do modulo
-                estagio_envio_SMS = 0;
-                return;
-            }
+            etapaComunicacao++;
+            timerEtapaComunicacao = 6;
             break;
         case 1:
-            if (tempo_reenvio_SMS >= INTERVALO_ENVIO_SMS) { // Intervalo entre envios de sms 
+            if (aguardaBuffer("OK")) {
                 limparBuffer();
                 printf("AT+CMGF=1\r\n");
-                if (aguardaBuffer("OK")) {
-                    estagio_envio_SMS++;
-                    timer_envio_sms = 0;
-                } else {
-                    status_SIM800L = ERRO;
-                    estagio_envio_SMS = 0;
-                }
-            } else {
-                //timer_envio_sms = 0;
-                return; // para nao enviar SMS direto.. apenas a cada 2 minutos
+                etapaComunicacao++;
+                timerEtapaComunicacao = 6;
+            }
+            if (!timerEtapaComunicacao) {
+                writeChar(0x1A);
+                delay(15);
+                printf("ATH0\r\n"); // desconecta chamada
+                etapaComunicacao = 0;
             }
             break;
         case 2:
-            limparBuffer();
-            printf("AT+CMGS=\"+55%s\"\r\n", tel_selecionado == 0 ? tel1 : tel2);
-            if (aguardaBuffer(">")) {
-                estagio_envio_SMS++;
-            } else {
-                estagio_envio_SMS = 0;
+            if (aguardaBuffer("OK")) {
+                limparBuffer();
+                printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+                delay(120);
+                timerEtapaComunicacao = 8;
+                etapaComunicacao++;
+            }
+            if (!timerEtapaComunicacao) {
+                etapaComunicacao = 0;
             }
             break;
+
         case 3:
-            if (tipo == 1) {
-                printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
+            if (aguardaBuffer(">")) {
+                limparBuffer();
+                if (tipo == 1) {
+                    printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
+                }
+                if (tipo == 2) {
+                    printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
+                            _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
+                }
+                delay(150);
+                writeChar(0x1A);
+                timerEtapaComunicacao = 30;
+                etapaComunicacao++;
             }
-            if (tipo == 2) {
-                printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
-                        _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
+            if (!timerEtapaComunicacao) {
+                etapaComunicacao = 0;
             }
-            estagio_envio_SMS++;
-            return;
             break;
         case 4:
-            while (!TXSTAbits.TRMT); // verifica se ainda tem dados para serem transmitidos
-            TXREG = 0x1A; // Envia final de mensagen
-            delay(10);
-            while (!TXSTAbits.TRMT); // verifica se ainda tem dados para serem transmitidos
-            TXREG = 0x1A; // Envia final de mensagen
-            delay(10);
-            timer_envio_sms = 0;
-            estagio_envio_SMS++;
+            if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+                if (tipo == 2) {
+                    if (telefoneSelecionado == 0) {
+                        telefoneSelecionado = 1;
+                    } else {
+                        telefoneSelecionado = 0;
+                        gsmOcupado = false;
+                        menu_posi = 0; // retorna ao menu inicial, somente em testes
+                    }
+                } else {
+                    etapaComunicacao++;
+                }
+                if (!timerEtapaComunicacao) {
+                    etapaComunicacao = 0;
+                }
+            }
             break;
         case 5:
-            if (timer_envio_sms > TEMPO_ENVIO_SMS) { // Aguarda 20 segundos até enviar a msg;
-                estagio_envio_SMS++;
-            }
+            limparBuffer();
+            printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+            timerEtapaComunicacao = TEMPO_DURACAO_CHAMADA;
+            etapaComunicacao++;
             break;
         case 6:
-            if (tipo == 1) { // só faz ligaçao quando for disparo de incendio
+            if (!timerEtapaComunicacao) {
                 limparBuffer();
-                printf("ATD 0%s;\r\n", tel_selecionado == 0 ? tel1 : tel2);
-                estagio_envio_SMS++;
-                timer_envio_sms = 0;
-            } else {
-                estagio_envio_SMS = 8;
-            }
-            break;
-        case 7:
-            if (timer_envio_sms > TEMPO_DURACAO_CHAMADA) { //  segundos efetuando a chamada
-                //printf("AT+HVOIC\r\n"); // desconecta chamada
                 printf("ATH0\r\n"); // desconecta chamada
-                delay(100);
-                estagio_envio_SMS++;
+                delay(550);
+                if (telefoneSelecionado == 0) {
+                    telefoneSelecionado = 1;
+                } else {
+                    telefoneSelecionado = 0;
+                    gsmOcupado = false;
+                    timerReenvioSMS = INTERVALO_ENVIO_SMS;
+                }
+                etapaComunicacao = 0;
             }
             break;
-        case 8:
-            tel_selecionado++;
-            if (tel_selecionado > 1) {
-                tel_selecionado = 0;
-                tempo_reenvio_SMS = 0;
-                teste_sms_run = 0;
-            }
-            estagio_envio_SMS = 0;
-            break;
-        default: estagio_envio_SMS = 0;
+
+        default: etapaComunicacao = 0;
             break;
     }
 }

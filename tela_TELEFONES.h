@@ -9,7 +9,7 @@
 void configuraTelefones() {
     sprintf(&line1[1], "T1: %s", tel1);
     sprintf(&line2[1], "T2: %s", tel2);
-    sprintf(&line3[1], "%s", gsmOcupado ? "enviando... " : "Enviar sms teste");
+    sprintf(&line3[1], "%s", gsmOcupado ? " aguarde... " : "Enviar sms teste");
 
     if (ajust_tel == 0) { // se nao tiver sendo alterado o telefone
         if (btPress(b_mais)) {
@@ -18,7 +18,6 @@ void configuraTelefones() {
             option_posi++;
         } else if (btPress(b_esc)) {
             gsmOcupado = false;
-            tempo_reenvio_SMS = 5; // reseta tempo para reenvio de sms
             option_posi = 0;
             tel_posi = 0;
             ajust_tel = 0;
@@ -86,7 +85,7 @@ void configuraTelefones() {
             break;
         case 2:
             line3[0] = '>';
-            if (btPress(b_ok) && intensidadeSinal != 'x') {
+            if (btPress(b_ok) && intensidadeSinal != 'x' && !gsmOcupado) {
                 gsmOcupado = true;
                 telefoneSelecionado = 0;
             }

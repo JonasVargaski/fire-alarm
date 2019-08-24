@@ -2519,8 +2519,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "49
 [v _pr `i ~T0 @X0 1 a ]
-[; ;function.c: 49: int pr = valor;
-[e = _pr -> _valor `i ]
+[; ;function.c: 49: int pr = valor >= 99 ? 99 : valor;
+[e = _pr ? >= -> _valor `i -> 99 `i : -> 99 `i -> _valor `i ]
 [v F2544 `uc ~T0 @X0 -> 4 `i s ]
 [i F2544
 :U ..
@@ -2549,7 +2549,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "55
 [v _end `uc ~T0 @X0 -> 4 `i a ]
 [; ;function.c: 55: char end[4];
-[; ;function.c: 56: sprintf(end,conv);
+[; ;function.c: 56: sprintf(end , conv);
 "56
 [e ( _sprintf (1 , &U _end -> &U _conv `*Cuc ]
 [; ;function.c: 57: return end;

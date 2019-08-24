@@ -7,16 +7,14 @@
 #include "eeprom.h"
 
 void timer() {
-    
+
     timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
     timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
+    timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
+    timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
 
     if (ajst_rtc) { // Se tiver sendo ajustado entao ele nao soma as variavies
         return;
-    }
-    timer_envio_sms++;
-    if (timer_envio_sms > 100) {
-        timer_envio_sms = 100;
     }
     _sec++;
     if (_sec > 59) {
@@ -35,19 +33,13 @@ void timer() {
 
     if (rtc.min != _min) { // Se o minuto for diferente que estiver no rtc, entao sincroniza com timer do pic; // SERVE PARA REALIZAR 1 LEITURA POR MINUTO NO DS1307
 
-        if (estacionaria_Ligada) {
+        if (flagEstacionariaLigada) {
             horimetro++;
             writeEEPROM16_ext(8, horimetro);
         }
-        tempo_reenvio_SMS++;
-        if (tempo_reenvio_SMS >= 7) {
-            tempo_reenvio_SMS = 6; // Libera para enviar sms novamente
-        }
-
         getDS1307TimeDate(&rtc); // busca horario no rtc;
         if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) { // Confirma que o rtc nao está em falha, ou parado;
             // SE DER PROBLEMA NO MODULO RTC, ENTAO NAO COLOCA NUMEROS ESTRANHOS. Continua Somente o timer do pic e acusa falha no modulo relogio(Implemetar falha);
-            falha = 2; /// falha no relógio.
             RTC_Init(); // força o reinicio do DS1307 ci
             rtc.sec = _sec; // devolve as variavies o timer do pic
             rtc.min = _min;

@@ -28,6 +28,7 @@ void lerParametros() {
     horario_de_teste = readEEPROM_ext(11);
     tempo_limite_teste_estacionaria = readEEPROM_ext(13);
     // 14 reservado
+    habilitaTesteAutomatico = readEEPROM_ext(15);
 
     for (i = 0; i < 11; i++) {
         tel1[i] = readEEPROM_ext(20 + i);

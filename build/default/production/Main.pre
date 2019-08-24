@@ -3331,7 +3331,7 @@ TRISEbits.RE2 = 0;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 26 "variaveisGlobais.h"
+# 23 "variaveisGlobais.h"
 unsigned char line1[21];
 unsigned char line2[21];
 unsigned char line3[21];
@@ -3341,33 +3341,37 @@ unsigned char intensidadeSinal = ' ';
 unsigned char telefoneSelecionado = 0;
 
 unsigned char timerVerificarSinal = 5;
+unsigned char timerReenvioSMS = 0;
 unsigned char timerEtapaComunicacao = 0;
 unsigned int etapaComunicacao = 0;
 unsigned bool gsmOcupado = 0;
 
+unsigned char codigoErro = 0;
+unsigned bool ocorrendoIncendio = 0;
+unsigned bool executandoTeste = 0;
 
+unsigned bool flagEstacionariaLigada = 0;
+unsigned bool habilitaTesteAutomatico = 0;
+unsigned char etapaTesteBombas = 0;
+
+unsigned int timerTesteBombas = 0;
+unsigned int horimetro = 0;
 
 
 unsigned char base_sec = 0, _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
 unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
-unsigned char pressao = 98, qtd_leitura = 0, intervalo_leitura_adc = 0;
+int pressao = 98;
+unsigned char qtd_leitura = 0;
 float _tensao = 0;
-unsigned char status_jockey = 1, status_principal = 1, status_estacionaria = 1, status_SIM800L = 0;
-int horimetro = 0, tempo_teste_bombas = 300;
-unsigned char tempo_limite_estacionaria = 0, estacionaria_Ligada = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0, tempo_corrido_teste_estacionaria = 0, tempo_coun_estacionaria = 0;
-unsigned char estagio_envio_SMS = 0, tel_selecionado = 0, teste_sms_run = 0, timer_envio_sms = 0;
+unsigned bool status_jockey = 1, status_principal = 1, status_estacionaria = 1;
+unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
+unsigned char tel_selecionado = 0;
 
-unsigned char tempo_reenvio_SMS = 5;
 unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
-unsigned char falha = 0, teste_run = 0, incendio = 0;
 
 unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
 unsigned char tel_posi = 0, ajust_tel = 0;
-bit ajst_rtc = 0, blinkk = 0;
-
-unsigned char str_recebida[20] = {'\0'};
-unsigned char str_posicao = 0, str_recebido_ok = 0, checar_serial = 0;
-
+unsigned bool ajst_rtc = 0, blinkk = 0;
 
 char tel1[12] = {'\0'};
 char tel2[12] = {'\0'};
@@ -3564,7 +3568,9 @@ tensao = tensao / 10;
 _tensao += (float) tensao;
 qtd_leitura++;
 
-if ((tensao < 0.4) || (tensao > 4.5)) {
+if (tensao < 0.4) {
+pressao = -10;
+} else if (tensao > 4.5) {
 pressao = 99;
 } else if (qtd_leitura >= 6) {
 qtd_leitura = 0;
@@ -4000,9 +4006,15 @@ etapaComunicacao = 1;
 break;
 case 1:
 if (!timerEtapaComunicacao) {
+printf("AT\r\n");
+delay(100);
+if (aguardaBuffer("OK")) {
+etapaComunicacao = 0;
+} else {
 etapaComunicacao = 0;
 writeChar(0x1A);
 intensidadeSinal = 'x';
+}
 }
 if (aguardaBuffer("+CSQ: ")) {
 int sinal = atoi(getSerial("+CSQ: ", ','));
@@ -4016,7 +4028,7 @@ intensidadeSinal = 0x03;
 intensidadeSinal = 0x04;
 }
 etapaComunicacao = 0;
-timerVerificarSinal = 15;
+timerVerificarSinal = 6;
 }
 break;
 default:
@@ -4061,9 +4073,9 @@ break;
 case 3:
 if (aguardaBuffer(">")) {
 limparBuffer();
-printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
-_hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
-delay(200);
+printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
+_dia, _mes, _ano, _hor, _min, _sec, "Aug 24 2019");
+delay(1000);
 writeChar(0x1A);
 etapaComunicacao++;
 timerEtapaComunicacao = 30;
@@ -4082,10 +4094,7 @@ gsmOcupado = 0;
 }
 etapaComunicacao = 0;
 }
-if (aguardaBuffer("ERROR")) {
-etapaComunicacao = 0;
-}
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer("ERROR") || !timerEtapaComunicacao) {
 etapaComunicacao = 0;
 }
 break;
@@ -4096,53 +4105,46 @@ break;
 }
 }
 
-void enviaSMS(unsigned char tipo) {
-switch (estagio_envio_SMS) {
+void enviaSMS(char tipo) {
+if (timerReenvioSMS) return;
+
+switch (etapaComunicacao) {
 case 0:
 limparBuffer();
 printf("AT\r\n");
-if (aguardaBuffer("OK")) {
-estagio_envio_SMS++;
-status_SIM800L = 1;
-} else {
-while (!TXSTAbits.TRMT);
-TXREG = 0x1A;
-delay(15);
-printf("ATH0\r\n");
-estagio_envio_SMS = 0;
-status_SIM800L = 0;
-}
-if (tipo == 3) {
-estagio_envio_SMS = 0;
-return;
-}
+etapaComunicacao++;
+timerEtapaComunicacao = 6;
 break;
 case 1:
-if (tempo_reenvio_SMS >= 2) {
+if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGF=1\r\n");
-if (aguardaBuffer("OK")) {
-estagio_envio_SMS++;
-timer_envio_sms = 0;
-} else {
-status_SIM800L = 0;
-estagio_envio_SMS = 0;
+etapaComunicacao++;
+timerEtapaComunicacao = 6;
 }
-} else {
-
-return;
+if (!timerEtapaComunicacao) {
+writeChar(0x1A);
+delay(15);
+printf("ATH0\r\n");
+etapaComunicacao = 0;
 }
 break;
 case 2:
+if (aguardaBuffer("OK")) {
 limparBuffer();
-printf("AT+CMGS=\"+55%s\"\r\n", tel_selecionado == 0 ? tel1 : tel2);
-if (aguardaBuffer(">")) {
-estagio_envio_SMS++;
-} else {
-estagio_envio_SMS = 0;
+printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+delay(120);
+timerEtapaComunicacao = 8;
+etapaComunicacao++;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
 }
 break;
+
 case 3:
+if (aguardaBuffer(">")) {
+limparBuffer();
 if (tipo == 1) {
 printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
 }
@@ -4150,52 +4152,56 @@ if (tipo == 2) {
 printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
 _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
 }
-estagio_envio_SMS++;
-return;
+delay(150);
+writeChar(0x1A);
+timerEtapaComunicacao = 30;
+etapaComunicacao++;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
 break;
 case 4:
-while (!TXSTAbits.TRMT);
-TXREG = 0x1A;
-delay(10);
-while (!TXSTAbits.TRMT);
-TXREG = 0x1A;
-delay(10);
-timer_envio_sms = 0;
-estagio_envio_SMS++;
+if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+if (tipo == 2) {
+if (telefoneSelecionado == 0) {
+telefoneSelecionado = 1;
+} else {
+telefoneSelecionado = 0;
+gsmOcupado = 0;
+menu_posi = 0;
+}
+} else {
+etapaComunicacao++;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
+}
 break;
 case 5:
-if (timer_envio_sms > 20) {
-estagio_envio_SMS++;
-}
+limparBuffer();
+printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+timerEtapaComunicacao = 30;
+etapaComunicacao++;
 break;
 case 6:
-if (tipo == 1) {
+if (!timerEtapaComunicacao) {
 limparBuffer();
-printf("ATD 0%s;\r\n", tel_selecionado == 0 ? tel1 : tel2);
-estagio_envio_SMS++;
-timer_envio_sms = 0;
-} else {
-estagio_envio_SMS = 8;
-}
-break;
-case 7:
-if (timer_envio_sms > 30) {
-
 printf("ATH0\r\n");
-delay(100);
-estagio_envio_SMS++;
+delay(550);
+if (telefoneSelecionado == 0) {
+telefoneSelecionado = 1;
+} else {
+telefoneSelecionado = 0;
+gsmOcupado = 0;
+timerReenvioSMS = 2;
+}
+etapaComunicacao = 0;
 }
 break;
-case 8:
-tel_selecionado++;
-if (tel_selecionado > 1) {
-tel_selecionado = 0;
-tempo_reenvio_SMS = 0;
-teste_sms_run = 0;
-}
-estagio_envio_SMS = 0;
-break;
-default: estagio_envio_SMS = 0;
+
+default: etapaComunicacao = 0;
 break;
 }
 }
@@ -4475,69 +4481,71 @@ default: return 0;
 }
 }
 
-# 11 "controle.h"
+# 13 "controle.h"
 void acaoBombas(void);
 void partidaBombaEstacionaria(unsigned char acao);
 void acaoTesteBombas(void);
-void acaoTesteBomasProgramado(void);
+void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-if (pressao >= sp_pressao_rede && incendio != 1 && teste_run == 0) {
+if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) {
 shift[6] = 0;
 shift[5] = 0;
 partidaBombaEstacionaria(0);
 shift[1] = 0;
 return;
 }
-if (teste_run == 0) {
+
 shift[2] = 0;
 if (pressao <= sp_jockey) {
 shift[6] = 1;
-}
-if (pressao >= sp_pressao_rede) {
+} else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
 shift[6] = 0;
 }
-if (pressao >= sp_pressao_rede && incendio == 0) {
+
+if (pressao <= sp_principal) {
+ocorrendoIncendio = 1;
+shift[5] = 1;
+if (!PORTCbits.RC0) {
+partidaBombaEstacionaria(1);
+}
+}
+if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
 shift[5] = 0;
 partidaBombaEstacionaria(0);
 }
-if (pressao <= sp_principal) {
-incendio = 1;
-shift[5] = 1;
-}
-if (pressao <= sp_estacionaria) {
-incendio = 1;
-partidaBombaEstacionaria(1);
-}
-if (incendio) {
 
-shift[1] = 1;
-} else {
-estagio_envio_SMS = 0;
-tempo_reenvio_SMS = 2;
+if (pressao <= sp_estacionaria) {
+partidaBombaEstacionaria(1);
+ocorrendoIncendio = 1;
 }
+
+if (ocorrendoIncendio) {
+gsmOcupado = 1;
+enviaSMS(1);
+shift[1] = 1;
 }
 }
 
 void partidaBombaEstacionaria(unsigned char acao) {
-if (acao == 1 && estacionaria_Ligada == 0) {
+if (acao == 1 && !flagEstacionariaLigada) {
 if (_sec_partida != _sec) {
 _sec_partida = _sec;
 tempo_limite_partida++;
 tempo_partida++;
 if (!PORTAbits.RA5) {
 delay(700);
-estacionaria_Ligada = 1;
+flagEstacionariaLigada = 1;
 tempo_partida = 0;
 shift[4] = 0;
 }
 }
 }
-if (estacionaria_Ligada == 0 && status_estacionaria == 1) {
+if (!flagEstacionariaLigada && status_estacionaria == 1) {
 shift[3] = 1;
 if (tempo_partida <= 7) {
 shift[4] = 1;
-} else if (tempo_partida <= (7 + 5)) {
+} else if (tempo_partida <= (7 + 8)) {
 shift[4] = 0;
 } else {
 tempo_partida = 0;
@@ -4545,16 +4553,15 @@ tempo_partida = 0;
 }
 if (tempo_limite_partida > tempo_limite_estacionaria) {
 tempo_limite_partida = 0;
-falha = 1;
 status_estacionaria = 0;
-estacionaria_Ligada = 0;
+flagEstacionariaLigada = 0;
 shift[3] = 0;
 shift[4] = 0;
 }
 
 
 if (acao == 0) {
-estacionaria_Ligada = 0;
+flagEstacionariaLigada = 0;
 shift[4] = 0;
 shift[3] = 0;
 tempo_partida = 0;
@@ -4564,151 +4571,175 @@ tempo_limite_partida = 0;
 if (status_estacionaria == 0) {
 shift[3] = 0;
 shift[4] = 0;
-falha = 1;
 tempo_partida = 0;
 }
-if (estacionaria_Ligada == 1) {
+if (flagEstacionariaLigada) {
 if (!PORTAbits.RA5) {
 shift[4] = 0;
 tempo_limite_partida = 0;
 } else {
-estacionaria_Ligada = 0;
+flagEstacionariaLigada = 0;
 }
 }
 }
 
-void acaoTesteBomasProgramado() {
-if (dias_restante_teste >= intervalo_teste_dia && intervalo_teste_dia != 0) {
+void verificarIntervaloTesteBombas() {
+if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) {
 if (_hor == horario_de_teste) {
 dias_restante_teste = 0;
 writeEEPROM_ext(10, dias_restante_teste);
-teste_run = 2;
+etapaTesteBombas = 0;
+executandoTeste = 1;
 menu_posi = 28;
-acaoTesteBombas();
 }
+}
+}
+
+void drenarPressao() {
+sprintf(line4, "Despressurizando...");
+if (!timerTesteBombas) {
+executandoTeste = 0;
+codigoErro = 3;
+menu_posi = 0;
 }
 }
 
 void acaoTesteBombas() {
 if (btPress(1)) {
-teste_run = 0;
-tempo_teste_bombas = 300;
+executandoTeste = 0;
+gsmOcupado = 0;
+etapaTesteBombas = 0;
+unsigned char intervalo = readEEPROM_ext(6);
+intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
 menu_posi = _menu_posi;
 char i = 0;
 for (i = 0; i < 8; i++) {
 shift[i] = 0;
 }
 }
-if (_sec_aux != _sec) {
-_sec_aux = _sec;
-tempo_teste_bombas--;
-if (tempo_teste_bombas == 250) {
-teste_run = 5;
-status_jockey = 0;
-shift[6] = 0;
-} else if (tempo_teste_bombas == 170) {
-teste_run = 8;
-status_principal = 0;
-shift[5] = 0;
-} else if (tempo_teste_bombas == 1) {
-teste_run = 12;
-status_estacionaria = 0;
-partidaBombaEstacionaria(0);
+
+if (etapaTesteBombas < 10) {
+sprintf(&line1[4], "Aguarde... %ds", timerTesteBombas);
+sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
-}
-if (teste_run < 12) {
-sprintf(line1, "   Aguarde.. %3dsec", tempo_teste_bombas);
-sprintf(line2, " Pressao %s bar", intToFloatStr(pressao));
-}
-switch (teste_run) {
-case 2:
+
+switch (etapaTesteBombas) {
+case 0:
 dias_restante_teste = 0;
 writeEEPROM_ext(10, dias_restante_teste);
 shift[2] = 1;
-teste_run = 3;
+timerTesteBombas = 30;
+etapaTesteBombas = 1;
 break;
-case 3:
+case 1:
+drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
 shift[2] = 0;
 shift[6] = 1;
-teste_run = 4;
+etapaTesteBombas = 2;
+timerTesteBombas = 50;
 }
 break;
-case 4:
+case 2:
+sprintf(line4, "Bomba Jockey...");
 if (pressao >= sp_pressao_rede) {
 shift[6] = 0;
 status_jockey = 1;
-teste_run = 5;
-tempo_teste_bombas = 249;
+etapaTesteBombas = 3;
+}
+if (!timerTesteBombas) {
+status_jockey = 0;
+etapaTesteBombas = 3;
+timerTesteBombas = 30;
 }
 break;
-case 5:
+case 3:
 shift[2] = 1;
-teste_run = 6;
+etapaTesteBombas = 4;
 break;
-case 6:
+case 4:
+drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
 shift[5] = 1;
 shift[2] = 0;
-teste_run = 7;
+etapaTesteBombas = 5;
+timerTesteBombas = 50;
 }
 break;
-case 7:
+case 5:
+sprintf(line4, "Bomba Principal...");
 if (pressao >= sp_pressao_rede) {
 shift[5] = 0;
 status_principal = 1;
-teste_run = 8;
-tempo_teste_bombas = 169;
+etapaTesteBombas = 6;
+}
+if (!timerTesteBombas) {
+status_principal = 0;
+etapaTesteBombas = 6;
+timerTesteBombas = 30;
+}
+break;
+case 6:
+shift[2] = 1;
+etapaTesteBombas = 7;
+break;
+case 7:
+drenarPressao();
+if (pressao <= (sp_pressao_rede - 10)) {
+shift[2] = 0;
+etapaTesteBombas = 8;
+timerTesteBombas = tempo_limite_partida;
 }
 break;
 case 8:
-shift[2] = 1;
-teste_run = 9;
-break;
-case 9:
-if (pressao <= (sp_pressao_rede - 10)) {
-shift[2] = 0;
-teste_run = 10;
-}
-break;
-case 10:
+sprintf(line4, "Bomba Combustao...");
 partidaBombaEstacionaria(1);
-if ((tempo_coun_estacionaria != _sec) && estacionaria_Ligada == 1) {
-tempo_coun_estacionaria = _sec;
-tempo_corrido_teste_estacionaria++;
-}
-if (tempo_corrido_teste_estacionaria >= tempo_limite_teste_estacionaria) {
+
+if (flagEstacionariaLigada || pressao >= sp_pressao_rede) {
 status_estacionaria = 1;
-tempo_corrido_teste_estacionaria = 0;
-teste_run = 11;
+timerTesteBombas = tempo_limite_teste_estacionaria;
+etapaTesteBombas = 9;
 }
-if (status_estacionaria == 0 || falha == 1) {
-teste_run = 11;
+if (status_estacionaria == 0 || !timerTesteBombas) {
+etapaTesteBombas = 10;
 status_estacionaria = 0;
 }
 break;
-case 11:
+case 9:
+sprintf(line4, "Bomba Ligada...");
+partidaBombaEstacionaria(1);
+if (!timerTesteBombas) {
+etapaTesteBombas = 10;
+}
+break;
+case 10:
 salvarLOG();
+partidaBombaEstacionaria(2);
 clearShiftREG();
-bt_press = 1;
-teste_run = 12;
-tempo_teste_bombas = 1;
+etapaTesteBombas = 11;
+timerTesteBombas = 10;
+executandoTeste = 0;
+break;
+case 11:
+sprintf(&line1[2], "Teste Concluido!");
+sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
+sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
+sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
+if (!timerTesteBombas) {
+etapaTesteBombas = 12;
+timerTesteBombas = 150;
+gsmOcupado = 1;
+}
 break;
 case 12:
-sprintf(line1, "  TESTE CONCLUIDO!");
-sprintf(line2, " JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
-sprintf(line3, " PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
-sprintf(line4, " COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
-
-if (tempo_teste_bombas <= -50) {
-tempo_teste_bombas = 300;
+sprintf(&line4[2], "enviando SMS...");
+enviaSMS(1);
+if (!timerTesteBombas) {
 menu_posi = 0;
-teste_run = 0;
-bt_press = 1;
 }
 break;
 default:
-teste_run = 0;
+etapaTesteBombas = 0;
 menu_posi = 0;
 break;
 }
@@ -4719,13 +4750,11 @@ void timer() {
 
 timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
 timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
+timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
+timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
 
 if (ajst_rtc) {
 return;
-}
-timer_envio_sms++;
-if (timer_envio_sms > 100) {
-timer_envio_sms = 100;
 }
 _sec++;
 if (_sec > 59) {
@@ -4744,19 +4773,13 @@ writeEEPROM_ext(10, dias_restante_teste);
 
 if (rtc.min != _min) {
 
-if (estacionaria_Ligada) {
+if (flagEstacionariaLigada) {
 horimetro++;
 writeEEPROM16_ext(8, horimetro);
 }
-tempo_reenvio_SMS++;
-if (tempo_reenvio_SMS >= 7) {
-tempo_reenvio_SMS = 6;
-}
-
 getDS1307TimeDate(&rtc);
 if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) {
 
-falha = 2;
 RTC_Init();
 rtc.sec = _sec;
 rtc.min = _min;
@@ -4798,6 +4821,7 @@ dias_restante_teste = readEEPROM_ext(10);
 horario_de_teste = readEEPROM_ext(11);
 tempo_limite_teste_estacionaria = readEEPROM_ext(13);
 
+habilitaTesteAutomatico = readEEPROM_ext(15);
 
 for (i = 0; i < 11; i++) {
 tel1[i] = readEEPROM_ext(20 + i);
@@ -5030,52 +5054,62 @@ line[i] = ' ';
 }
 
 # 10 "tela_PRINCIPAL.h"
+void resetParametros() {
+ocorrendoIncendio = 0;
+codigoErro = 0;
+status_estacionaria = 1;
+status_jockey = 1;
+status_principal = 1;
+tempo_limite_partida = 0;
+tempo_partida = 0;
+clearShiftREG();
+}
+
 void telaPrincipal() {
+
+sprintf(&line1[2], " %02d:%02d:%02d %02d/%02d", _hor, _min, _sec, _dia, _mes);
 
 line1[0] = 0x01;
 line1[1] = intensidadeSinal;
 line1[19] = 0x05;
 
 if (!PORTCbits.RC0) {
-blink(line1, 19, 20);
+blink(line1, 20, 20);
+
 }
 
-if (pressao == 99) {
-sprintf(line2, "- ERRO  TRANSDUTOR");
+switch (codigoErro) {
+case 1:
+sprintf(&line3[1], "*falta de energia");
+codigoErro = 0;
+break;
+case 3:
+sprintf(&line3[1], "*falha val. ladrao");
+break;
+}
+
+if (ocorrendoIncendio) {
+
+sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+}
+if (pressao > 99 || pressao < 0) {
+sprintf(&line2[1], "Erro no Transdutor");
 clearShiftREG();
 } else {
-sprintf(&line3[2], "Pressao %s bar", (intToFloatStr(pressao)));
+sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
 
-if (status_estacionaria == 0) {
-falha = 1;
-} else if (status_jockey == 10) {
-falha = 6;
-} else if (status_principal == 0) {
-falha = 5;
-}
-if (falha != 0 || incendio == 1) {
-sprintf(line4, "Press ESC p/ Reset");
+
+if (codigoErro > 1 || ocorrendoIncendio) {
+blink(line3, 1, 19);
+sprintf(&line4[1], "Press ESC p/ Reset");
 if (btPress(1)) {
-incendio = 0;
-status_estacionaria = 1;
-status_jockey = 1;
-status_principal = 1;
-tempo_limite_partida = 0;
-tempo_reenvio_SMS = 0;
-tempo_partida = 0;
-falha = 0;
-clearShiftREG();
+resetParametros();
 }
 }
-if (incendio) {
-sprintf(line3, " ALERTA DE INCENDIO");
-}
-
-sprintf(line4, " %02d:%02d:%02d %02d/%02d/%02d", _hor, _min, _sec, _dia, _mes, _ano);
 
 if (btPress(4)) {
-menu_posi++;
+menu_posi = 1;
 sub_menu_posi = 1;
 }
 }
@@ -5165,10 +5199,12 @@ void tela_testeBombas() {
 sprintf(line1, "#Proximo em %2d dias", (intervalo_teste_dia - dias_restante_teste));
 sprintf(line2, "INTERVALO: %2d dias", intervalo_teste_dia);
 sprintf(line3, "HORARIO: %02d horas", horario_de_teste);
+sprintf(line4, "ATIVAR: %s", habilitaTesteAutomatico == 0 ? "Nao" : "Sim");
 
 if (btPress(1)) {
 writeEEPROM_ext(6, intervalo_teste_dia);
 writeEEPROM_ext(11, horario_de_teste);
+writeEEPROM_ext(15, habilitaTesteAutomatico);
 menu_posi = _menu_posi;
 }
 if (btPress(4)) {
@@ -5196,6 +5232,15 @@ if (horario_de_teste > 23 || horario_de_teste < 0) {
 horario_de_teste = 0;
 }
 break;
+case 2:
+blink(line4, 9, 11);
+if (btPress(3)) {
+habilitaTesteAutomatico = 1;
+}
+if (btPress(2)) {
+habilitaTesteAutomatico = 0;
+}
+break;
 default:option_posi = 0;
 break;
 }
@@ -5216,11 +5261,10 @@ if (btPress(1)) {
 option_posi = 0;
 menu_posi = _menu_posi;
 }
-if (btPress(4)) {
 
-salvarLOG();
 
-}
+
+
 if (btPress(2)) {
 dtl_posicao -= 8;
 if (dtl_posicao < 60) {
@@ -5259,7 +5303,7 @@ void informacoes() {
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
 sprintf(line3, "   48 99906-5651");
-sprintf(line4, "versao - %s", "Aug 04 2019");
+sprintf(line4, "versao - %s", "Aug 24 2019");
 if (btPress(1)) {
 menu_posi = _menu_posi;
 }
@@ -5269,7 +5313,7 @@ menu_posi = _menu_posi;
 void configuraTelefones() {
 sprintf(&line1[1], "T1: %s", tel1);
 sprintf(&line2[1], "T2: %s", tel2);
-sprintf(&line3[1], "%s", gsmOcupado ? "enviando... " : "Enviar sms teste");
+sprintf(&line3[1], "%s", gsmOcupado ? " aguarde... " : "Enviar sms teste");
 
 if (ajust_tel == 0) {
 if (btPress(3)) {
@@ -5278,7 +5322,6 @@ option_posi--;
 option_posi++;
 } else if (btPress(1)) {
 gsmOcupado = 0;
-tempo_reenvio_SMS = 5;
 option_posi = 0;
 tel_posi = 0;
 ajust_tel = 0;
@@ -5346,7 +5389,7 @@ tel2[tel_posi] = 48;
 break;
 case 2:
 line3[0] = '>';
-if (btPress(4) && intensidadeSinal != 'x') {
+if (btPress(4) && intensidadeSinal != 'x' && !gsmOcupado) {
 gsmOcupado = 1;
 telefoneSelecionado = 0;
 }
@@ -5488,22 +5531,25 @@ sprintf(line3, "tetapa %d ", timerEtapaComunicacao);
 sprintf(line4, "tsinal %d", timerVerificarSinal);
 }
 
-# 42 "Main.c"
+# 32 "Main.c"
 void interrupt TIMER() {
 if (TMR0IF) {
 TMR0IF = 0x00;
 TMR0H = 0x3C;
 TMR0L = 0xB0;
 
-blinkk = ~blinkk;
 base_sec++;
-intervalo_leitura_adc++;
+
+if (base_sec == 5) {
+blinkk = ~blinkk;
+}
 
 lerTransdutor();
 readButtons();
 
 if (base_sec > 9) {
 base_sec = 0;
+blinkk = ~blinkk;
 timer();
 if (RCSTAbits.OERR) {
 RCSTAbits.CREN = 0;
@@ -5537,17 +5583,17 @@ delay(50);
 
 
 while (1) {
-
-
 asm("CLRWDT");
 
-if (!PORTCbits.RC0) {
-falha = 3;
-}
+if (!executandoTeste || pressao > 99 || pressao < 0) {
 acaoBombas();
-acaoTesteBomasProgramado();
+}
+
+verificarIntervaloTesteBombas();
+
 setShiftREG();
 getSinalSIM800L();
+
 
 switch (menu_posi) {
 case 0:
@@ -5659,9 +5705,10 @@ case 8:
 line4[0] = '>';
 menu_posi = 2;
 if (btPress(4)) {
-if (!incendio) {
+if (!ocorrendoIncendio) {
 menu_posi = 28;
-teste_run = 2;
+executandoTeste = 1;
+etapaTesteBombas = 0;
 }
 }
 break;
@@ -5683,7 +5730,7 @@ sub_menu_posi = 1;
 }
 
 if (menu_posi != 28) {
-teste_run = 0;
+executandoTeste = 0;
 shift[2] = 0;
 }
 atualizarLCD(line1, line2, line3, line4);
