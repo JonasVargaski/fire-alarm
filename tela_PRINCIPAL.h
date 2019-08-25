@@ -6,6 +6,7 @@
 #include "variaveisGlobais.h"
 #include "teclado.h"
 #include "function.h"
+#include "shift595.h"
 
 void resetParametros() {
     ocorrendoIncendio = false;
@@ -26,36 +27,41 @@ void telaPrincipal() {
     line1[1] = intensidadeSinal;
     line1[19] = ICONE_TOMADA;
 
-    if (FALTA_ENERGIA) {
-        blink(line1, 20, 20);
-        //        codigoErro = 1;
-    }
-
     switch (codigoErro) {
         case 1:
-            sprintf(&line3[1], "*falta de energia");
-            codigoErro = 0;
+            sprintf(line4, " *falha eletrica");
             break;
         case 3:
-            sprintf(&line3[1], "*falha val. ladrao");
+            sprintf(line4, " *falha val. ladrao");
+            break;
+        case 4:
+            sprintf(line4, " *falha B. jockey");
+            break;
+        case 5:
+            sprintf(line4, " *falha B. principal");
+            break;
+        case 6:
+            sprintf(line4, " *falha B. combustao");
             break;
     }
 
     if (ocorrendoIncendio) {
-        //        sprintf(line2, " ALERTA DE INCENDIO");
-        sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+        sprintf(line2, " ALERTA DE INCENDIO");
     }
-    if (pressao > 99 || pressao < 0) { // Se tiver leitura errada ou tirar o transdutor
-        sprintf(&line2[1], "Erro no Transdutor");
+    if (flagErroTransdutor) { // Se tiver leitura errada ou tirar o transdutor
         clearShiftREG();
+        sprintf(&line3[1], "Erro no Transdutor");
+        ocorrendoIncendio = false;
+        shift[rl_alarme] = 1; // liga alarme sinalizando erro.
     } else {
-        sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+        sprintf(&line3[2], "Pressao %s BAR", intToFloatStr(pressao));
     }
 
 
     if (codigoErro > 1 || ocorrendoIncendio) {
-        blink(line3, 1, 19);
-        sprintf(&line4[1], "Press ESC p/ Reset");
+        if (flagTexto) {
+            sprintf(line4, " Press ESC p/ Reset");
+        }
         if (btPress(b_esc)) {
             resetParametros();
         }
@@ -64,6 +70,21 @@ void telaPrincipal() {
     if (btPress(b_ok)) {
         menu_posi = 1; // entra no menu de ajustes
         sub_menu_posi = 1; // vai para a primeira posição do menu
+    }
+
+
+    if (FALTA_ENERGIA) {
+        blink(line1, 20, 20);
+        if (codigoErro == 0) {
+            codigoErro = 1;
+        }
+    }
+    if (status_jockey == ERRO) {
+        codigoErro = 4;
+    } else if (status_principal == ERRO) {
+        codigoErro = 5;
+    } else if (status_estacionaria == ERRO) {
+        codigoErro = 6;
     }
 }
 

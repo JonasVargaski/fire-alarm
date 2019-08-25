@@ -3343,16 +3343,21 @@ unsigned char telefoneSelecionado = 0;
 unsigned char timerVerificarSinal = 5;
 unsigned char timerReenvioSMS = 0;
 unsigned char timerEtapaComunicacao = 0;
+unsigned char timerTrocarTextoLcd = 0;
+unsigned bool flagTexto = 0;
+
 unsigned int etapaComunicacao = 0;
 unsigned bool gsmOcupado = 0;
 
 unsigned char codigoErro = 0;
 unsigned bool ocorrendoIncendio = 0;
 unsigned bool executandoTeste = 0;
+unsigned bool flagErroTransdutor = 0;
 
 unsigned bool flagEstacionariaLigada = 0;
 unsigned bool habilitaTesteAutomatico = 0;
 unsigned char etapaTesteBombas = 0;
+
 
 unsigned int timerTesteBombas = 0;
 unsigned int horimetro = 0;
@@ -3570,9 +3575,12 @@ qtd_leitura++;
 
 if (tensao < 0.4) {
 pressao = -10;
+flagErroTransdutor = 1;
 } else if (tensao > 4.5) {
 pressao = 99;
+flagErroTransdutor = 1;
 } else if (qtd_leitura >= 6) {
+flagErroTransdutor = 0;
 qtd_leitura = 0;
 tensao = (float) (_tensao / 6);
 _tensao = 0;
@@ -4074,7 +4082,7 @@ case 3:
 if (aguardaBuffer(">")) {
 limparBuffer();
 printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-_dia, _mes, _ano, _hor, _min, _sec, "Aug 24 2019");
+_dia, _mes, _ano, _hor, _min, _sec, "Aug 25 2019");
 delay(1000);
 writeChar(0x1A);
 etapaComunicacao++;
@@ -4408,12 +4416,10 @@ void readButtons(void);
 char btPress(char bt);
 
 
-bool bt_press = 1;
 bool flag_b_esc, _b_esc = 0;
 bool flag_b_menos, _b_menos = 0;
 bool flag_b_mais, _b_mais = 0;
 bool flag_b_ok, _b_ok = 0;
-
 
 
 
@@ -4455,25 +4461,22 @@ char btPress(char bt) {
 switch (bt) {
 case 1: if (_b_esc) {
 _b_esc = 0;
-bt_press = 1;
 return 1;
 }
 return 0;
-case 3: if (_b_mais) {
+case 3:
+if (_b_mais) {
 _b_mais = 0;
-bt_press = 1;
 return 1;
 }
 return 0;
 case 2: if (_b_menos) {
 _b_menos = 0;
-bt_press = 1;
 return 1;
 }
 return 0;
 case 4: if (_b_ok) {
 _b_ok = 0;
-bt_press = 1;
 return 1;
 }
 return 0;
@@ -4506,9 +4509,9 @@ shift[6] = 0;
 if (pressao <= sp_principal) {
 ocorrendoIncendio = 1;
 shift[5] = 1;
-if (!PORTCbits.RC0) {
-partidaBombaEstacionaria(1);
-}
+
+
+
 }
 if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
 shift[5] = 0;
@@ -4619,7 +4622,7 @@ shift[i] = 0;
 }
 
 if (etapaTesteBombas < 10) {
-sprintf(&line1[4], "Aguarde... %ds", timerTesteBombas);
+sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
 sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
 
@@ -4752,6 +4755,12 @@ timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
 timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
 timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
 timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
+timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
+
+if(!timerTrocarTextoLcd){
+timerTrocarTextoLcd = 3;
+flagTexto = !flagTexto;
+}
 
 if (ajst_rtc) {
 return;
@@ -5053,7 +5062,7 @@ line[i] = ' ';
 }
 }
 
-# 10 "tela_PRINCIPAL.h"
+# 11 "tela_PRINCIPAL.h"
 void resetParametros() {
 ocorrendoIncendio = 0;
 codigoErro = 0;
@@ -5073,36 +5082,41 @@ line1[0] = 0x01;
 line1[1] = intensidadeSinal;
 line1[19] = 0x05;
 
-if (!PORTCbits.RC0) {
-blink(line1, 20, 20);
-
-}
-
 switch (codigoErro) {
 case 1:
-sprintf(&line3[1], "*falta de energia");
-codigoErro = 0;
+sprintf(line4, " *falha eletrica");
 break;
 case 3:
-sprintf(&line3[1], "*falha val. ladrao");
+sprintf(line4, " *falha val. ladrao");
+break;
+case 4:
+sprintf(line4, " *falha B. jockey");
+break;
+case 5:
+sprintf(line4, " *falha B. principal");
+break;
+case 6:
+sprintf(line4, " *falha B. combustao");
 break;
 }
 
 if (ocorrendoIncendio) {
-
-sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+sprintf(line2, " ALERTA DE INCENDIO");
 }
-if (pressao > 99 || pressao < 0) {
-sprintf(&line2[1], "Erro no Transdutor");
+if (flagErroTransdutor) {
 clearShiftREG();
+sprintf(&line3[1], "Erro no Transdutor");
+ocorrendoIncendio = 0;
+shift[1] = 1;
 } else {
-sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+sprintf(&line3[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
 
 
 if (codigoErro > 1 || ocorrendoIncendio) {
-blink(line3, 1, 19);
-sprintf(&line4[1], "Press ESC p/ Reset");
+if (flagTexto) {
+sprintf(line4, " Press ESC p/ Reset");
+}
 if (btPress(1)) {
 resetParametros();
 }
@@ -5111,6 +5125,21 @@ resetParametros();
 if (btPress(4)) {
 menu_posi = 1;
 sub_menu_posi = 1;
+}
+
+
+if (!PORTCbits.RC0) {
+blink(line1, 20, 20);
+if (codigoErro == 0) {
+codigoErro = 1;
+}
+}
+if (status_jockey == 0) {
+codigoErro = 4;
+} else if (status_principal == 0) {
+codigoErro = 5;
+} else if (status_estacionaria == 0) {
+codigoErro = 6;
 }
 }
 
@@ -5303,7 +5332,7 @@ void informacoes() {
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
 sprintf(line3, "   48 99906-5651");
-sprintf(line4, "versao - %s", "Aug 24 2019");
+sprintf(line4, "versao - %s", "Aug 25 2019");
 if (btPress(1)) {
 menu_posi = _menu_posi;
 }
@@ -5579,13 +5608,18 @@ Lcd_Clear();
 criarCaracteresCGRAM();
 delay(100);
 lerParametros();
-delay(50);
+sprintf(line1, "TECHNOW");
+sprintf(line2, "Sistemas embarcados");
+sprintf(line3, "Versao Soft.:");
+sprintf(&line4[9], "%s", "Aug 25 2019");
+atualizarLCD(line1, line2, line3, line4);
+delay(2500);
 
 
 while (1) {
 asm("CLRWDT");
 
-if (!executandoTeste || pressao > 99 || pressao < 0) {
+if (!executandoTeste && !flagErroTransdutor) {
 acaoBombas();
 }
 

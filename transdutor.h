@@ -16,9 +16,12 @@ void lerTransdutor() {
 
     if (tensao < 0.4) {
         pressao = -10;
+        flagErroTransdutor = true;
     } else if (tensao > 4.5) { // Se estiver a leitura fora do range do transdutor o mesmo está errado.
         pressao = 99; // Se der erro as bombas nao vao ligar pois vai indicar pressao maxima
+        flagErroTransdutor = true;
     } else if (qtd_leitura >= 6) {
+        flagErroTransdutor = false;
         qtd_leitura = 0;
         tensao = (float) (_tensao / 6);
         _tensao = 0;

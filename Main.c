@@ -43,7 +43,7 @@ void interrupt TIMER() {
 
         lerTransdutor();
         readButtons();
-
+        
         if (base_sec > 9) { // Base de tempo de 1 segundo
             base_sec = 0;
             blinkk = ~blinkk; // efeito de piscar lcd
@@ -76,13 +76,18 @@ void main() {
     criarCaracteresCGRAM();
     delay(100);
     lerParametros(); // Carrega variuaveis da eeprom.
-    delay(50);
+    sprintf(line1, "TECHNOW");
+    sprintf(line2, "Sistemas embarcados");
+    sprintf(line3, "Versao Soft.:");
+    sprintf(&line4[9], "%s", __DATE__);
+    atualizarLCD(line1, line2, line3, line4);
+    delay(2500);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     while (1) {
         asm("CLRWDT"); // Reinicia WDT
 
-        if (!executandoTeste || pressao > 99 || pressao < 0) { // se nao tiver em teste das bombas executa.
+        if (!executandoTeste && !flagErroTransdutor) { // se nao tiver em teste das bombas executa.
             acaoBombas();
         }
 

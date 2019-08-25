@@ -31,16 +31,21 @@ unsigned char telefoneSelecionado = 0;
 unsigned char timerVerificarSinal = 5;
 unsigned char timerReenvioSMS = 0;
 unsigned char timerEtapaComunicacao = 0;
+unsigned char timerTrocarTextoLcd = 0;
+unsigned bool flagTexto = false;
+
 unsigned int etapaComunicacao = 0;
 unsigned bool gsmOcupado = false;
 
 unsigned char codigoErro = 0;
 unsigned bool ocorrendoIncendio = false;
 unsigned bool executandoTeste = false;
+unsigned bool flagErroTransdutor = false;
 
 unsigned bool flagEstacionariaLigada = false;
 unsigned bool habilitaTesteAutomatico = 0;
 unsigned char etapaTesteBombas = 0;
+
 
 unsigned int timerTesteBombas = 0;
 unsigned int horimetro = 0;

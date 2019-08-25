@@ -12,6 +12,12 @@ void timer() {
     timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
     timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
     timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
+    timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
+    
+    if(!timerTrocarTextoLcd){
+        timerTrocarTextoLcd = 3;
+        flagTexto = !flagTexto;
+    }
 
     if (ajst_rtc) { // Se tiver sendo ajustado entao ele nao soma as variavies
         return;

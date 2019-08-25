@@ -34,9 +34,9 @@ void acaoBombas() {
     if (pressao <= sp_principal) {
         ocorrendoIncendio = true; // sinaliza e trava que o alarme de incendio esta acionado
         shift[rl_principal] = 1;
-        if (FALTA_ENERGIA) { // liga bomba estacionaria caso nao tenha energia no lugar da principal
-            partidaBombaEstacionaria(1);
-        }
+//        if (FALTA_ENERGIA) { // liga bomba estacionaria caso nao tenha energia no ligar da principal
+//            partidaBombaEstacionaria(1);
+//        }
     }
     if (pressao >= sp_pressao_rede && !ocorrendoIncendio) { // se pressao atingir o desejado, entao desliga todas as bombas, somente se nao tiver incendio
         shift[rl_principal] = 0;
@@ -147,7 +147,7 @@ void acaoTesteBombas() {
     }
 
     if (etapaTesteBombas < 10) {
-        sprintf(&line1[4], "Aguarde... %ds", timerTesteBombas);
+        sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
         sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
     }
 
