@@ -19,6 +19,7 @@ void getSinalSIM800L() {
                     printf("AT+CSQ\r\n");
                     timerEtapaComunicacao = 10; // 10 segundos para esperar pela resposta do modulo gsm
                     etapaComunicacao = 1;
+                    telefoneSelecionado = 0; 
                     break;
                 case 1:
                     if (!timerEtapaComunicacao) {
@@ -182,6 +183,7 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                 if (tipo == 2) {
                     if (telefoneSelecionado == 0) {
                         telefoneSelecionado = 1;
+                        etapaComunicacao = 0;
                     } else {
                         telefoneSelecionado = 0;
                         gsmOcupado = false;

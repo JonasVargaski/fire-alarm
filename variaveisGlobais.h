@@ -58,7 +58,6 @@ unsigned char qtd_leitura = 0;
 float _tensao = 0;
 unsigned bool status_jockey = true, status_principal = true, status_estacionaria = true;
 unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
-unsigned char tel_selecionado = 0;
 
 unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
 

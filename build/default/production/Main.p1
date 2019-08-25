@@ -3061,13 +3061,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;variaveisGlobais.h: 60: unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
-"61
-[v _tel_selecionado `uc ~T0 @X0 1 e ]
-[i _tel_selecionado
--> -> 0 `i `uc
-]
-[; ;variaveisGlobais.h: 61: unsigned char tel_selecionado = 0;
-"63
+"62
 [v _sp_pressao_rede `uc ~T0 @X0 1 e ]
 [i _sp_pressao_rede
 -> -> 0 `i `uc
@@ -3084,8 +3078,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _sp_estacionaria
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 63: unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
-"65
+[; ;variaveisGlobais.h: 62: unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
+"64
 [v _option_posi `uc ~T0 @X0 1 e ]
 [i _option_posi
 -> -> 0 `i `uc
@@ -3106,8 +3100,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _tela_menu_posi
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 65: unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
-"66
+[; ;variaveisGlobais.h: 64: unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
+"65
 [v _tel_posi `uc ~T0 @X0 1 e ]
 [i _tel_posi
 -> -> 0 `i `uc
@@ -3116,8 +3110,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _ajust_tel
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 66: unsigned char tel_posi = 0, ajust_tel = 0;
-"67
+[; ;variaveisGlobais.h: 65: unsigned char tel_posi = 0, ajust_tel = 0;
+"66
 [v _ajst_rtc `uc ~T0 @X0 1 e ]
 [i _ajst_rtc
 -> -> 0 `i `uc
@@ -3126,23 +3120,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _blinkk
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 67: unsigned bool ajst_rtc = 0, blinkk = 0;
-"69
+[; ;variaveisGlobais.h: 66: unsigned bool ajst_rtc = 0, blinkk = 0;
+"68
 [v _tel1 `uc ~T0 @X0 -> 12 `i e ]
 [i _tel1
 :U ..
 -> -> 0 `ui `uc
 ..
 ]
-[; ;variaveisGlobais.h: 69: char tel1[12] = {'\0'};
-"70
+[; ;variaveisGlobais.h: 68: char tel1[12] = {'\0'};
+"69
 [v _tel2 `uc ~T0 @X0 -> 12 `i e ]
 [i _tel2
 :U ..
 -> -> 0 `ui `uc
 ..
 ]
-[; ;variaveisGlobais.h: 70: char tel2[12] = {'\0'};
+[; ;variaveisGlobais.h: 69: char tel2[12] = {'\0'};
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3863,363 +3857,366 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;comunicacao.h: 21: etapaComunicacao = 1;
 "21
 [e = _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 22: break;
+[; ;comunicacao.h: 22: telefoneSelecionado = 0;
 "22
-[e $U 287  ]
-[; ;comunicacao.h: 23: case 1:
+[e = _telefoneSelecionado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 23: break;
 "23
-[e :U 290 ]
-[; ;comunicacao.h: 24: if (!timerEtapaComunicacao) {
+[e $U 287  ]
+[; ;comunicacao.h: 24: case 1:
 "24
+[e :U 290 ]
+[; ;comunicacao.h: 25: if (!timerEtapaComunicacao) {
+"25
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 291  ]
 {
-[; ;comunicacao.h: 25: printf("AT\r\n");
-"25
-[e ( _printf :s 4C ]
-[; ;comunicacao.h: 26: delay(100);
+[; ;comunicacao.h: 26: printf("AT\r\n");
 "26
-[e ( _delay (1 -> 100 `i ]
-[; ;comunicacao.h: 27: if (aguardaBuffer("OK")) {
+[e ( _printf :s 4C ]
+[; ;comunicacao.h: 27: delay(100);
 "27
+[e ( _delay (1 -> 100 `i ]
+[; ;comunicacao.h: 28: if (aguardaBuffer("OK")) {
+"28
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 5C `*uc `i -> -> -> 0 `i `uc `i 292  ]
 {
-[; ;comunicacao.h: 28: etapaComunicacao = 0;
-"28
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 29: etapaComunicacao = 0;
 "29
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"30
 }
-[; ;comunicacao.h: 29: } else {
+[; ;comunicacao.h: 30: } else {
 [e $U 293  ]
 [e :U 292 ]
 {
-[; ;comunicacao.h: 30: etapaComunicacao = 0;
-"30
-[e = _etapaComunicacao -> -> 0 `i `ui ]
-[; ;comunicacao.h: 31: writeChar(0x1A);
+[; ;comunicacao.h: 31: etapaComunicacao = 0;
 "31
-[e ( _writeChar (1 -> -> 26 `i `*uc ]
-[; ;comunicacao.h: 32: intensidadeSinal = 'x';
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 32: writeChar(0x1A);
 "32
-[e = _intensidadeSinal -> -> 120 `ui `uc ]
+[e ( _writeChar (1 -> -> 26 `i `*uc ]
+[; ;comunicacao.h: 33: intensidadeSinal = 'x';
 "33
-}
-[e :U 293 ]
+[e = _intensidadeSinal -> -> 120 `ui `uc ]
 "34
 }
-[e :U 291 ]
-[; ;comunicacao.h: 33: }
-[; ;comunicacao.h: 34: }
-[; ;comunicacao.h: 35: if (aguardaBuffer("+CSQ: ")) {
+[e :U 293 ]
 "35
+}
+[e :U 291 ]
+[; ;comunicacao.h: 34: }
+[; ;comunicacao.h: 35: }
+[; ;comunicacao.h: 36: if (aguardaBuffer("+CSQ: ")) {
+"36
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 6C `*uc `i -> -> -> 0 `i `uc `i 294  ]
 {
-"36
-[v _sinal `i ~T0 @X0 1 a ]
-[; ;comunicacao.h: 36: int sinal = atoi(getSerial("+CSQ: ", ','));
-[e = _sinal ( _atoi (1 -> ( _getSerial (2 , -> :s 7C `*uc -> -> 44 `ui `uc `*Cuc ]
-[; ;comunicacao.h: 37: if (sinal < 10) {
 "37
+[v _sinal `i ~T0 @X0 1 a ]
+[; ;comunicacao.h: 37: int sinal = atoi(getSerial("+CSQ: ", ','));
+[e = _sinal ( _atoi (1 -> ( _getSerial (2 , -> :s 7C `*uc -> -> 44 `ui `uc `*Cuc ]
+[; ;comunicacao.h: 38: if (sinal < 10) {
+"38
 [e $ ! < _sinal -> 10 `i 295  ]
 {
-[; ;comunicacao.h: 38: intensidadeSinal = ' ';
-"38
-[e = _intensidadeSinal -> -> 32 `ui `uc ]
+[; ;comunicacao.h: 39: intensidadeSinal = ' ';
 "39
+[e = _intensidadeSinal -> -> 32 `ui `uc ]
+"40
 }
-[; ;comunicacao.h: 39: } else if (sinal >= 10 && sinal <= 14) {
+[; ;comunicacao.h: 40: } else if (sinal >= 10 && sinal <= 14) {
 [e $U 296  ]
 [e :U 295 ]
 [e $ ! && >= _sinal -> 10 `i <= _sinal -> 14 `i 297  ]
 {
-[; ;comunicacao.h: 40: intensidadeSinal = 0x02;
-"40
-[e = _intensidadeSinal -> -> 2 `i `uc ]
+[; ;comunicacao.h: 41: intensidadeSinal = 0x02;
 "41
+[e = _intensidadeSinal -> -> 2 `i `uc ]
+"42
 }
-[; ;comunicacao.h: 41: } else if (sinal >= 16 && sinal <= 19) {
+[; ;comunicacao.h: 42: } else if (sinal >= 16 && sinal <= 19) {
 [e $U 298  ]
 [e :U 297 ]
 [e $ ! && >= _sinal -> 16 `i <= _sinal -> 19 `i 299  ]
 {
-[; ;comunicacao.h: 42: intensidadeSinal = 0x03;
-"42
-[e = _intensidadeSinal -> -> 3 `i `uc ]
+[; ;comunicacao.h: 43: intensidadeSinal = 0x03;
 "43
+[e = _intensidadeSinal -> -> 3 `i `uc ]
+"44
 }
-[; ;comunicacao.h: 43: } else if (sinal >= 20 && sinal <= 30) {
+[; ;comunicacao.h: 44: } else if (sinal >= 20 && sinal <= 30) {
 [e $U 300  ]
 [e :U 299 ]
 [e $ ! && >= _sinal -> 20 `i <= _sinal -> 30 `i 301  ]
 {
-[; ;comunicacao.h: 44: intensidadeSinal = 0x04;
-"44
-[e = _intensidadeSinal -> -> 4 `i `uc ]
+[; ;comunicacao.h: 45: intensidadeSinal = 0x04;
 "45
+[e = _intensidadeSinal -> -> 4 `i `uc ]
+"46
 }
 [e :U 301 ]
-"46
+"47
 [e :U 300 ]
 [e :U 298 ]
 [e :U 296 ]
-[; ;comunicacao.h: 45: }
-[; ;comunicacao.h: 46: etapaComunicacao = 0;
+[; ;comunicacao.h: 46: }
+[; ;comunicacao.h: 47: etapaComunicacao = 0;
 [e = _etapaComunicacao -> -> 0 `i `ui ]
-[; ;comunicacao.h: 47: timerVerificarSinal = 6;
-"47
-[e = _timerVerificarSinal -> -> 6 `i `uc ]
+[; ;comunicacao.h: 48: timerVerificarSinal = 6;
 "48
+[e = _timerVerificarSinal -> -> 6 `i `uc ]
+"49
 }
 [e :U 294 ]
-[; ;comunicacao.h: 48: }
-[; ;comunicacao.h: 49: break;
-"49
-[e $U 287  ]
-[; ;comunicacao.h: 50: default:
+[; ;comunicacao.h: 49: }
+[; ;comunicacao.h: 50: break;
 "50
-[e :U 302 ]
-[; ;comunicacao.h: 51: etapaComunicacao = 0;
+[e $U 287  ]
+[; ;comunicacao.h: 51: default:
 "51
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[e :U 302 ]
+[; ;comunicacao.h: 52: etapaComunicacao = 0;
 "52
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"53
 }
-[; ;comunicacao.h: 52: }
+[; ;comunicacao.h: 53: }
 [e $U 287  ]
 "16
 [e :U 288 ]
 [e [\ _etapaComunicacao , $ -> -> 0 `i `ui 289
  , $ -> -> 1 `i `ui 290
  302 ]
-"52
-[e :U 287 ]
 "53
-}
-[e :U 286 ]
+[e :U 287 ]
 "54
 }
+[e :U 286 ]
+"55
+}
 [e :U 285 ]
-[; ;comunicacao.h: 53: }
 [; ;comunicacao.h: 54: }
 [; ;comunicacao.h: 55: }
-"55
+[; ;comunicacao.h: 56: }
+"56
 [e :UE 284 ]
 }
-"57
+"58
 [v _comunicarTeste `(v ~T0 @X0 1 ef ]
 {
-[; ;comunicacao.h: 57: void comunicarTeste() {
+[; ;comunicacao.h: 58: void comunicarTeste() {
 [e :U _comunicarTeste ]
 [f ]
-[; ;comunicacao.h: 58: switch (etapaComunicacao) {
-"58
+[; ;comunicacao.h: 59: switch (etapaComunicacao) {
+"59
 [e $U 305  ]
 {
-[; ;comunicacao.h: 59: case 0:
-"59
-[e :U 306 ]
-[; ;comunicacao.h: 60: limparBuffer();
+[; ;comunicacao.h: 60: case 0:
 "60
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 61: printf("AT\r\n");
+[e :U 306 ]
+[; ;comunicacao.h: 61: limparBuffer();
 "61
-[e ( _printf :s 8C ]
-[; ;comunicacao.h: 62: etapaComunicacao++;
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 62: printf("AT\r\n");
 "62
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 63: timerEtapaComunicacao = 5;
+[e ( _printf :s 8C ]
+[; ;comunicacao.h: 63: etapaComunicacao++;
 "63
-[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
-[; ;comunicacao.h: 64: break;
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 64: timerEtapaComunicacao = 5;
 "64
-[e $U 304  ]
-[; ;comunicacao.h: 65: case 1:
+[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
+[; ;comunicacao.h: 65: break;
 "65
-[e :U 307 ]
-[; ;comunicacao.h: 66: if (aguardaBuffer("OK")) {
+[e $U 304  ]
+[; ;comunicacao.h: 66: case 1:
 "66
+[e :U 307 ]
+[; ;comunicacao.h: 67: if (aguardaBuffer("OK")) {
+"67
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 9C `*uc `i -> -> -> 0 `i `uc `i 308  ]
 {
-[; ;comunicacao.h: 67: limparBuffer();
-"67
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 68: printf("AT+CMGF=1\r\n");
+[; ;comunicacao.h: 68: limparBuffer();
 "68
-[e ( _printf :s 10C ]
-[; ;comunicacao.h: 69: etapaComunicacao++;
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 69: printf("AT+CMGF=1\r\n");
 "69
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 70: timerEtapaComunicacao = 5;
+[e ( _printf :s 10C ]
+[; ;comunicacao.h: 70: etapaComunicacao++;
 "70
-[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 71: timerEtapaComunicacao = 5;
 "71
+[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
+"72
 }
 [e :U 308 ]
-[; ;comunicacao.h: 71: }
-[; ;comunicacao.h: 72: if (!timerEtapaComunicacao) {
-"72
+[; ;comunicacao.h: 72: }
+[; ;comunicacao.h: 73: if (!timerEtapaComunicacao) {
+"73
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 309  ]
 {
-[; ;comunicacao.h: 73: etapaComunicacao = 0;
-"73
-[e = _etapaComunicacao -> -> 0 `i `ui ]
-[; ;comunicacao.h: 74: writeChar(0x1A);
+[; ;comunicacao.h: 74: etapaComunicacao = 0;
 "74
-[e ( _writeChar (1 -> -> 26 `i `*uc ]
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 75: writeChar(0x1A);
 "75
+[e ( _writeChar (1 -> -> 26 `i `*uc ]
+"76
 }
 [e :U 309 ]
-[; ;comunicacao.h: 75: }
-[; ;comunicacao.h: 76: break;
-"76
-[e $U 304  ]
-[; ;comunicacao.h: 77: case 2:
+[; ;comunicacao.h: 76: }
+[; ;comunicacao.h: 77: break;
 "77
-[e :U 310 ]
-[; ;comunicacao.h: 78: if (aguardaBuffer("OK")) {
+[e $U 304  ]
+[; ;comunicacao.h: 78: case 2:
 "78
+[e :U 310 ]
+[; ;comunicacao.h: 79: if (aguardaBuffer("OK")) {
+"79
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 11C `*uc `i -> -> -> 0 `i `uc `i 311  ]
 {
-[; ;comunicacao.h: 79: limparBuffer();
-"79
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 80: printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+[; ;comunicacao.h: 80: limparBuffer();
 "80
-[e ( _printf , (. :s 12C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
-[; ;comunicacao.h: 81: timerEtapaComunicacao = 5;
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 81: printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
 "81
-[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
-[; ;comunicacao.h: 82: etapaComunicacao++;
+[e ( _printf , (. :s 12C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
+[; ;comunicacao.h: 82: timerEtapaComunicacao = 5;
 "82
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 83: break;
+[e = _timerEtapaComunicacao -> -> 5 `i `uc ]
+[; ;comunicacao.h: 83: etapaComunicacao++;
 "83
-[e $U 304  ]
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 84: break;
 "84
+[e $U 304  ]
+"85
 }
 [e :U 311 ]
-[; ;comunicacao.h: 84: }
-[; ;comunicacao.h: 85: if (!timerEtapaComunicacao) {
-"85
+[; ;comunicacao.h: 85: }
+[; ;comunicacao.h: 86: if (!timerEtapaComunicacao) {
+"86
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 312  ]
 {
-[; ;comunicacao.h: 86: etapaComunicacao = 0;
-"86
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 87: etapaComunicacao = 0;
 "87
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"88
 }
 [e :U 312 ]
-[; ;comunicacao.h: 87: }
-[; ;comunicacao.h: 88: break;
-"88
-[e $U 304  ]
-[; ;comunicacao.h: 89: case 3:
+[; ;comunicacao.h: 88: }
+[; ;comunicacao.h: 89: break;
 "89
-[e :U 313 ]
-[; ;comunicacao.h: 90: if (aguardaBuffer(">")) {
+[e $U 304  ]
+[; ;comunicacao.h: 90: case 3:
 "90
+[e :U 313 ]
+[; ;comunicacao.h: 91: if (aguardaBuffer(">")) {
+"91
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 13C `*uc `i -> -> -> 0 `i `uc `i 314  ]
 {
-[; ;comunicacao.h: 91: limparBuffer();
-"91
+[; ;comunicacao.h: 92: limparBuffer();
+"92
 [e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 92: printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-[; ;comunicacao.h: 93: _dia, _mes, _ano, _hor, _min, _sec, "Aug 25 2019");
-"93
-[e ( _printf , , , , , , , (. :s 14C -> __dia `i -> __mes `i -> __ano `i -> __hor `i -> __min `i -> __sec `i :s 15C ]
-[; ;comunicacao.h: 94: delay(1000);
+[; ;comunicacao.h: 93: printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
+[; ;comunicacao.h: 94: _dia, _mes, _ano, _hor, _min, _sec, "Aug 25 2019");
 "94
-[e ( _delay (1 -> 1000 `i ]
-[; ;comunicacao.h: 95: writeChar(0x1A);
+[e ( _printf , , , , , , , (. :s 14C -> __dia `i -> __mes `i -> __ano `i -> __hor `i -> __min `i -> __sec `i :s 15C ]
+[; ;comunicacao.h: 95: delay(1000);
 "95
-[e ( _writeChar (1 -> -> 26 `i `*uc ]
-[; ;comunicacao.h: 96: etapaComunicacao++;
+[e ( _delay (1 -> 1000 `i ]
+[; ;comunicacao.h: 96: writeChar(0x1A);
 "96
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 97: timerEtapaComunicacao = 30;
+[e ( _writeChar (1 -> -> 26 `i `*uc ]
+[; ;comunicacao.h: 97: etapaComunicacao++;
 "97
-[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 98: timerEtapaComunicacao = 30;
 "98
+[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
+"99
 }
 [e :U 314 ]
-[; ;comunicacao.h: 98: }
-[; ;comunicacao.h: 99: if (!timerEtapaComunicacao) {
-"99
+[; ;comunicacao.h: 99: }
+[; ;comunicacao.h: 100: if (!timerEtapaComunicacao) {
+"100
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 315  ]
 {
-[; ;comunicacao.h: 100: etapaComunicacao = 0;
-"100
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 101: etapaComunicacao = 0;
 "101
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"102
 }
 [e :U 315 ]
-[; ;comunicacao.h: 101: }
-[; ;comunicacao.h: 102: break;
-"102
-[e $U 304  ]
-[; ;comunicacao.h: 103: case 4:
+[; ;comunicacao.h: 102: }
+[; ;comunicacao.h: 103: break;
 "103
-[e :U 316 ]
-[; ;comunicacao.h: 104: if (aguardaBuffer("OK")) {
+[e $U 304  ]
+[; ;comunicacao.h: 104: case 4:
 "104
+[e :U 316 ]
+[; ;comunicacao.h: 105: if (aguardaBuffer("OK")) {
+"105
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 16C `*uc `i -> -> -> 0 `i `uc `i 317  ]
 {
-[; ;comunicacao.h: 105: if (telefoneSelecionado == 0) {
-"105
+[; ;comunicacao.h: 106: if (telefoneSelecionado == 0) {
+"106
 [e $ ! == -> _telefoneSelecionado `i -> 0 `i 318  ]
 {
-[; ;comunicacao.h: 106: telefoneSelecionado = 1;
-"106
-[e = _telefoneSelecionado -> -> 1 `i `uc ]
+[; ;comunicacao.h: 107: telefoneSelecionado = 1;
 "107
+[e = _telefoneSelecionado -> -> 1 `i `uc ]
+"108
 }
-[; ;comunicacao.h: 107: } else {
+[; ;comunicacao.h: 108: } else {
 [e $U 319  ]
 [e :U 318 ]
 {
-[; ;comunicacao.h: 108: telefoneSelecionado = 0;
-"108
-[e = _telefoneSelecionado -> -> 0 `i `uc ]
-[; ;comunicacao.h: 109: gsmOcupado = 0;
+[; ;comunicacao.h: 109: telefoneSelecionado = 0;
 "109
-[e = _gsmOcupado -> -> 0 `i `uc ]
+[e = _telefoneSelecionado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 110: gsmOcupado = 0;
 "110
+[e = _gsmOcupado -> -> 0 `i `uc ]
+"111
 }
 [e :U 319 ]
-[; ;comunicacao.h: 110: }
-[; ;comunicacao.h: 111: etapaComunicacao = 0;
-"111
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 111: }
+[; ;comunicacao.h: 112: etapaComunicacao = 0;
 "112
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"113
 }
 [e :U 317 ]
-[; ;comunicacao.h: 112: }
-[; ;comunicacao.h: 113: if (aguardaBuffer("ERROR") || !timerEtapaComunicacao) {
-"113
+[; ;comunicacao.h: 113: }
+[; ;comunicacao.h: 114: if (aguardaBuffer("ERROR") || !timerEtapaComunicacao) {
+"114
 [e $ ! || != -> ( _aguardaBuffer (1 -> :s 17C `*uc `i -> -> -> 0 `i `uc `i ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 320  ]
 {
-[; ;comunicacao.h: 114: etapaComunicacao = 0;
-"114
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 115: etapaComunicacao = 0;
 "115
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"116
 }
 [e :U 320 ]
-[; ;comunicacao.h: 115: }
-[; ;comunicacao.h: 116: break;
-"116
-[e $U 304  ]
-[; ;comunicacao.h: 117: default:
+[; ;comunicacao.h: 116: }
+[; ;comunicacao.h: 117: break;
 "117
-[e :U 321 ]
-[; ;comunicacao.h: 118: etapaComunicacao = 0;
+[e $U 304  ]
+[; ;comunicacao.h: 118: default:
 "118
-[e = _etapaComunicacao -> -> 0 `i `ui ]
-[; ;comunicacao.h: 119: break;
+[e :U 321 ]
+[; ;comunicacao.h: 119: etapaComunicacao = 0;
 "119
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 120: break;
+"120
 [e $U 304  ]
-"121
+"122
 }
-[; ;comunicacao.h: 121: }
+[; ;comunicacao.h: 122: }
 [e $U 304  ]
-"58
+"59
 [e :U 305 ]
 [e [\ _etapaComunicacao , $ -> -> 0 `i `ui 306
  , $ -> -> 1 `i `ui 307
@@ -4227,345 +4224,348 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `ui 313
  , $ -> -> 4 `i `ui 316
  321 ]
-"121
-[e :U 304 ]
-[; ;comunicacao.h: 122: }
 "122
+[e :U 304 ]
+[; ;comunicacao.h: 123: }
+"123
 [e :UE 303 ]
 }
-"124
+"125
 [v _enviaSMS `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;comunicacao.h: 124: void enviaSMS(char tipo) {
+[; ;comunicacao.h: 125: void enviaSMS(char tipo) {
 [e :U _enviaSMS ]
 [v _tipo `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;comunicacao.h: 125: if (timerReenvioSMS) return;
-"125
+[; ;comunicacao.h: 126: if (timerReenvioSMS) return;
+"126
 [e $ ! != -> _timerReenvioSMS `i -> -> -> 0 `i `uc `i 323  ]
 [e $UE 322  ]
 [e :U 323 ]
-[; ;comunicacao.h: 127: switch (etapaComunicacao) {
-"127
+[; ;comunicacao.h: 128: switch (etapaComunicacao) {
+"128
 [e $U 325  ]
 {
-[; ;comunicacao.h: 128: case 0:
-"128
-[e :U 326 ]
-[; ;comunicacao.h: 129: limparBuffer();
+[; ;comunicacao.h: 129: case 0:
 "129
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 130: printf("AT\r\n");
+[e :U 326 ]
+[; ;comunicacao.h: 130: limparBuffer();
 "130
-[e ( _printf :s 18C ]
-[; ;comunicacao.h: 131: etapaComunicacao++;
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 131: printf("AT\r\n");
 "131
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 132: timerEtapaComunicacao = 6;
+[e ( _printf :s 18C ]
+[; ;comunicacao.h: 132: etapaComunicacao++;
 "132
-[e = _timerEtapaComunicacao -> -> 6 `i `uc ]
-[; ;comunicacao.h: 133: break;
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 133: timerEtapaComunicacao = 6;
 "133
-[e $U 324  ]
-[; ;comunicacao.h: 134: case 1:
+[e = _timerEtapaComunicacao -> -> 6 `i `uc ]
+[; ;comunicacao.h: 134: break;
 "134
-[e :U 327 ]
-[; ;comunicacao.h: 135: if (aguardaBuffer("OK")) {
+[e $U 324  ]
+[; ;comunicacao.h: 135: case 1:
 "135
+[e :U 327 ]
+[; ;comunicacao.h: 136: if (aguardaBuffer("OK")) {
+"136
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 19C `*uc `i -> -> -> 0 `i `uc `i 328  ]
 {
-[; ;comunicacao.h: 136: limparBuffer();
-"136
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 137: printf("AT+CMGF=1\r\n");
+[; ;comunicacao.h: 137: limparBuffer();
 "137
-[e ( _printf :s 20C ]
-[; ;comunicacao.h: 138: etapaComunicacao++;
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 138: printf("AT+CMGF=1\r\n");
 "138
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 139: timerEtapaComunicacao = 6;
+[e ( _printf :s 20C ]
+[; ;comunicacao.h: 139: etapaComunicacao++;
 "139
-[e = _timerEtapaComunicacao -> -> 6 `i `uc ]
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 140: timerEtapaComunicacao = 6;
 "140
+[e = _timerEtapaComunicacao -> -> 6 `i `uc ]
+"141
 }
 [e :U 328 ]
-[; ;comunicacao.h: 140: }
-[; ;comunicacao.h: 141: if (!timerEtapaComunicacao) {
-"141
+[; ;comunicacao.h: 141: }
+[; ;comunicacao.h: 142: if (!timerEtapaComunicacao) {
+"142
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 329  ]
 {
-[; ;comunicacao.h: 142: writeChar(0x1A);
-"142
-[e ( _writeChar (1 -> -> 26 `i `*uc ]
-[; ;comunicacao.h: 143: delay(15);
+[; ;comunicacao.h: 143: writeChar(0x1A);
 "143
-[e ( _delay (1 -> 15 `i ]
-[; ;comunicacao.h: 144: printf("ATH0\r\n");
+[e ( _writeChar (1 -> -> 26 `i `*uc ]
+[; ;comunicacao.h: 144: delay(15);
 "144
-[e ( _printf :s 21C ]
-[; ;comunicacao.h: 145: etapaComunicacao = 0;
+[e ( _delay (1 -> 15 `i ]
+[; ;comunicacao.h: 145: printf("ATH0\r\n");
 "145
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[e ( _printf :s 21C ]
+[; ;comunicacao.h: 146: etapaComunicacao = 0;
 "146
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"147
 }
 [e :U 329 ]
-[; ;comunicacao.h: 146: }
-[; ;comunicacao.h: 147: break;
-"147
-[e $U 324  ]
-[; ;comunicacao.h: 148: case 2:
+[; ;comunicacao.h: 147: }
+[; ;comunicacao.h: 148: break;
 "148
-[e :U 330 ]
-[; ;comunicacao.h: 149: if (aguardaBuffer("OK")) {
+[e $U 324  ]
+[; ;comunicacao.h: 149: case 2:
 "149
+[e :U 330 ]
+[; ;comunicacao.h: 150: if (aguardaBuffer("OK")) {
+"150
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 22C `*uc `i -> -> -> 0 `i `uc `i 331  ]
 {
-[; ;comunicacao.h: 150: limparBuffer();
-"150
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 151: printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+[; ;comunicacao.h: 151: limparBuffer();
 "151
-[e ( _printf , (. :s 23C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
-[; ;comunicacao.h: 152: delay(120);
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 152: printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
 "152
-[e ( _delay (1 -> 120 `i ]
-[; ;comunicacao.h: 153: timerEtapaComunicacao = 8;
+[e ( _printf , (. :s 23C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
+[; ;comunicacao.h: 153: delay(120);
 "153
-[e = _timerEtapaComunicacao -> -> 8 `i `uc ]
-[; ;comunicacao.h: 154: etapaComunicacao++;
+[e ( _delay (1 -> 120 `i ]
+[; ;comunicacao.h: 154: timerEtapaComunicacao = 8;
 "154
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[e = _timerEtapaComunicacao -> -> 8 `i `uc ]
+[; ;comunicacao.h: 155: etapaComunicacao++;
 "155
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+"156
 }
 [e :U 331 ]
-[; ;comunicacao.h: 155: }
-[; ;comunicacao.h: 156: if (!timerEtapaComunicacao) {
-"156
+[; ;comunicacao.h: 156: }
+[; ;comunicacao.h: 157: if (!timerEtapaComunicacao) {
+"157
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 332  ]
 {
-[; ;comunicacao.h: 157: etapaComunicacao = 0;
-"157
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 158: etapaComunicacao = 0;
 "158
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"159
 }
 [e :U 332 ]
-[; ;comunicacao.h: 158: }
-[; ;comunicacao.h: 159: break;
-"159
+[; ;comunicacao.h: 159: }
+[; ;comunicacao.h: 160: break;
+"160
 [e $U 324  ]
-[; ;comunicacao.h: 161: case 3:
-"161
-[e :U 333 ]
-[; ;comunicacao.h: 162: if (aguardaBuffer(">")) {
+[; ;comunicacao.h: 162: case 3:
 "162
+[e :U 333 ]
+[; ;comunicacao.h: 163: if (aguardaBuffer(">")) {
+"163
 [e $ ! != -> ( _aguardaBuffer (1 -> :s 24C `*uc `i -> -> -> 0 `i `uc `i 334  ]
 {
-[; ;comunicacao.h: 163: limparBuffer();
-"163
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 164: if (tipo == 1) {
+[; ;comunicacao.h: 164: limparBuffer();
 "164
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 165: if (tipo == 1) {
+"165
 [e $ ! == -> _tipo `i -> 1 `i 335  ]
 {
-[; ;comunicacao.h: 165: printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
-"165
-[e ( _printf , , , , , , (. :s 25C -> __hor `i -> __min `i -> __sec `i -> __dia `i -> __mes `i -> __ano `i ]
+[; ;comunicacao.h: 166: printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
 "166
+[e ( _printf , , , , , , (. :s 25C -> __hor `i -> __min `i -> __sec `i -> __dia `i -> __mes `i -> __ano `i ]
+"167
 }
 [e :U 335 ]
-[; ;comunicacao.h: 166: }
-[; ;comunicacao.h: 167: if (tipo == 2) {
-"167
+[; ;comunicacao.h: 167: }
+[; ;comunicacao.h: 168: if (tipo == 2) {
+"168
 [e $ ! == -> _tipo `i -> 2 `i 336  ]
 {
-[; ;comunicacao.h: 168: printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
-[; ;comunicacao.h: 169: _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
-"169
-[e ( _printf , , , , , , , , , (. :s 26C -> __hor `i -> __min `i -> __sec `i -> __dia `i -> __mes `i -> __ano `i ? == -> _status_jockey `i -> 1 `i : :s 27C :s 28C ? == -> _status_principal `i -> 1 `i : :s 29C :s 30C ? == -> _status_estacionaria `i -> 1 `i : :s 31C :s 32C ]
+[; ;comunicacao.h: 169: printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
+[; ;comunicacao.h: 170: _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
 "170
+[e ( _printf , , , , , , , , , (. :s 26C -> __hor `i -> __min `i -> __sec `i -> __dia `i -> __mes `i -> __ano `i ? == -> _status_jockey `i -> 1 `i : :s 27C :s 28C ? == -> _status_principal `i -> 1 `i : :s 29C :s 30C ? == -> _status_estacionaria `i -> 1 `i : :s 31C :s 32C ]
+"171
 }
 [e :U 336 ]
-[; ;comunicacao.h: 170: }
-[; ;comunicacao.h: 171: delay(150);
-"171
-[e ( _delay (1 -> 150 `i ]
-[; ;comunicacao.h: 172: writeChar(0x1A);
+[; ;comunicacao.h: 171: }
+[; ;comunicacao.h: 172: delay(150);
 "172
-[e ( _writeChar (1 -> -> 26 `i `*uc ]
-[; ;comunicacao.h: 173: timerEtapaComunicacao = 30;
+[e ( _delay (1 -> 150 `i ]
+[; ;comunicacao.h: 173: writeChar(0x1A);
 "173
-[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
-[; ;comunicacao.h: 174: etapaComunicacao++;
+[e ( _writeChar (1 -> -> 26 `i `*uc ]
+[; ;comunicacao.h: 174: timerEtapaComunicacao = 30;
 "174
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
+[; ;comunicacao.h: 175: etapaComunicacao++;
 "175
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+"176
 }
 [e :U 334 ]
-[; ;comunicacao.h: 175: }
-[; ;comunicacao.h: 176: if (!timerEtapaComunicacao) {
-"176
+[; ;comunicacao.h: 176: }
+[; ;comunicacao.h: 177: if (!timerEtapaComunicacao) {
+"177
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 337  ]
 {
-[; ;comunicacao.h: 177: etapaComunicacao = 0;
-"177
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[; ;comunicacao.h: 178: etapaComunicacao = 0;
 "178
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"179
 }
 [e :U 337 ]
-[; ;comunicacao.h: 178: }
-[; ;comunicacao.h: 179: break;
-"179
-[e $U 324  ]
-[; ;comunicacao.h: 180: case 4:
+[; ;comunicacao.h: 179: }
+[; ;comunicacao.h: 180: break;
 "180
-[e :U 338 ]
-[; ;comunicacao.h: 181: if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+[e $U 324  ]
+[; ;comunicacao.h: 181: case 4:
 "181
+[e :U 338 ]
+[; ;comunicacao.h: 182: if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+"182
 [e $ ! || != -> ( _aguardaBuffer (1 -> :s 33C `*uc `i -> -> -> 0 `i `uc `i != -> ( _aguardaBuffer (1 -> :s 34C `*uc `i -> -> -> 0 `i `uc `i 339  ]
 {
-[; ;comunicacao.h: 182: if (tipo == 2) {
-"182
+[; ;comunicacao.h: 183: if (tipo == 2) {
+"183
 [e $ ! == -> _tipo `i -> 2 `i 340  ]
 {
-[; ;comunicacao.h: 183: if (telefoneSelecionado == 0) {
-"183
+[; ;comunicacao.h: 184: if (telefoneSelecionado == 0) {
+"184
 [e $ ! == -> _telefoneSelecionado `i -> 0 `i 341  ]
 {
-[; ;comunicacao.h: 184: telefoneSelecionado = 1;
-"184
-[e = _telefoneSelecionado -> -> 1 `i `uc ]
+[; ;comunicacao.h: 185: telefoneSelecionado = 1;
 "185
+[e = _telefoneSelecionado -> -> 1 `i `uc ]
+[; ;comunicacao.h: 186: etapaComunicacao = 0;
+"186
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"187
 }
-[; ;comunicacao.h: 185: } else {
+[; ;comunicacao.h: 187: } else {
 [e $U 342  ]
 [e :U 341 ]
 {
-[; ;comunicacao.h: 186: telefoneSelecionado = 0;
-"186
-[e = _telefoneSelecionado -> -> 0 `i `uc ]
-[; ;comunicacao.h: 187: gsmOcupado = 0;
-"187
-[e = _gsmOcupado -> -> 0 `i `uc ]
-[; ;comunicacao.h: 188: menu_posi = 0;
+[; ;comunicacao.h: 188: telefoneSelecionado = 0;
 "188
-[e = _menu_posi -> -> 0 `i `uc ]
+[e = _telefoneSelecionado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 189: gsmOcupado = 0;
 "189
+[e = _gsmOcupado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 190: menu_posi = 0;
+"190
+[e = _menu_posi -> -> 0 `i `uc ]
+"191
 }
 [e :U 342 ]
-"190
+"192
 }
-[; ;comunicacao.h: 189: }
-[; ;comunicacao.h: 190: } else {
+[; ;comunicacao.h: 191: }
+[; ;comunicacao.h: 192: } else {
 [e $U 343  ]
 [e :U 340 ]
 {
-[; ;comunicacao.h: 191: etapaComunicacao++;
-"191
+[; ;comunicacao.h: 193: etapaComunicacao++;
+"193
 [e ++ _etapaComunicacao -> -> 1 `i `ui ]
-"192
+"194
 }
 [e :U 343 ]
-[; ;comunicacao.h: 192: }
-[; ;comunicacao.h: 193: if (!timerEtapaComunicacao) {
-"193
+[; ;comunicacao.h: 194: }
+[; ;comunicacao.h: 195: if (!timerEtapaComunicacao) {
+"195
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 344  ]
 {
-[; ;comunicacao.h: 194: etapaComunicacao = 0;
-"194
+[; ;comunicacao.h: 196: etapaComunicacao = 0;
+"196
 [e = _etapaComunicacao -> -> 0 `i `ui ]
-"195
+"197
 }
 [e :U 344 ]
-"196
+"198
 }
 [e :U 339 ]
-[; ;comunicacao.h: 195: }
-[; ;comunicacao.h: 196: }
-[; ;comunicacao.h: 197: break;
-"197
-[e $U 324  ]
-[; ;comunicacao.h: 198: case 5:
-"198
-[e :U 345 ]
-[; ;comunicacao.h: 199: limparBuffer();
+[; ;comunicacao.h: 197: }
+[; ;comunicacao.h: 198: }
+[; ;comunicacao.h: 199: break;
 "199
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 200: printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-"200
-[e ( _printf , (. :s 35C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
-[; ;comunicacao.h: 201: timerEtapaComunicacao = 30;
-"201
-[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
-[; ;comunicacao.h: 202: etapaComunicacao++;
-"202
-[e ++ _etapaComunicacao -> -> 1 `i `ui ]
-[; ;comunicacao.h: 203: break;
-"203
 [e $U 324  ]
-[; ;comunicacao.h: 204: case 6:
+[; ;comunicacao.h: 200: case 5:
+"200
+[e :U 345 ]
+[; ;comunicacao.h: 201: limparBuffer();
+"201
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 202: printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
+"202
+[e ( _printf , (. :s 35C -> ? == -> _telefoneSelecionado `i -> 0 `i : &U _tel1 &U _tel2 `*Cuc ]
+[; ;comunicacao.h: 203: timerEtapaComunicacao = 30;
+"203
+[e = _timerEtapaComunicacao -> -> 30 `i `uc ]
+[; ;comunicacao.h: 204: etapaComunicacao++;
 "204
-[e :U 346 ]
-[; ;comunicacao.h: 205: if (!timerEtapaComunicacao) {
+[e ++ _etapaComunicacao -> -> 1 `i `ui ]
+[; ;comunicacao.h: 205: break;
 "205
+[e $U 324  ]
+[; ;comunicacao.h: 206: case 6:
+"206
+[e :U 346 ]
+[; ;comunicacao.h: 207: if (!timerEtapaComunicacao) {
+"207
 [e $ ! ! != -> _timerEtapaComunicacao `i -> -> -> 0 `i `uc `i 347  ]
 {
-[; ;comunicacao.h: 206: limparBuffer();
-"206
-[e ( _limparBuffer ..  ]
-[; ;comunicacao.h: 207: printf("ATH0\r\n");
-"207
-[e ( _printf :s 36C ]
-[; ;comunicacao.h: 208: delay(550);
+[; ;comunicacao.h: 208: limparBuffer();
 "208
-[e ( _delay (1 -> 550 `i ]
-[; ;comunicacao.h: 209: if (telefoneSelecionado == 0) {
+[e ( _limparBuffer ..  ]
+[; ;comunicacao.h: 209: printf("ATH0\r\n");
 "209
+[e ( _printf :s 36C ]
+[; ;comunicacao.h: 210: delay(550);
+"210
+[e ( _delay (1 -> 550 `i ]
+[; ;comunicacao.h: 211: if (telefoneSelecionado == 0) {
+"211
 [e $ ! == -> _telefoneSelecionado `i -> 0 `i 348  ]
 {
-[; ;comunicacao.h: 210: telefoneSelecionado = 1;
-"210
+[; ;comunicacao.h: 212: telefoneSelecionado = 1;
+"212
 [e = _telefoneSelecionado -> -> 1 `i `uc ]
-"211
+"213
 }
-[; ;comunicacao.h: 211: } else {
+[; ;comunicacao.h: 213: } else {
 [e $U 349  ]
 [e :U 348 ]
 {
-[; ;comunicacao.h: 212: telefoneSelecionado = 0;
-"212
-[e = _telefoneSelecionado -> -> 0 `i `uc ]
-[; ;comunicacao.h: 213: gsmOcupado = 0;
-"213
-[e = _gsmOcupado -> -> 0 `i `uc ]
-[; ;comunicacao.h: 214: timerReenvioSMS = 2;
+[; ;comunicacao.h: 214: telefoneSelecionado = 0;
 "214
-[e = _timerReenvioSMS -> -> 2 `i `uc ]
+[e = _telefoneSelecionado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 215: gsmOcupado = 0;
 "215
-}
-[e :U 349 ]
-[; ;comunicacao.h: 215: }
-[; ;comunicacao.h: 216: etapaComunicacao = 0;
+[e = _gsmOcupado -> -> 0 `i `uc ]
+[; ;comunicacao.h: 216: timerReenvioSMS = 2;
 "216
-[e = _etapaComunicacao -> -> 0 `i `ui ]
+[e = _timerReenvioSMS -> -> 2 `i `uc ]
 "217
 }
-[e :U 347 ]
+[e :U 349 ]
 [; ;comunicacao.h: 217: }
-[; ;comunicacao.h: 218: break;
+[; ;comunicacao.h: 218: etapaComunicacao = 0;
 "218
-[e $U 324  ]
-[; ;comunicacao.h: 220: default: etapaComunicacao = 0;
+[e = _etapaComunicacao -> -> 0 `i `ui ]
+"219
+}
+[e :U 347 ]
+[; ;comunicacao.h: 219: }
+[; ;comunicacao.h: 220: break;
 "220
+[e $U 324  ]
+[; ;comunicacao.h: 222: default: etapaComunicacao = 0;
+"222
 [e :U 350 ]
 [e = _etapaComunicacao -> -> 0 `i `ui ]
-[; ;comunicacao.h: 221: break;
-"221
+[; ;comunicacao.h: 223: break;
+"223
 [e $U 324  ]
-"222
+"224
 }
-[; ;comunicacao.h: 222: }
+[; ;comunicacao.h: 224: }
 [e $U 324  ]
-"127
+"128
 [e :U 325 ]
 [e [\ _etapaComunicacao , $ -> -> 0 `i `ui 326
  , $ -> -> 1 `i `ui 327
@@ -4575,10 +4575,10 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 5 `i `ui 345
  , $ -> -> 6 `i `ui 346
  350 ]
-"222
+"224
 [e :U 324 ]
-[; ;comunicacao.h: 223: }
-"223
+[; ;comunicacao.h: 225: }
+"225
 [e :UE 322 ]
 }
 "13 eeprom.h
@@ -6747,9 +6747,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 152: void criarCaracteresCGRAM() {
 [e :U _criarCaracteresCGRAM ]
 [f ]
-[v F2955 `Cuc ~T0 @X0 -> 8 `i t ]
-[v F2956 `F2955 ~T0 @X0 -> 6 `i s ]
-[i F2956
+[v F2954 `Cuc ~T0 @X0 -> 8 `i t ]
+[v F2955 `F2954 ~T0 @X0 -> 6 `i s ]
+[i F2955
 :U ..
 :U ..
 "154
@@ -6809,7 +6809,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 "153
-[v _character `F2955 ~T0 @X0 -> 6 `i a ]
+[v _character `F2954 ~T0 @X0 -> 6 `i a ]
 [; ;lcd.h: 153: const char character[6][8] = {
 [; ;lcd.h: 154: 0x00, 0x1F, 0x0E, 0x04, 0x04, 0x04, 0x04, 0x04,
 [; ;lcd.h: 155: 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x10, 0x10,
@@ -6818,7 +6818,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 158: 0x0A, 0x0A, 0x1F, 0x11, 0x11, 0x0E, 0x04, 0x04,
 [; ;lcd.h: 159: };
 "159
-[e = _character F2956 ]
+[e = _character F2955 ]
 [; ;lcd.h: 160: Lcd_Cmd(0b0100);
 "160
 [e ( _Lcd_Cmd (1 -> -> 4 `i `uc ]
@@ -8629,9 +8629,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 656 ]
 }
 [v $root$_TIMER `(v ~T0 @X0 0 e ]
-[v F2991 `(v ~T0 @X0 1 tf ]
+[v F2990 `(v ~T0 @X0 1 tf ]
 "32 Main.c
-[v _TIMER `IF2991 ~T0 @X0 1 e ]
+[v _TIMER `IF2990 ~T0 @X0 1 e ]
 {
 [; ;Main.c: 32: void interrupt TIMER() {
 [e :U _TIMER ]
