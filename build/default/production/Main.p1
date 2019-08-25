@@ -5802,9 +5802,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;controle.h: 218: etapaTesteBombas = 8;
 "218
 [e = _etapaTesteBombas -> -> 8 `i `uc ]
-[; ;controle.h: 219: timerTesteBombas = tempo_limite_partida;
+[; ;controle.h: 219: timerTesteBombas = tempo_limite_estacionaria;
 "219
-[e = _timerTesteBombas -> _tempo_limite_partida `ui ]
+[e = _timerTesteBombas -> _tempo_limite_estacionaria `ui ]
 "220
 }
 [e :U 441 ]
@@ -5943,9 +5943,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;controle.h: 263: sprintf(&line4[2], "enviando SMS...");
 "263
 [e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 54C ]
-[; ;controle.h: 264: enviaSMS(1);
+[; ;controle.h: 264: enviaSMS(2);
 "264
-[e ( _enviaSMS (1 -> -> 1 `i `uc ]
+[e ( _enviaSMS (1 -> -> 2 `i `uc ]
 [; ;controle.h: 265: if (!timerTesteBombas) {
 "265
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 451  ]
@@ -5953,28 +5953,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;controle.h: 266: menu_posi = 0;
 "266
 [e = _menu_posi -> -> 0 `i `uc ]
+[; ;controle.h: 267: gsmOcupado = 0;
 "267
+[e = _gsmOcupado -> -> 0 `i `uc ]
+"268
 }
 [e :U 451 ]
-[; ;controle.h: 267: }
-[; ;controle.h: 268: break;
-"268
-[e $U 425  ]
-[; ;controle.h: 269: default:
+[; ;controle.h: 268: }
+[; ;controle.h: 269: break;
 "269
-[e :U 452 ]
-[; ;controle.h: 270: etapaTesteBombas = 0;
-"270
-[e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 271: menu_posi = 0;
-"271
-[e = _menu_posi -> -> 0 `i `uc ]
-[; ;controle.h: 272: break;
-"272
 [e $U 425  ]
+[; ;controle.h: 270: default:
+"270
+[e :U 452 ]
+[; ;controle.h: 271: etapaTesteBombas = 0;
+"271
+[e = _etapaTesteBombas -> -> 0 `i `uc ]
+[; ;controle.h: 272: menu_posi = 0;
+"272
+[e = _menu_posi -> -> 0 `i `uc ]
+[; ;controle.h: 273: break;
 "273
+[e $U 425  ]
+"274
 }
-[; ;controle.h: 273: }
+[; ;controle.h: 274: }
 [e $U 425  ]
 "154
 [e :U 426 ]
@@ -5992,10 +5995,10 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 11 `i `uc 448
  , $ -> -> 12 `i `uc 450
  452 ]
-"273
-[e :U 425 ]
-[; ;controle.h: 274: }
 "274
+[e :U 425 ]
+[; ;controle.h: 275: }
+"275
 [e :UE 419 ]
 }
 "9 temporizador.h

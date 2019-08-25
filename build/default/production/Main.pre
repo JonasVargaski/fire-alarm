@@ -4691,7 +4691,7 @@ drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
 shift[2] = 0;
 etapaTesteBombas = 8;
-timerTesteBombas = tempo_limite_partida;
+timerTesteBombas = tempo_limite_estacionaria;
 }
 break;
 case 8:
@@ -4736,9 +4736,10 @@ gsmOcupado = 1;
 break;
 case 12:
 sprintf(&line4[2], "enviando SMS...");
-enviaSMS(1);
+enviaSMS(2);
 if (!timerTesteBombas) {
 menu_posi = 0;
+gsmOcupado = 0;
 }
 break;
 default:
