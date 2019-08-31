@@ -16,11 +16,10 @@ void acaoTesteBombas(void);
 void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-    if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) { // Se tiver erro na leitura do transdutor desliga as bombas somente se nao tiver incendio
+    if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) { 
         shift[rl_jockey] = 0;
         shift[rl_principal] = 0;
         partidaBombaEstacionaria(0); // desliga a bomba estacionaria
-        shift[rl_alarme] = 0;
         return;
     }
 
@@ -49,9 +48,10 @@ void acaoBombas() {
     }
 
     if (ocorrendoIncendio) { // se tiver pegando fogo..
+        if(timerReenvioSMS == 0){
         gsmOcupado = true;
         enviaSMS(1); // Enviar SMS de AVISO DE DISPARO
-        shift[rl_alarme] = 1; // dispara alarme
+        }   
     }
 }
 
@@ -216,7 +216,7 @@ void acaoTesteBombas() {
             if (pressao <= (sp_pressao_rede - 10)) {
                 shift[rl_sol_despressurizacao] = 0;
                 etapaTesteBombas = 8;
-                timerTesteBombas = tempo_limite_partida; // pega tempos das configuraçoes;
+                timerTesteBombas = tempo_limite_estacionaria; // pega tempos das configuraçoes;
             }
             break;
         case 8:
@@ -228,7 +228,7 @@ void acaoTesteBombas() {
                 timerTesteBombas = tempo_limite_teste_estacionaria;
                 etapaTesteBombas = 9;
             }
-            if (status_estacionaria == ERRO || !timerTesteBombas) {
+            if (!timerTesteBombas) {;
                 etapaTesteBombas = 10;
                 status_estacionaria = ERRO;
             }
@@ -255,15 +255,17 @@ void acaoTesteBombas() {
             sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
             if (!timerTesteBombas) {
                 etapaTesteBombas = 12;
-                timerTesteBombas = 150;
+                timerTesteBombas = 90;
                 gsmOcupado = true;
             }
             break;
         case 12:
             sprintf(&line4[2], "enviando SMS...");
-            enviaSMS(1); // somente sms // tipo teste de bombas
+            gsmOcupado = true;
+            enviaSMS(2); // somente sms // tipo teste de bombas
             if (!timerTesteBombas) {
                 menu_posi = 0;
+                gsmOcupado = false;
             }
             break;
         default:

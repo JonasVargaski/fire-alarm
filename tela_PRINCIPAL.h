@@ -6,6 +6,7 @@
 #include "variaveisGlobais.h"
 #include "teclado.h"
 #include "function.h"
+#include "shift595.h"
 
 void resetParametros() {
     ocorrendoIncendio = false;
@@ -14,7 +15,9 @@ void resetParametros() {
     status_jockey = OK;
     status_principal = OK;
     tempo_limite_partida = 0;
+    timerReenvioSMS = 0;
     tempo_partida = 0;
+    gsmOcupado = false;
     clearShiftREG();
 }
 
@@ -55,6 +58,7 @@ void telaPrincipal() {
 
     if (codigoErro > 1 || ocorrendoIncendio) {
         blink(line3, 1, 19);
+        shift[rl_alarme] = 1;
         sprintf(&line4[1], "Press ESC p/ Reset");
         if (btPress(b_esc)) {
             resetParametros();

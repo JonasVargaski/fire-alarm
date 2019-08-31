@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\PROJECT.FIREALARM.X.production.hex">
+  <executable name="dist/default/production\fire-alarm.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>20989</used>
-      <free>11779</free>
+      <used>23545</used>
+      <free>9223</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1536</length>
-      <used>443</used>
-      <free>1093</free>
+      <used>439</used>
+      <free>1097</free>
     </memory>
   </executable>
 </project>

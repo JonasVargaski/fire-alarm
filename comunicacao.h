@@ -67,7 +67,7 @@ void comunicarTeste() {
                 limparBuffer();
                 printf("AT+CMGF=1\r\n");
                 etapaComunicacao++;
-                timerEtapaComunicacao = 5;
+                timerEtapaComunicacao = 2;
             }
             if (!timerEtapaComunicacao) {
                 etapaComunicacao = 0;
@@ -75,33 +75,29 @@ void comunicarTeste() {
             }
             break;
         case 2:
-            if (aguardaBuffer("OK")) {
+            if (!timerEtapaComunicacao) {
                 limparBuffer();
                 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-                timerEtapaComunicacao = 5;
+                timerEtapaComunicacao = 2;
                 etapaComunicacao++;
-                break;
-            }
-            if (!timerEtapaComunicacao) {
-                etapaComunicacao = 0;
             }
             break;
         case 3:
-            if (aguardaBuffer(">")) {
+            if (!timerEtapaComunicacao) {
                 limparBuffer();
-                printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
+                printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\nVersao do sistema: %s\r",
                         _dia, _mes, _ano, _hor, _min, _sec, __DATE__);
-                delay(1000);
+                               writeChar(0x1A);
+                delay(100);
+                writeChar(0x1A);
+                delay(100);
                 writeChar(0x1A);
                 etapaComunicacao++;
                 timerEtapaComunicacao = 30; // Tempo que fica no aguardo até enviar o sms
             }
-            if (!timerEtapaComunicacao) {
-                etapaComunicacao = 0;
-            }
             break;
         case 4:
-            if (aguardaBuffer("OK")) {
+            if (aguardaBuffer("OK") || aguardaBuffer("+CMGS:")) {
                 if (telefoneSelecionado == 0) {
                     telefoneSelecionado = 1;
                 } else {
@@ -122,8 +118,6 @@ void comunicarTeste() {
 }
 
 void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
-    if (timerReenvioSMS) return;
-
     switch (etapaComunicacao) {
         case 0:
             limparBuffer();
@@ -136,30 +130,27 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                 limparBuffer();
                 printf("AT+CMGF=1\r\n");
                 etapaComunicacao++;
-                timerEtapaComunicacao = 6;
+                timerEtapaComunicacao = 2;
             }
             if (!timerEtapaComunicacao) {
                 writeChar(0x1A);
                 delay(15);
+                writeChar(0x1A);
                 printf("ATH0\r\n"); // desconecta chamada
                 etapaComunicacao = 0;
             }
             break;
         case 2:
-            if (aguardaBuffer("OK")) {
+            if (!timerEtapaComunicacao) {
                 limparBuffer();
                 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-                delay(120);
-                timerEtapaComunicacao = 8;
+                timerEtapaComunicacao = 2;
                 etapaComunicacao++;
-            }
-            if (!timerEtapaComunicacao) {
-                etapaComunicacao = 0;
             }
             break;
 
         case 3:
-            if (aguardaBuffer(">")) {
+            if (!timerEtapaComunicacao) {
                 limparBuffer();
                 if (tipo == 1) {
                     printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
@@ -168,20 +159,22 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                     printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
                             _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
                 }
-                delay(150);
+                writeChar(0x1A);
+                delay(100);
+                writeChar(0x1A);
+                delay(100);
                 writeChar(0x1A);
                 timerEtapaComunicacao = 30;
                 etapaComunicacao++;
             }
-            if (!timerEtapaComunicacao) {
-                etapaComunicacao = 0;
-            }
             break;
         case 4:
-            if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+            if (aguardaBuffer("OK") || aguardaBuffer("ERROR") || aguardaBuffer("+CMGS:")) {
                 if (tipo == 2) {
                     if (telefoneSelecionado == 0) {
                         telefoneSelecionado = 1;
+                        etapaComunicacao = 0;
+                        return;
                     } else {
                         telefoneSelecionado = 0;
                         gsmOcupado = false;
@@ -190,9 +183,9 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                 } else {
                     etapaComunicacao++;
                 }
-                if (!timerEtapaComunicacao) {
-                    etapaComunicacao = 0;
-                }
+            }
+            if (!timerEtapaComunicacao) {
+                etapaComunicacao = 0;
             }
             break;
         case 5:
@@ -202,7 +195,7 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
             etapaComunicacao++;
             break;
         case 6:
-            if (!timerEtapaComunicacao) {
+            if (!timerEtapaComunicacao || aguardaBuffer("NO")) {
                 limparBuffer();
                 printf("ATH0\r\n"); // desconecta chamada
                 delay(550);

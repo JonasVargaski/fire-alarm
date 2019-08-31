@@ -8,7 +8,7 @@
 #define ICONE_SINAL_BOM 0x04
 #define ICONE_TOMADA 0x05
 
-#define INTERVALO_ENVIO_SMS 2 // em minutos
+#define INTERVALO_ENVIO_SMS 120 // em segundos
 #define TEMPO_DURACAO_CHAMADA 30 // em segundos, tempo para realizar a chamada
 #define ATRASO_ARRANQUE_COMBUSTAO 700 // em ms, tempo em que o motor de arranque continua após ligar a bomba 
 
