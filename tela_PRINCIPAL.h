@@ -7,6 +7,7 @@
 #include "teclado.h"
 #include "function.h"
 #include "shift595.h"
+#include "comunicacao.h"
 
 void resetParametros() {
     ocorrendoIncendio = false;
@@ -14,6 +15,8 @@ void resetParametros() {
     status_estacionaria = OK;
     status_jockey = OK;
     status_principal = OK;
+    gsmOcupado = false;
+    shift[rl_alarme] = 0;
     tempo_limite_partida = 0;
     tempo_partida = 0;
     clearShiftREG();
@@ -31,23 +34,31 @@ void telaPrincipal() {
         case 1:
             sprintf(line4, " *falha eletrica");
             break;
+        case 2:
+            sprintf(line4, " *falha GSM");
+            break;
         case 3:
             sprintf(line4, " *falha val. ladrao");
+            shift[rl_alarme] = 1;
             break;
         case 4:
             sprintf(line4, " *falha B. jockey");
+            shift[rl_alarme] = 1;
             break;
         case 5:
             sprintf(line4, " *falha B. principal");
+            shift[rl_alarme] = 1;
             break;
         case 6:
             sprintf(line4, " *falha B. combustao");
+            shift[rl_alarme] = 1;
             break;
     }
 
     if (ocorrendoIncendio) {
         sprintf(line2, " ALERTA DE INCENDIO");
     }
+
     if (flagErroTransdutor) { // Se tiver leitura errada ou tirar o transdutor
         clearShiftREG();
         sprintf(&line3[1], "Erro no Transdutor");

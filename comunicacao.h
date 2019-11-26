@@ -17,9 +17,9 @@ void getSinalSIM800L() {
                 case 0:
                     limparBuffer();
                     printf("AT+CSQ\r\n");
-                    timerEtapaComunicacao = 10; // 10 segundos para esperar pela resposta do modulo gsm
+                    timerEtapaComunicacao = 5; // 5 segundos para esperar pela resposta do modulo gsm
                     etapaComunicacao = 1;
-                    telefoneSelecionado = 0; 
+                    telefoneSelecionado = 0;
                     break;
                 case 1:
                     if (!timerEtapaComunicacao) {
@@ -27,25 +27,37 @@ void getSinalSIM800L() {
                         delay(100);
                         if (aguardaBuffer("OK")) {
                             etapaComunicacao = 0;
+                            tentativasVerificarGSM = 0;
+                            
+                            if (codigoErro == 2) {
+                                codigoErro = 0;
+                            }
+                            
                         } else {
                             etapaComunicacao = 0;
                             writeChar(0x1A);
-                            intensidadeSinal = 'x'; // se o modulo nao responder exibe um x indicando erro no modulo.
+                            tentativasVerificarGSM++;
+                            
+                            if (tentativasVerificarGSM >= 3) {
+                                tentativasVerificarGSM = 0;
+                                intensidadeSinal = 'x'; // se o modulo nao responder exibe um x indicando erro no modulo.
+                                codigoErro = 2;
+                            }
                         }
                     }
                     if (aguardaBuffer("+CSQ: ")) {
                         int sinal = atoi(getSerial("+CSQ: ", ','));
-                        if (sinal < 10) {
+                        if (sinal < 8) {
                             intensidadeSinal = ' ';
-                        } else if (sinal >= 10 && sinal <= 14) {
+                        } else if (sinal >= 8 && sinal < 12) {
                             intensidadeSinal = ICONE_SINAL_FRACO;
-                        } else if (sinal >= 16 && sinal <= 19) {
+                        } else if (sinal >= 12 && sinal < 17) {
                             intensidadeSinal = ICONE_SINAL_MEDIO;
-                        } else if (sinal >= 20 && sinal <= 30) {
+                        } else if (sinal >= 17 && sinal <= 30) {
                             intensidadeSinal = ICONE_SINAL_BOM;
                         }
                         etapaComunicacao = 0;
-                        timerVerificarSinal = 6; // verificar sinal a cada 6 segundos.
+                        timerVerificarSinal = 5; // verificar sinal a cada 5 segundos.
                     }
                     break;
                 default:
@@ -123,7 +135,11 @@ void comunicarTeste() {
 }
 
 void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
-    if (timerReenvioSMS) return;
+    if (timerReenvioSMS) {
+        gsmOcupado = false;
+        return;
+    };
+    gsmOcupado = true;
 
     switch (etapaComunicacao) {
         case 0:
@@ -150,7 +166,6 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
             if (aguardaBuffer("OK")) {
                 limparBuffer();
                 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-                delay(120);
                 timerEtapaComunicacao = 8;
                 etapaComunicacao++;
             }
@@ -169,7 +184,6 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                     printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
                             _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
                 }
-                delay(150);
                 writeChar(0x1A);
                 timerEtapaComunicacao = 30;
                 etapaComunicacao++;
@@ -179,7 +193,7 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
             }
             break;
         case 4:
-            if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+            if (aguardaBuffer("ERROR") | aguardaBuffer("OK")) {
                 if (tipo == 2) {
                     if (telefoneSelecionado == 0) {
                         telefoneSelecionado = 1;
@@ -192,9 +206,9 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
                 } else {
                     etapaComunicacao++;
                 }
-                if (!timerEtapaComunicacao) {
-                    etapaComunicacao = 0;
-                }
+            }
+            if (!timerEtapaComunicacao) {
+                etapaComunicacao = 0;
             }
             break;
         case 5:
@@ -204,7 +218,7 @@ void enviaSMS(char tipo) { // 1 para disparo , 2 para teste de bombas
             etapaComunicacao++;
             break;
         case 6:
-            if (!timerEtapaComunicacao) {
+            if (aguardaBuffer("NO DIALTONE") || !timerEtapaComunicacao) {
                 limparBuffer();
                 printf("ATH0\r\n"); // desconecta chamada
                 delay(550);

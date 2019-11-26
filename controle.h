@@ -16,11 +16,14 @@ void acaoTesteBombas(void);
 void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-    if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) { // Se tiver erro na leitura do transdutor desliga as bombas somente se nao tiver incendio
+    if(executandoTeste){
+        return;
+    }
+    
+    if (pressao >= sp_pressao_rede && !ocorrendoIncendio) { // Se tiver erro na leitura do transdutor desliga as bombas somente se nao tiver incendio
         shift[rl_jockey] = 0;
         shift[rl_principal] = 0;
         partidaBombaEstacionaria(0); // desliga a bomba estacionaria
-        shift[rl_alarme] = 0;
         return;
     }
 
@@ -234,9 +237,9 @@ void acaoTesteBombas() {
             }
             break;
         case 9:
-            sprintf(line4, "Bomba Ligada...");
+            sprintf(line4, "Bomba %s", SINAL_ESTAC_LIGADO ? "Ligada...": "Religando...");
             partidaBombaEstacionaria(1); // Liga a bomba a combustao
-            if (!timerTesteBombas) {
+            if (!timerTesteBombas || status_estacionaria == ERRO) {
                 etapaTesteBombas = 10;
             }
             break;
@@ -246,7 +249,6 @@ void acaoTesteBombas() {
             clearShiftREG();
             etapaTesteBombas = 11;
             timerTesteBombas = 10;
-            executandoTeste = false;
             break;
         case 11:
             sprintf(&line1[2], "Teste Concluido!");
@@ -255,7 +257,8 @@ void acaoTesteBombas() {
             sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
             if (!timerTesteBombas) {
                 etapaTesteBombas = 12;
-                timerTesteBombas = 150;
+                timerTesteBombas = 120;
+                timerReenvioSMS = 0;
                 gsmOcupado = true;
             }
             break;

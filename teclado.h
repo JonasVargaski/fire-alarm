@@ -21,34 +21,30 @@ bool flag_b_ok, _b_ok = false;
 //Cnfigura os botoes, setar os tris.
 
 void readButtons() {
-    if (!PORTBbits.RB2) {
+    if (!PORTBbits.RB2) { 
         flag_b_esc = true;
-    }
-    if (PORTBbits.RB2 && flag_b_esc) {
+    } else if (PORTBbits.RB2 && flag_b_esc) {
         _b_esc = true;
         flag_b_esc = false;
     }
     //////////////////////////////////////////////
     if (!PORTBbits.RB4) {
         flag_b_menos = true;
-    }
-    if (PORTBbits.RB4 && flag_b_menos) {
+    } else if (PORTBbits.RB4 && flag_b_menos) {
         _b_menos = true;
         flag_b_menos = false;
     }
     //////////////////////////////////////////////////
     if (!PORTBbits.RB5) {
         flag_b_mais = true;
-    }
-    if (PORTBbits.RB5 && flag_b_mais) {
+    } else if (PORTBbits.RB5 && flag_b_mais) {
         _b_mais = true;
         flag_b_mais = false;
     }
     //////////////////////////////////////////////////
     if (!PORTBbits.RB3) {
         flag_b_ok = true;
-    }
-    if (PORTBbits.RB3 && flag_b_ok) {
+    } else if (PORTBbits.RB3 && flag_b_ok) {
         _b_ok = true;
         flag_b_ok = false;
     }
@@ -61,7 +57,7 @@ char btPress(char bt) {
                 return 1;
             }
             return false;
-        case b_mais: 
+        case b_mais:
             if (_b_mais) {
                 _b_mais = false;
                 return 1;

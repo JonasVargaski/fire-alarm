@@ -15,7 +15,7 @@ void timer() {
     timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
     
     if(!timerTrocarTextoLcd){
-        timerTrocarTextoLcd = 3;
+        timerTrocarTextoLcd = 2;
         flagTexto = !flagTexto;
     }
 

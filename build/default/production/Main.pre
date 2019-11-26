@@ -3337,6 +3337,7 @@ unsigned char line2[21];
 unsigned char line3[21];
 unsigned char line4[21];
 
+unsigned char tentativasVerificarGSM = 0;
 unsigned char intensidadeSinal = ' ';
 unsigned char telefoneSelecionado = 0;
 
@@ -3357,7 +3358,6 @@ unsigned bool flagErroTransdutor = 0;
 unsigned bool flagEstacionariaLigada = 0;
 unsigned bool habilitaTesteAutomatico = 0;
 unsigned char etapaTesteBombas = 0;
-
 
 unsigned int timerTesteBombas = 0;
 unsigned int horimetro = 0;
@@ -4008,7 +4008,7 @@ switch (etapaComunicacao) {
 case 0:
 limparBuffer();
 printf("AT+CSQ\r\n");
-timerEtapaComunicacao = 10;
+timerEtapaComunicacao = 5;
 etapaComunicacao = 1;
 telefoneSelecionado = 0;
 break;
@@ -4018,25 +4018,37 @@ printf("AT\r\n");
 delay(100);
 if (aguardaBuffer("OK")) {
 etapaComunicacao = 0;
+tentativasVerificarGSM = 0;
+
+if (codigoErro == 2) {
+codigoErro = 0;
+}
+
 } else {
 etapaComunicacao = 0;
 writeChar(0x1A);
+tentativasVerificarGSM++;
+
+if (tentativasVerificarGSM >= 3) {
+tentativasVerificarGSM = 0;
 intensidadeSinal = 'x';
+codigoErro = 2;
+}
 }
 }
 if (aguardaBuffer("+CSQ: ")) {
 int sinal = atoi(getSerial("+CSQ: ", ','));
-if (sinal < 10) {
+if (sinal < 8) {
 intensidadeSinal = ' ';
-} else if (sinal >= 10 && sinal <= 14) {
+} else if (sinal >= 8 && sinal < 12) {
 intensidadeSinal = 0x02;
-} else if (sinal >= 16 && sinal <= 19) {
+} else if (sinal >= 12 && sinal < 17) {
 intensidadeSinal = 0x03;
-} else if (sinal >= 20 && sinal <= 30) {
+} else if (sinal >= 17 && sinal <= 30) {
 intensidadeSinal = 0x04;
 }
 etapaComunicacao = 0;
-timerVerificarSinal = 6;
+timerVerificarSinal = 5;
 }
 break;
 default:
@@ -4082,7 +4094,7 @@ case 3:
 if (aguardaBuffer(">")) {
 limparBuffer();
 printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-_dia, _mes, _ano, _hor, _min, _sec, "Aug 25 2019");
+_dia, _mes, _ano, _hor, _min, _sec, "Nov 25 2019");
 delay(1000);
 writeChar(0x1A);
 etapaComunicacao++;
@@ -4114,7 +4126,11 @@ break;
 }
 
 void enviaSMS(char tipo) {
-if (timerReenvioSMS) return;
+if (timerReenvioSMS) {
+gsmOcupado = 0;
+return;
+};
+gsmOcupado = 1;
 
 switch (etapaComunicacao) {
 case 0:
@@ -4141,7 +4157,6 @@ case 2:
 if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-delay(120);
 timerEtapaComunicacao = 8;
 etapaComunicacao++;
 }
@@ -4160,7 +4175,6 @@ if (tipo == 2) {
 printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY: %s\r\nPRINCIPAL: %s\r\nCOMBUSTAO: %s\r\n",
 _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
 }
-delay(150);
 writeChar(0x1A);
 timerEtapaComunicacao = 30;
 etapaComunicacao++;
@@ -4170,7 +4184,7 @@ etapaComunicacao = 0;
 }
 break;
 case 4:
-if (aguardaBuffer("OK") || aguardaBuffer("ERROR")) {
+if (aguardaBuffer("ERROR") | aguardaBuffer("OK")) {
 if (tipo == 2) {
 if (telefoneSelecionado == 0) {
 telefoneSelecionado = 1;
@@ -4183,19 +4197,19 @@ menu_posi = 0;
 } else {
 etapaComunicacao++;
 }
+}
 if (!timerEtapaComunicacao) {
 etapaComunicacao = 0;
-}
 }
 break;
 case 5:
 limparBuffer();
 printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-timerEtapaComunicacao = 30;
+timerEtapaComunicacao = 35;
 etapaComunicacao++;
 break;
 case 6:
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer("NO DIALTONE") || !timerEtapaComunicacao) {
 limparBuffer();
 printf("ATH0\r\n");
 delay(550);
@@ -4204,7 +4218,7 @@ telefoneSelecionado = 1;
 } else {
 telefoneSelecionado = 0;
 gsmOcupado = 0;
-timerReenvioSMS = 2;
+timerReenvioSMS = 100;
 }
 etapaComunicacao = 0;
 }
@@ -4427,32 +4441,28 @@ bool flag_b_ok, _b_ok = 0;
 void readButtons() {
 if (!PORTBbits.RB2) {
 flag_b_esc = 1;
-}
-if (PORTBbits.RB2 && flag_b_esc) {
+} else if (PORTBbits.RB2 && flag_b_esc) {
 _b_esc = 1;
 flag_b_esc = 0;
 }
 
 if (!PORTBbits.RB4) {
 flag_b_menos = 1;
-}
-if (PORTBbits.RB4 && flag_b_menos) {
+} else if (PORTBbits.RB4 && flag_b_menos) {
 _b_menos = 1;
 flag_b_menos = 0;
 }
 
 if (!PORTBbits.RB5) {
 flag_b_mais = 1;
-}
-if (PORTBbits.RB5 && flag_b_mais) {
+} else if (PORTBbits.RB5 && flag_b_mais) {
 _b_mais = 1;
 flag_b_mais = 0;
 }
 
 if (!PORTBbits.RB3) {
 flag_b_ok = 1;
-}
-if (PORTBbits.RB3 && flag_b_ok) {
+} else if (PORTBbits.RB3 && flag_b_ok) {
 _b_ok = 1;
 flag_b_ok = 0;
 }
@@ -4492,11 +4502,14 @@ void acaoTesteBombas(void);
 void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) {
+if(executandoTeste){
+return;
+}
+
+if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
 shift[6] = 0;
 shift[5] = 0;
 partidaBombaEstacionaria(0);
-shift[1] = 0;
 return;
 }
 
@@ -4710,9 +4723,9 @@ status_estacionaria = 0;
 }
 break;
 case 9:
-sprintf(line4, "Bomba Ligada...");
+sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada...": "Religando...");
 partidaBombaEstacionaria(1);
-if (!timerTesteBombas) {
+if (!timerTesteBombas || status_estacionaria == 0) {
 etapaTesteBombas = 10;
 }
 break;
@@ -4722,7 +4735,6 @@ partidaBombaEstacionaria(2);
 clearShiftREG();
 etapaTesteBombas = 11;
 timerTesteBombas = 10;
-executandoTeste = 0;
 break;
 case 11:
 sprintf(&line1[2], "Teste Concluido!");
@@ -4731,7 +4743,8 @@ sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
 sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
 if (!timerTesteBombas) {
 etapaTesteBombas = 12;
-timerTesteBombas = 150;
+timerTesteBombas = 120;
+timerReenvioSMS = 0;
 gsmOcupado = 1;
 }
 break;
@@ -4760,7 +4773,7 @@ timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
 timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
 
 if(!timerTrocarTextoLcd){
-timerTrocarTextoLcd = 3;
+timerTrocarTextoLcd = 2;
 flagTexto = !flagTexto;
 }
 
@@ -5064,13 +5077,15 @@ line[i] = ' ';
 }
 }
 
-# 11 "tela_PRINCIPAL.h"
+# 12 "tela_PRINCIPAL.h"
 void resetParametros() {
 ocorrendoIncendio = 0;
 codigoErro = 0;
 status_estacionaria = 1;
 status_jockey = 1;
 status_principal = 1;
+gsmOcupado = 0;
+shift[1] = 0;
 tempo_limite_partida = 0;
 tempo_partida = 0;
 clearShiftREG();
@@ -5088,23 +5103,31 @@ switch (codigoErro) {
 case 1:
 sprintf(line4, " *falha eletrica");
 break;
+case 2:
+sprintf(line4, " *falha GSM");
+break;
 case 3:
 sprintf(line4, " *falha val. ladrao");
+shift[1] = 1;
 break;
 case 4:
 sprintf(line4, " *falha B. jockey");
+shift[1] = 1;
 break;
 case 5:
 sprintf(line4, " *falha B. principal");
+shift[1] = 1;
 break;
 case 6:
 sprintf(line4, " *falha B. combustao");
+shift[1] = 1;
 break;
 }
 
 if (ocorrendoIncendio) {
 sprintf(line2, " ALERTA DE INCENDIO");
 }
+
 if (flagErroTransdutor) {
 clearShiftREG();
 sprintf(&line3[1], "Erro no Transdutor");
@@ -5334,7 +5357,7 @@ void informacoes() {
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
 sprintf(line3, "   48 99906-5651");
-sprintf(line4, "versao - %s", "Aug 25 2019");
+sprintf(line4, "versao - %s", "Nov 25 2019");
 if (btPress(1)) {
 menu_posi = _menu_posi;
 }
@@ -5442,7 +5465,7 @@ sprintf(line2, "Max. PARTIDA:");
 sprintf(&line2[16], "%3ds", tempo_limite_estacionaria);
 sprintf(line3, "Max. TESTE:");
 sprintf(&line3[16], "%3ds", tempo_limite_teste_estacionaria);
-sprintf(line4, "#horimetro:%5d min", horimetro);
+sprintf(line4, "horimetro:%5d min", horimetro);
 
 if (btPress(4)) {
 option_posi++;
@@ -5613,7 +5636,7 @@ lerParametros();
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
 sprintf(line3, "Versao Soft.:");
-sprintf(&line4[9], "%s", "Aug 25 2019");
+sprintf(&line4[9], "%s", "Nov 25 2019");
 atualizarLCD(line1, line2, line3, line4);
 delay(2500);
 

@@ -46,7 +46,7 @@ int DECtoHEX(int hex) {
 //Converte um numero float em array de char com precisao 2 casas.
 
 char* intToFloatStr(unsigned char valor) {
-    int pr = valor >= 99 ? 99 : valor;
+    int pr = valor >= 99 ? 0 : valor;
     unsigned char conv[4] = {' ', ' ', ' ', ' '};
     conv[0] = (char) ((pr / 10) + 48);
     conv[1] = (char) '.';

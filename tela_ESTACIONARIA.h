@@ -11,7 +11,7 @@ void configurarEstacionaria() {
     sprintf(&line2[16], "%3ds", tempo_limite_estacionaria); // tempo maximo em que a bomba tenta ligar antes de dar erro.
     sprintf(line3, "Max. TESTE:"); 
     sprintf(&line3[16], "%3ds", tempo_limite_teste_estacionaria); // tempo em que a bomba permanece ligada durante os testes
-    sprintf(line4, "#horimetro:%5d min", horimetro);
+    sprintf(line4, "horimetro:%5d min", horimetro);
 
     if (btPress(b_ok)) {
         option_posi++;

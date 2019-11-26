@@ -8,8 +8,8 @@
 #define ICONE_SINAL_BOM 0x04
 #define ICONE_TOMADA 0x05
 
-#define INTERVALO_ENVIO_SMS 2 // em minutos
-#define TEMPO_DURACAO_CHAMADA 30 // em segundos, tempo para realizar a chamada
+#define INTERVALO_ENVIO_SMS 100 // em segundos
+#define TEMPO_DURACAO_CHAMADA 35 // em segundos, tempo para realizar a chamada
 #define ATRASO_ARRANQUE_COMBUSTAO 700 // em ms, tempo em que o motor de arranque continua após ligar a bomba 
 
 
@@ -25,6 +25,7 @@ unsigned char line2[21]; // linhas do lcd
 unsigned char line3[21]; // linhas do lcd
 unsigned char line4[21]; // linhas do lcd
 
+unsigned char tentativasVerificarGSM = 0;
 unsigned char intensidadeSinal = ' ';
 unsigned char telefoneSelecionado = 0;
 
@@ -45,7 +46,6 @@ unsigned bool flagErroTransdutor = false;
 unsigned bool flagEstacionariaLigada = false;
 unsigned bool habilitaTesteAutomatico = 0;
 unsigned char etapaTesteBombas = 0;
-
 
 unsigned int timerTesteBombas = 0;
 unsigned int horimetro = 0;

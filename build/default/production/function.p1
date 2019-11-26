@@ -2519,8 +2519,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "49
 [v _pr `i ~T0 @X0 1 a ]
-[; ;function.c: 49: int pr = valor >= 99 ? 99 : valor;
-[e = _pr ? >= -> _valor `i -> 99 `i : -> 99 `i -> _valor `i ]
+[; ;function.c: 49: int pr = valor >= 99 ? 0 : valor;
+[e = _pr ? >= -> _valor `i -> 99 `i : -> 0 `i -> _valor `i ]
 [v F2544 `uc ~T0 @X0 -> 4 `i s ]
 [i F2544
 :U ..
