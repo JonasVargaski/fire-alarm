@@ -27,8 +27,8 @@ void acaoBombas() {
         return;
     }
 
-    shift[rl_sol_despressurizacao] = 0; // fecha solenoide ladrão
-    if (pressao <= sp_jockey) { // se abaixar a pressao até o setpoint da jockey liga a jockey
+    shift[rl_sol_despressurizacao] = 0; // fecha solenoide ladrï¿½o
+    if (pressao <= sp_jockey) { // se abaixar a pressao atï¿½ o setpoint da jockey liga a jockey
         shift[rl_jockey] = 1;
     } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
         shift[rl_jockey] = 0;
@@ -58,7 +58,7 @@ void acaoBombas() {
     }
 }
 
-void partidaBombaEstacionaria(unsigned char acao) { // ação da bomba : 1 para ligar  / 2 : para desligar
+void partidaBombaEstacionaria(unsigned char acao) { // aï¿½ï¿½o da bomba : 1 para ligar  / 2 : para desligar
     if (acao == 1 && !flagEstacionariaLigada) {
         if (_sec_partida != _sec) {
             _sec_partida = _sec;
@@ -67,7 +67,7 @@ void partidaBombaEstacionaria(unsigned char acao) { // ação da bomba : 1 para li
             if (SINAL_ESTAC_LIGADO) { // Verifica se a bomba a combustao ligou
                 delay(ATRASO_ARRANQUE_COMBUSTAO); // atraso para manter o motor de arranque um poco mais tempo ligado
                 flagEstacionariaLigada = true;
-                tempo_partida = 0; // zera tempo para caso nao ligar, começe a contar novamente.
+                tempo_partida = 0; // zera tempo para caso nao ligar, comeï¿½e a contar novamente.
                 shift[rl_motor_arranque] = 0;
             }
         }
@@ -82,7 +82,7 @@ void partidaBombaEstacionaria(unsigned char acao) { // ação da bomba : 1 para li
             tempo_partida = 0;
         }
     }
-    if (tempo_limite_partida > tempo_limite_estacionaria) { // verifica se o tmepo tentando ligar é maior que o tempo limite ajustado.
+    if (tempo_limite_partida > tempo_limite_estacionaria) { // verifica se o tmepo tentando ligar ï¿½ maior que o tempo limite ajustado.
         tempo_limite_partida = 0;
         status_estacionaria = ERRO;
         flagEstacionariaLigada = false;
@@ -109,13 +109,13 @@ void partidaBombaEstacionaria(unsigned char acao) { // ação da bomba : 1 para li
             shift[rl_motor_arranque] = 0;
             tempo_limite_partida = 0;
         } else {
-            flagEstacionariaLigada = false; // Se a  bomba nao ligou, ou desligou no periodo, tentar ligar novamente, até estourar o tempo maximo de partida
+            flagEstacionariaLigada = false; // Se a  bomba nao ligou, ou desligou no periodo, tentar ligar novamente, atï¿½ estourar o tempo maximo de partida
         }
     }
 }
 
 void verificarIntervaloTesteBombas() {
-    if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) { // Se ajustado intervalo como 0 entao desativa a funçao de teste automatico
+    if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) { // Se ajustado intervalo como 0 entao desativa a funï¿½ao de teste automatico
         if (_hor == horario_de_teste) {
             dias_restante_teste = 0;
             writeEEPROM_ext(10, dias_restante_teste);
@@ -145,7 +145,7 @@ void acaoTesteBombas() {
         menu_posi = _menu_posi;
         char i = 0;
         for (i = 0; i < 8; i++) {
-            shift[i] = 0; // desliga todos os relés
+            shift[i] = 0; // desliga todos os relï¿½s
         }
     }
 
@@ -219,7 +219,7 @@ void acaoTesteBombas() {
             if (pressao <= (sp_pressao_rede - 10)) {
                 shift[rl_sol_despressurizacao] = 0;
                 etapaTesteBombas = 8;
-                timerTesteBombas = tempo_limite_estacionaria; // pega tempos das configuraçoes;
+                timerTesteBombas = tempo_limite_estacionaria; // pega tempos das configuraï¿½oes;
             }
             break;
         case 8:
