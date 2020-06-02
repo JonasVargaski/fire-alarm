@@ -27,8 +27,6 @@
 #include "tela_ESTACIONARIA.h"
 #include "tela_CONFIG_PRESSAO.h"
 
-#include "tela_TESTE.h"
-
 void interrupt TIMER() {
     if (TMR0IF) { //TIMER 0 OVERFLOW 100ms; Interrupção;
         TMR0IF = 0x00;
@@ -43,7 +41,7 @@ void interrupt TIMER() {
 
         lerTransdutor();
         readButtons();
-        
+
         if (base_sec > 9) { // Base de tempo de 1 segundo
             base_sec = 0;
             blinkk = ~blinkk; // efeito de piscar lcd
@@ -100,7 +98,6 @@ void main() {
         switch (menu_posi) {
             case 0:
                 telaPrincipal();
-                //                telaTeste();
                 break;
             case 1: // 1 tela do menu
                 sprintf(&line1[1], "DATA/HORA");
@@ -235,7 +232,15 @@ void main() {
             executandoTeste = false;
             shift[rl_sol_despressurizacao] = 0; // Garante que a solenoide ladrão nao seja ativada a nao ser que estaja na tela de teste
         }
-        atualizarLCD(line1, line2, line3, line4);
+        
+        if(flagMudancaEstadoSaidas){
+            timerAtualizacaoLCD = 2; // 2 segundos após mudança de estados das saidas para voltar a atualizar o display;
+            flagMudancaEstadoSaidas = false;
+        }
+        
+        if (timerAtualizacaoLCD == 0) { // aguarda tempo após bater as contatoras para nao causar ruido
+            atualizarLCD(&line1, &line2, &line3, &line4);
+        }
     }
 }
 

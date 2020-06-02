@@ -11,6 +11,7 @@
 #define INTERVALO_ENVIO_SMS 100 // em segundos
 #define TEMPO_DURACAO_CHAMADA 35 // em segundos, tempo para realizar a chamada
 #define ATRASO_ARRANQUE_COMBUSTAO 700 // em ms, tempo em que o motor de arranque continua após ligar a bomba 
+#define INTERVALO_LIGACAO_BOMBAS 5 // em s, tempo em que liga uma bomba ou outra
 
 
 #define ERRO 0
@@ -33,6 +34,8 @@ unsigned char timerVerificarSinal = 5;
 unsigned char timerReenvioSMS = 0;
 unsigned char timerEtapaComunicacao = 0;
 unsigned char timerTrocarTextoLcd = 0;
+unsigned char timerIntervaloLigarBomba = 0;
+unsigned char timerAtualizacaoLCD = 1;
 unsigned bool flagTexto = false;
 
 unsigned int etapaComunicacao = 0;
@@ -42,6 +45,7 @@ unsigned char codigoErro = 0;
 unsigned bool ocorrendoIncendio = false;
 unsigned bool executandoTeste = false;
 unsigned bool flagErroTransdutor = false;
+unsigned bool flagMudancaEstadoSaidas = false;
 
 unsigned bool flagEstacionariaLigada = false;
 unsigned bool habilitaTesteAutomatico = 0;

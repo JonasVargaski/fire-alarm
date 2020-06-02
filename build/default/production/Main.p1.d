@@ -9,7 +9,6 @@ tela_RELOGIO.h  \
 tela_PRINCIPAL.h  \
 ds1307.c  \
 tela_ESTACIONARIA.h  \
-tela_TESTE.h  \
 function.h  \
 shift595.h  \
 lcd.h  \

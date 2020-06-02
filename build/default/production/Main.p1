@@ -2839,133 +2839,151 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 233 ]
 }
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"23 variaveisGlobais.h
+"24 variaveisGlobais.h
 [v _line1 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 23: unsigned char line1[21];
-"24
-[v _line2 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 24: unsigned char line2[21];
+[; ;variaveisGlobais.h: 24: unsigned char line1[21];
 "25
-[v _line3 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 25: unsigned char line3[21];
+[v _line2 `uc ~T0 @X0 -> 21 `i e ]
+[; ;variaveisGlobais.h: 25: unsigned char line2[21];
 "26
+[v _line3 `uc ~T0 @X0 -> 21 `i e ]
+[; ;variaveisGlobais.h: 26: unsigned char line3[21];
+"27
 [v _line4 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 26: unsigned char line4[21];
-"28
+[; ;variaveisGlobais.h: 27: unsigned char line4[21];
+"29
 [v _tentativasVerificarGSM `uc ~T0 @X0 1 e ]
 [i _tentativasVerificarGSM
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 28: unsigned char tentativasVerificarGSM = 0;
-"29
+[; ;variaveisGlobais.h: 29: unsigned char tentativasVerificarGSM = 0;
+"30
 [v _intensidadeSinal `uc ~T0 @X0 1 e ]
 [i _intensidadeSinal
 -> -> 32 `ui `uc
 ]
-[; ;variaveisGlobais.h: 29: unsigned char intensidadeSinal = ' ';
-"30
+[; ;variaveisGlobais.h: 30: unsigned char intensidadeSinal = ' ';
+"31
 [v _telefoneSelecionado `uc ~T0 @X0 1 e ]
 [i _telefoneSelecionado
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 30: unsigned char telefoneSelecionado = 0;
-"32
+[; ;variaveisGlobais.h: 31: unsigned char telefoneSelecionado = 0;
+"33
 [v _timerVerificarSinal `uc ~T0 @X0 1 e ]
 [i _timerVerificarSinal
 -> -> 5 `i `uc
 ]
-[; ;variaveisGlobais.h: 32: unsigned char timerVerificarSinal = 5;
-"33
+[; ;variaveisGlobais.h: 33: unsigned char timerVerificarSinal = 5;
+"34
 [v _timerReenvioSMS `uc ~T0 @X0 1 e ]
 [i _timerReenvioSMS
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 33: unsigned char timerReenvioSMS = 0;
-"34
+[; ;variaveisGlobais.h: 34: unsigned char timerReenvioSMS = 0;
+"35
 [v _timerEtapaComunicacao `uc ~T0 @X0 1 e ]
 [i _timerEtapaComunicacao
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 34: unsigned char timerEtapaComunicacao = 0;
-"35
+[; ;variaveisGlobais.h: 35: unsigned char timerEtapaComunicacao = 0;
+"36
 [v _timerTrocarTextoLcd `uc ~T0 @X0 1 e ]
 [i _timerTrocarTextoLcd
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 35: unsigned char timerTrocarTextoLcd = 0;
-"36
+[; ;variaveisGlobais.h: 36: unsigned char timerTrocarTextoLcd = 0;
+"37
+[v _timerIntervaloLigarBomba `uc ~T0 @X0 1 e ]
+[i _timerIntervaloLigarBomba
+-> -> 0 `i `uc
+]
+[; ;variaveisGlobais.h: 37: unsigned char timerIntervaloLigarBomba = 0;
+"38
+[v _timerAtualizacaoLCD `uc ~T0 @X0 1 e ]
+[i _timerAtualizacaoLCD
+-> -> 1 `i `uc
+]
+[; ;variaveisGlobais.h: 38: unsigned char timerAtualizacaoLCD = 1;
+"39
 [v _flagTexto `uc ~T0 @X0 1 e ]
 [i _flagTexto
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 36: unsigned bool flagTexto = 0;
-"38
+[; ;variaveisGlobais.h: 39: unsigned bool flagTexto = 0;
+"41
 [v _etapaComunicacao `ui ~T0 @X0 1 e ]
 [i _etapaComunicacao
 -> -> 0 `i `ui
 ]
-[; ;variaveisGlobais.h: 38: unsigned int etapaComunicacao = 0;
-"39
+[; ;variaveisGlobais.h: 41: unsigned int etapaComunicacao = 0;
+"42
 [v _gsmOcupado `uc ~T0 @X0 1 e ]
 [i _gsmOcupado
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 39: unsigned bool gsmOcupado = 0;
-"41
+[; ;variaveisGlobais.h: 42: unsigned bool gsmOcupado = 0;
+"44
 [v _codigoErro `uc ~T0 @X0 1 e ]
 [i _codigoErro
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 41: unsigned char codigoErro = 0;
-"42
+[; ;variaveisGlobais.h: 44: unsigned char codigoErro = 0;
+"45
 [v _ocorrendoIncendio `uc ~T0 @X0 1 e ]
 [i _ocorrendoIncendio
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 42: unsigned bool ocorrendoIncendio = 0;
-"43
+[; ;variaveisGlobais.h: 45: unsigned bool ocorrendoIncendio = 0;
+"46
 [v _executandoTeste `uc ~T0 @X0 1 e ]
 [i _executandoTeste
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 43: unsigned bool executandoTeste = 0;
-"44
+[; ;variaveisGlobais.h: 46: unsigned bool executandoTeste = 0;
+"47
 [v _flagErroTransdutor `uc ~T0 @X0 1 e ]
 [i _flagErroTransdutor
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 44: unsigned bool flagErroTransdutor = 0;
-"46
+[; ;variaveisGlobais.h: 47: unsigned bool flagErroTransdutor = 0;
+"48
+[v _flagMudancaEstadoSaidas `uc ~T0 @X0 1 e ]
+[i _flagMudancaEstadoSaidas
+-> -> 0 `i `uc
+]
+[; ;variaveisGlobais.h: 48: unsigned bool flagMudancaEstadoSaidas = 0;
+"50
 [v _flagEstacionariaLigada `uc ~T0 @X0 1 e ]
 [i _flagEstacionariaLigada
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 46: unsigned bool flagEstacionariaLigada = 0;
-"47
+[; ;variaveisGlobais.h: 50: unsigned bool flagEstacionariaLigada = 0;
+"51
 [v _habilitaTesteAutomatico `uc ~T0 @X0 1 e ]
 [i _habilitaTesteAutomatico
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 47: unsigned bool habilitaTesteAutomatico = 0;
-"48
+[; ;variaveisGlobais.h: 51: unsigned bool habilitaTesteAutomatico = 0;
+"52
 [v _etapaTesteBombas `uc ~T0 @X0 1 e ]
 [i _etapaTesteBombas
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 48: unsigned char etapaTesteBombas = 0;
-"50
+[; ;variaveisGlobais.h: 52: unsigned char etapaTesteBombas = 0;
+"54
 [v _timerTesteBombas `ui ~T0 @X0 1 e ]
 [i _timerTesteBombas
 -> -> 0 `i `ui
 ]
-[; ;variaveisGlobais.h: 50: unsigned int timerTesteBombas = 0;
-"51
+[; ;variaveisGlobais.h: 54: unsigned int timerTesteBombas = 0;
+"55
 [v _horimetro `ui ~T0 @X0 1 e ]
 [i _horimetro
 -> -> 0 `i `ui
 ]
-[; ;variaveisGlobais.h: 51: unsigned int horimetro = 0;
-"54
+[; ;variaveisGlobais.h: 55: unsigned int horimetro = 0;
+"58
 [v _base_sec `uc ~T0 @X0 1 e ]
 [i _base_sec
 -> -> 0 `i `uc
@@ -3002,8 +3020,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i __sec_aux
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 54: unsigned char base_sec = 0, _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
-"55
+[; ;variaveisGlobais.h: 58: unsigned char base_sec = 0, _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
+"59
 [v _intervalo_teste_dia `uc ~T0 @X0 1 e ]
 [i _intervalo_teste_dia
 -> -> 0 `i `uc
@@ -3016,26 +3034,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _horario_de_teste
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 55: unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
-"56
+[; ;variaveisGlobais.h: 59: unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
+"60
 [v _pressao `i ~T0 @X0 1 e ]
 [i _pressao
 -> 98 `i
 ]
-[; ;variaveisGlobais.h: 56: int pressao = 98;
-"57
+[; ;variaveisGlobais.h: 60: int pressao = 98;
+"61
 [v _qtd_leitura `uc ~T0 @X0 1 e ]
 [i _qtd_leitura
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 57: unsigned char qtd_leitura = 0;
-"58
+[; ;variaveisGlobais.h: 61: unsigned char qtd_leitura = 0;
+"62
 [v __tensao `f ~T0 @X0 1 e ]
 [i __tensao
 -> -> 0 `i `f
 ]
-[; ;variaveisGlobais.h: 58: float _tensao = 0;
-"59
+[; ;variaveisGlobais.h: 62: float _tensao = 0;
+"63
 [v _status_jockey `uc ~T0 @X0 1 e ]
 [i _status_jockey
 -> -> 1 `i `uc
@@ -3048,8 +3066,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _status_estacionaria
 -> -> 1 `i `uc
 ]
-[; ;variaveisGlobais.h: 59: unsigned bool status_jockey = 1, status_principal = 1, status_estacionaria = 1;
-"60
+[; ;variaveisGlobais.h: 63: unsigned bool status_jockey = 1, status_principal = 1, status_estacionaria = 1;
+"64
 [v _tempo_limite_estacionaria `uc ~T0 @X0 1 e ]
 [i _tempo_limite_estacionaria
 -> -> 0 `i `uc
@@ -3066,8 +3084,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _tempo_limite_teste_estacionaria
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 60: unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
-"62
+[; ;variaveisGlobais.h: 64: unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
+"66
 [v _sp_pressao_rede `uc ~T0 @X0 1 e ]
 [i _sp_pressao_rede
 -> -> 0 `i `uc
@@ -3084,8 +3102,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _sp_estacionaria
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 62: unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
-"64
+[; ;variaveisGlobais.h: 66: unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
+"68
 [v _option_posi `uc ~T0 @X0 1 e ]
 [i _option_posi
 -> -> 0 `i `uc
@@ -3106,8 +3124,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _tela_menu_posi
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 64: unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
-"65
+[; ;variaveisGlobais.h: 68: unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
+"69
 [v _tel_posi `uc ~T0 @X0 1 e ]
 [i _tel_posi
 -> -> 0 `i `uc
@@ -3116,8 +3134,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _ajust_tel
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 65: unsigned char tel_posi = 0, ajust_tel = 0;
-"66
+[; ;variaveisGlobais.h: 69: unsigned char tel_posi = 0, ajust_tel = 0;
+"70
 [v _ajst_rtc `uc ~T0 @X0 1 e ]
 [i _ajst_rtc
 -> -> 0 `i `uc
@@ -3126,23 +3144,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _blinkk
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 66: unsigned bool ajst_rtc = 0, blinkk = 0;
-"68
+[; ;variaveisGlobais.h: 70: unsigned bool ajst_rtc = 0, blinkk = 0;
+"72
 [v _tel1 `uc ~T0 @X0 -> 12 `i e ]
 [i _tel1
 :U ..
 -> -> 0 `ui `uc
 ..
 ]
-[; ;variaveisGlobais.h: 68: char tel1[12] = {'\0'};
-"69
+[; ;variaveisGlobais.h: 72: char tel1[12] = {'\0'};
+"73
 [v _tel2 `uc ~T0 @X0 -> 12 `i e ]
 [i _tel2
 :U ..
 -> -> 0 `ui `uc
 ..
 ]
-[; ;variaveisGlobais.h: 69: char tel2[12] = {'\0'};
+[; ;variaveisGlobais.h: 73: char tel2[12] = {'\0'};
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3210,121 +3228,127 @@ Version 3.2 HI-TECH Software Intermediate Code
 "14
 [e :UE 235 ]
 }
-"7 transdutor.h
+"8 transdutor.h
 [v _lerTransdutor `(v ~T0 @X0 1 ef ]
 {
-[; ;transdutor.h: 7: void lerTransdutor() {
+[; ;transdutor.h: 8: void lerTransdutor() {
 [e :U _lerTransdutor ]
 [f ]
-"8
-[v _i `uc ~T0 @X0 1 a ]
-[; ;transdutor.h: 8: char i = 0;
-[e = _i -> -> 0 `i `uc ]
 "9
+[v _i `uc ~T0 @X0 1 a ]
+[; ;transdutor.h: 9: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+"10
 [v _tensao `f ~T0 @X0 1 a ]
-[; ;transdutor.h: 9: float tensao = 0, _pressao = 0;
+[; ;transdutor.h: 10: float tensao = 0, _pressao = 0;
 [e = _tensao -> -> 0 `i `f ]
 [v __pressao `f ~T0 @X0 1 a ]
 [e = __pressao -> -> 0 `i `f ]
-[; ;transdutor.h: 10: for (i = 0; i < 9; i++) {
-"10
+[; ;transdutor.h: 11: for (i = 0; i < 9; i++) {
+"11
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 9 `i 240  ]
 [e $U 241  ]
 [e :U 240 ]
 {
-[; ;transdutor.h: 11: tensao += readADC()*0.004887586;
-"11
-[e =+ _tensao -> * -> ( _readADC ..  `d .0.004887586 `f ]
+[; ;transdutor.h: 12: tensao += readADC()*0.004887586;
 "12
+[e =+ _tensao -> * -> ( _readADC ..  `d .0.004887586 `f ]
+"13
 }
-"10
+"11
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 9 `i 240  ]
 [e :U 241 ]
-"12
-}
-[; ;transdutor.h: 12: }
-[; ;transdutor.h: 13: tensao = tensao / 10;
 "13
-[e = _tensao / _tensao -> -> 10 `i `f ]
-[; ;transdutor.h: 14: _tensao += (float) tensao;
-"14
-[e =+ __tensao _tensao ]
-[; ;transdutor.h: 15: qtd_leitura++;
-"15
-[e ++ _qtd_leitura -> -> 1 `i `uc ]
-[; ;transdutor.h: 17: if (tensao < 0.4) {
-"17
-[e $ ! < -> _tensao `d .0.4 243  ]
-{
-[; ;transdutor.h: 18: pressao = -10;
-"18
-[e = _pressao -U -> 10 `i ]
-[; ;transdutor.h: 19: flagErroTransdutor = 1;
-"19
-[e = _flagErroTransdutor -> -> 1 `i `uc ]
-"20
 }
-[; ;transdutor.h: 20: } else if (tensao > 4.5) {
+[; ;transdutor.h: 13: }
+[; ;transdutor.h: 14: tensao = tensao / 10;
+"14
+[e = _tensao / _tensao -> -> 10 `i `f ]
+[; ;transdutor.h: 15: _tensao += (float) tensao;
+"15
+[e =+ __tensao _tensao ]
+[; ;transdutor.h: 16: qtd_leitura++;
+"16
+[e ++ _qtd_leitura -> -> 1 `i `uc ]
+[; ;transdutor.h: 18: if (tensao < 0.3) {
+"18
+[e $ ! < -> _tensao `d .0.3 243  ]
+{
+[; ;transdutor.h: 19: pressao = -10;
+"19
+[e = _pressao -U -> 10 `i ]
+[; ;transdutor.h: 20: flagErroTransdutor = 1;
+"20
+[e = _flagErroTransdutor -> -> 1 `i `uc ]
+[; ;transdutor.h: 21: timerIntervaloLigarBomba = 5;
+"21
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+"22
+}
+[; ;transdutor.h: 22: } else if (tensao > 4.5) {
 [e $U 244  ]
 [e :U 243 ]
 [e $ ! > -> _tensao `d .4.5 245  ]
 {
-[; ;transdutor.h: 21: pressao = 99;
-"21
-[e = _pressao -> 99 `i ]
-[; ;transdutor.h: 22: flagErroTransdutor = 1;
-"22
-[e = _flagErroTransdutor -> -> 1 `i `uc ]
+[; ;transdutor.h: 23: flagErroTransdutor = 1;
 "23
+[e = _flagErroTransdutor -> -> 1 `i `uc ]
+[; ;transdutor.h: 24: pressao = 99;
+"24
+[e = _pressao -> 99 `i ]
+[; ;transdutor.h: 25: timerIntervaloLigarBomba = 5;
+"25
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+"26
 }
-[; ;transdutor.h: 23: } else if (qtd_leitura >= 6) {
+[; ;transdutor.h: 26: } else if (qtd_leitura >= 6) {
 [e $U 246  ]
 [e :U 245 ]
 [e $ ! >= -> _qtd_leitura `i -> 6 `i 247  ]
 {
-[; ;transdutor.h: 24: flagErroTransdutor = 0;
-"24
-[e = _flagErroTransdutor -> -> 0 `i `uc ]
-[; ;transdutor.h: 25: qtd_leitura = 0;
-"25
-[e = _qtd_leitura -> -> 0 `i `uc ]
-[; ;transdutor.h: 26: tensao = (float) (_tensao / 6);
-"26
-[e = _tensao / __tensao -> -> 6 `i `f ]
-[; ;transdutor.h: 27: _tensao = 0;
+[; ;transdutor.h: 27: flagErroTransdutor = 0;
 "27
-[e = __tensao -> -> 0 `i `f ]
-[; ;transdutor.h: 28: _pressao = tensao - 0.5;
+[e = _flagErroTransdutor -> -> 0 `i `uc ]
+[; ;transdutor.h: 28: qtd_leitura = 0;
 "28
-[e = __pressao -> - -> _tensao `d .0.5 `f ]
-[; ;transdutor.h: 29: _pressao = _pressao * 10 / 4;
+[e = _qtd_leitura -> -> 0 `i `uc ]
+[; ;transdutor.h: 29: tensao = (float) (_tensao / 6);
 "29
-[e = __pressao / * __pressao -> -> 10 `i `f -> -> 4 `i `f ]
-[; ;transdutor.h: 30: if (_pressao < 0) {
+[e = _tensao / __tensao -> -> 6 `i `f ]
+[; ;transdutor.h: 30: _tensao = 0;
 "30
+[e = __tensao -> -> 0 `i `f ]
+[; ;transdutor.h: 31: _pressao = tensao - 0.5;
+"31
+[e = __pressao -> - -> _tensao `d .0.5 `f ]
+[; ;transdutor.h: 32: _pressao = _pressao * 10 / 4;
+"32
+[e = __pressao / * __pressao -> -> 10 `i `f -> -> 4 `i `f ]
+[; ;transdutor.h: 33: if (_pressao < 0) {
+"33
 [e $ ! < __pressao -> -> 0 `i `f 248  ]
 {
-[; ;transdutor.h: 31: _pressao = 0;
-"31
+[; ;transdutor.h: 34: _pressao = 0;
+"34
 [e = __pressao -> -> 0 `i `f ]
-"32
+"35
 }
 [e :U 248 ]
-[; ;transdutor.h: 32: }
-[; ;transdutor.h: 33: pressao = _pressao * 10;
-"33
+[; ;transdutor.h: 35: }
+[; ;transdutor.h: 36: pressao = _pressao * 10;
+"36
 [e = _pressao -> * __pressao -> -> 10 `i `f `i ]
-"34
+"37
 }
 [e :U 247 ]
-"35
+"38
 [e :U 246 ]
 [e :U 244 ]
-[; ;transdutor.h: 34: }
-[; ;transdutor.h: 35: }
+[; ;transdutor.h: 37: }
+[; ;transdutor.h: 38: }
 [e :UE 239 ]
 }
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
@@ -4156,7 +4180,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "104
 [e ( _limparBuffer ..  ]
 [; ;comunicacao.h: 105: printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-[; ;comunicacao.h: 106: _dia, _mes, _ano, _hor, _min, _sec, "Nov 25 2019");
+[; ;comunicacao.h: 106: _dia, _mes, _ano, _hor, _min, _sec, "Jun 01 2020");
 "106
 [e ( _printf , , , , , , , (. :s 14C -> __dia `i -> __mes `i -> __ano `i -> __hor `i -> __min `i -> __sec `i :s 15C ]
 [; ;comunicacao.h: 107: delay(1000);
@@ -4846,84 +4870,122 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;shift595.h: 28: unsigned char shift[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-"30
+"29
+[v __ultimoEstado `uc ~T0 @X0 1 e ]
+[i __ultimoEstado
+-> -> 0 `i `uc
+]
+[; ;shift595.h: 29: unsigned char _ultimoEstado = 0;
+"31
 [v _clearShiftREG `(v ~T0 @X0 1 ef ]
 {
-[; ;shift595.h: 30: void clearShiftREG() {
+[; ;shift595.h: 31: void clearShiftREG() {
 [e :U _clearShiftREG ]
 [f ]
-"31
-[v _i `uc ~T0 @X0 1 a ]
-[; ;shift595.h: 31: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;shift595.h: 32: for (i = 0; i < 8; i++) {
 "32
+[v _i `uc ~T0 @X0 1 a ]
+[; ;shift595.h: 32: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;shift595.h: 33: for (i = 0; i < 8; i++) {
+"33
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 364  ]
 [e $U 365  ]
 [e :U 364 ]
 {
-[; ;shift595.h: 33: shift[i] = 0;
-"33
-[e = *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;shift595.h: 34: shift[i] = 0;
 "34
+[e = *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+"35
 }
-"32
+"33
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 364  ]
 [e :U 365 ]
-"34
-}
-[; ;shift595.h: 34: }
-[; ;shift595.h: 35: }
 "35
+}
+[; ;shift595.h: 35: }
+[; ;shift595.h: 36: }
+"36
 [e :UE 363 ]
 }
-"37
+"38
 [v _setShiftREG `(v ~T0 @X0 1 ef ]
 {
-[; ;shift595.h: 37: void setShiftREG() {
+[; ;shift595.h: 38: void setShiftREG() {
 [e :U _setShiftREG ]
 [f ]
-"38
-[v _i `uc ~T0 @X0 1 a ]
-[; ;shift595.h: 38: unsigned char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;shift595.h: 39: PORTEbits.RE1 = 0;
 "39
-[e = . . _PORTEbits 0 1 -> -> 0 `i `uc ]
-[; ;shift595.h: 40: for (i = 0; i < 8; i++) {
+[v _estado `uc ~T0 @X0 1 a ]
+[; ;shift595.h: 39: unsigned char estado = 0;
+[e = _estado -> -> 0 `i `uc ]
 "40
+[v _i `uc ~T0 @X0 1 a ]
+[; ;shift595.h: 40: unsigned char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;shift595.h: 41: PORTEbits.RE1 = 0;
+"41
+[e = . . _PORTEbits 0 1 -> -> 0 `i `uc ]
+[; ;shift595.h: 42: for (i = 0; i < 8; i++) {
+"42
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 368  ]
 [e $U 369  ]
 [e :U 368 ]
 {
-[; ;shift595.h: 41: PORTEbits.RE0 = 0;
-"41
-[e = . . _PORTEbits 0 0 -> -> 0 `i `uc ]
-[; ;shift595.h: 42: PORTEbits.RE2 = shift[i];
-"42
-[e = . . _PORTEbits 0 2 *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux ]
-[; ;shift595.h: 43: PORTEbits.RE0 = 1;
+[; ;shift595.h: 43: if(shift[i]){
 "43
-[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
+[e $ ! != -> *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux `i -> -> -> 0 `i `uc `i 371  ]
+{
+[; ;shift595.h: 44: estado += i;
 "44
+[e =+ _estado _i ]
+"45
 }
-"40
+[e :U 371 ]
+[; ;shift595.h: 45: }
+[; ;shift595.h: 47: PORTEbits.RE0 = 0;
+"47
+[e = . . _PORTEbits 0 0 -> -> 0 `i `uc ]
+[; ;shift595.h: 48: PORTEbits.RE2 = shift[i];
+"48
+[e = . . _PORTEbits 0 2 *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux ]
+[; ;shift595.h: 49: _delay((unsigned long)((3)*(8000000/4000.0)));
+"49
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;shift595.h: 50: PORTEbits.RE0 = 1;
+"50
+[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
+"51
+}
+"42
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 368  ]
 [e :U 369 ]
-"44
+"51
 }
-[; ;shift595.h: 44: }
-[; ;shift595.h: 45: PORTEbits.RE1 = 1;
-"45
+[; ;shift595.h: 51: }
+[; ;shift595.h: 52: PORTEbits.RE1 = 1;
+"52
 [e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;shift595.h: 46: }
-"46
+[; ;shift595.h: 54: if(estado != _ultimoEstado){
+"54
+[e $ ! != -> _estado `i -> __ultimoEstado `i 372  ]
+{
+[; ;shift595.h: 55: _ultimoEstado = estado;
+"55
+[e = __ultimoEstado _estado ]
+[; ;shift595.h: 56: flagMudancaEstadoSaidas = 1;
+"56
+[e = _flagMudancaEstadoSaidas -> -> 1 `i `uc ]
+"57
+}
+[e :U 372 ]
+[; ;shift595.h: 57: }
+[; ;shift595.h: 58: }
+"58
 [e :UE 367 ]
 }
 [; ;teclado.h: 12: void readButtons(void);
@@ -4964,7 +5026,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;teclado.h: 24: if (!PORTBbits.RB2) {
 "24
-[e $ ! ! != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 372  ]
+[e $ ! ! != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 374  ]
 {
 [; ;teclado.h: 25: flag_b_esc = 1;
 "25
@@ -4972,9 +5034,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "26
 }
 [; ;teclado.h: 26: } else if (PORTBbits.RB2 && flag_b_esc) {
-[e $U 373  ]
-[e :U 372 ]
-[e $ ! && != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_esc `i -> -> -> 0 `i `uc `i 374  ]
+[e $U 375  ]
+[e :U 374 ]
+[e $ ! && != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_esc `i -> -> -> 0 `i `uc `i 376  ]
 {
 [; ;teclado.h: 27: _b_esc = 1;
 "27
@@ -4984,12 +5046,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_b_esc -> -> 0 `i `uc ]
 "29
 }
-[e :U 374 ]
+[e :U 376 ]
 "31
-[e :U 373 ]
+[e :U 375 ]
 [; ;teclado.h: 29: }
 [; ;teclado.h: 31: if (!PORTBbits.RB4) {
-[e $ ! ! != -> . . _PORTBbits 0 4 `i -> -> -> 0 `i `Vuc `i 375  ]
+[e $ ! ! != -> . . _PORTBbits 0 4 `i -> -> -> 0 `i `Vuc `i 377  ]
 {
 [; ;teclado.h: 32: flag_b_menos = 1;
 "32
@@ -4997,9 +5059,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "33
 }
 [; ;teclado.h: 33: } else if (PORTBbits.RB4 && flag_b_menos) {
-[e $U 376  ]
-[e :U 375 ]
-[e $ ! && != -> . . _PORTBbits 0 4 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_menos `i -> -> -> 0 `i `uc `i 377  ]
+[e $U 378  ]
+[e :U 377 ]
+[e $ ! && != -> . . _PORTBbits 0 4 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_menos `i -> -> -> 0 `i `uc `i 379  ]
 {
 [; ;teclado.h: 34: _b_menos = 1;
 "34
@@ -5009,12 +5071,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_b_menos -> -> 0 `i `uc ]
 "36
 }
-[e :U 377 ]
+[e :U 379 ]
 "38
-[e :U 376 ]
+[e :U 378 ]
 [; ;teclado.h: 36: }
 [; ;teclado.h: 38: if (!PORTBbits.RB5) {
-[e $ ! ! != -> . . _PORTBbits 0 5 `i -> -> -> 0 `i `Vuc `i 378  ]
+[e $ ! ! != -> . . _PORTBbits 0 5 `i -> -> -> 0 `i `Vuc `i 380  ]
 {
 [; ;teclado.h: 39: flag_b_mais = 1;
 "39
@@ -5022,9 +5084,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 }
 [; ;teclado.h: 40: } else if (PORTBbits.RB5 && flag_b_mais) {
-[e $U 379  ]
-[e :U 378 ]
-[e $ ! && != -> . . _PORTBbits 0 5 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_mais `i -> -> -> 0 `i `uc `i 380  ]
+[e $U 381  ]
+[e :U 380 ]
+[e $ ! && != -> . . _PORTBbits 0 5 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_mais `i -> -> -> 0 `i `uc `i 382  ]
 {
 [; ;teclado.h: 41: _b_mais = 1;
 "41
@@ -5034,12 +5096,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_b_mais -> -> 0 `i `uc ]
 "43
 }
-[e :U 380 ]
+[e :U 382 ]
 "45
-[e :U 379 ]
+[e :U 381 ]
 [; ;teclado.h: 43: }
 [; ;teclado.h: 45: if (!PORTBbits.RB3) {
-[e $ ! ! != -> . . _PORTBbits 0 3 `i -> -> -> 0 `i `Vuc `i 381  ]
+[e $ ! ! != -> . . _PORTBbits 0 3 `i -> -> -> 0 `i `Vuc `i 383  ]
 {
 [; ;teclado.h: 46: flag_b_ok = 1;
 "46
@@ -5047,9 +5109,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 }
 [; ;teclado.h: 47: } else if (PORTBbits.RB3 && flag_b_ok) {
-[e $U 382  ]
-[e :U 381 ]
-[e $ ! && != -> . . _PORTBbits 0 3 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_ok `i -> -> -> 0 `i `uc `i 383  ]
+[e $U 384  ]
+[e :U 383 ]
+[e $ ! && != -> . . _PORTBbits 0 3 `i -> -> -> 0 `i `Vuc `i != -> _flag_b_ok `i -> -> -> 0 `i `uc `i 385  ]
 {
 [; ;teclado.h: 48: _b_ok = 1;
 "48
@@ -5059,12 +5121,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_b_ok -> -> 0 `i `uc ]
 "50
 }
-[e :U 383 ]
+[e :U 385 ]
 "51
-[e :U 382 ]
+[e :U 384 ]
 [; ;teclado.h: 50: }
 [; ;teclado.h: 51: }
-[e :UE 371 ]
+[e :UE 373 ]
 }
 "53
 [v _btPress `(uc ~T0 @X0 1 ef1`uc ]
@@ -5075,12 +5137,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;teclado.h: 54: switch (bt) {
 "54
-[e $U 386  ]
+[e $U 388  ]
 {
 [; ;teclado.h: 55: case 1: if (_b_esc) {
 "55
-[e :U 387 ]
-[e $ ! != -> __b_esc `i -> -> -> 0 `i `uc `i 388  ]
+[e :U 389 ]
+[e $ ! != -> __b_esc `i -> -> -> 0 `i `uc `i 390  ]
 {
 [; ;teclado.h: 56: _b_esc = 0;
 "56
@@ -5088,21 +5150,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;teclado.h: 57: return 1;
 "57
 [e ) -> -> 1 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 "58
 }
-[e :U 388 ]
+[e :U 390 ]
 [; ;teclado.h: 58: }
 [; ;teclado.h: 59: return 0;
 "59
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 [; ;teclado.h: 60: case 3:
 "60
-[e :U 389 ]
+[e :U 391 ]
 [; ;teclado.h: 61: if (_b_mais) {
 "61
-[e $ ! != -> __b_mais `i -> -> -> 0 `i `uc `i 390  ]
+[e $ ! != -> __b_mais `i -> -> -> 0 `i `uc `i 392  ]
 {
 [; ;teclado.h: 62: _b_mais = 0;
 "62
@@ -5110,19 +5172,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;teclado.h: 63: return 1;
 "63
 [e ) -> -> 1 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 "64
 }
-[e :U 390 ]
+[e :U 392 ]
 [; ;teclado.h: 64: }
 [; ;teclado.h: 65: return 0;
 "65
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 [; ;teclado.h: 66: case 2: if (_b_menos) {
 "66
-[e :U 391 ]
-[e $ ! != -> __b_menos `i -> -> -> 0 `i `uc `i 392  ]
+[e :U 393 ]
+[e $ ! != -> __b_menos `i -> -> -> 0 `i `uc `i 394  ]
 {
 [; ;teclado.h: 67: _b_menos = 0;
 "67
@@ -5130,19 +5192,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;teclado.h: 68: return 1;
 "68
 [e ) -> -> 1 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 "69
 }
-[e :U 392 ]
+[e :U 394 ]
 [; ;teclado.h: 69: }
 [; ;teclado.h: 70: return 0;
 "70
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 [; ;teclado.h: 71: case 4: if (_b_ok) {
 "71
-[e :U 393 ]
-[e $ ! != -> __b_ok `i -> -> -> 0 `i `uc `i 394  ]
+[e :U 395 ]
+[e $ ! != -> __b_ok `i -> -> -> 0 `i `uc `i 396  ]
 {
 [; ;teclado.h: 72: _b_ok = 0;
 "72
@@ -5150,36 +5212,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;teclado.h: 73: return 1;
 "73
 [e ) -> -> 1 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 "74
 }
-[e :U 394 ]
+[e :U 396 ]
 [; ;teclado.h: 74: }
 [; ;teclado.h: 75: return 0;
 "75
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 [; ;teclado.h: 76: default: return 0;
 "76
-[e :U 395 ]
+[e :U 397 ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
+[e $UE 386  ]
 "77
 }
 [; ;teclado.h: 77: }
-[e $U 385  ]
+[e $U 387  ]
 "54
-[e :U 386 ]
-[e [\ _bt , $ -> -> 1 `i `uc 387
- , $ -> -> 3 `i `uc 389
- , $ -> -> 2 `i `uc 391
- , $ -> -> 4 `i `uc 393
- 395 ]
+[e :U 388 ]
+[e [\ _bt , $ -> -> 1 `i `uc 389
+ , $ -> -> 3 `i `uc 391
+ , $ -> -> 2 `i `uc 393
+ , $ -> -> 4 `i `uc 395
+ 397 ]
 "77
-[e :U 385 ]
+[e :U 387 ]
 [; ;teclado.h: 78: }
 "78
-[e :UE 384 ]
+[e :UE 386 ]
 }
 [; ;controle.h: 13: void acaoBombas(void);
 [; ;controle.h: 14: void partidaBombaEstacionaria(unsigned char acao);
@@ -5191,20 +5253,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;controle.h: 18: void acaoBombas() {
 [e :U _acaoBombas ]
 [f ]
-[; ;controle.h: 19: if(executandoTeste){
+[; ;controle.h: 19: if (executandoTeste) {
 "19
-[e $ ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i 397  ]
+[e $ ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i 399  ]
 {
 [; ;controle.h: 20: return;
 "20
-[e $UE 396  ]
+[e $UE 398  ]
 "21
 }
-[e :U 397 ]
+[e :U 399 ]
 [; ;controle.h: 21: }
 [; ;controle.h: 23: if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
 "23
-[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 398  ]
+[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 400  ]
 {
 [; ;controle.h: 24: shift[6] = 0;
 "24
@@ -5217,840 +5279,914 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _partidaBombaEstacionaria (1 -> -> 0 `i `uc ]
 [; ;controle.h: 27: return;
 "27
-[e $UE 396  ]
+[e $UE 398  ]
 "28
 }
-[e :U 398 ]
+[e :U 400 ]
 [; ;controle.h: 28: }
 [; ;controle.h: 30: shift[2] = 0;
 "30
 [e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 31: if (pressao <= sp_jockey) {
+[; ;controle.h: 31: if (pressao <= sp_jockey && timerIntervaloLigarBomba == 0) {
 "31
-[e $ ! <= _pressao -> _sp_jockey `i 399  ]
+[e $ ! && <= _pressao -> _sp_jockey `i == -> _timerIntervaloLigarBomba `i -> 0 `i 401  ]
 {
-[; ;controle.h: 32: shift[6] = 1;
+[; ;controle.h: 32: if (shift[6] == 0) {
 "32
-[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[e $ ! == -> *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux `i -> 0 `i 402  ]
+{
+[; ;controle.h: 33: timerIntervaloLigarBomba = 5;
 "33
-}
-[; ;controle.h: 33: } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
-[e $U 400  ]
-[e :U 399 ]
-[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 401  ]
-{
-[; ;controle.h: 34: shift[6] = 0;
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
 "34
-[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-"35
-}
-[e :U 401 ]
-"37
-[e :U 400 ]
-[; ;controle.h: 35: }
-[; ;controle.h: 37: if (pressao <= sp_principal) {
-[e $ ! <= _pressao -> _sp_principal `i 402  ]
-{
-[; ;controle.h: 38: ocorrendoIncendio = 1;
-"38
-[e = _ocorrendoIncendio -> -> 1 `i `uc ]
-[; ;controle.h: 39: shift[5] = 1;
-"39
-[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-"43
 }
 [e :U 402 ]
-[; ;controle.h: 43: }
-[; ;controle.h: 44: if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
-"44
-[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 403  ]
-{
-[; ;controle.h: 45: shift[5] = 0;
-"45
-[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 46: partidaBombaEstacionaria(0);
-"46
-[e ( _partidaBombaEstacionaria (1 -> -> 0 `i `uc ]
-"47
+[; ;controle.h: 34: }
+[; ;controle.h: 35: shift[6] = 1;
+"35
+[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+"36
 }
-[e :U 403 ]
-[; ;controle.h: 47: }
-[; ;controle.h: 49: if (pressao <= sp_estacionaria) {
-"49
-[e $ ! <= _pressao -> _sp_estacionaria `i 404  ]
+[; ;controle.h: 36: } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
+[e $U 403  ]
+[e :U 401 ]
+[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 404  ]
 {
-[; ;controle.h: 50: partidaBombaEstacionaria(1);
-"50
-[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
-[; ;controle.h: 51: ocorrendoIncendio = 1;
-"51
-[e = _ocorrendoIncendio -> -> 1 `i `uc ]
-"52
+[; ;controle.h: 37: shift[6] = 0;
+"37
+[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+"38
 }
 [e :U 404 ]
-[; ;controle.h: 52: }
-[; ;controle.h: 54: if (ocorrendoIncendio) {
-"54
-[e $ ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 405  ]
+"40
+[e :U 403 ]
+[; ;controle.h: 38: }
+[; ;controle.h: 40: if (pressao <= sp_principal) {
+[e $ ! <= _pressao -> _sp_principal `i 405  ]
 {
-[; ;controle.h: 55: gsmOcupado = 1;
-"55
-[e = _gsmOcupado -> -> 1 `i `uc ]
-[; ;controle.h: 56: enviaSMS(1);
-"56
-[e ( _enviaSMS (1 -> -> 1 `i `uc ]
-[; ;controle.h: 57: shift[1] = 1;
-"57
-[e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-"58
+[; ;controle.h: 41: ocorrendoIncendio = 1;
+"41
+[e = _ocorrendoIncendio -> -> 1 `i `uc ]
+[; ;controle.h: 42: if (timerIntervaloLigarBomba == 0) {
+"42
+[e $ ! == -> _timerIntervaloLigarBomba `i -> 0 `i 406  ]
+{
+[; ;controle.h: 43: if (shift[5] == 0) {
+"43
+[e $ ! == -> *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux `i -> 0 `i 407  ]
+{
+[; ;controle.h: 44: timerIntervaloLigarBomba = 5;
+"44
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+"45
 }
+[e :U 407 ]
+[; ;controle.h: 45: }
+[; ;controle.h: 46: shift[5] = 1;
+"46
+[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+"47
+}
+[e :U 406 ]
+"51
+}
+[; ;controle.h: 47: }
+[; ;controle.h: 51: } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
+[e $U 408  ]
 [e :U 405 ]
-[; ;controle.h: 58: }
-[; ;controle.h: 59: }
-"59
-[e :UE 396 ]
+[e $ ! && >= _pressao -> _sp_pressao_rede `i ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 409  ]
+{
+[; ;controle.h: 52: shift[5] = 0;
+"52
+[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 53: partidaBombaEstacionaria(0);
+"53
+[e ( _partidaBombaEstacionaria (1 -> -> 0 `i `uc ]
+"54
 }
+[e :U 409 ]
+"56
+[e :U 408 ]
+[; ;controle.h: 54: }
+[; ;controle.h: 56: if (pressao <= sp_estacionaria) {
+[e $ ! <= _pressao -> _sp_estacionaria `i 410  ]
+{
+[; ;controle.h: 57: ocorrendoIncendio = 1;
+"57
+[e = _ocorrendoIncendio -> -> 1 `i `uc ]
+[; ;controle.h: 58: if (timerIntervaloLigarBomba == 0) {
+"58
+[e $ ! == -> _timerIntervaloLigarBomba `i -> 0 `i 411  ]
+{
+[; ;controle.h: 59: partidaBombaEstacionaria(1);
+"59
+[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
+"60
+}
+[e :U 411 ]
 "61
+}
+[e :U 410 ]
+[; ;controle.h: 60: }
+[; ;controle.h: 61: }
+[; ;controle.h: 63: if (ocorrendoIncendio) {
+"63
+[e $ ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 412  ]
+{
+[; ;controle.h: 64: gsmOcupado = 1;
+"64
+[e = _gsmOcupado -> -> 1 `i `uc ]
+[; ;controle.h: 65: enviaSMS(1);
+"65
+[e ( _enviaSMS (1 -> -> 1 `i `uc ]
+[; ;controle.h: 66: shift[1] = 1;
+"66
+[e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+"67
+}
+[e :U 412 ]
+[; ;controle.h: 67: }
+[; ;controle.h: 68: }
+"68
+[e :UE 398 ]
+}
+"70
 [v _partidaBombaEstacionaria `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;controle.h: 61: void partidaBombaEstacionaria(unsigned char acao) {
+[; ;controle.h: 70: void partidaBombaEstacionaria(unsigned char acao) {
 [e :U _partidaBombaEstacionaria ]
 [v _acao `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;controle.h: 62: if (acao == 1 && !flagEstacionariaLigada) {
-"62
-[e $ ! && == -> _acao `i -> 1 `i ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 407  ]
-{
-[; ;controle.h: 63: if (_sec_partida != _sec) {
-"63
-[e $ ! != -> __sec_partida `i -> __sec `i 408  ]
-{
-[; ;controle.h: 64: _sec_partida = _sec;
-"64
-[e = __sec_partida __sec ]
-[; ;controle.h: 65: tempo_limite_partida++;
-"65
-[e ++ _tempo_limite_partida -> -> 1 `i `uc ]
-[; ;controle.h: 66: tempo_partida++;
-"66
-[e ++ _tempo_partida -> -> 1 `i `uc ]
-[; ;controle.h: 67: if (!PORTAbits.RA5) {
-"67
-[e $ ! ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i 409  ]
-{
-[; ;controle.h: 68: delay(700);
-"68
-[e ( _delay (1 -> 700 `i ]
-[; ;controle.h: 69: flagEstacionariaLigada = 1;
-"69
-[e = _flagEstacionariaLigada -> -> 1 `i `uc ]
-[; ;controle.h: 70: tempo_partida = 0;
-"70
-[e = _tempo_partida -> -> 0 `i `uc ]
-[; ;controle.h: 71: shift[4] = 0;
+[; ;controle.h: 71: if (acao == 1 && !flagEstacionariaLigada) {
 "71
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[e $ ! && == -> _acao `i -> 1 `i ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 414  ]
+{
+[; ;controle.h: 72: if (_sec_partida != _sec) {
 "72
-}
-[e :U 409 ]
+[e $ ! != -> __sec_partida `i -> __sec `i 415  ]
+{
+[; ;controle.h: 73: _sec_partida = _sec;
 "73
-}
-[e :U 408 ]
+[e = __sec_partida __sec ]
+[; ;controle.h: 74: tempo_limite_partida++;
 "74
-}
-[e :U 407 ]
-[; ;controle.h: 72: }
-[; ;controle.h: 73: }
-[; ;controle.h: 74: }
-[; ;controle.h: 75: if (!flagEstacionariaLigada && status_estacionaria == 1) {
+[e ++ _tempo_limite_partida -> -> 1 `i `uc ]
+[; ;controle.h: 75: tempo_partida++;
 "75
-[e $ ! && ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i == -> _status_estacionaria `i -> 1 `i 410  ]
-{
-[; ;controle.h: 76: shift[3] = 1;
+[e ++ _tempo_partida -> -> 1 `i `uc ]
+[; ;controle.h: 76: if (!PORTAbits.RA5) {
 "76
-[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 77: if (tempo_partida <= 7) {
+[e $ ! ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i 416  ]
+{
+[; ;controle.h: 77: delay(700);
 "77
-[e $ ! <= -> _tempo_partida `i -> 7 `i 411  ]
-{
-[; ;controle.h: 78: shift[4] = 1;
+[e ( _delay (1 -> 700 `i ]
+[; ;controle.h: 78: flagEstacionariaLigada = 1;
 "78
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[e = _flagEstacionariaLigada -> -> 1 `i `uc ]
+[; ;controle.h: 79: tempo_partida = 0;
 "79
-}
-[; ;controle.h: 79: } else if (tempo_partida <= (7 + 8)) {
-[e $U 412  ]
-[e :U 411 ]
-[e $ ! <= -> _tempo_partida `i + -> 7 `i -> 8 `i 413  ]
-{
+[e = _tempo_partida -> -> 0 `i `uc ]
 [; ;controle.h: 80: shift[4] = 0;
 "80
 [e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
 "81
 }
-[; ;controle.h: 81: } else {
-[e $U 414  ]
-[e :U 413 ]
-{
-[; ;controle.h: 82: tempo_partida = 0;
+[e :U 416 ]
 "82
-[e = _tempo_partida -> -> 0 `i `uc ]
+}
+[e :U 415 ]
 "83
 }
 [e :U 414 ]
-[e :U 412 ]
-"84
-}
-[e :U 410 ]
+[; ;controle.h: 81: }
+[; ;controle.h: 82: }
 [; ;controle.h: 83: }
-[; ;controle.h: 84: }
-[; ;controle.h: 85: if (tempo_limite_partida > tempo_limite_estacionaria) {
+[; ;controle.h: 84: if (!flagEstacionariaLigada && status_estacionaria == 1) {
+"84
+[e $ ! && ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i == -> _status_estacionaria `i -> 1 `i 417  ]
+{
+[; ;controle.h: 85: shift[3] = 1;
 "85
-[e $ ! > -> _tempo_limite_partida `i -> _tempo_limite_estacionaria `i 415  ]
-{
-[; ;controle.h: 86: tempo_limite_partida = 0;
+[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 86: if (tempo_partida <= 7) {
 "86
-[e = _tempo_limite_partida -> -> 0 `i `uc ]
-[; ;controle.h: 87: status_estacionaria = 0;
+[e $ ! <= -> _tempo_partida `i -> 7 `i 418  ]
+{
+[; ;controle.h: 87: shift[4] = 1;
 "87
-[e = _status_estacionaria -> -> 0 `i `uc ]
-[; ;controle.h: 88: flagEstacionariaLigada = 0;
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
 "88
-[e = _flagEstacionariaLigada -> -> 0 `i `uc ]
-[; ;controle.h: 89: shift[3] = 0;
+}
+[; ;controle.h: 88: } else if (tempo_partida <= (7 + 8)) {
+[e $U 419  ]
+[e :U 418 ]
+[e $ ! <= -> _tempo_partida `i + -> 7 `i -> 8 `i 420  ]
+{
+[; ;controle.h: 89: shift[4] = 0;
 "89
-[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 90: shift[4] = 0;
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
 "90
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+}
+[; ;controle.h: 90: } else {
+[e $U 421  ]
+[e :U 420 ]
+{
+[; ;controle.h: 91: tempo_partida = 0;
 "91
-}
-[e :U 415 ]
-[; ;controle.h: 91: }
-[; ;controle.h: 94: if (acao == 0) {
-"94
-[e $ ! == -> _acao `i -> 0 `i 416  ]
-{
-[; ;controle.h: 95: flagEstacionariaLigada = 0;
-"95
-[e = _flagEstacionariaLigada -> -> 0 `i `uc ]
-[; ;controle.h: 96: shift[4] = 0;
-"96
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 97: shift[3] = 0;
-"97
-[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 98: tempo_partida = 0;
-"98
 [e = _tempo_partida -> -> 0 `i `uc ]
-[; ;controle.h: 99: tempo_limite_partida = 0;
-"99
-[e = _tempo_limite_partida -> -> 0 `i `uc ]
-"100
+"92
 }
-[e :U 416 ]
-[; ;controle.h: 100: }
-[; ;controle.h: 102: if (status_estacionaria == 0) {
-"102
-[e $ ! == -> _status_estacionaria `i -> 0 `i 417  ]
-{
-[; ;controle.h: 103: shift[3] = 0;
-"103
-[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 104: shift[4] = 0;
-"104
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 105: tempo_partida = 0;
-"105
-[e = _tempo_partida -> -> 0 `i `uc ]
-"106
+[e :U 421 ]
+[e :U 419 ]
+"93
 }
 [e :U 417 ]
-[; ;controle.h: 106: }
-[; ;controle.h: 107: if (flagEstacionariaLigada) {
-"107
-[e $ ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 418  ]
+[; ;controle.h: 92: }
+[; ;controle.h: 93: }
+[; ;controle.h: 94: if (tempo_limite_partida > tempo_limite_estacionaria) {
+"94
+[e $ ! > -> _tempo_limite_partida `i -> _tempo_limite_estacionaria `i 422  ]
 {
-[; ;controle.h: 108: if (!PORTAbits.RA5) {
-"108
-[e $ ! ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i 419  ]
-{
-[; ;controle.h: 109: shift[4] = 0;
-"109
-[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 110: tempo_limite_partida = 0;
-"110
+[; ;controle.h: 95: tempo_limite_partida = 0;
+"95
 [e = _tempo_limite_partida -> -> 0 `i `uc ]
-"111
-}
-[; ;controle.h: 111: } else {
-[e $U 420  ]
-[e :U 419 ]
-{
-[; ;controle.h: 112: flagEstacionariaLigada = 0;
-"112
+[; ;controle.h: 96: status_estacionaria = 0;
+"96
+[e = _status_estacionaria -> -> 0 `i `uc ]
+[; ;controle.h: 97: flagEstacionariaLigada = 0;
+"97
 [e = _flagEstacionariaLigada -> -> 0 `i `uc ]
-"113
-}
-[e :U 420 ]
-"114
-}
-[e :U 418 ]
-[; ;controle.h: 113: }
-[; ;controle.h: 114: }
-[; ;controle.h: 115: }
-"115
-[e :UE 406 ]
-}
-"117
-[v _verificarIntervaloTesteBombas `(v ~T0 @X0 1 ef ]
-{
-[; ;controle.h: 117: void verificarIntervaloTesteBombas() {
-[e :U _verificarIntervaloTesteBombas ]
-[f ]
-[; ;controle.h: 118: if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) {
-"118
-[e $ ! && && >= -> _dias_restante_teste `i -> _intervalo_teste_dia `i == -> _habilitaTesteAutomatico `i -> 1 `i ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i 422  ]
-{
-[; ;controle.h: 119: if (_hor == horario_de_teste) {
-"119
-[e $ ! == -> __hor `i -> _horario_de_teste `i 423  ]
-{
-[; ;controle.h: 120: dias_restante_teste = 0;
-"120
-[e = _dias_restante_teste -> -> 0 `i `uc ]
-[; ;controle.h: 121: writeEEPROM_ext(10, dias_restante_teste);
-"121
-[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
-[; ;controle.h: 122: etapaTesteBombas = 0;
-"122
-[e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 123: executandoTeste = 1;
-"123
-[e = _executandoTeste -> -> 1 `i `uc ]
-[; ;controle.h: 124: menu_posi = 28;
-"124
-[e = _menu_posi -> -> 28 `i `uc ]
-"125
-}
-[e :U 423 ]
-"126
+[; ;controle.h: 98: shift[3] = 0;
+"98
+[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 99: shift[4] = 0;
+"99
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+"100
 }
 [e :U 422 ]
-[; ;controle.h: 125: }
-[; ;controle.h: 126: }
-[; ;controle.h: 127: }
-"127
-[e :UE 421 ]
+[; ;controle.h: 100: }
+[; ;controle.h: 103: if (acao == 0) {
+"103
+[e $ ! == -> _acao `i -> 0 `i 423  ]
+{
+[; ;controle.h: 104: flagEstacionariaLigada = 0;
+"104
+[e = _flagEstacionariaLigada -> -> 0 `i `uc ]
+[; ;controle.h: 105: shift[4] = 0;
+"105
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 106: shift[3] = 0;
+"106
+[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 107: tempo_partida = 0;
+"107
+[e = _tempo_partida -> -> 0 `i `uc ]
+[; ;controle.h: 108: tempo_limite_partida = 0;
+"108
+[e = _tempo_limite_partida -> -> 0 `i `uc ]
+"109
 }
-"129
-[v _drenarPressao `(v ~T0 @X0 1 ef ]
+[e :U 423 ]
+[; ;controle.h: 109: }
+[; ;controle.h: 111: if (status_estacionaria == 0) {
+"111
+[e $ ! == -> _status_estacionaria `i -> 0 `i 424  ]
 {
-[; ;controle.h: 129: void drenarPressao() {
-[e :U _drenarPressao ]
-[f ]
-[; ;controle.h: 130: sprintf(line4, "Despressurizando...");
-"130
-[e ( _sprintf (1 , &U _line4 :s 38C ]
-[; ;controle.h: 131: if (!timerTesteBombas) {
-"131
-[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 425  ]
+[; ;controle.h: 112: shift[3] = 0;
+"112
+[e = *U + &U _shift * -> -> -> 3 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 113: shift[4] = 0;
+"113
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 114: tempo_partida = 0;
+"114
+[e = _tempo_partida -> -> 0 `i `uc ]
+"115
+}
+[e :U 424 ]
+[; ;controle.h: 115: }
+[; ;controle.h: 116: if (flagEstacionariaLigada) {
+"116
+[e $ ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 425  ]
 {
-[; ;controle.h: 132: executandoTeste = 0;
-"132
-[e = _executandoTeste -> -> 0 `i `uc ]
-[; ;controle.h: 133: codigoErro = 3;
-"133
-[e = _codigoErro -> -> 3 `i `uc ]
-[; ;controle.h: 134: menu_posi = 0;
-"134
-[e = _menu_posi -> -> 0 `i `uc ]
-"135
+[; ;controle.h: 117: if (!PORTAbits.RA5) {
+"117
+[e $ ! ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i 426  ]
+{
+[; ;controle.h: 118: shift[4] = 0;
+"118
+[e = *U + &U _shift * -> -> -> 4 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 119: tempo_limite_partida = 0;
+"119
+[e = _tempo_limite_partida -> -> 0 `i `uc ]
+"120
+}
+[; ;controle.h: 120: } else {
+[e $U 427  ]
+[e :U 426 ]
+{
+[; ;controle.h: 121: flagEstacionariaLigada = 0;
+"121
+[e = _flagEstacionariaLigada -> -> 0 `i `uc ]
+"122
+}
+[e :U 427 ]
+"123
 }
 [e :U 425 ]
+[; ;controle.h: 122: }
+[; ;controle.h: 123: }
+[; ;controle.h: 124: }
+"124
+[e :UE 413 ]
+}
+"126
+[v _verificarIntervaloTesteBombas `(v ~T0 @X0 1 ef ]
+{
+[; ;controle.h: 126: void verificarIntervaloTesteBombas() {
+[e :U _verificarIntervaloTesteBombas ]
+[f ]
+[; ;controle.h: 127: if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) {
+"127
+[e $ ! && && >= -> _dias_restante_teste `i -> _intervalo_teste_dia `i == -> _habilitaTesteAutomatico `i -> 1 `i ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i 429  ]
+{
+[; ;controle.h: 128: if (_hor == horario_de_teste) {
+"128
+[e $ ! == -> __hor `i -> _horario_de_teste `i 430  ]
+{
+[; ;controle.h: 129: dias_restante_teste = 0;
+"129
+[e = _dias_restante_teste -> -> 0 `i `uc ]
+[; ;controle.h: 130: writeEEPROM_ext(10, dias_restante_teste);
+"130
+[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
+[; ;controle.h: 131: etapaTesteBombas = 0;
+"131
+[e = _etapaTesteBombas -> -> 0 `i `uc ]
+[; ;controle.h: 132: executandoTeste = 1;
+"132
+[e = _executandoTeste -> -> 1 `i `uc ]
+[; ;controle.h: 133: menu_posi = 28;
+"133
+[e = _menu_posi -> -> 28 `i `uc ]
+"134
+}
+[e :U 430 ]
+"135
+}
+[e :U 429 ]
+[; ;controle.h: 134: }
 [; ;controle.h: 135: }
 [; ;controle.h: 136: }
 "136
-[e :UE 424 ]
+[e :UE 428 ]
 }
 "138
+[v _drenarPressao `(v ~T0 @X0 1 ef ]
+{
+[; ;controle.h: 138: void drenarPressao() {
+[e :U _drenarPressao ]
+[f ]
+[; ;controle.h: 139: sprintf(line4, "Despressurizando...");
+"139
+[e ( _sprintf (1 , &U _line4 :s 38C ]
+[; ;controle.h: 140: if (!timerTesteBombas) {
+"140
+[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 432  ]
+{
+[; ;controle.h: 141: executandoTeste = 0;
+"141
+[e = _executandoTeste -> -> 0 `i `uc ]
+[; ;controle.h: 142: codigoErro = 3;
+"142
+[e = _codigoErro -> -> 3 `i `uc ]
+[; ;controle.h: 143: menu_posi = 0;
+"143
+[e = _menu_posi -> -> 0 `i `uc ]
+"144
+}
+[e :U 432 ]
+[; ;controle.h: 144: }
+[; ;controle.h: 145: }
+"145
+[e :UE 431 ]
+}
+"147
 [v _acaoTesteBombas `(v ~T0 @X0 1 ef ]
 {
-[; ;controle.h: 138: void acaoTesteBombas() {
+[; ;controle.h: 147: void acaoTesteBombas() {
 [e :U _acaoTesteBombas ]
 [f ]
-[; ;controle.h: 139: if (btPress(1)) {
-"139
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 427  ]
-{
-[; ;controle.h: 140: executandoTeste = 0;
-"140
-[e = _executandoTeste -> -> 0 `i `uc ]
-[; ;controle.h: 141: gsmOcupado = 0;
-"141
-[e = _gsmOcupado -> -> 0 `i `uc ]
-[; ;controle.h: 142: etapaTesteBombas = 0;
-"142
-[e = _etapaTesteBombas -> -> 0 `i `uc ]
-"143
-[v _intervalo `uc ~T0 @X0 1 a ]
-[; ;controle.h: 143: unsigned char intervalo = readEEPROM_ext(6);
-[e = _intervalo ( _readEEPROM_ext (1 -> -> 6 `i `uc ]
-[; ;controle.h: 144: intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
-"144
-[e = _intervalo_teste_dia -> ? > -> _intervalo `i -> 0 `i : -> _intervalo `i -> 1 `i `uc ]
-[; ;controle.h: 145: menu_posi = _menu_posi;
-"145
-[e = _menu_posi __menu_posi ]
-"146
-[v _i `uc ~T0 @X0 1 a ]
-[; ;controle.h: 146: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;controle.h: 147: for (i = 0; i < 8; i++) {
-"147
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 428  ]
-[e $U 429  ]
-[e :U 428 ]
-{
-[; ;controle.h: 148: shift[i] = 0;
+[; ;controle.h: 148: if (btPress(1)) {
 "148
-[e = *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 434  ]
+{
+[; ;controle.h: 149: executandoTeste = 0;
 "149
-}
-"147
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 428  ]
-[e :U 429 ]
-"149
-}
+[e = _executandoTeste -> -> 0 `i `uc ]
+[; ;controle.h: 150: gsmOcupado = 0;
 "150
-}
-[e :U 427 ]
-[; ;controle.h: 149: }
-[; ;controle.h: 150: }
-[; ;controle.h: 152: if (etapaTesteBombas < 10) {
+[e = _gsmOcupado -> -> 0 `i `uc ]
+[; ;controle.h: 151: etapaTesteBombas = 0;
+"151
+[e = _etapaTesteBombas -> -> 0 `i `uc ]
 "152
-[e $ ! < -> _etapaTesteBombas `i -> 10 `i 431  ]
-{
-[; ;controle.h: 153: sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
+[v _intervalo `uc ~T0 @X0 1 a ]
+[; ;controle.h: 152: unsigned char intervalo = readEEPROM_ext(6);
+[e = _intervalo ( _readEEPROM_ext (1 -> -> 6 `i `uc ]
+[; ;controle.h: 153: intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
 "153
-[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 39C _timerTesteBombas ]
-[; ;controle.h: 154: sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+[e = _intervalo_teste_dia -> ? > -> _intervalo `i -> 0 `i : -> _intervalo `i -> 1 `i `uc ]
+[; ;controle.h: 154: menu_posi = _menu_posi;
 "154
-[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 40C -> ( _intToFloatStr (1 -> _pressao `uc `*Cuc ]
+[e = _menu_posi __menu_posi ]
 "155
-}
-[e :U 431 ]
-[; ;controle.h: 155: }
-[; ;controle.h: 157: switch (etapaTesteBombas) {
-"157
-[e $U 433  ]
+[v _i `uc ~T0 @X0 1 a ]
+[; ;controle.h: 155: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;controle.h: 156: for (i = 0; i < 8; i++) {
+"156
 {
-[; ;controle.h: 158: case 0:
-"158
-[e :U 434 ]
-[; ;controle.h: 159: dias_restante_teste = 0;
-"159
-[e = _dias_restante_teste -> -> 0 `i `uc ]
-[; ;controle.h: 160: writeEEPROM_ext(10, dias_restante_teste);
-"160
-[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
-[; ;controle.h: 161: shift[2] = 1;
-"161
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 162: timerTesteBombas = 30;
-"162
-[e = _timerTesteBombas -> -> 30 `i `ui ]
-[; ;controle.h: 163: etapaTesteBombas = 1;
-"163
-[e = _etapaTesteBombas -> -> 1 `i `uc ]
-[; ;controle.h: 164: break;
-"164
-[e $U 432  ]
-[; ;controle.h: 165: case 1:
-"165
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 435  ]
+[e $U 436  ]
 [e :U 435 ]
-[; ;controle.h: 166: drenarPressao();
-"166
-[e ( _drenarPressao ..  ]
-[; ;controle.h: 167: if (pressao <= (sp_pressao_rede - 10)) {
-"167
-[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 436  ]
 {
-[; ;controle.h: 168: shift[2] = 0;
-"168
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 169: shift[6] = 1;
-"169
-[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 170: etapaTesteBombas = 2;
-"170
-[e = _etapaTesteBombas -> -> 2 `i `uc ]
-[; ;controle.h: 171: timerTesteBombas = 50;
-"171
-[e = _timerTesteBombas -> -> 50 `i `ui ]
-"172
+[; ;controle.h: 157: shift[i] = 0;
+"157
+[e = *U + &U _shift * -> _i `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+"158
 }
+"156
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 435  ]
 [e :U 436 ]
-[; ;controle.h: 172: }
-[; ;controle.h: 173: break;
-"173
-[e $U 432  ]
-[; ;controle.h: 174: case 2:
-"174
-[e :U 437 ]
-[; ;controle.h: 175: sprintf(line4, "Bomba Jockey...");
-"175
-[e ( _sprintf (1 , &U _line4 :s 41C ]
-[; ;controle.h: 176: if (pressao >= sp_pressao_rede) {
-"176
-[e $ ! >= _pressao -> _sp_pressao_rede `i 438  ]
+"158
+}
+"159
+}
+[e :U 434 ]
+[; ;controle.h: 158: }
+[; ;controle.h: 159: }
+[; ;controle.h: 161: if (etapaTesteBombas < 10) {
+"161
+[e $ ! < -> _etapaTesteBombas `i -> 10 `i 438  ]
 {
-[; ;controle.h: 177: shift[6] = 0;
-"177
-[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 178: status_jockey = 1;
-"178
-[e = _status_jockey -> -> 1 `i `uc ]
-[; ;controle.h: 179: etapaTesteBombas = 3;
-"179
-[e = _etapaTesteBombas -> -> 3 `i `uc ]
-"180
+[; ;controle.h: 162: sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
+"162
+[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 39C _timerTesteBombas ]
+[; ;controle.h: 163: sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+"163
+[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 40C -> ( _intToFloatStr (1 -> _pressao `uc `*Cuc ]
+"164
 }
 [e :U 438 ]
-[; ;controle.h: 180: }
-[; ;controle.h: 181: if (!timerTesteBombas) {
-"181
-[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 439  ]
+[; ;controle.h: 164: }
+[; ;controle.h: 166: switch (etapaTesteBombas) {
+"166
+[e $U 440  ]
 {
-[; ;controle.h: 182: status_jockey = 0;
-"182
-[e = _status_jockey -> -> 0 `i `uc ]
-[; ;controle.h: 183: etapaTesteBombas = 3;
-"183
-[e = _etapaTesteBombas -> -> 3 `i `uc ]
-[; ;controle.h: 184: timerTesteBombas = 30;
-"184
-[e = _timerTesteBombas -> -> 30 `i `ui ]
-"185
-}
-[e :U 439 ]
-[; ;controle.h: 185: }
-[; ;controle.h: 186: break;
-"186
-[e $U 432  ]
-[; ;controle.h: 187: case 3:
-"187
-[e :U 440 ]
-[; ;controle.h: 188: shift[2] = 1;
-"188
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 189: etapaTesteBombas = 4;
-"189
-[e = _etapaTesteBombas -> -> 4 `i `uc ]
-[; ;controle.h: 190: break;
-"190
-[e $U 432  ]
-[; ;controle.h: 191: case 4:
-"191
+[; ;controle.h: 167: case 0:
+"167
 [e :U 441 ]
-[; ;controle.h: 192: drenarPressao();
-"192
-[e ( _drenarPressao ..  ]
-[; ;controle.h: 193: if (pressao <= (sp_pressao_rede - 10)) {
-"193
-[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 442  ]
-{
-[; ;controle.h: 194: shift[5] = 1;
-"194
-[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 195: shift[2] = 0;
-"195
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 196: etapaTesteBombas = 5;
-"196
-[e = _etapaTesteBombas -> -> 5 `i `uc ]
-[; ;controle.h: 197: timerTesteBombas = 50;
-"197
-[e = _timerTesteBombas -> -> 50 `i `ui ]
-"198
-}
+[; ;controle.h: 168: dias_restante_teste = 0;
+"168
+[e = _dias_restante_teste -> -> 0 `i `uc ]
+[; ;controle.h: 169: writeEEPROM_ext(10, dias_restante_teste);
+"169
+[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
+[; ;controle.h: 170: shift[2] = 1;
+"170
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 171: timerTesteBombas = 30;
+"171
+[e = _timerTesteBombas -> -> 30 `i `ui ]
+[; ;controle.h: 172: etapaTesteBombas = 1;
+"172
+[e = _etapaTesteBombas -> -> 1 `i `uc ]
+[; ;controle.h: 173: timerIntervaloLigarBomba = 5;
+"173
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+[; ;controle.h: 174: return;
+"174
+[e $UE 433  ]
+[; ;controle.h: 175: case 1:
+"175
 [e :U 442 ]
-[; ;controle.h: 198: }
-[; ;controle.h: 199: break;
-"199
-[e $U 432  ]
-[; ;controle.h: 200: case 5:
-"200
-[e :U 443 ]
-[; ;controle.h: 201: sprintf(line4, "Bomba Principal...");
-"201
-[e ( _sprintf (1 , &U _line4 :s 42C ]
-[; ;controle.h: 202: if (pressao >= sp_pressao_rede) {
-"202
-[e $ ! >= _pressao -> _sp_pressao_rede `i 444  ]
+[; ;controle.h: 176: drenarPressao();
+"176
+[e ( _drenarPressao ..  ]
+[; ;controle.h: 177: if (pressao <= (sp_pressao_rede - 10)) {
+"177
+[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 443  ]
 {
-[; ;controle.h: 203: shift[5] = 0;
-"203
-[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 204: status_principal = 1;
-"204
-[e = _status_principal -> -> 1 `i `uc ]
-[; ;controle.h: 205: etapaTesteBombas = 6;
-"205
-[e = _etapaTesteBombas -> -> 6 `i `uc ]
-"206
+[; ;controle.h: 178: shift[2] = 0;
+"178
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 179: if (timerIntervaloLigarBomba == 0) {
+"179
+[e $ ! == -> _timerIntervaloLigarBomba `i -> 0 `i 444  ]
+{
+[; ;controle.h: 180: shift[6] = 1;
+"180
+[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 181: etapaTesteBombas = 2;
+"181
+[e = _etapaTesteBombas -> -> 2 `i `uc ]
+[; ;controle.h: 182: timerTesteBombas = 50;
+"182
+[e = _timerTesteBombas -> -> 50 `i `ui ]
+[; ;controle.h: 183: timerIntervaloLigarBomba = 5;
+"183
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+"184
 }
 [e :U 444 ]
-[; ;controle.h: 206: }
-[; ;controle.h: 207: if (!timerTesteBombas) {
-"207
-[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 445  ]
-{
-[; ;controle.h: 208: status_principal = 0;
-"208
-[e = _status_principal -> -> 0 `i `uc ]
-[; ;controle.h: 209: etapaTesteBombas = 6;
-"209
-[e = _etapaTesteBombas -> -> 6 `i `uc ]
-[; ;controle.h: 210: timerTesteBombas = 30;
-"210
-[e = _timerTesteBombas -> -> 30 `i `ui ]
-"211
+"185
 }
+[e :U 443 ]
+[; ;controle.h: 184: }
+[; ;controle.h: 185: }
+[; ;controle.h: 186: return;
+"186
+[e $UE 433  ]
+[; ;controle.h: 187: case 2:
+"187
 [e :U 445 ]
-[; ;controle.h: 211: }
-[; ;controle.h: 212: break;
-"212
-[e $U 432  ]
-[; ;controle.h: 213: case 6:
-"213
+[; ;controle.h: 188: sprintf(line4, "Bomba Jockey...");
+"188
+[e ( _sprintf (1 , &U _line4 :s 41C ]
+[; ;controle.h: 189: if (pressao >= sp_pressao_rede) {
+"189
+[e $ ! >= _pressao -> _sp_pressao_rede `i 446  ]
+{
+[; ;controle.h: 190: shift[6] = 0;
+"190
+[e = *U + &U _shift * -> -> -> 6 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 191: status_jockey = 1;
+"191
+[e = _status_jockey -> -> 1 `i `uc ]
+[; ;controle.h: 192: etapaTesteBombas = 3;
+"192
+[e = _etapaTesteBombas -> -> 3 `i `uc ]
+"193
+}
 [e :U 446 ]
-[; ;controle.h: 214: shift[2] = 1;
-"214
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
-[; ;controle.h: 215: etapaTesteBombas = 7;
-"215
-[e = _etapaTesteBombas -> -> 7 `i `uc ]
-[; ;controle.h: 216: break;
-"216
-[e $U 432  ]
-[; ;controle.h: 217: case 7:
-"217
+[; ;controle.h: 193: }
+[; ;controle.h: 194: if (!timerTesteBombas) {
+"194
+[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 447  ]
+{
+[; ;controle.h: 195: status_jockey = 0;
+"195
+[e = _status_jockey -> -> 0 `i `uc ]
+[; ;controle.h: 196: etapaTesteBombas = 3;
+"196
+[e = _etapaTesteBombas -> -> 3 `i `uc ]
+[; ;controle.h: 197: timerTesteBombas = 30;
+"197
+[e = _timerTesteBombas -> -> 30 `i `ui ]
+"198
+}
 [e :U 447 ]
-[; ;controle.h: 218: drenarPressao();
-"218
-[e ( _drenarPressao ..  ]
-[; ;controle.h: 219: if (pressao <= (sp_pressao_rede - 10)) {
-"219
-[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 448  ]
-{
-[; ;controle.h: 220: shift[2] = 0;
-"220
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-[; ;controle.h: 221: etapaTesteBombas = 8;
-"221
-[e = _etapaTesteBombas -> -> 8 `i `uc ]
-[; ;controle.h: 222: timerTesteBombas = tempo_limite_estacionaria;
-"222
-[e = _timerTesteBombas -> _tempo_limite_estacionaria `ui ]
-"223
-}
+[; ;controle.h: 198: }
+[; ;controle.h: 199: return;
+"199
+[e $UE 433  ]
+[; ;controle.h: 200: case 3:
+"200
 [e :U 448 ]
-[; ;controle.h: 223: }
-[; ;controle.h: 224: break;
-"224
-[e $U 432  ]
-[; ;controle.h: 225: case 8:
-"225
+[; ;controle.h: 201: etapaTesteBombas = 4;
+"201
+[e = _etapaTesteBombas -> -> 4 `i `uc ]
+[; ;controle.h: 202: shift[2] = 1;
+"202
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 203: timerIntervaloLigarBomba = 5;
+"203
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+[; ;controle.h: 204: return;
+"204
+[e $UE 433  ]
+[; ;controle.h: 205: case 4:
+"205
 [e :U 449 ]
-[; ;controle.h: 226: sprintf(line4, "Bomba Combustao...");
-"226
-[e ( _sprintf (1 , &U _line4 :s 43C ]
-[; ;controle.h: 227: partidaBombaEstacionaria(1);
-"227
-[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
-[; ;controle.h: 229: if (flagEstacionariaLigada || pressao >= sp_pressao_rede) {
-"229
-[e $ ! || != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i >= _pressao -> _sp_pressao_rede `i 450  ]
+[; ;controle.h: 206: drenarPressao();
+"206
+[e ( _drenarPressao ..  ]
+[; ;controle.h: 207: if (pressao <= (sp_pressao_rede - 10)) {
+"207
+[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 450  ]
 {
-[; ;controle.h: 230: status_estacionaria = 1;
-"230
-[e = _status_estacionaria -> -> 1 `i `uc ]
-[; ;controle.h: 231: timerTesteBombas = tempo_limite_teste_estacionaria;
-"231
-[e = _timerTesteBombas -> _tempo_limite_teste_estacionaria `ui ]
-[; ;controle.h: 232: etapaTesteBombas = 9;
-"232
-[e = _etapaTesteBombas -> -> 9 `i `uc ]
-"233
-}
-[e :U 450 ]
-[; ;controle.h: 233: }
-[; ;controle.h: 234: if (status_estacionaria == 0 || !timerTesteBombas) {
-"234
-[e $ ! || == -> _status_estacionaria `i -> 0 `i ! != _timerTesteBombas -> -> 0 `i `ui 451  ]
+[; ;controle.h: 208: shift[2] = 0;
+"208
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 209: if (timerIntervaloLigarBomba == 0) {
+"209
+[e $ ! == -> _timerIntervaloLigarBomba `i -> 0 `i 451  ]
 {
-[; ;controle.h: 235: etapaTesteBombas = 10;
-"235
-[e = _etapaTesteBombas -> -> 10 `i `uc ]
-[; ;controle.h: 236: status_estacionaria = 0;
-"236
-[e = _status_estacionaria -> -> 0 `i `uc ]
-"237
+[; ;controle.h: 210: shift[5] = 1;
+"210
+[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 211: etapaTesteBombas = 5;
+"211
+[e = _etapaTesteBombas -> -> 5 `i `uc ]
+[; ;controle.h: 212: timerTesteBombas = 50;
+"212
+[e = _timerTesteBombas -> -> 50 `i `ui ]
+"213
 }
 [e :U 451 ]
-[; ;controle.h: 237: }
-[; ;controle.h: 238: break;
-"238
-[e $U 432  ]
-[; ;controle.h: 239: case 9:
-"239
+"214
+}
+[e :U 450 ]
+[; ;controle.h: 213: }
+[; ;controle.h: 214: }
+[; ;controle.h: 215: return;
+"215
+[e $UE 433  ]
+[; ;controle.h: 216: case 5:
+"216
 [e :U 452 ]
-[; ;controle.h: 240: sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada...": "Religando...");
-"240
-[e ( _sprintf (1 , (. , &U _line4 :s 44C ? ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i : :s 45C :s 46C ]
-[; ;controle.h: 241: partidaBombaEstacionaria(1);
-"241
-[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
-[; ;controle.h: 242: if (!timerTesteBombas || status_estacionaria == 0) {
-"242
-[e $ ! || ! != _timerTesteBombas -> -> 0 `i `ui == -> _status_estacionaria `i -> 0 `i 453  ]
+[; ;controle.h: 217: sprintf(line4, "Bomba Principal...");
+"217
+[e ( _sprintf (1 , &U _line4 :s 42C ]
+[; ;controle.h: 218: if (pressao >= sp_pressao_rede) {
+"218
+[e $ ! >= _pressao -> _sp_pressao_rede `i 453  ]
 {
-[; ;controle.h: 243: etapaTesteBombas = 10;
-"243
-[e = _etapaTesteBombas -> -> 10 `i `uc ]
-"244
+[; ;controle.h: 219: shift[5] = 0;
+"219
+[e = *U + &U _shift * -> -> -> 5 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 220: status_principal = 1;
+"220
+[e = _status_principal -> -> 1 `i `uc ]
+[; ;controle.h: 221: etapaTesteBombas = 6;
+"221
+[e = _etapaTesteBombas -> -> 6 `i `uc ]
+"222
 }
 [e :U 453 ]
-[; ;controle.h: 244: }
-[; ;controle.h: 245: break;
-"245
-[e $U 432  ]
-[; ;controle.h: 246: case 10:
-"246
-[e :U 454 ]
-[; ;controle.h: 247: salvarLOG();
-"247
-[e ( _salvarLOG ..  ]
-[; ;controle.h: 248: partidaBombaEstacionaria(2);
-"248
-[e ( _partidaBombaEstacionaria (1 -> -> 2 `i `uc ]
-[; ;controle.h: 249: clearShiftREG();
-"249
-[e ( _clearShiftREG ..  ]
-[; ;controle.h: 250: etapaTesteBombas = 11;
-"250
-[e = _etapaTesteBombas -> -> 11 `i `uc ]
-[; ;controle.h: 251: timerTesteBombas = 10;
-"251
-[e = _timerTesteBombas -> -> 10 `i `ui ]
-[; ;controle.h: 252: break;
-"252
-[e $U 432  ]
-[; ;controle.h: 253: case 11:
-"253
-[e :U 455 ]
-[; ;controle.h: 254: sprintf(&line1[2], "Teste Concluido!");
-"254
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 47C ]
-[; ;controle.h: 255: sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
-"255
-[e ( _sprintf (1 , (. , &U _line2 :s 48C ? == -> _status_jockey `i -> 1 `i : :s 49C :s 50C ]
-[; ;controle.h: 256: sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
-"256
-[e ( _sprintf (1 , (. , &U _line3 :s 51C ? == -> _status_principal `i -> 1 `i : :s 52C :s 53C ]
-[; ;controle.h: 257: sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
-"257
-[e ( _sprintf (1 , (. , &U _line4 :s 54C ? == -> _status_estacionaria `i -> 1 `i : :s 55C :s 56C ]
-[; ;controle.h: 258: if (!timerTesteBombas) {
-"258
-[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 456  ]
+[; ;controle.h: 222: }
+[; ;controle.h: 223: if (!timerTesteBombas) {
+"223
+[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 454  ]
 {
-[; ;controle.h: 259: etapaTesteBombas = 12;
-"259
-[e = _etapaTesteBombas -> -> 12 `i `uc ]
-[; ;controle.h: 260: timerTesteBombas = 120;
-"260
-[e = _timerTesteBombas -> -> 120 `i `ui ]
-[; ;controle.h: 261: timerReenvioSMS = 0;
-"261
-[e = _timerReenvioSMS -> -> 0 `i `uc ]
-[; ;controle.h: 262: gsmOcupado = 1;
-"262
-[e = _gsmOcupado -> -> 1 `i `uc ]
-"263
+[; ;controle.h: 224: status_principal = 0;
+"224
+[e = _status_principal -> -> 0 `i `uc ]
+[; ;controle.h: 225: etapaTesteBombas = 6;
+"225
+[e = _etapaTesteBombas -> -> 6 `i `uc ]
+[; ;controle.h: 226: timerTesteBombas = 30;
+"226
+[e = _timerTesteBombas -> -> 30 `i `ui ]
+"227
 }
+[e :U 454 ]
+[; ;controle.h: 227: }
+[; ;controle.h: 228: return;
+"228
+[e $UE 433  ]
+[; ;controle.h: 229: case 6:
+"229
+[e :U 455 ]
+[; ;controle.h: 230: etapaTesteBombas = 7;
+"230
+[e = _etapaTesteBombas -> -> 7 `i `uc ]
+[; ;controle.h: 231: shift[2] = 1;
+"231
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
+[; ;controle.h: 232: timerIntervaloLigarBomba = 5;
+"232
+[e = _timerIntervaloLigarBomba -> -> 5 `i `uc ]
+[; ;controle.h: 233: return;
+"233
+[e $UE 433  ]
+[; ;controle.h: 234: case 7:
+"234
 [e :U 456 ]
-[; ;controle.h: 263: }
-[; ;controle.h: 264: break;
-"264
-[e $U 432  ]
-[; ;controle.h: 265: case 12:
-"265
-[e :U 457 ]
-[; ;controle.h: 266: sprintf(&line4[2], "enviando SMS...");
-"266
-[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 57C ]
-[; ;controle.h: 267: enviaSMS(2);
-"267
-[e ( _enviaSMS (1 -> -> 2 `i `uc ]
-[; ;controle.h: 268: if (!timerTesteBombas) {
-"268
-[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 458  ]
+[; ;controle.h: 235: drenarPressao();
+"235
+[e ( _drenarPressao ..  ]
+[; ;controle.h: 236: if (pressao <= (sp_pressao_rede - 10)) {
+"236
+[e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 457  ]
 {
-[; ;controle.h: 269: menu_posi = 0;
-"269
-[e = _menu_posi -> -> 0 `i `uc ]
-[; ;controle.h: 270: gsmOcupado = 0;
-"270
-[e = _gsmOcupado -> -> 0 `i `uc ]
-"271
+[; ;controle.h: 237: shift[2] = 0;
+"237
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+[; ;controle.h: 238: if (timerIntervaloLigarBomba == 0) {
+"238
+[e $ ! == -> _timerIntervaloLigarBomba `i -> 0 `i 458  ]
+{
+[; ;controle.h: 239: etapaTesteBombas = 8;
+"239
+[e = _etapaTesteBombas -> -> 8 `i `uc ]
+[; ;controle.h: 240: timerTesteBombas = tempo_limite_estacionaria;
+"240
+[e = _timerTesteBombas -> _tempo_limite_estacionaria `ui ]
+"241
 }
 [e :U 458 ]
-[; ;controle.h: 271: }
-[; ;controle.h: 272: break;
-"272
-[e $U 432  ]
-[; ;controle.h: 273: default:
-"273
-[e :U 459 ]
-[; ;controle.h: 274: etapaTesteBombas = 0;
-"274
-[e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 275: menu_posi = 0;
-"275
-[e = _menu_posi -> -> 0 `i `uc ]
-[; ;controle.h: 276: break;
-"276
-[e $U 432  ]
-"277
+"242
 }
-[; ;controle.h: 277: }
-[e $U 432  ]
-"157
-[e :U 433 ]
-[e [\ _etapaTesteBombas , $ -> -> 0 `i `uc 434
- , $ -> -> 1 `i `uc 435
- , $ -> -> 2 `i `uc 437
- , $ -> -> 3 `i `uc 440
- , $ -> -> 4 `i `uc 441
- , $ -> -> 5 `i `uc 443
- , $ -> -> 6 `i `uc 446
- , $ -> -> 7 `i `uc 447
- , $ -> -> 8 `i `uc 449
- , $ -> -> 9 `i `uc 452
- , $ -> -> 10 `i `uc 454
- , $ -> -> 11 `i `uc 455
- , $ -> -> 12 `i `uc 457
- 459 ]
+[e :U 457 ]
+[; ;controle.h: 241: }
+[; ;controle.h: 242: }
+[; ;controle.h: 243: return;
+"243
+[e $UE 433  ]
+[; ;controle.h: 244: case 8:
+"244
+[e :U 459 ]
+[; ;controle.h: 245: sprintf(line4, "Bomba Combustao...");
+"245
+[e ( _sprintf (1 , &U _line4 :s 43C ]
+[; ;controle.h: 246: partidaBombaEstacionaria(1);
+"246
+[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
+[; ;controle.h: 248: if (flagEstacionariaLigada || pressao >= sp_pressao_rede) {
+"248
+[e $ ! || != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i >= _pressao -> _sp_pressao_rede `i 460  ]
+{
+[; ;controle.h: 249: status_estacionaria = 1;
+"249
+[e = _status_estacionaria -> -> 1 `i `uc ]
+[; ;controle.h: 250: timerTesteBombas = tempo_limite_teste_estacionaria;
+"250
+[e = _timerTesteBombas -> _tempo_limite_teste_estacionaria `ui ]
+[; ;controle.h: 251: etapaTesteBombas = 9;
+"251
+[e = _etapaTesteBombas -> -> 9 `i `uc ]
+"252
+}
+[e :U 460 ]
+[; ;controle.h: 252: }
+[; ;controle.h: 253: if (status_estacionaria == 0 || !timerTesteBombas) {
+"253
+[e $ ! || == -> _status_estacionaria `i -> 0 `i ! != _timerTesteBombas -> -> 0 `i `ui 461  ]
+{
+[; ;controle.h: 254: etapaTesteBombas = 10;
+"254
+[e = _etapaTesteBombas -> -> 10 `i `uc ]
+[; ;controle.h: 255: status_estacionaria = 0;
+"255
+[e = _status_estacionaria -> -> 0 `i `uc ]
+"256
+}
+[e :U 461 ]
+[; ;controle.h: 256: }
+[; ;controle.h: 257: return;
+"257
+[e $UE 433  ]
+[; ;controle.h: 258: case 9:
+"258
+[e :U 462 ]
+[; ;controle.h: 259: sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada..." : "Religando...");
+"259
+[e ( _sprintf (1 , (. , &U _line4 :s 44C ? ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i : :s 45C :s 46C ]
+[; ;controle.h: 260: partidaBombaEstacionaria(1);
+"260
+[e ( _partidaBombaEstacionaria (1 -> -> 1 `i `uc ]
+[; ;controle.h: 261: if (!timerTesteBombas || status_estacionaria == 0) {
+"261
+[e $ ! || ! != _timerTesteBombas -> -> 0 `i `ui == -> _status_estacionaria `i -> 0 `i 463  ]
+{
+[; ;controle.h: 262: etapaTesteBombas = 10;
+"262
+[e = _etapaTesteBombas -> -> 10 `i `uc ]
+"263
+}
+[e :U 463 ]
+[; ;controle.h: 263: }
+[; ;controle.h: 264: return;
+"264
+[e $UE 433  ]
+[; ;controle.h: 265: case 10:
+"265
+[e :U 464 ]
+[; ;controle.h: 266: salvarLOG();
+"266
+[e ( _salvarLOG ..  ]
+[; ;controle.h: 267: partidaBombaEstacionaria(2);
+"267
+[e ( _partidaBombaEstacionaria (1 -> -> 2 `i `uc ]
+[; ;controle.h: 268: clearShiftREG();
+"268
+[e ( _clearShiftREG ..  ]
+[; ;controle.h: 269: etapaTesteBombas = 11;
+"269
+[e = _etapaTesteBombas -> -> 11 `i `uc ]
+[; ;controle.h: 270: timerTesteBombas = 10;
+"270
+[e = _timerTesteBombas -> -> 10 `i `ui ]
+[; ;controle.h: 271: return;
+"271
+[e $UE 433  ]
+[; ;controle.h: 272: case 11:
+"272
+[e :U 465 ]
+[; ;controle.h: 273: sprintf(&line1[2], "Teste Concluido!");
+"273
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 47C ]
+[; ;controle.h: 274: sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
+"274
+[e ( _sprintf (1 , (. , &U _line2 :s 48C ? == -> _status_jockey `i -> 1 `i : :s 49C :s 50C ]
+[; ;controle.h: 275: sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
+"275
+[e ( _sprintf (1 , (. , &U _line3 :s 51C ? == -> _status_principal `i -> 1 `i : :s 52C :s 53C ]
+[; ;controle.h: 276: sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
+"276
+[e ( _sprintf (1 , (. , &U _line4 :s 54C ? == -> _status_estacionaria `i -> 1 `i : :s 55C :s 56C ]
+[; ;controle.h: 277: if (!timerTesteBombas) {
 "277
-[e :U 432 ]
-[; ;controle.h: 278: }
+[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 466  ]
+{
+[; ;controle.h: 278: etapaTesteBombas = 12;
 "278
-[e :UE 426 ]
+[e = _etapaTesteBombas -> -> 12 `i `uc ]
+[; ;controle.h: 279: timerTesteBombas = 120;
+"279
+[e = _timerTesteBombas -> -> 120 `i `ui ]
+[; ;controle.h: 280: timerReenvioSMS = 0;
+"280
+[e = _timerReenvioSMS -> -> 0 `i `uc ]
+[; ;controle.h: 281: gsmOcupado = 1;
+"281
+[e = _gsmOcupado -> -> 1 `i `uc ]
+"282
+}
+[e :U 466 ]
+[; ;controle.h: 282: }
+[; ;controle.h: 283: return;
+"283
+[e $UE 433  ]
+[; ;controle.h: 284: case 12:
+"284
+[e :U 467 ]
+[; ;controle.h: 285: sprintf(&line4[2], "enviando SMS...");
+"285
+[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 57C ]
+[; ;controle.h: 286: enviaSMS(2);
+"286
+[e ( _enviaSMS (1 -> -> 2 `i `uc ]
+[; ;controle.h: 287: if (!timerTesteBombas) {
+"287
+[e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 468  ]
+{
+[; ;controle.h: 288: menu_posi = 0;
+"288
+[e = _menu_posi -> -> 0 `i `uc ]
+[; ;controle.h: 289: gsmOcupado = 0;
+"289
+[e = _gsmOcupado -> -> 0 `i `uc ]
+"290
+}
+[e :U 468 ]
+[; ;controle.h: 290: }
+[; ;controle.h: 291: return;
+"291
+[e $UE 433  ]
+[; ;controle.h: 292: default:
+"292
+[e :U 469 ]
+[; ;controle.h: 293: etapaTesteBombas = 0;
+"293
+[e = _etapaTesteBombas -> -> 0 `i `uc ]
+[; ;controle.h: 294: menu_posi = 0;
+"294
+[e = _menu_posi -> -> 0 `i `uc ]
+[; ;controle.h: 295: return;
+"295
+[e $UE 433  ]
+"296
+}
+[; ;controle.h: 296: }
+[e $U 439  ]
+"166
+[e :U 440 ]
+[e [\ _etapaTesteBombas , $ -> -> 0 `i `uc 441
+ , $ -> -> 1 `i `uc 442
+ , $ -> -> 2 `i `uc 445
+ , $ -> -> 3 `i `uc 448
+ , $ -> -> 4 `i `uc 449
+ , $ -> -> 5 `i `uc 452
+ , $ -> -> 6 `i `uc 455
+ , $ -> -> 7 `i `uc 456
+ , $ -> -> 8 `i `uc 459
+ , $ -> -> 9 `i `uc 462
+ , $ -> -> 10 `i `uc 464
+ , $ -> -> 11 `i `uc 465
+ , $ -> -> 12 `i `uc 467
+ 469 ]
+"296
+[e :U 439 ]
+[; ;controle.h: 297: }
+"297
+[e :UE 433 ]
 }
 "9 temporizador.h
 [v _timer `(v ~T0 @X0 1 ef ]
@@ -6073,157 +6209,163 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;temporizador.h: 15: timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
 "15
 [e = _timerTrocarTextoLcd -> ? <= -> _timerTrocarTextoLcd `i -> 0 `i : -> 0 `i -> =- _timerTrocarTextoLcd -> -> 1 `i `uc `i `uc ]
-[; ;temporizador.h: 17: if(!timerTrocarTextoLcd){
+[; ;temporizador.h: 16: timerIntervaloLigarBomba = (timerIntervaloLigarBomba <= 0 ? 0 : --timerIntervaloLigarBomba);
+"16
+[e = _timerIntervaloLigarBomba -> ? <= -> _timerIntervaloLigarBomba `i -> 0 `i : -> 0 `i -> =- _timerIntervaloLigarBomba -> -> 1 `i `uc `i `uc ]
+[; ;temporizador.h: 17: timerAtualizacaoLCD = (timerAtualizacaoLCD <= 0 ? 0 : --timerAtualizacaoLCD);
 "17
-[e $ ! ! != -> _timerTrocarTextoLcd `i -> -> -> 0 `i `uc `i 461  ]
-{
-[; ;temporizador.h: 18: timerTrocarTextoLcd = 2;
-"18
-[e = _timerTrocarTextoLcd -> -> 2 `i `uc ]
-[; ;temporizador.h: 19: flagTexto = !flagTexto;
+[e = _timerAtualizacaoLCD -> ? <= -> _timerAtualizacaoLCD `i -> 0 `i : -> 0 `i -> =- _timerAtualizacaoLCD -> -> 1 `i `uc `i `uc ]
+[; ;temporizador.h: 19: if(!timerTrocarTextoLcd){
 "19
-[e = _flagTexto -> -> ! != -> _flagTexto `i -> -> -> 0 `i `uc `i `i `uc ]
+[e $ ! ! != -> _timerTrocarTextoLcd `i -> -> -> 0 `i `uc `i 471  ]
+{
+[; ;temporizador.h: 20: timerTrocarTextoLcd = 2;
 "20
-}
-[e :U 461 ]
-[; ;temporizador.h: 20: }
-[; ;temporizador.h: 22: if (ajst_rtc) {
+[e = _timerTrocarTextoLcd -> -> 2 `i `uc ]
+[; ;temporizador.h: 21: flagTexto = !flagTexto;
+"21
+[e = _flagTexto -> -> ! != -> _flagTexto `i -> -> -> 0 `i `uc `i `i `uc ]
 "22
-[e $ ! != -> _ajst_rtc `i -> -> -> 0 `i `uc `i 462  ]
-{
-[; ;temporizador.h: 23: return;
-"23
-[e $UE 460  ]
+}
+[e :U 471 ]
+[; ;temporizador.h: 22: }
+[; ;temporizador.h: 24: if (ajst_rtc) {
 "24
-}
-[e :U 462 ]
-[; ;temporizador.h: 24: }
-[; ;temporizador.h: 25: _sec++;
+[e $ ! != -> _ajst_rtc `i -> -> -> 0 `i `uc `i 472  ]
+{
+[; ;temporizador.h: 25: return;
 "25
-[e ++ __sec -> -> 1 `i `uc ]
-[; ;temporizador.h: 26: if (_sec > 59) {
+[e $UE 470  ]
 "26
-[e $ ! > -> __sec `i -> 59 `i 463  ]
-{
-[; ;temporizador.h: 27: _sec = 0;
+}
+[e :U 472 ]
+[; ;temporizador.h: 26: }
+[; ;temporizador.h: 27: _sec++;
 "27
-[e = __sec -> -> 0 `i `uc ]
-[; ;temporizador.h: 28: _min++;
+[e ++ __sec -> -> 1 `i `uc ]
+[; ;temporizador.h: 28: if (_sec > 59) {
 "28
-[e ++ __min -> -> 1 `i `uc ]
-[; ;temporizador.h: 29: if (_min > 59) {
+[e $ ! > -> __sec `i -> 59 `i 473  ]
+{
+[; ;temporizador.h: 29: _sec = 0;
 "29
-[e $ ! > -> __min `i -> 59 `i 464  ]
-{
-[; ;temporizador.h: 30: _min = 0;
+[e = __sec -> -> 0 `i `uc ]
+[; ;temporizador.h: 30: _min++;
 "30
-[e = __min -> -> 0 `i `uc ]
-[; ;temporizador.h: 31: _hor++;
+[e ++ __min -> -> 1 `i `uc ]
+[; ;temporizador.h: 31: if (_min > 59) {
 "31
-[e ++ __hor -> -> 1 `i `uc ]
-[; ;temporizador.h: 32: if (_hor > 23) {
-"32
-[e $ ! > -> __hor `i -> 23 `i 465  ]
+[e $ ! > -> __min `i -> 59 `i 474  ]
 {
-[; ;temporizador.h: 33: _hor = 0;
+[; ;temporizador.h: 32: _min = 0;
+"32
+[e = __min -> -> 0 `i `uc ]
+[; ;temporizador.h: 33: _hor++;
 "33
-[e = __hor -> -> 0 `i `uc ]
-[; ;temporizador.h: 34: dias_restante_teste++;
+[e ++ __hor -> -> 1 `i `uc ]
+[; ;temporizador.h: 34: if (_hor > 23) {
 "34
-[e ++ _dias_restante_teste -> -> 1 `i `uc ]
-[; ;temporizador.h: 35: writeEEPROM_ext(10, dias_restante_teste);
+[e $ ! > -> __hor `i -> 23 `i 475  ]
+{
+[; ;temporizador.h: 35: _hor = 0;
 "35
-[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
+[e = __hor -> -> 0 `i `uc ]
+[; ;temporizador.h: 36: dias_restante_teste++;
 "36
-}
-[e :U 465 ]
+[e ++ _dias_restante_teste -> -> 1 `i `uc ]
+[; ;temporizador.h: 37: writeEEPROM_ext(10, dias_restante_teste);
 "37
-}
-[e :U 464 ]
+[e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
 "38
 }
-[e :U 463 ]
-[; ;temporizador.h: 36: }
-[; ;temporizador.h: 37: }
-[; ;temporizador.h: 38: }
-[; ;temporizador.h: 40: if (rtc.min != _min) {
+[e :U 475 ]
+"39
+}
+[e :U 474 ]
 "40
-[e $ ! != -> . _rtc 2 `i -> __min `i 466  ]
-{
-[; ;temporizador.h: 42: if (flagEstacionariaLigada) {
+}
+[e :U 473 ]
+[; ;temporizador.h: 38: }
+[; ;temporizador.h: 39: }
+[; ;temporizador.h: 40: }
+[; ;temporizador.h: 42: if (rtc.min != _min) {
 "42
-[e $ ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 467  ]
+[e $ ! != -> . _rtc 2 `i -> __min `i 476  ]
 {
-[; ;temporizador.h: 43: horimetro++;
-"43
-[e ++ _horimetro -> -> 1 `i `ui ]
-[; ;temporizador.h: 44: writeEEPROM16_ext(8, horimetro);
+[; ;temporizador.h: 44: if (flagEstacionariaLigada) {
 "44
-[e ( _writeEEPROM16_ext (2 , -> -> 8 `i `uc _horimetro ]
-"45
-}
-[e :U 467 ]
-[; ;temporizador.h: 45: }
-[; ;temporizador.h: 46: getDS1307TimeDate(&rtc);
-"46
-[e ( _getDS1307TimeDate (1 &U _rtc ]
-[; ;temporizador.h: 47: if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) {
-"47
-[e $ ! && && > -> . _rtc 1 `i -> 60 `i > -> . _rtc 2 `i -> 60 `i > -> . _rtc 3 `i -> 24 `i 468  ]
+[e $ ! != -> _flagEstacionariaLigada `i -> -> -> 0 `i `uc `i 477  ]
 {
-[; ;temporizador.h: 49: RTC_Init();
+[; ;temporizador.h: 45: horimetro++;
+"45
+[e ++ _horimetro -> -> 1 `i `ui ]
+[; ;temporizador.h: 46: writeEEPROM16_ext(8, horimetro);
+"46
+[e ( _writeEEPROM16_ext (2 , -> -> 8 `i `uc _horimetro ]
+"47
+}
+[e :U 477 ]
+[; ;temporizador.h: 47: }
+[; ;temporizador.h: 48: getDS1307TimeDate(&rtc);
+"48
+[e ( _getDS1307TimeDate (1 &U _rtc ]
+[; ;temporizador.h: 49: if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) {
 "49
-[e ( _RTC_Init ..  ]
-[; ;temporizador.h: 50: rtc.sec = _sec;
-"50
-[e = . _rtc 1 __sec ]
-[; ;temporizador.h: 51: rtc.min = _min;
+[e $ ! && && > -> . _rtc 1 `i -> 60 `i > -> . _rtc 2 `i -> 60 `i > -> . _rtc 3 `i -> 24 `i 478  ]
+{
+[; ;temporizador.h: 51: RTC_Init();
 "51
-[e = . _rtc 2 __min ]
-[; ;temporizador.h: 52: rtc.hour = _hor;
+[e ( _RTC_Init ..  ]
+[; ;temporizador.h: 52: rtc.sec = _sec;
 "52
-[e = . _rtc 3 __hor ]
-[; ;temporizador.h: 53: rtc.date = _dia;
+[e = . _rtc 1 __sec ]
+[; ;temporizador.h: 53: rtc.min = _min;
 "53
-[e = . _rtc 4 __dia ]
-[; ;temporizador.h: 54: rtc.month = _mes;
+[e = . _rtc 2 __min ]
+[; ;temporizador.h: 54: rtc.hour = _hor;
 "54
-[e = . _rtc 5 __mes ]
-[; ;temporizador.h: 55: rtc.year = _ano;
+[e = . _rtc 3 __hor ]
+[; ;temporizador.h: 55: rtc.date = _dia;
 "55
-[e = . _rtc 6 __ano ]
-[; ;temporizador.h: 56: return;
+[e = . _rtc 4 __dia ]
+[; ;temporizador.h: 56: rtc.month = _mes;
 "56
-[e $UE 460  ]
+[e = . _rtc 5 __mes ]
+[; ;temporizador.h: 57: rtc.year = _ano;
 "57
-}
-[e :U 468 ]
-[; ;temporizador.h: 57: }
-[; ;temporizador.h: 58: _sec = rtc.sec;
+[e = . _rtc 6 __ano ]
+[; ;temporizador.h: 58: return;
 "58
-[e = __sec . _rtc 1 ]
-[; ;temporizador.h: 59: _min = rtc.min;
+[e $UE 470  ]
 "59
-[e = __min . _rtc 2 ]
-[; ;temporizador.h: 60: _hor = rtc.hour;
-"60
-[e = __hor . _rtc 3 ]
-[; ;temporizador.h: 61: _dia = rtc.date;
-"61
-[e = __dia . _rtc 4 ]
-[; ;temporizador.h: 62: _mes = rtc.month;
-"62
-[e = __mes . _rtc 5 ]
-[; ;temporizador.h: 63: _ano = rtc.year;
-"63
-[e = __ano . _rtc 6 ]
-"64
 }
-[e :U 466 ]
-[; ;temporizador.h: 64: }
-[; ;temporizador.h: 65: }
+[e :U 478 ]
+[; ;temporizador.h: 59: }
+[; ;temporizador.h: 60: _sec = rtc.sec;
+"60
+[e = __sec . _rtc 1 ]
+[; ;temporizador.h: 61: _min = rtc.min;
+"61
+[e = __min . _rtc 2 ]
+[; ;temporizador.h: 62: _hor = rtc.hour;
+"62
+[e = __hor . _rtc 3 ]
+[; ;temporizador.h: 63: _dia = rtc.date;
+"63
+[e = __dia . _rtc 4 ]
+[; ;temporizador.h: 64: _mes = rtc.month;
+"64
+[e = __mes . _rtc 5 ]
+[; ;temporizador.h: 65: _ano = rtc.year;
 "65
-[e :UE 460 ]
+[e = __ano . _rtc 6 ]
+"66
+}
+[e :U 476 ]
+[; ;temporizador.h: 66: }
+[; ;temporizador.h: 67: }
+"67
+[e :UE 470 ]
 }
 "9 util.h
 [v _lerParametros `(v ~T0 @X0 1 ef ]
@@ -6244,15 +6386,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _verifica_memoria_nova ( _readEEPROM_ext (1 -> -> 12 `i `uc ]
 [; ;util.h: 13: if (verifica_memoria_nova != 20) {
 "13
-[e $ ! != -> _verifica_memoria_nova `i -> 20 `i 470  ]
+[e $ ! != -> _verifica_memoria_nova `i -> 20 `i 480  ]
 {
 [; ;util.h: 14: for (i = 0; i < 100; i++) {
 "14
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 100 `i 471  ]
-[e $U 472  ]
-[e :U 471 ]
+[e $ < -> _i `i -> 100 `i 481  ]
+[e $U 482  ]
+[e :U 481 ]
 {
 [; ;util.h: 15: writeEEPROM_ext(i, 0);
 "15
@@ -6261,8 +6403,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "14
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 100 `i 471  ]
-[e :U 472 ]
+[e $ < -> _i `i -> 100 `i 481  ]
+[e :U 482 ]
 "16
 }
 [; ;util.h: 16: }
@@ -6271,7 +6413,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _writeEEPROM_ext (2 , -> -> 12 `i `uc -> -> 20 `i `uc ]
 "18
 }
-[e :U 470 ]
+[e :U 480 ]
 [; ;util.h: 18: }
 [; ;util.h: 20: sp_jockey = readEEPROM_ext(0);
 "20
@@ -6310,9 +6452,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "33
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 11 `i 474  ]
-[e $U 475  ]
-[e :U 474 ]
+[e $ < -> _i `i -> 11 `i 484  ]
+[e $U 485  ]
+[e :U 484 ]
 {
 [; ;util.h: 34: tel1[i] = readEEPROM_ext(20 + i);
 "34
@@ -6321,8 +6463,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "33
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 11 `i 474  ]
-[e :U 475 ]
+[e $ < -> _i `i -> 11 `i 484  ]
+[e :U 485 ]
 "35
 }
 [; ;util.h: 35: }
@@ -6330,9 +6472,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "36
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 11 `i 477  ]
-[e $U 478  ]
-[e :U 477 ]
+[e $ < -> _i `i -> 11 `i 487  ]
+[e $U 488  ]
+[e :U 487 ]
 {
 [; ;util.h: 37: tel2[i] = readEEPROM_ext(40 + i);
 "37
@@ -6341,14 +6483,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "36
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 11 `i 477  ]
-[e :U 478 ]
+[e $ < -> _i `i -> 11 `i 487  ]
+[e :U 488 ]
 "38
 }
 [; ;util.h: 38: }
 [; ;util.h: 39: }
 "39
-[e :UE 469 ]
+[e :UE 479 ]
 }
 [; ;lcd.h: 6: void Lcd_Port(char a);
 [; ;lcd.h: 7: void Lcd_Cmd(char a);
@@ -6405,7 +6547,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 -> -> 6 `i `uc ]
 [; ;lcd.h: 36: }
 "36
-[e :UE 480 ]
+[e :UE 490 ]
 }
 "38
 [v _Lcd_Port `(v ~T0 @X0 1 ef1`uc ]
@@ -6416,63 +6558,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;lcd.h: 39: if (a & 1)
 "39
-[e $ ! != & -> _a `i -> 1 `i -> 0 `i 482  ]
+[e $ ! != & -> _a `i -> 1 `i -> 0 `i 492  ]
 [; ;lcd.h: 40: PORTDbits.RD2 = 1;
 "40
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[e $U 483  ]
+[e $U 493  ]
 "41
-[e :U 482 ]
+[e :U 492 ]
 [; ;lcd.h: 41: else
 [; ;lcd.h: 42: PORTDbits.RD2 = 0;
 "42
 [e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[e :U 483 ]
+[e :U 493 ]
 [; ;lcd.h: 44: if (a & 2)
 "44
-[e $ ! != & -> _a `i -> 2 `i -> 0 `i 484  ]
+[e $ ! != & -> _a `i -> 2 `i -> 0 `i 494  ]
 [; ;lcd.h: 45: PORTDbits.RD3 = 1;
 "45
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-[e $U 485  ]
+[e $U 495  ]
 "46
-[e :U 484 ]
+[e :U 494 ]
 [; ;lcd.h: 46: else
 [; ;lcd.h: 47: PORTDbits.RD3 = 0;
 "47
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[e :U 485 ]
+[e :U 495 ]
 [; ;lcd.h: 49: if (a & 4)
 "49
-[e $ ! != & -> _a `i -> 4 `i -> 0 `i 486  ]
+[e $ ! != & -> _a `i -> 4 `i -> 0 `i 496  ]
 [; ;lcd.h: 50: PORTDbits.RD4 = 1;
 "50
 [e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[e $U 487  ]
+[e $U 497  ]
 "51
-[e :U 486 ]
+[e :U 496 ]
 [; ;lcd.h: 51: else
 [; ;lcd.h: 52: PORTDbits.RD4 = 0;
 "52
 [e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[e :U 487 ]
+[e :U 497 ]
 [; ;lcd.h: 54: if (a & 8)
 "54
-[e $ ! != & -> _a `i -> 8 `i -> 0 `i 488  ]
+[e $ ! != & -> _a `i -> 8 `i -> 0 `i 498  ]
 [; ;lcd.h: 55: PORTDbits.RD5 = 1;
 "55
 [e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
-[e $U 489  ]
+[e $U 499  ]
 "56
-[e :U 488 ]
+[e :U 498 ]
 [; ;lcd.h: 56: else
 [; ;lcd.h: 57: PORTDbits.RD5 = 0;
 "57
 [e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[e :U 489 ]
+[e :U 499 ]
 [; ;lcd.h: 58: }
 "58
-[e :UE 481 ]
+[e :UE 491 ]
 }
 "60
 [v _Lcd_Cmd `(v ~T0 @X0 1 ef1`uc ]
@@ -6498,7 +6640,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
 [; ;lcd.h: 66: }
 "66
-[e :UE 490 ]
+[e :UE 500 ]
 }
 "68
 [v _Lcd_Clear `(v ~T0 @X0 1 ef ]
@@ -6514,7 +6656,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
 [; ;lcd.h: 71: }
 "71
-[e :UE 491 ]
+[e :UE 501 ]
 }
 "73
 [v _Lcd_Set_Cursor `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -6531,11 +6673,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 74: char temp, z, y;
 [; ;lcd.h: 75: switch (a) {
 "75
-[e $U 494  ]
+[e $U 504  ]
 {
 [; ;lcd.h: 76: case 1:
 "76
-[e :U 495 ]
+[e :U 505 ]
 [; ;lcd.h: 77: temp = 0x80 + b - 1;
 "77
 [e = _temp -> - + -> 128 `i -> _b `i -> 1 `i `uc ]
@@ -6553,10 +6695,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 _y ]
 [; ;lcd.h: 82: break;
 "82
-[e $U 493  ]
+[e $U 503  ]
 [; ;lcd.h: 83: case 2:
 "83
-[e :U 496 ]
+[e :U 506 ]
 [; ;lcd.h: 84: temp = 0xC0 + b - 1;
 "84
 [e = _temp -> - + -> 192 `i -> _b `i -> 1 `i `uc ]
@@ -6574,10 +6716,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 _y ]
 [; ;lcd.h: 89: break;
 "89
-[e $U 493  ]
+[e $U 503  ]
 [; ;lcd.h: 90: case 3:
 "90
-[e :U 497 ]
+[e :U 507 ]
 [; ;lcd.h: 91: temp = 0x94 + b;
 "91
 [e = _temp -> + -> 148 `i -> _b `i `uc ]
@@ -6595,10 +6737,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 _y ]
 [; ;lcd.h: 96: break;
 "96
-[e $U 493  ]
+[e $U 503  ]
 [; ;lcd.h: 97: case 4:
 "97
-[e :U 498 ]
+[e :U 508 ]
 [; ;lcd.h: 98: temp = 0xD4 + b;
 "98
 [e = _temp -> + -> 212 `i -> _b `i `uc ]
@@ -6616,27 +6758,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Lcd_Cmd (1 _y ]
 [; ;lcd.h: 103: break;
 "103
-[e $U 493  ]
+[e $U 503  ]
 [; ;lcd.h: 104: default:return;
 "104
-[e :U 499 ]
-[e $UE 492  ]
+[e :U 509 ]
+[e $UE 502  ]
 "105
 }
 [; ;lcd.h: 105: }
-[e $U 493  ]
+[e $U 503  ]
 "75
-[e :U 494 ]
-[e [\ _a , $ -> -> 1 `i `uc 495
- , $ -> -> 2 `i `uc 496
- , $ -> -> 3 `i `uc 497
- , $ -> -> 4 `i `uc 498
- 499 ]
+[e :U 504 ]
+[e [\ _a , $ -> -> 1 `i `uc 505
+ , $ -> -> 2 `i `uc 506
+ , $ -> -> 3 `i `uc 507
+ , $ -> -> 4 `i `uc 508
+ 509 ]
 "105
-[e :U 493 ]
+[e :U 503 ]
 [; ;lcd.h: 106: }
 "106
-[e :UE 492 ]
+[e :UE 502 ]
 }
 "108
 [v _Lcd_Write_Char `(v ~T0 @X0 1 ef1`uc ]
@@ -6684,7 +6826,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
 [; ;lcd.h: 121: }
 "121
-[e :UE 500 ]
+[e :UE 510 ]
 }
 "123
 [v _Lcd_Write_String `(v ~T0 @X0 1 ef1`*uc ]
@@ -6701,9 +6843,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "126
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 20 `i 502  ]
-[e $U 503  ]
-[e :U 502 ]
+[e $ < -> _i `i -> 20 `i 512  ]
+[e $U 513  ]
+[e :U 512 ]
 {
 [; ;lcd.h: 127: Lcd_Write_Char(a[i]);
 "127
@@ -6712,14 +6854,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "126
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 20 `i 502  ]
-[e :U 503 ]
+[e $ < -> _i `i -> 20 `i 512  ]
+[e :U 513 ]
 "129
 }
 [; ;lcd.h: 129: }
 [; ;lcd.h: 130: }
 "130
-[e :UE 501 ]
+[e :UE 511 ]
 }
 "132
 [v _atualizarLCD `(v ~T0 @X0 1 ef4`*uc`*uc`*uc`*uc ]
@@ -6763,9 +6905,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "144
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 20 `i 506  ]
-[e $U 507  ]
-[e :U 506 ]
+[e $ < -> _i `i -> 20 `i 516  ]
+[e $U 517  ]
+[e :U 516 ]
 {
 [; ;lcd.h: 145: line1[i] = ' ';
 "145
@@ -6783,14 +6925,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "144
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 20 `i 506  ]
-[e :U 507 ]
+[e $ < -> _i `i -> 20 `i 516  ]
+[e :U 517 ]
 "149
 }
 [; ;lcd.h: 149: }
 [; ;lcd.h: 150: }
 "150
-[e :UE 505 ]
+[e :UE 515 ]
 }
 "152
 [v _criarCaracteresCGRAM `(v ~T0 @X0 1 ef ]
@@ -6798,9 +6940,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 152: void criarCaracteresCGRAM() {
 [e :U _criarCaracteresCGRAM ]
 [f ]
-[v F2955 `Cuc ~T0 @X0 -> 8 `i t ]
-[v F2956 `F2955 ~T0 @X0 -> 6 `i s ]
-[i F2956
+[v F2961 `Cuc ~T0 @X0 -> 8 `i t ]
+[v F2962 `F2961 ~T0 @X0 -> 6 `i s ]
+[i F2962
 :U ..
 :U ..
 "154
@@ -6860,7 +7002,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 "153
-[v _character `F2955 ~T0 @X0 -> 6 `i a ]
+[v _character `F2961 ~T0 @X0 -> 6 `i a ]
 [; ;lcd.h: 153: const char character[6][8] = {
 [; ;lcd.h: 154: 0x00, 0x1F, 0x0E, 0x04, 0x04, 0x04, 0x04, 0x04,
 [; ;lcd.h: 155: 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x10, 0x10,
@@ -6869,7 +7011,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 158: 0x0A, 0x0A, 0x1F, 0x11, 0x11, 0x0E, 0x04, 0x04,
 [; ;lcd.h: 159: };
 "159
-[e = _character F2956 ]
+[e = _character F2962 ]
 [; ;lcd.h: 160: Lcd_Cmd(0b0100);
 "160
 [e ( _Lcd_Cmd (1 -> -> 4 `i `uc ]
@@ -6891,22 +7033,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 510  ]
-[e $U 511  ]
-[e :U 510 ]
+[e $ < -> _i `i -> 5 `i 520  ]
+[e $U 521  ]
+[e :U 520 ]
 {
 [; ;lcd.h: 165: if (k == 1) i = 0;
 "165
-[e $ ! == -> _k `i -> 1 `i 513  ]
+[e $ ! == -> _k `i -> 1 `i 523  ]
 [e = _i -> -> 0 `i `uc ]
-[e :U 513 ]
+[e :U 523 ]
 [; ;lcd.h: 166: for (j = 0; j < 8; j++) {
 "166
 {
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 8 `i 514  ]
-[e $U 515  ]
-[e :U 514 ]
+[e $ < -> _j `i -> 8 `i 524  ]
+[e $U 525  ]
+[e :U 524 ]
 {
 [; ;lcd.h: 167: Lcd_Write_Char((k) ? character[i][j] : 0);
 "167
@@ -6915,8 +7057,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "166
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 8 `i 514  ]
-[e :U 515 ]
+[e $ < -> _j `i -> 8 `i 524  ]
+[e :U 525 ]
 "168
 }
 [; ;lcd.h: 168: }
@@ -6927,14 +7069,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "164
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 510  ]
-[e :U 511 ]
+[e $ < -> _i `i -> 5 `i 520  ]
+[e :U 521 ]
 "170
 }
 [; ;lcd.h: 170: }
 [; ;lcd.h: 171: }
 "171
-[e :UE 509 ]
+[e :UE 519 ]
 }
 "173
 [v _blink `(v ~T0 @X0 1 ef3`*uc`uc`uc ]
@@ -6947,7 +7089,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;lcd.h: 174: if (blinkk) {
 "174
-[e $ ! != -> _blinkk `i -> -> -> 0 `i `uc `i 518  ]
+[e $ ! != -> _blinkk `i -> -> -> 0 `i `uc `i 528  ]
 {
 "175
 [v _i `uc ~T0 @X0 1 a ]
@@ -6957,8 +7099,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "176
 {
 [e = _i =- _start -> -> 1 `i `uc ]
-[e $U 522  ]
-[e :U 519 ]
+[e $U 532  ]
+[e :U 529 ]
 {
 [; ;lcd.h: 177: line[i] = ' ';
 "177
@@ -6967,19 +7109,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "176
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 522 ]
-[e $ < -> _i `i -> _end `i 519  ]
-[e :U 520 ]
+[e :U 532 ]
+[e $ < -> _i `i -> _end `i 529  ]
+[e :U 530 ]
 "178
 }
 "179
 }
-[e :U 518 ]
+[e :U 528 ]
 [; ;lcd.h: 178: }
 [; ;lcd.h: 179: }
 [; ;lcd.h: 180: }
 "180
-[e :UE 517 ]
+[e :UE 527 ]
 }
 "12 tela_PRINCIPAL.h
 [v _resetParametros `(v ~T0 @X0 1 ef ]
@@ -7019,7 +7161,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _clearShiftREG ..  ]
 [; ;tela_PRINCIPAL.h: 23: }
 "23
-[e :UE 523 ]
+[e :UE 533 ]
 }
 "25
 [v _telaPrincipal `(v ~T0 @X0 1 ef ]
@@ -7027,9 +7169,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tela_PRINCIPAL.h: 25: void telaPrincipal() {
 [e :U _telaPrincipal ]
 [f ]
-[; ;tela_PRINCIPAL.h: 27: sprintf(&line1[2], " %02d:%02d:%02d %02d/%02d", _hor, _min, _sec, _dia, _mes);
+[; ;tela_PRINCIPAL.h: 27: sprintf(&line1[4], " %02d:%02d %02d/%02d", _hor, _min, _dia, _mes);
 "27
-[e ( _sprintf (1 , , , , , (. , &U *U + &U _line1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 58C -> __hor `i -> __min `i -> __sec `i -> __dia `i -> __mes `i ]
+[e ( _sprintf (1 , , , , (. , &U *U + &U _line1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 58C -> __hor `i -> __min `i -> __dia `i -> __mes `i ]
 [; ;tela_PRINCIPAL.h: 29: line1[0] = 0x01;
 "29
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 1 `i `uc ]
@@ -7041,29 +7183,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 19 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 5 `i `uc ]
 [; ;tela_PRINCIPAL.h: 33: switch (codigoErro) {
 "33
-[e $U 526  ]
+[e $U 536  ]
 {
 [; ;tela_PRINCIPAL.h: 34: case 1:
 "34
-[e :U 527 ]
+[e :U 537 ]
 [; ;tela_PRINCIPAL.h: 35: sprintf(line4, " *falha eletrica");
 "35
 [e ( _sprintf (1 , &U _line4 :s 59C ]
 [; ;tela_PRINCIPAL.h: 36: break;
 "36
-[e $U 525  ]
+[e $U 535  ]
 [; ;tela_PRINCIPAL.h: 37: case 2:
 "37
-[e :U 528 ]
+[e :U 538 ]
 [; ;tela_PRINCIPAL.h: 38: sprintf(line4, " *falha GSM");
 "38
 [e ( _sprintf (1 , &U _line4 :s 60C ]
 [; ;tela_PRINCIPAL.h: 39: break;
 "39
-[e $U 525  ]
+[e $U 535  ]
 [; ;tela_PRINCIPAL.h: 40: case 3:
 "40
-[e :U 529 ]
+[e :U 539 ]
 [; ;tela_PRINCIPAL.h: 41: sprintf(line4, " *falha val. ladrao");
 "41
 [e ( _sprintf (1 , &U _line4 :s 61C ]
@@ -7072,10 +7214,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
 [; ;tela_PRINCIPAL.h: 43: break;
 "43
-[e $U 525  ]
+[e $U 535  ]
 [; ;tela_PRINCIPAL.h: 44: case 4:
 "44
-[e :U 530 ]
+[e :U 540 ]
 [; ;tela_PRINCIPAL.h: 45: sprintf(line4, " *falha B. jockey");
 "45
 [e ( _sprintf (1 , &U _line4 :s 62C ]
@@ -7084,10 +7226,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
 [; ;tela_PRINCIPAL.h: 47: break;
 "47
-[e $U 525  ]
+[e $U 535  ]
 [; ;tela_PRINCIPAL.h: 48: case 5:
 "48
-[e :U 531 ]
+[e :U 541 ]
 [; ;tela_PRINCIPAL.h: 49: sprintf(line4, " *falha B. principal");
 "49
 [e ( _sprintf (1 , &U _line4 :s 63C ]
@@ -7096,10 +7238,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
 [; ;tela_PRINCIPAL.h: 51: break;
 "51
-[e $U 525  ]
+[e $U 535  ]
 [; ;tela_PRINCIPAL.h: 52: case 6:
 "52
-[e :U 532 ]
+[e :U 542 ]
 [; ;tela_PRINCIPAL.h: 53: sprintf(line4, " *falha B. combustao");
 "53
 [e ( _sprintf (1 , &U _line4 :s 64C ]
@@ -7108,36 +7250,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _shift * -> -> -> 1 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 1 `i `uc ]
 [; ;tela_PRINCIPAL.h: 55: break;
 "55
-[e $U 525  ]
+[e $U 535  ]
 "56
 }
 [; ;tela_PRINCIPAL.h: 56: }
-[e $U 525  ]
+[e $U 535  ]
 "33
-[e :U 526 ]
-[e [\ _codigoErro , $ -> -> 1 `i `uc 527
- , $ -> -> 2 `i `uc 528
- , $ -> -> 3 `i `uc 529
- , $ -> -> 4 `i `uc 530
- , $ -> -> 5 `i `uc 531
- , $ -> -> 6 `i `uc 532
- 525 ]
+[e :U 536 ]
+[e [\ _codigoErro , $ -> -> 1 `i `uc 537
+ , $ -> -> 2 `i `uc 538
+ , $ -> -> 3 `i `uc 539
+ , $ -> -> 4 `i `uc 540
+ , $ -> -> 5 `i `uc 541
+ , $ -> -> 6 `i `uc 542
+ 535 ]
 "56
-[e :U 525 ]
+[e :U 535 ]
 [; ;tela_PRINCIPAL.h: 58: if (ocorrendoIncendio) {
 "58
-[e $ ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 533  ]
+[e $ ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 543  ]
 {
 [; ;tela_PRINCIPAL.h: 59: sprintf(line2, " ALERTA DE INCENDIO");
 "59
 [e ( _sprintf (1 , &U _line2 :s 65C ]
 "60
 }
-[e :U 533 ]
+[e :U 543 ]
 [; ;tela_PRINCIPAL.h: 60: }
 [; ;tela_PRINCIPAL.h: 62: if (flagErroTransdutor) {
 "62
-[e $ ! != -> _flagErroTransdutor `i -> -> -> 0 `i `uc `i 534  ]
+[e $ ! != -> _flagErroTransdutor `i -> -> -> 0 `i `uc `i 544  ]
 {
 [; ;tela_PRINCIPAL.h: 63: clearShiftREG();
 "63
@@ -7154,49 +7296,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 "67
 }
 [; ;tela_PRINCIPAL.h: 67: } else {
-[e $U 535  ]
-[e :U 534 ]
+[e $U 545  ]
+[e :U 544 ]
 {
 [; ;tela_PRINCIPAL.h: 68: sprintf(&line3[2], "Pressao %s BAR", intToFloatStr(pressao));
 "68
 [e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 67C -> ( _intToFloatStr (1 -> _pressao `uc `*Cuc ]
 "69
 }
-[e :U 535 ]
+[e :U 545 ]
 [; ;tela_PRINCIPAL.h: 69: }
 [; ;tela_PRINCIPAL.h: 72: if (codigoErro > 1 || ocorrendoIncendio) {
 "72
-[e $ ! || > -> _codigoErro `i -> 1 `i != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 536  ]
+[e $ ! || > -> _codigoErro `i -> 1 `i != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 546  ]
 {
 [; ;tela_PRINCIPAL.h: 73: if (flagTexto) {
 "73
-[e $ ! != -> _flagTexto `i -> -> -> 0 `i `uc `i 537  ]
+[e $ ! != -> _flagTexto `i -> -> -> 0 `i `uc `i 547  ]
 {
 [; ;tela_PRINCIPAL.h: 74: sprintf(line4, " Press ESC p/ Reset");
 "74
 [e ( _sprintf (1 , &U _line4 :s 68C ]
 "75
 }
-[e :U 537 ]
+[e :U 547 ]
 [; ;tela_PRINCIPAL.h: 75: }
 [; ;tela_PRINCIPAL.h: 76: if (btPress(1)) {
 "76
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 538  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 548  ]
 {
 [; ;tela_PRINCIPAL.h: 77: resetParametros();
 "77
 [e ( _resetParametros ..  ]
 "78
 }
-[e :U 538 ]
+[e :U 548 ]
 "79
 }
-[e :U 536 ]
+[e :U 546 ]
 [; ;tela_PRINCIPAL.h: 78: }
 [; ;tela_PRINCIPAL.h: 79: }
 [; ;tela_PRINCIPAL.h: 81: if (btPress(4)) {
 "81
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 539  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 549  ]
 {
 [; ;tela_PRINCIPAL.h: 82: menu_posi = 1;
 "82
@@ -7206,33 +7348,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _sub_menu_posi -> -> 1 `i `uc ]
 "84
 }
-[e :U 539 ]
+[e :U 549 ]
 [; ;tela_PRINCIPAL.h: 84: }
 [; ;tela_PRINCIPAL.h: 87: if (!PORTCbits.RC0) {
 "87
-[e $ ! ! != -> . . _PORTCbits 0 0 `i -> -> -> 0 `i `Vuc `i 540  ]
+[e $ ! ! != -> . . _PORTCbits 0 0 `i -> -> -> 0 `i `Vuc `i 550  ]
 {
 [; ;tela_PRINCIPAL.h: 88: blink(line1, 20, 20);
 "88
 [e ( _blink (3 , , &U _line1 -> -> 20 `i `uc -> -> 20 `i `uc ]
 [; ;tela_PRINCIPAL.h: 89: if (codigoErro == 0) {
 "89
-[e $ ! == -> _codigoErro `i -> 0 `i 541  ]
+[e $ ! == -> _codigoErro `i -> 0 `i 551  ]
 {
 [; ;tela_PRINCIPAL.h: 90: codigoErro = 1;
 "90
 [e = _codigoErro -> -> 1 `i `uc ]
 "91
 }
-[e :U 541 ]
+[e :U 551 ]
 "92
 }
-[e :U 540 ]
+[e :U 550 ]
 [; ;tela_PRINCIPAL.h: 91: }
 [; ;tela_PRINCIPAL.h: 92: }
 [; ;tela_PRINCIPAL.h: 93: if (status_jockey == 0) {
 "93
-[e $ ! == -> _status_jockey `i -> 0 `i 542  ]
+[e $ ! == -> _status_jockey `i -> 0 `i 552  ]
 {
 [; ;tela_PRINCIPAL.h: 94: codigoErro = 4;
 "94
@@ -7240,9 +7382,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "95
 }
 [; ;tela_PRINCIPAL.h: 95: } else if (status_principal == 0) {
-[e $U 543  ]
-[e :U 542 ]
-[e $ ! == -> _status_principal `i -> 0 `i 544  ]
+[e $U 553  ]
+[e :U 552 ]
+[e $ ! == -> _status_principal `i -> 0 `i 554  ]
 {
 [; ;tela_PRINCIPAL.h: 96: codigoErro = 5;
 "96
@@ -7250,22 +7392,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "97
 }
 [; ;tela_PRINCIPAL.h: 97: } else if (status_estacionaria == 0) {
-[e $U 545  ]
-[e :U 544 ]
-[e $ ! == -> _status_estacionaria `i -> 0 `i 546  ]
+[e $U 555  ]
+[e :U 554 ]
+[e $ ! == -> _status_estacionaria `i -> 0 `i 556  ]
 {
 [; ;tela_PRINCIPAL.h: 98: codigoErro = 6;
 "98
 [e = _codigoErro -> -> 6 `i `uc ]
 "99
 }
-[e :U 546 ]
+[e :U 556 ]
 "100
-[e :U 545 ]
-[e :U 543 ]
+[e :U 555 ]
+[e :U 553 ]
 [; ;tela_PRINCIPAL.h: 99: }
 [; ;tela_PRINCIPAL.h: 100: }
-[e :UE 524 ]
+[e :UE 534 ]
 }
 "11 tela_RELOGIO.h
 [v _tela_ajusteRTC `(v ~T0 @X0 1 ef ]
@@ -7287,7 +7429,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , , , (. , &U *U + &U _line2 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 72C -> . _rtc 3 `i -> . _rtc 2 `i -> . _rtc 1 `i ]
 [; ;tela_RELOGIO.h: 17: if (btPress(4)) {
 "17
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 548  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 558  ]
 {
 [; ;tela_RELOGIO.h: 18: ajst_rtc = 1;
 "18
@@ -7297,11 +7439,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _option_posi -> -> 1 `i `uc ]
 "20
 }
-[e :U 548 ]
+[e :U 558 ]
 [; ;tela_RELOGIO.h: 20: }
 [; ;tela_RELOGIO.h: 21: if (btPress(1)) {
 "21
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 549  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 559  ]
 {
 [; ;tela_RELOGIO.h: 22: ajst_rtc = 0;
 "22
@@ -7320,226 +7462,226 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ __min -> -> 1 `i `uc ]
 "27
 }
-[e :U 549 ]
+[e :U 559 ]
 [; ;tela_RELOGIO.h: 27: }
 [; ;tela_RELOGIO.h: 28: switch (option_posi) {
 "28
-[e $U 551  ]
+[e $U 561  ]
 {
 [; ;tela_RELOGIO.h: 29: case 1:
 "29
-[e :U 552 ]
+[e :U 562 ]
 [; ;tela_RELOGIO.h: 30: blink(line2, 1, 2);
 "30
 [e ( _blink (3 , , &U _line2 -> -> 1 `i `uc -> -> 2 `i `uc ]
 [; ;tela_RELOGIO.h: 31: if (btPress(3)) {
 "31
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 553  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 563  ]
 {
 [; ;tela_RELOGIO.h: 32: rtc.date++;
 "32
 [e ++ . _rtc 4 -> -> 1 `i `uc ]
 "33
 }
-[e :U 553 ]
+[e :U 563 ]
 [; ;tela_RELOGIO.h: 33: }
 [; ;tela_RELOGIO.h: 34: if (btPress(2)) {
 "34
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 554  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 564  ]
 {
 [; ;tela_RELOGIO.h: 35: rtc.date--;
 "35
 [e -- . _rtc 4 -> -> 1 `i `uc ]
 "36
 }
-[e :U 554 ]
+[e :U 564 ]
 [; ;tela_RELOGIO.h: 36: }
 [; ;tela_RELOGIO.h: 37: break;
 "37
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 38: case 2:
 "38
-[e :U 555 ]
+[e :U 565 ]
 [; ;tela_RELOGIO.h: 39: blink(line2, 4, 5);
 "39
 [e ( _blink (3 , , &U _line2 -> -> 4 `i `uc -> -> 5 `i `uc ]
 [; ;tela_RELOGIO.h: 40: if (btPress(3)) {
 "40
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 556  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 566  ]
 {
 [; ;tela_RELOGIO.h: 41: rtc.month++;
 "41
 [e ++ . _rtc 5 -> -> 1 `i `uc ]
 "42
 }
-[e :U 556 ]
+[e :U 566 ]
 [; ;tela_RELOGIO.h: 42: }
 [; ;tela_RELOGIO.h: 43: if (btPress(2)) {
 "43
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 557  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 567  ]
 {
 [; ;tela_RELOGIO.h: 44: rtc.month--;
 "44
 [e -- . _rtc 5 -> -> 1 `i `uc ]
 "45
 }
-[e :U 557 ]
+[e :U 567 ]
 [; ;tela_RELOGIO.h: 45: }
 [; ;tela_RELOGIO.h: 46: break;
 "46
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 47: case 3:
 "47
-[e :U 558 ]
+[e :U 568 ]
 [; ;tela_RELOGIO.h: 48: blink(line2, 7, 8);
 "48
 [e ( _blink (3 , , &U _line2 -> -> 7 `i `uc -> -> 8 `i `uc ]
 [; ;tela_RELOGIO.h: 49: if (btPress(3)) {
 "49
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 559  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 569  ]
 {
 [; ;tela_RELOGIO.h: 50: rtc.year++;
 "50
 [e ++ . _rtc 6 -> -> 1 `i `uc ]
 "51
 }
-[e :U 559 ]
+[e :U 569 ]
 [; ;tela_RELOGIO.h: 51: }
 [; ;tela_RELOGIO.h: 52: if (btPress(2)) {
 "52
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 560  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 570  ]
 {
 [; ;tela_RELOGIO.h: 53: rtc.year--;
 "53
 [e -- . _rtc 6 -> -> 1 `i `uc ]
 "54
 }
-[e :U 560 ]
+[e :U 570 ]
 [; ;tela_RELOGIO.h: 54: }
 [; ;tela_RELOGIO.h: 55: break;
 "55
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 56: case 4:
 "56
-[e :U 561 ]
+[e :U 571 ]
 [; ;tela_RELOGIO.h: 57: blink(line2, 12, 13);
 "57
 [e ( _blink (3 , , &U _line2 -> -> 12 `i `uc -> -> 13 `i `uc ]
 [; ;tela_RELOGIO.h: 58: if (btPress(3)) {
 "58
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 562  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 572  ]
 {
 [; ;tela_RELOGIO.h: 59: rtc.hour++;
 "59
 [e ++ . _rtc 3 -> -> 1 `i `uc ]
 "60
 }
-[e :U 562 ]
+[e :U 572 ]
 [; ;tela_RELOGIO.h: 60: }
 [; ;tela_RELOGIO.h: 61: if (btPress(2)) {
 "61
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 563  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 573  ]
 {
 [; ;tela_RELOGIO.h: 62: rtc.hour--;
 "62
 [e -- . _rtc 3 -> -> 1 `i `uc ]
 "63
 }
-[e :U 563 ]
+[e :U 573 ]
 [; ;tela_RELOGIO.h: 63: }
 [; ;tela_RELOGIO.h: 64: break;
 "64
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 65: case 5:
 "65
-[e :U 564 ]
+[e :U 574 ]
 [; ;tela_RELOGIO.h: 66: blink(line2, 15, 16);
 "66
 [e ( _blink (3 , , &U _line2 -> -> 15 `i `uc -> -> 16 `i `uc ]
 [; ;tela_RELOGIO.h: 67: if (btPress(3)) {
 "67
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 565  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 575  ]
 {
 [; ;tela_RELOGIO.h: 68: rtc.min++;
 "68
 [e ++ . _rtc 2 -> -> 1 `i `uc ]
 "69
 }
-[e :U 565 ]
+[e :U 575 ]
 [; ;tela_RELOGIO.h: 69: }
 [; ;tela_RELOGIO.h: 70: if (btPress(2)) {
 "70
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 566  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 576  ]
 {
 [; ;tela_RELOGIO.h: 71: rtc.min--;
 "71
 [e -- . _rtc 2 -> -> 1 `i `uc ]
 "72
 }
-[e :U 566 ]
+[e :U 576 ]
 [; ;tela_RELOGIO.h: 72: }
 [; ;tela_RELOGIO.h: 73: break;
 "73
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 74: case 6:
 "74
-[e :U 567 ]
+[e :U 577 ]
 [; ;tela_RELOGIO.h: 75: blink(line2, 18, 19);
 "75
 [e ( _blink (3 , , &U _line2 -> -> 18 `i `uc -> -> 19 `i `uc ]
 [; ;tela_RELOGIO.h: 76: if (btPress(3)) {
 "76
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 568  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 578  ]
 {
 [; ;tela_RELOGIO.h: 77: rtc.sec++;
 "77
 [e ++ . _rtc 1 -> -> 1 `i `uc ]
 "78
 }
-[e :U 568 ]
+[e :U 578 ]
 [; ;tela_RELOGIO.h: 78: }
 [; ;tela_RELOGIO.h: 79: if (btPress(2)) {
 "79
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 569  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 579  ]
 {
 [; ;tela_RELOGIO.h: 80: rtc.sec--;
 "80
 [e -- . _rtc 1 -> -> 1 `i `uc ]
 "81
 }
-[e :U 569 ]
+[e :U 579 ]
 [; ;tela_RELOGIO.h: 81: }
 [; ;tela_RELOGIO.h: 82: break;
 "82
-[e $U 550  ]
+[e $U 560  ]
 [; ;tela_RELOGIO.h: 83: default:option_posi = 1;
 "83
-[e :U 570 ]
+[e :U 580 ]
 [e = _option_posi -> -> 1 `i `uc ]
 [; ;tela_RELOGIO.h: 84: break;
 "84
-[e $U 550  ]
+[e $U 560  ]
 "85
 }
 [; ;tela_RELOGIO.h: 85: }
-[e $U 550  ]
+[e $U 560  ]
 "28
-[e :U 551 ]
-[e [\ _option_posi , $ -> -> 1 `i `uc 552
- , $ -> -> 2 `i `uc 555
- , $ -> -> 3 `i `uc 558
- , $ -> -> 4 `i `uc 561
- , $ -> -> 5 `i `uc 564
- , $ -> -> 6 `i `uc 567
- 570 ]
+[e :U 561 ]
+[e [\ _option_posi , $ -> -> 1 `i `uc 562
+ , $ -> -> 2 `i `uc 565
+ , $ -> -> 3 `i `uc 568
+ , $ -> -> 4 `i `uc 571
+ , $ -> -> 5 `i `uc 574
+ , $ -> -> 6 `i `uc 577
+ 580 ]
 "85
-[e :U 550 ]
+[e :U 560 ]
 [; ;tela_RELOGIO.h: 86: validaRTC();
 "86
 [e ( _validaRTC ..  ]
 [; ;tela_RELOGIO.h: 87: }
 "87
-[e :UE 547 ]
+[e :UE 557 ]
 }
 "8 tela_TESTE_BOMBAS.h
 [v _tela_testeBombas `(v ~T0 @X0 1 ef ]
@@ -7561,7 +7703,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , (. , &U _line4 :s 76C ? == -> _habilitaTesteAutomatico `i -> 0 `i : :s 77C :s 78C ]
 [; ;tela_TESTE_BOMBAS.h: 15: if (btPress(1)) {
 "15
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 572  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 582  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 16: writeEEPROM_ext(6, intervalo_teste_dia);
 "16
@@ -7577,149 +7719,149 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _menu_posi __menu_posi ]
 "20
 }
-[e :U 572 ]
+[e :U 582 ]
 [; ;tela_TESTE_BOMBAS.h: 20: }
 [; ;tela_TESTE_BOMBAS.h: 21: if (btPress(4)) {
 "21
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 573  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 583  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 22: option_posi++;
 "22
 [e ++ _option_posi -> -> 1 `i `uc ]
 "23
 }
-[e :U 573 ]
+[e :U 583 ]
 [; ;tela_TESTE_BOMBAS.h: 23: }
 [; ;tela_TESTE_BOMBAS.h: 24: switch (option_posi) {
 "24
-[e $U 575  ]
+[e $U 585  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 25: case 0:
 "25
-[e :U 576 ]
+[e :U 586 ]
 [; ;tela_TESTE_BOMBAS.h: 26: blink(line2, 11, 14);
 "26
 [e ( _blink (3 , , &U _line2 -> -> 11 `i `uc -> -> 14 `i `uc ]
 [; ;tela_TESTE_BOMBAS.h: 27: if (btPress(3)) {
 "27
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 577  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 587  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 28: intervalo_teste_dia++;
 "28
 [e ++ _intervalo_teste_dia -> -> 1 `i `uc ]
 "29
 }
-[e :U 577 ]
+[e :U 587 ]
 [; ;tela_TESTE_BOMBAS.h: 29: }
 [; ;tela_TESTE_BOMBAS.h: 30: if (btPress(2)) {
 "30
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 578  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 588  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 31: intervalo_teste_dia--;
 "31
 [e -- _intervalo_teste_dia -> -> 1 `i `uc ]
 "32
 }
-[e :U 578 ]
+[e :U 588 ]
 [; ;tela_TESTE_BOMBAS.h: 32: }
 [; ;tela_TESTE_BOMBAS.h: 33: break;
 "33
-[e $U 574  ]
+[e $U 584  ]
 [; ;tela_TESTE_BOMBAS.h: 34: case 1:
 "34
-[e :U 579 ]
+[e :U 589 ]
 [; ;tela_TESTE_BOMBAS.h: 35: blink(line3, 9, 11);
 "35
 [e ( _blink (3 , , &U _line3 -> -> 9 `i `uc -> -> 11 `i `uc ]
 [; ;tela_TESTE_BOMBAS.h: 36: if (btPress(3)) {
 "36
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 580  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 590  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 37: horario_de_teste++;
 "37
 [e ++ _horario_de_teste -> -> 1 `i `uc ]
 "38
 }
-[e :U 580 ]
+[e :U 590 ]
 [; ;tela_TESTE_BOMBAS.h: 38: }
 [; ;tela_TESTE_BOMBAS.h: 39: if (btPress(2)) {
 "39
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 581  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 591  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 40: horario_de_teste--;
 "40
 [e -- _horario_de_teste -> -> 1 `i `uc ]
 "41
 }
-[e :U 581 ]
+[e :U 591 ]
 [; ;tela_TESTE_BOMBAS.h: 41: }
 [; ;tela_TESTE_BOMBAS.h: 42: if (horario_de_teste > 23 || horario_de_teste < 0) {
 "42
-[e $ ! || > -> _horario_de_teste `i -> 23 `i < -> _horario_de_teste `i -> 0 `i 582  ]
+[e $ ! || > -> _horario_de_teste `i -> 23 `i < -> _horario_de_teste `i -> 0 `i 592  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 43: horario_de_teste = 0;
 "43
 [e = _horario_de_teste -> -> 0 `i `uc ]
 "44
 }
-[e :U 582 ]
+[e :U 592 ]
 [; ;tela_TESTE_BOMBAS.h: 44: }
 [; ;tela_TESTE_BOMBAS.h: 45: break;
 "45
-[e $U 574  ]
+[e $U 584  ]
 [; ;tela_TESTE_BOMBAS.h: 46: case 2:
 "46
-[e :U 583 ]
+[e :U 593 ]
 [; ;tela_TESTE_BOMBAS.h: 47: blink(line4, 9, 11);
 "47
 [e ( _blink (3 , , &U _line4 -> -> 9 `i `uc -> -> 11 `i `uc ]
 [; ;tela_TESTE_BOMBAS.h: 48: if (btPress(3)) {
 "48
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 584  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 594  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 49: habilitaTesteAutomatico = 1;
 "49
 [e = _habilitaTesteAutomatico -> -> 1 `i `uc ]
 "50
 }
-[e :U 584 ]
+[e :U 594 ]
 [; ;tela_TESTE_BOMBAS.h: 50: }
 [; ;tela_TESTE_BOMBAS.h: 51: if (btPress(2)) {
 "51
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 585  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 595  ]
 {
 [; ;tela_TESTE_BOMBAS.h: 52: habilitaTesteAutomatico = 0;
 "52
 [e = _habilitaTesteAutomatico -> -> 0 `i `uc ]
 "53
 }
-[e :U 585 ]
+[e :U 595 ]
 [; ;tela_TESTE_BOMBAS.h: 53: }
 [; ;tela_TESTE_BOMBAS.h: 54: break;
 "54
-[e $U 574  ]
+[e $U 584  ]
 [; ;tela_TESTE_BOMBAS.h: 55: default:option_posi = 0;
 "55
-[e :U 586 ]
+[e :U 596 ]
 [e = _option_posi -> -> 0 `i `uc ]
 [; ;tela_TESTE_BOMBAS.h: 56: break;
 "56
-[e $U 574  ]
+[e $U 584  ]
 "57
 }
 [; ;tela_TESTE_BOMBAS.h: 57: }
-[e $U 574  ]
+[e $U 584  ]
 "24
-[e :U 575 ]
-[e [\ _option_posi , $ -> -> 0 `i `uc 576
- , $ -> -> 1 `i `uc 579
- , $ -> -> 2 `i `uc 583
- 586 ]
+[e :U 585 ]
+[e [\ _option_posi , $ -> -> 0 `i `uc 586
+ , $ -> -> 1 `i `uc 589
+ , $ -> -> 2 `i `uc 593
+ 596 ]
 "57
-[e :U 574 ]
+[e :U 584 ]
 [; ;tela_TESTE_BOMBAS.h: 58: }
 "58
-[e :UE 571 ]
+[e :UE 581 ]
 }
 "9 tela_DATALOGER.h
 [v _dtl_posicao `uc ~T0 @X0 1 e ]
@@ -7796,7 +7938,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , (. , &U _line4 :s 87C ? == -> _dtl_estacionaria `i -> 1 `i : :s 88C :s 89C ]
 [; ;tela_DATALOGER.h: 19: if (btPress(1)) {
 "19
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 588  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 598  ]
 {
 [; ;tela_DATALOGER.h: 20: option_posi = 0;
 "20
@@ -7806,47 +7948,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _menu_posi __menu_posi ]
 "22
 }
-[e :U 588 ]
+[e :U 598 ]
 [; ;tela_DATALOGER.h: 22: }
 [; ;tela_DATALOGER.h: 27: if (btPress(2)) {
 "27
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 589  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 599  ]
 {
 [; ;tela_DATALOGER.h: 28: dtl_posicao -= 8;
 "28
 [e =- _dtl_posicao -> -> 8 `i `uc ]
 [; ;tela_DATALOGER.h: 29: if (dtl_posicao < 60) {
 "29
-[e $ ! < -> _dtl_posicao `i -> 60 `i 590  ]
+[e $ ! < -> _dtl_posicao `i -> 60 `i 600  ]
 {
 [; ;tela_DATALOGER.h: 30: dtl_posicao = 60;
 "30
 [e = _dtl_posicao -> -> 60 `i `uc ]
 "31
 }
-[e :U 590 ]
+[e :U 600 ]
 [; ;tela_DATALOGER.h: 31: }
 [; ;tela_DATALOGER.h: 32: dtl_carregar_log = 1;
 "32
 [e = _dtl_carregar_log -> -> 1 `i `uc ]
 "33
 }
-[e :U 589 ]
+[e :U 599 ]
 [; ;tela_DATALOGER.h: 33: }
 [; ;tela_DATALOGER.h: 34: if (btPress(3)) {
 "34
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 591  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 601  ]
 {
 [; ;tela_DATALOGER.h: 35: if ((dtl_posi_visualizar + 1) >= totalLogs) {
 "35
-[e $ ! >= + -> _dtl_posi_visualizar `i -> 1 `i -> _totalLogs `i 592  ]
+[e $ ! >= + -> _dtl_posi_visualizar `i -> 1 `i -> _totalLogs `i 602  ]
 {
 [; ;tela_DATALOGER.h: 36: return;
 "36
-[e $UE 587  ]
+[e $UE 597  ]
 "37
 }
-[e :U 592 ]
+[e :U 602 ]
 [; ;tela_DATALOGER.h: 37: }
 [; ;tela_DATALOGER.h: 38: dtl_posicao += 8;
 "38
@@ -7856,11 +7998,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dtl_carregar_log -> -> 1 `i `uc ]
 "40
 }
-[e :U 591 ]
+[e :U 601 ]
 [; ;tela_DATALOGER.h: 40: }
 [; ;tela_DATALOGER.h: 42: if (dtl_carregar_log == 1) {
 "42
-[e $ ! == -> _dtl_carregar_log `i -> 1 `i 593  ]
+[e $ ! == -> _dtl_carregar_log `i -> 1 `i 603  ]
 {
 "43
 [v _logs `uc ~T0 @X0 1 a ]
@@ -7901,11 +8043,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dtl_carregar_log -> -> 0 `i `uc ]
 "57
 }
-[e :U 593 ]
+[e :U 603 ]
 [; ;tela_DATALOGER.h: 57: }
 [; ;tela_DATALOGER.h: 58: }
 "58
-[e :UE 587 ]
+[e :UE 597 ]
 }
 "7 tela_INFORMACOES.h
 [v _informacoes `(v ~T0 @X0 1 ef ]
@@ -7922,23 +8064,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tela_INFORMACOES.h: 10: sprintf(line3, "   48 99906-5651");
 "10
 [e ( _sprintf (1 , &U _line3 :s 92C ]
-[; ;tela_INFORMACOES.h: 11: sprintf(line4, "versao - %s", "Nov 25 2019");
+[; ;tela_INFORMACOES.h: 11: sprintf(line4, "versao - %s", "Jun 01 2020");
 "11
 [e ( _sprintf (1 , (. , &U _line4 :s 93C :s 94C ]
 [; ;tela_INFORMACOES.h: 12: if (btPress(1)) {
 "12
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 595  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 605  ]
 {
 [; ;tela_INFORMACOES.h: 13: menu_posi = _menu_posi;
 "13
 [e = _menu_posi __menu_posi ]
 "14
 }
-[e :U 595 ]
+[e :U 605 ]
 [; ;tela_INFORMACOES.h: 14: }
 [; ;tela_INFORMACOES.h: 15: }
 "15
-[e :UE 594 ]
+[e :UE 604 ]
 }
 "9 tela_TELEFONES.h
 [v _configuraTelefones `(v ~T0 @X0 1 ef ]
@@ -7957,11 +8099,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 97C ? != -> _gsmOcupado `i -> -> -> 0 `i `uc `i : :s 98C :s 99C ]
 [; ;tela_TELEFONES.h: 14: if (ajust_tel == 0) {
 "14
-[e $ ! == -> _ajust_tel `i -> 0 `i 597  ]
+[e $ ! == -> _ajust_tel `i -> 0 `i 607  ]
 {
 [; ;tela_TELEFONES.h: 15: if (btPress(3)) {
 "15
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 598  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 608  ]
 {
 [; ;tela_TELEFONES.h: 16: option_posi--;
 "16
@@ -7969,9 +8111,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "17
 }
 [; ;tela_TELEFONES.h: 17: } else if (btPress(2)) {
-[e $U 599  ]
-[e :U 598 ]
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 600  ]
+[e $U 609  ]
+[e :U 608 ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 610  ]
 {
 [; ;tela_TELEFONES.h: 18: option_posi++;
 "18
@@ -7979,9 +8121,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "19
 }
 [; ;tela_TELEFONES.h: 19: } else if (btPress(1)) {
-[e $U 601  ]
-[e :U 600 ]
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 602  ]
+[e $U 611  ]
+[e :U 610 ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 612  ]
 {
 [; ;tela_TELEFONES.h: 20: gsmOcupado = 0;
 "20
@@ -8003,9 +8145,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 11 `i 603  ]
-[e $U 604  ]
-[e :U 603 ]
+[e $ < -> _i `i -> 11 `i 613  ]
+[e $U 614  ]
+[e :U 613 ]
 {
 [; ;tela_TELEFONES.h: 26: writeEEPROM_ext((20 + i), tel1[i]);
 "26
@@ -8017,8 +8159,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "25
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 11 `i 603  ]
-[e :U 604 ]
+[e $ < -> _i `i -> 11 `i 613  ]
+[e :U 614 ]
 "28
 }
 [; ;tela_TELEFONES.h: 28: }
@@ -8027,21 +8169,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _menu_posi __menu_posi ]
 "30
 }
-[e :U 602 ]
+[e :U 612 ]
 "31
-[e :U 601 ]
-[e :U 599 ]
+[e :U 611 ]
+[e :U 609 ]
 }
-[e :U 597 ]
+[e :U 607 ]
 [; ;tela_TELEFONES.h: 30: }
 [; ;tela_TELEFONES.h: 31: }
 [; ;tela_TELEFONES.h: 32: if (ajust_tel == 1) {
 "32
-[e $ ! == -> _ajust_tel `i -> 1 `i 606  ]
+[e $ ! == -> _ajust_tel `i -> 1 `i 616  ]
 {
 [; ;tela_TELEFONES.h: 33: if (btPress(4)) {
 "33
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 607  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 617  ]
 {
 [; ;tela_TELEFONES.h: 34: tel_posi++;
 "34
@@ -8049,9 +8191,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35
 }
 [; ;tela_TELEFONES.h: 35: } else if (btPress(1)) {
-[e $U 608  ]
-[e :U 607 ]
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 609  ]
+[e $U 618  ]
+[e :U 617 ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 619  ]
 {
 [; ;tela_TELEFONES.h: 36: tel_posi = 0;
 "36
@@ -8061,44 +8203,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ajust_tel -> -> 0 `i `uc ]
 "38
 }
-[e :U 609 ]
+[e :U 619 ]
 "39
-[e :U 608 ]
+[e :U 618 ]
 }
-[e :U 606 ]
+[e :U 616 ]
 [; ;tela_TELEFONES.h: 38: }
 [; ;tela_TELEFONES.h: 39: }
 [; ;tela_TELEFONES.h: 41: switch (option_posi) {
 "41
-[e $U 611  ]
+[e $U 621  ]
 {
 [; ;tela_TELEFONES.h: 42: case 0:
 "42
-[e :U 612 ]
+[e :U 622 ]
 [; ;tela_TELEFONES.h: 43: line1[0] = '>';
 "43
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;tela_TELEFONES.h: 44: if (btPress(4)) {
 "44
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 613  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 623  ]
 {
 [; ;tela_TELEFONES.h: 45: ajust_tel = 1;
 "45
 [e = _ajust_tel -> -> 1 `i `uc ]
 "46
 }
-[e :U 613 ]
+[e :U 623 ]
 [; ;tela_TELEFONES.h: 46: }
 [; ;tela_TELEFONES.h: 47: if (ajust_tel) {
 "47
-[e $ ! != -> _ajust_tel `i -> -> -> 0 `i `uc `i 614  ]
+[e $ ! != -> _ajust_tel `i -> -> -> 0 `i `uc `i 624  ]
 {
 [; ;tela_TELEFONES.h: 48: blink(line1, (tel_posi + 6), (tel_posi + 6));
 "48
 [e ( _blink (3 , , &U _line1 -> + -> _tel_posi `i -> 6 `i `uc -> + -> _tel_posi `i -> 6 `i `uc ]
 [; ;tela_TELEFONES.h: 49: if ((tel_posi + 2) > sizeof (tel1)) {
 "49
-[e $ ! > -> + -> _tel_posi `i -> 2 `i `ui -> # _tel1 `ui 615  ]
+[e $ ! > -> + -> _tel_posi `i -> 2 `i `ui -> # _tel1 `ui 625  ]
 {
 [; ;tela_TELEFONES.h: 50: tel_posi = 0;
 "50
@@ -8108,75 +8250,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ajust_tel -> -> 0 `i `uc ]
 "52
 }
-[e :U 615 ]
+[e :U 625 ]
 [; ;tela_TELEFONES.h: 52: }
 [; ;tela_TELEFONES.h: 53: if (btPress(3)) {
 "53
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 616  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 626  ]
 {
 [; ;tela_TELEFONES.h: 54: tel1[tel_posi]++;
 "54
 [e ++ *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux -> -> 1 `i `uc ]
 "55
 }
-[e :U 616 ]
+[e :U 626 ]
 [; ;tela_TELEFONES.h: 55: }
 [; ;tela_TELEFONES.h: 56: if (btPress(2)) {
 "56
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 617  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 627  ]
 {
 [; ;tela_TELEFONES.h: 57: tel1[tel_posi]--;
 "57
 [e -- *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux -> -> 1 `i `uc ]
 "58
 }
-[e :U 617 ]
+[e :U 627 ]
 [; ;tela_TELEFONES.h: 58: }
 [; ;tela_TELEFONES.h: 59: if ((tel1[tel_posi] > 57) | (tel1[tel_posi] < 48)) {
 "59
-[e $ ! | > -> *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux `i -> 57 `i < -> *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux `i -> 48 `i 618  ]
+[e $ ! | > -> *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux `i -> 57 `i < -> *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux `i -> 48 `i 628  ]
 {
 [; ;tela_TELEFONES.h: 60: tel1[tel_posi] = 48;
 "60
 [e = *U + &U _tel1 * -> _tel_posi `ux -> -> # *U &U _tel1 `ui `ux -> -> 48 `i `uc ]
 "61
 }
-[e :U 618 ]
+[e :U 628 ]
 "62
 }
-[e :U 614 ]
+[e :U 624 ]
 [; ;tela_TELEFONES.h: 61: }
 [; ;tela_TELEFONES.h: 62: }
 [; ;tela_TELEFONES.h: 63: break;
 "63
-[e $U 610  ]
+[e $U 620  ]
 [; ;tela_TELEFONES.h: 64: case 1:
 "64
-[e :U 619 ]
+[e :U 629 ]
 [; ;tela_TELEFONES.h: 65: line2[0] = '>';
 "65
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;tela_TELEFONES.h: 66: if (btPress(4)) {
 "66
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 620  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 630  ]
 {
 [; ;tela_TELEFONES.h: 67: ajust_tel = 1;
 "67
 [e = _ajust_tel -> -> 1 `i `uc ]
 "68
 }
-[e :U 620 ]
+[e :U 630 ]
 [; ;tela_TELEFONES.h: 68: }
 [; ;tela_TELEFONES.h: 69: if (ajust_tel) {
 "69
-[e $ ! != -> _ajust_tel `i -> -> -> 0 `i `uc `i 621  ]
+[e $ ! != -> _ajust_tel `i -> -> -> 0 `i `uc `i 631  ]
 {
 [; ;tela_TELEFONES.h: 70: blink(line2, (tel_posi + 6), (tel_posi + 6));
 "70
 [e ( _blink (3 , , &U _line2 -> + -> _tel_posi `i -> 6 `i `uc -> + -> _tel_posi `i -> 6 `i `uc ]
 [; ;tela_TELEFONES.h: 71: if ((tel_posi + 2) > sizeof (tel2)) {
 "71
-[e $ ! > -> + -> _tel_posi `i -> 2 `i `ui -> # _tel2 `ui 622  ]
+[e $ ! > -> + -> _tel_posi `i -> 2 `i `ui -> # _tel2 `ui 632  ]
 {
 [; ;tela_TELEFONES.h: 72: tel_posi = 0;
 "72
@@ -8186,57 +8328,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ajust_tel -> -> 0 `i `uc ]
 "74
 }
-[e :U 622 ]
+[e :U 632 ]
 [; ;tela_TELEFONES.h: 74: }
 [; ;tela_TELEFONES.h: 75: if (btPress(3)) {
 "75
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 623  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 633  ]
 {
 [; ;tela_TELEFONES.h: 76: tel2[tel_posi]++;
 "76
 [e ++ *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux -> -> 1 `i `uc ]
 "77
 }
-[e :U 623 ]
+[e :U 633 ]
 [; ;tela_TELEFONES.h: 77: }
 [; ;tela_TELEFONES.h: 78: if (btPress(2)) {
 "78
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 624  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 634  ]
 {
 [; ;tela_TELEFONES.h: 79: tel2[tel_posi]--;
 "79
 [e -- *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux -> -> 1 `i `uc ]
 "80
 }
-[e :U 624 ]
+[e :U 634 ]
 [; ;tela_TELEFONES.h: 80: }
 [; ;tela_TELEFONES.h: 81: if ((tel2[tel_posi] > 57) | (tel2[tel_posi] < 48)) {
 "81
-[e $ ! | > -> *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux `i -> 57 `i < -> *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux `i -> 48 `i 625  ]
+[e $ ! | > -> *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux `i -> 57 `i < -> *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux `i -> 48 `i 635  ]
 {
 [; ;tela_TELEFONES.h: 82: tel2[tel_posi] = 48;
 "82
 [e = *U + &U _tel2 * -> _tel_posi `ux -> -> # *U &U _tel2 `ui `ux -> -> 48 `i `uc ]
 "83
 }
-[e :U 625 ]
+[e :U 635 ]
 "84
 }
-[e :U 621 ]
+[e :U 631 ]
 [; ;tela_TELEFONES.h: 83: }
 [; ;tela_TELEFONES.h: 84: }
 [; ;tela_TELEFONES.h: 85: break;
 "85
-[e $U 610  ]
+[e $U 620  ]
 [; ;tela_TELEFONES.h: 86: case 2:
 "86
-[e :U 626 ]
+[e :U 636 ]
 [; ;tela_TELEFONES.h: 87: line3[0] = '>';
 "87
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;tela_TELEFONES.h: 88: if (btPress(4) && intensidadeSinal != 'x' && !gsmOcupado) {
 "88
-[e $ ! && && != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i != -> _intensidadeSinal `ui -> 120 `ui ! != -> _gsmOcupado `i -> -> -> 0 `i `uc `i 627  ]
+[e $ ! && && != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i != -> _intensidadeSinal `ui -> 120 `ui ! != -> _gsmOcupado `i -> -> -> 0 `i `uc `i 637  ]
 {
 [; ;tela_TELEFONES.h: 89: gsmOcupado = 1;
 "89
@@ -8246,44 +8388,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _telefoneSelecionado -> -> 0 `i `uc ]
 "91
 }
-[e :U 627 ]
+[e :U 637 ]
 [; ;tela_TELEFONES.h: 91: }
 [; ;tela_TELEFONES.h: 92: break;
 "92
-[e $U 610  ]
+[e $U 620  ]
 [; ;tela_TELEFONES.h: 94: default:option_posi = 0;
 "94
-[e :U 628 ]
+[e :U 638 ]
 [e = _option_posi -> -> 0 `i `uc ]
 [; ;tela_TELEFONES.h: 95: break;
 "95
-[e $U 610  ]
+[e $U 620  ]
 "96
 }
 [; ;tela_TELEFONES.h: 96: }
-[e $U 610  ]
+[e $U 620  ]
 "41
-[e :U 611 ]
-[e [\ _option_posi , $ -> -> 0 `i `uc 612
- , $ -> -> 1 `i `uc 619
- , $ -> -> 2 `i `uc 626
- 628 ]
+[e :U 621 ]
+[e [\ _option_posi , $ -> -> 0 `i `uc 622
+ , $ -> -> 1 `i `uc 629
+ , $ -> -> 2 `i `uc 636
+ 638 ]
 "96
-[e :U 610 ]
+[e :U 620 ]
 [; ;tela_TELEFONES.h: 97: if (gsmOcupado) {
 "97
-[e $ ! != -> _gsmOcupado `i -> -> -> 0 `i `uc `i 629  ]
+[e $ ! != -> _gsmOcupado `i -> -> -> 0 `i `uc `i 639  ]
 {
 [; ;tela_TELEFONES.h: 98: comunicarTeste();
 "98
 [e ( _comunicarTeste ..  ]
 "99
 }
-[e :U 629 ]
+[e :U 639 ]
 [; ;tela_TELEFONES.h: 99: }
 [; ;tela_TELEFONES.h: 100: }
 "100
-[e :UE 596 ]
+[e :UE 606 ]
 }
 "7 tela_ESTACIONARIA.h
 [v _configurarEstacionaria `(v ~T0 @X0 1 ef ]
@@ -8311,18 +8453,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , (. , &U _line4 :s 105C _horimetro ]
 [; ;tela_ESTACIONARIA.h: 16: if (btPress(4)) {
 "16
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 631  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 641  ]
 {
 [; ;tela_ESTACIONARIA.h: 17: option_posi++;
 "17
 [e ++ _option_posi -> -> 1 `i `uc ]
 "18
 }
-[e :U 631 ]
+[e :U 641 ]
 [; ;tela_ESTACIONARIA.h: 18: }
 [; ;tela_ESTACIONARIA.h: 19: if (btPress(1)) {
 "19
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 632  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 642  ]
 {
 [; ;tela_ESTACIONARIA.h: 20: writeEEPROM_ext(7, tempo_limite_estacionaria);
 "20
@@ -8338,95 +8480,95 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _menu_posi __menu_posi ]
 "24
 }
-[e :U 632 ]
+[e :U 642 ]
 [; ;tela_ESTACIONARIA.h: 24: }
 [; ;tela_ESTACIONARIA.h: 25: switch (option_posi) {
 "25
-[e $U 634  ]
+[e $U 644  ]
 {
 [; ;tela_ESTACIONARIA.h: 26: case 0:
 "26
-[e :U 635 ]
+[e :U 645 ]
 [; ;tela_ESTACIONARIA.h: 27: blink(line2, 16,20 );
 "27
 [e ( _blink (3 , , &U _line2 -> -> 16 `i `uc -> -> 20 `i `uc ]
 [; ;tela_ESTACIONARIA.h: 28: if (btPress(3)) {
 "28
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 636  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 646  ]
 {
 [; ;tela_ESTACIONARIA.h: 29: tempo_limite_estacionaria++;
 "29
 [e ++ _tempo_limite_estacionaria -> -> 1 `i `uc ]
 "30
 }
-[e :U 636 ]
+[e :U 646 ]
 [; ;tela_ESTACIONARIA.h: 30: }
 [; ;tela_ESTACIONARIA.h: 31: if (btPress(2)) {
 "31
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 637  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 647  ]
 {
 [; ;tela_ESTACIONARIA.h: 32: tempo_limite_estacionaria--;
 "32
 [e -- _tempo_limite_estacionaria -> -> 1 `i `uc ]
 "33
 }
-[e :U 637 ]
+[e :U 647 ]
 [; ;tela_ESTACIONARIA.h: 33: }
 [; ;tela_ESTACIONARIA.h: 34: break;
 "34
-[e $U 633  ]
+[e $U 643  ]
 [; ;tela_ESTACIONARIA.h: 35: case 1:
 "35
-[e :U 638 ]
+[e :U 648 ]
 [; ;tela_ESTACIONARIA.h: 36: blink(line3, 16,20 );
 "36
 [e ( _blink (3 , , &U _line3 -> -> 16 `i `uc -> -> 20 `i `uc ]
 [; ;tela_ESTACIONARIA.h: 37: if (btPress(3)) {
 "37
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 639  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 649  ]
 {
 [; ;tela_ESTACIONARIA.h: 38: tempo_limite_teste_estacionaria++;
 "38
 [e ++ _tempo_limite_teste_estacionaria -> -> 1 `i `uc ]
 "39
 }
-[e :U 639 ]
+[e :U 649 ]
 [; ;tela_ESTACIONARIA.h: 39: }
 [; ;tela_ESTACIONARIA.h: 40: if (btPress(2)) {
 "40
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 640  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 650  ]
 {
 [; ;tela_ESTACIONARIA.h: 41: tempo_limite_teste_estacionaria--;
 "41
 [e -- _tempo_limite_teste_estacionaria -> -> 1 `i `uc ]
 "42
 }
-[e :U 640 ]
+[e :U 650 ]
 [; ;tela_ESTACIONARIA.h: 42: }
 [; ;tela_ESTACIONARIA.h: 43: break;
 "43
-[e $U 633  ]
+[e $U 643  ]
 [; ;tela_ESTACIONARIA.h: 44: default:option_posi = 0;
 "44
-[e :U 641 ]
+[e :U 651 ]
 [e = _option_posi -> -> 0 `i `uc ]
 [; ;tela_ESTACIONARIA.h: 45: break;
 "45
-[e $U 633  ]
+[e $U 643  ]
 "46
 }
 [; ;tela_ESTACIONARIA.h: 46: }
-[e $U 633  ]
+[e $U 643  ]
 "25
-[e :U 634 ]
-[e [\ _option_posi , $ -> -> 0 `i `uc 635
- , $ -> -> 1 `i `uc 638
- 641 ]
+[e :U 644 ]
+[e [\ _option_posi , $ -> -> 0 `i `uc 645
+ , $ -> -> 1 `i `uc 648
+ 651 ]
 "46
-[e :U 633 ]
+[e :U 643 ]
 [; ;tela_ESTACIONARIA.h: 47: }
 "47
-[e :UE 630 ]
+[e :UE 640 ]
 }
 "7 tela_CONFIG_PRESSAO.h
 [v _ajusteSP_Bombas `(v ~T0 @X0 1 ef ]
@@ -8448,7 +8590,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _sprintf (1 , (. , &U _line4 :s 109C -> ( _intToFloatStr (1 _sp_estacionaria `*Cuc ]
 [; ;tela_CONFIG_PRESSAO.h: 14: if (btPress(1)) {
 "14
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 643  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 653  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 15: writeEEPROM_ext(0, sp_jockey);
 "15
@@ -8470,921 +8612,915 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _menu_posi __menu_posi ]
 "21
 }
-[e :U 643 ]
+[e :U 653 ]
 [; ;tela_CONFIG_PRESSAO.h: 21: }
 [; ;tela_CONFIG_PRESSAO.h: 23: if (btPress(4)) {
 "23
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 644  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 654  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 24: option_posi++;
 "24
 [e ++ _option_posi -> -> 1 `i `uc ]
 "25
 }
-[e :U 644 ]
+[e :U 654 ]
 [; ;tela_CONFIG_PRESSAO.h: 25: }
 [; ;tela_CONFIG_PRESSAO.h: 27: switch (option_posi) {
 "27
-[e $U 646  ]
+[e $U 656  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 28: case 0:
 "28
-[e :U 647 ]
+[e :U 657 ]
 [; ;tela_CONFIG_PRESSAO.h: 29: blink(line1, 8, 15);
 "29
 [e ( _blink (3 , , &U _line1 -> -> 8 `i `uc -> -> 15 `i `uc ]
 [; ;tela_CONFIG_PRESSAO.h: 30: if (btPress(3)) {
 "30
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 648  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 658  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 31: sp_pressao_rede++;
 "31
 [e ++ _sp_pressao_rede -> -> 1 `i `uc ]
 "32
 }
-[e :U 648 ]
+[e :U 658 ]
 [; ;tela_CONFIG_PRESSAO.h: 32: }
 [; ;tela_CONFIG_PRESSAO.h: 33: if (btPress(2)) {
 "33
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 649  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 659  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 34: sp_pressao_rede--;
 "34
 [e -- _sp_pressao_rede -> -> 1 `i `uc ]
 "35
 }
-[e :U 649 ]
+[e :U 659 ]
 [; ;tela_CONFIG_PRESSAO.h: 35: }
 [; ;tela_CONFIG_PRESSAO.h: 36: if (sp_pressao_rede > 99) {
 "36
-[e $ ! > -> _sp_pressao_rede `i -> 99 `i 650  ]
+[e $ ! > -> _sp_pressao_rede `i -> 99 `i 660  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 37: sp_pressao_rede = 0;
 "37
 [e = _sp_pressao_rede -> -> 0 `i `uc ]
 "38
 }
-[e :U 650 ]
+[e :U 660 ]
 [; ;tela_CONFIG_PRESSAO.h: 38: }
 [; ;tela_CONFIG_PRESSAO.h: 39: break;
 "39
-[e $U 645  ]
+[e $U 655  ]
 [; ;tela_CONFIG_PRESSAO.h: 40: case 1:
 "40
-[e :U 651 ]
+[e :U 661 ]
 [; ;tela_CONFIG_PRESSAO.h: 41: blink(line2, 8, 15);
 "41
 [e ( _blink (3 , , &U _line2 -> -> 8 `i `uc -> -> 15 `i `uc ]
 [; ;tela_CONFIG_PRESSAO.h: 42: if (btPress(3)) {
 "42
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 652  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 662  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 43: sp_jockey++;
 "43
 [e ++ _sp_jockey -> -> 1 `i `uc ]
 "44
 }
-[e :U 652 ]
+[e :U 662 ]
 [; ;tela_CONFIG_PRESSAO.h: 44: }
 [; ;tela_CONFIG_PRESSAO.h: 45: if (btPress(2)) {
 "45
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 653  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 663  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 46: sp_jockey--;
 "46
 [e -- _sp_jockey -> -> 1 `i `uc ]
 "47
 }
-[e :U 653 ]
+[e :U 663 ]
 [; ;tela_CONFIG_PRESSAO.h: 47: }
 [; ;tela_CONFIG_PRESSAO.h: 48: if (sp_jockey > 99) {
 "48
-[e $ ! > -> _sp_jockey `i -> 99 `i 654  ]
+[e $ ! > -> _sp_jockey `i -> 99 `i 664  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 49: sp_jockey = 0;
 "49
 [e = _sp_jockey -> -> 0 `i `uc ]
 "50
 }
-[e :U 654 ]
+[e :U 664 ]
 [; ;tela_CONFIG_PRESSAO.h: 50: }
 [; ;tela_CONFIG_PRESSAO.h: 51: break;
 "51
-[e $U 645  ]
+[e $U 655  ]
 [; ;tela_CONFIG_PRESSAO.h: 52: case 2:
 "52
-[e :U 655 ]
+[e :U 665 ]
 [; ;tela_CONFIG_PRESSAO.h: 53: blink(line3, 12, 18);
 "53
 [e ( _blink (3 , , &U _line3 -> -> 12 `i `uc -> -> 18 `i `uc ]
 [; ;tela_CONFIG_PRESSAO.h: 54: if (btPress(3)) {
 "54
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 656  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 666  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 55: sp_principal++;
 "55
 [e ++ _sp_principal -> -> 1 `i `uc ]
 "56
 }
-[e :U 656 ]
+[e :U 666 ]
 [; ;tela_CONFIG_PRESSAO.h: 56: }
 [; ;tela_CONFIG_PRESSAO.h: 57: if (btPress(2)) {
 "57
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 657  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 667  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 58: sp_principal--;
 "58
 [e -- _sp_principal -> -> 1 `i `uc ]
 "59
 }
-[e :U 657 ]
+[e :U 667 ]
 [; ;tela_CONFIG_PRESSAO.h: 59: }
 [; ;tela_CONFIG_PRESSAO.h: 60: if (sp_principal > 99) {
 "60
-[e $ ! > -> _sp_principal `i -> 99 `i 658  ]
+[e $ ! > -> _sp_principal `i -> 99 `i 668  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 61: sp_principal = 0;
 "61
 [e = _sp_principal -> -> 0 `i `uc ]
 "62
 }
-[e :U 658 ]
+[e :U 668 ]
 [; ;tela_CONFIG_PRESSAO.h: 62: }
 [; ;tela_CONFIG_PRESSAO.h: 63: break;
 "63
-[e $U 645  ]
+[e $U 655  ]
 [; ;tela_CONFIG_PRESSAO.h: 64: case 3:
 "64
-[e :U 659 ]
+[e :U 669 ]
 [; ;tela_CONFIG_PRESSAO.h: 65: blink(line4, 12, 18);
 "65
 [e ( _blink (3 , , &U _line4 -> -> 12 `i `uc -> -> 18 `i `uc ]
 [; ;tela_CONFIG_PRESSAO.h: 66: if (btPress(3)) {
 "66
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 660  ]
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 670  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 67: sp_estacionaria++;
 "67
 [e ++ _sp_estacionaria -> -> 1 `i `uc ]
 "68
 }
-[e :U 660 ]
+[e :U 670 ]
 [; ;tela_CONFIG_PRESSAO.h: 68: }
 [; ;tela_CONFIG_PRESSAO.h: 69: if (btPress(2)) {
 "69
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 661  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 671  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 70: sp_estacionaria--;
 "70
 [e -- _sp_estacionaria -> -> 1 `i `uc ]
 "71
 }
-[e :U 661 ]
+[e :U 671 ]
 [; ;tela_CONFIG_PRESSAO.h: 71: }
 [; ;tela_CONFIG_PRESSAO.h: 72: if (sp_estacionaria > 99) {
 "72
-[e $ ! > -> _sp_estacionaria `i -> 99 `i 662  ]
+[e $ ! > -> _sp_estacionaria `i -> 99 `i 672  ]
 {
 [; ;tela_CONFIG_PRESSAO.h: 73: sp_estacionaria = 0;
 "73
 [e = _sp_estacionaria -> -> 0 `i `uc ]
 "74
 }
-[e :U 662 ]
+[e :U 672 ]
 [; ;tela_CONFIG_PRESSAO.h: 74: }
 [; ;tela_CONFIG_PRESSAO.h: 75: break;
 "75
-[e $U 645  ]
+[e $U 655  ]
 [; ;tela_CONFIG_PRESSAO.h: 76: default: option_posi = 0;
 "76
-[e :U 663 ]
+[e :U 673 ]
 [e = _option_posi -> -> 0 `i `uc ]
 [; ;tela_CONFIG_PRESSAO.h: 77: break;
 "77
-[e $U 645  ]
+[e $U 655  ]
 "78
 }
 [; ;tela_CONFIG_PRESSAO.h: 78: }
-[e $U 645  ]
+[e $U 655  ]
 "27
-[e :U 646 ]
-[e [\ _option_posi , $ -> -> 0 `i `uc 647
- , $ -> -> 1 `i `uc 651
- , $ -> -> 2 `i `uc 655
- , $ -> -> 3 `i `uc 659
- 663 ]
+[e :U 656 ]
+[e [\ _option_posi , $ -> -> 0 `i `uc 657
+ , $ -> -> 1 `i `uc 661
+ , $ -> -> 2 `i `uc 665
+ , $ -> -> 3 `i `uc 669
+ 673 ]
 "78
-[e :U 645 ]
+[e :U 655 ]
 [; ;tela_CONFIG_PRESSAO.h: 79: }
 "79
-[e :UE 642 ]
-}
-"10 tela_TESTE.h
-[v _telaTeste `(v ~T0 @X0 1 ef ]
-{
-[; ;tela_TESTE.h: 10: void telaTeste() {
-[e :U _telaTeste ]
-[f ]
-[; ;tela_TESTE.h: 11: line1[0] = 0x01;
-"11
-[e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 1 `i `uc ]
-[; ;tela_TESTE.h: 12: line1[1] = intensidadeSinal;
-"12
-[e = *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux _intensidadeSinal ]
-[; ;tela_TESTE.h: 13: sprintf(&line1[3], "%s", bufferSerial);
-"13
-[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 110C -> &U _bufferSerial `*Cuc ]
-[; ;tela_TESTE.h: 14: sprintf(line2, "etapa %d", etapaComunicacao);
-"14
-[e ( _sprintf (1 , (. , &U _line2 :s 111C _etapaComunicacao ]
-[; ;tela_TESTE.h: 15: sprintf(line3, "tetapa %d ", timerEtapaComunicacao);
-"15
-[e ( _sprintf (1 , (. , &U _line3 :s 112C -> _timerEtapaComunicacao `i ]
-[; ;tela_TESTE.h: 16: sprintf(line4, "tsinal %d", timerVerificarSinal);
-"16
-[e ( _sprintf (1 , (. , &U _line4 :s 113C -> _timerVerificarSinal `i ]
-[; ;tela_TESTE.h: 17: }
-"17
-[e :UE 664 ]
+[e :UE 652 ]
 }
 [v $root$_TIMER `(v ~T0 @X0 0 e ]
-[v F2991 `(v ~T0 @X0 1 tf ]
-"32 Main.c
-[v _TIMER `IF2991 ~T0 @X0 1 e ]
+[v F2996 `(v ~T0 @X0 1 tf ]
+"30 Main.c
+[v _TIMER `IF2996 ~T0 @X0 1 e ]
 {
-[; ;Main.c: 32: void interrupt TIMER() {
+[; ;Main.c: 30: void interrupt TIMER() {
 [e :U _TIMER ]
 [f ]
-[; ;Main.c: 33: if (TMR0IF) {
-"33
-[e $ ! _TMR0IF 666  ]
+[; ;Main.c: 31: if (TMR0IF) {
+"31
+[e $ ! _TMR0IF 675  ]
 {
-[; ;Main.c: 34: TMR0IF = 0x00;
-"34
+[; ;Main.c: 32: TMR0IF = 0x00;
+"32
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;Main.c: 35: TMR0H = 0x3C;
-"35
+[; ;Main.c: 33: TMR0H = 0x3C;
+"33
 [e = _TMR0H -> -> 60 `i `uc ]
-[; ;Main.c: 36: TMR0L = 0xB0;
-"36
+[; ;Main.c: 34: TMR0L = 0xB0;
+"34
 [e = _TMR0L -> -> 176 `i `uc ]
-[; ;Main.c: 38: base_sec++;
-"38
+[; ;Main.c: 36: base_sec++;
+"36
 [e ++ _base_sec -> -> 1 `i `uc ]
-[; ;Main.c: 40: if (base_sec == 5) {
+[; ;Main.c: 38: if (base_sec == 5) {
+"38
+[e $ ! == -> _base_sec `i -> 5 `i 676  ]
+{
+[; ;Main.c: 39: blinkk = ~blinkk;
+"39
+[e = _blinkk -> ~ -> _blinkk `i `uc ]
 "40
-[e $ ! == -> _base_sec `i -> 5 `i 667  ]
-{
-[; ;Main.c: 41: blinkk = ~blinkk;
-"41
-[e = _blinkk -> ~ -> _blinkk `i `uc ]
+}
+[e :U 676 ]
+[; ;Main.c: 40: }
+[; ;Main.c: 42: lerTransdutor();
 "42
-}
-[e :U 667 ]
-[; ;Main.c: 42: }
-[; ;Main.c: 44: lerTransdutor();
-"44
 [e ( _lerTransdutor ..  ]
-[; ;Main.c: 45: readButtons();
-"45
+[; ;Main.c: 43: readButtons();
+"43
 [e ( _readButtons ..  ]
-[; ;Main.c: 47: if (base_sec > 9) {
-"47
-[e $ ! > -> _base_sec `i -> 9 `i 668  ]
+[; ;Main.c: 45: if (base_sec > 9) {
+"45
+[e $ ! > -> _base_sec `i -> 9 `i 677  ]
 {
-[; ;Main.c: 48: base_sec = 0;
-"48
+[; ;Main.c: 46: base_sec = 0;
+"46
 [e = _base_sec -> -> 0 `i `uc ]
-[; ;Main.c: 49: blinkk = ~blinkk;
-"49
+[; ;Main.c: 47: blinkk = ~blinkk;
+"47
 [e = _blinkk -> ~ -> _blinkk `i `uc ]
-[; ;Main.c: 50: timer();
-"50
+[; ;Main.c: 48: timer();
+"48
 [e ( _timer ..  ]
-[; ;Main.c: 51: if (RCSTAbits.OERR) {
-"51
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 669  ]
+[; ;Main.c: 49: if (RCSTAbits.OERR) {
+"49
+[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 678  ]
 {
-[; ;Main.c: 52: RCSTAbits.CREN = 0;
-"52
+[; ;Main.c: 50: RCSTAbits.CREN = 0;
+"50
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;Main.c: 53: RCSTAbits.CREN = 1;
-"53
+[; ;Main.c: 51: RCSTAbits.CREN = 1;
+"51
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"54
+"52
 }
-[e :U 669 ]
-"55
-}
-[e :U 668 ]
-"56
-}
-[e :U 666 ]
-[; ;Main.c: 54: }
-[; ;Main.c: 55: }
-[; ;Main.c: 56: }
-[; ;Main.c: 57: if (RCIF) {
-"57
-[e $ ! _RCIF 670  ]
-{
-"58
-[v _c `uc ~T0 @X0 1 a ]
-[; ;Main.c: 58: char c = RCREG;
-[e = _c _RCREG ]
-[; ;Main.c: 59: if (c != '\n' && c != '\r') {
-"59
-[e $ ! && != -> _c `ui -> 10 `ui != -> _c `ui -> 13 `ui 671  ]
-{
-[; ;Main.c: 60: bufferSerial[cbf++] = c;
-"60
-[e = *U + &U _bufferSerial * -> ++ _cbf -> -> 1 `i `uc `ux -> -> # *U &U _bufferSerial `ui `ux _c ]
-"61
-}
-[e :U 671 ]
-[; ;Main.c: 61: }
-[; ;Main.c: 62: if (cbf >= 60) cbf = 0;
-"62
-[e $ ! >= -> _cbf `i -> 60 `i 672  ]
-[e = _cbf -> -> 0 `i `uc ]
-[e :U 672 ]
-"63
-}
-[e :U 670 ]
-[; ;Main.c: 63: }
-[; ;Main.c: 64: }
-"64
-[e :UE 665 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"66
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;Main.c: 66: void main() {
-[e :U _main ]
-[f ]
-[; ;Main.c: 68: configuraRegistradores();
-"68
-[e ( _configuraRegistradores ..  ]
-[; ;Main.c: 69: I2C_Master_Init(100000);
-"69
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-[; ;Main.c: 70: delay(200);
-"70
-[e ( _delay (1 -> 200 `i ]
-[; ;Main.c: 71: RTC_Init();
-"71
-[e ( _RTC_Init ..  ]
-[; ;Main.c: 72: delay(100);
-"72
-[e ( _delay (1 -> 100 `i ]
-[; ;Main.c: 73: getDS1307TimeDate(&rtc);
-"73
-[e ( _getDS1307TimeDate (1 &U _rtc ]
-[; ;Main.c: 74: Lcd_Init();
-"74
-[e ( _Lcd_Init ..  ]
-[; ;Main.c: 75: Lcd_Clear();
-"75
-[e ( _Lcd_Clear ..  ]
-[; ;Main.c: 76: criarCaracteresCGRAM();
-"76
-[e ( _criarCaracteresCGRAM ..  ]
-[; ;Main.c: 77: delay(100);
-"77
-[e ( _delay (1 -> 100 `i ]
-[; ;Main.c: 78: lerParametros();
-"78
-[e ( _lerParametros ..  ]
-[; ;Main.c: 79: sprintf(line1, "TECHNOW");
-"79
-[e ( _sprintf (1 , &U _line1 :s 114C ]
-[; ;Main.c: 80: sprintf(line2, "Sistemas embarcados");
-"80
-[e ( _sprintf (1 , &U _line2 :s 115C ]
-[; ;Main.c: 81: sprintf(line3, "Versao Soft.:");
-"81
-[e ( _sprintf (1 , &U _line3 :s 116C ]
-[; ;Main.c: 82: sprintf(&line4[9], "%s", "Nov 25 2019");
-"82
-[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 9 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 117C :s 118C ]
-[; ;Main.c: 83: atualizarLCD(line1, line2, line3, line4);
-"83
-[e ( _atualizarLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
-[; ;Main.c: 84: delay(2500);
-"84
-[e ( _delay (1 -> 2500 `i ]
-[; ;Main.c: 87: while (1) {
-"87
-[e :U 675 ]
-{
-[; ;Main.c: 88: asm("CLRWDT");
-"88
-[; <" CLRWDT ;# ">
-[; ;Main.c: 90: if (!executandoTeste && !flagErroTransdutor) {
-"90
-[e $ ! && ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i ! != -> _flagErroTransdutor `i -> -> -> 0 `i `uc `i 677  ]
-{
-[; ;Main.c: 91: acaoBombas();
-"91
-[e ( _acaoBombas ..  ]
-"92
+[e :U 678 ]
+"53
 }
 [e :U 677 ]
-[; ;Main.c: 92: }
-[; ;Main.c: 94: verificarIntervaloTesteBombas();
-"94
-[e ( _verificarIntervaloTesteBombas ..  ]
-[; ;Main.c: 96: setShiftREG();
-"96
-[e ( _setShiftREG ..  ]
-[; ;Main.c: 97: getSinalSIM800L();
-"97
-[e ( _getSinalSIM800L ..  ]
-[; ;Main.c: 100: switch (menu_posi) {
-"100
-[e $U 679  ]
+"54
+}
+[e :U 675 ]
+[; ;Main.c: 52: }
+[; ;Main.c: 53: }
+[; ;Main.c: 54: }
+[; ;Main.c: 55: if (RCIF) {
+"55
+[e $ ! _RCIF 679  ]
 {
-[; ;Main.c: 101: case 0:
-"101
+"56
+[v _c `uc ~T0 @X0 1 a ]
+[; ;Main.c: 56: char c = RCREG;
+[e = _c _RCREG ]
+[; ;Main.c: 57: if (c != '\n' && c != '\r') {
+"57
+[e $ ! && != -> _c `ui -> 10 `ui != -> _c `ui -> 13 `ui 680  ]
+{
+[; ;Main.c: 58: bufferSerial[cbf++] = c;
+"58
+[e = *U + &U _bufferSerial * -> ++ _cbf -> -> 1 `i `uc `ux -> -> # *U &U _bufferSerial `ui `ux _c ]
+"59
+}
 [e :U 680 ]
-[; ;Main.c: 102: telaPrincipal();
-"102
-[e ( _telaPrincipal ..  ]
-[; ;Main.c: 104: break;
-"104
-[e $U 678  ]
-[; ;Main.c: 105: case 1:
-"105
+[; ;Main.c: 59: }
+[; ;Main.c: 60: if (cbf >= 60) cbf = 0;
+"60
+[e $ ! >= -> _cbf `i -> 60 `i 681  ]
+[e = _cbf -> -> 0 `i `uc ]
 [e :U 681 ]
-[; ;Main.c: 106: sprintf(&line1[1], "DATA/HORA");
+"61
+}
+[e :U 679 ]
+[; ;Main.c: 61: }
+[; ;Main.c: 62: }
+"62
+[e :UE 674 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"64
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;Main.c: 64: void main() {
+[e :U _main ]
+[f ]
+[; ;Main.c: 66: configuraRegistradores();
+"66
+[e ( _configuraRegistradores ..  ]
+[; ;Main.c: 67: I2C_Master_Init(100000);
+"67
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
+[; ;Main.c: 68: delay(200);
+"68
+[e ( _delay (1 -> 200 `i ]
+[; ;Main.c: 69: RTC_Init();
+"69
+[e ( _RTC_Init ..  ]
+[; ;Main.c: 70: delay(100);
+"70
+[e ( _delay (1 -> 100 `i ]
+[; ;Main.c: 71: getDS1307TimeDate(&rtc);
+"71
+[e ( _getDS1307TimeDate (1 &U _rtc ]
+[; ;Main.c: 72: Lcd_Init();
+"72
+[e ( _Lcd_Init ..  ]
+[; ;Main.c: 73: Lcd_Clear();
+"73
+[e ( _Lcd_Clear ..  ]
+[; ;Main.c: 74: criarCaracteresCGRAM();
+"74
+[e ( _criarCaracteresCGRAM ..  ]
+[; ;Main.c: 75: delay(100);
+"75
+[e ( _delay (1 -> 100 `i ]
+[; ;Main.c: 76: lerParametros();
+"76
+[e ( _lerParametros ..  ]
+[; ;Main.c: 77: sprintf(line1, "TECHNOW");
+"77
+[e ( _sprintf (1 , &U _line1 :s 110C ]
+[; ;Main.c: 78: sprintf(line2, "Sistemas embarcados");
+"78
+[e ( _sprintf (1 , &U _line2 :s 111C ]
+[; ;Main.c: 79: sprintf(line3, "Versao Soft.:");
+"79
+[e ( _sprintf (1 , &U _line3 :s 112C ]
+[; ;Main.c: 80: sprintf(&line4[9], "%s", "Jun 01 2020");
+"80
+[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 9 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 113C :s 114C ]
+[; ;Main.c: 81: atualizarLCD(line1, line2, line3, line4);
+"81
+[e ( _atualizarLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
+[; ;Main.c: 82: delay(2500);
+"82
+[e ( _delay (1 -> 2500 `i ]
+[; ;Main.c: 85: while (1) {
+"85
+[e :U 684 ]
+{
+[; ;Main.c: 86: asm("CLRWDT");
+"86
+[; <" CLRWDT ;# ">
+[; ;Main.c: 88: if (!executandoTeste && !flagErroTransdutor) {
+"88
+[e $ ! && ! != -> _executandoTeste `i -> -> -> 0 `i `uc `i ! != -> _flagErroTransdutor `i -> -> -> 0 `i `uc `i 686  ]
+{
+[; ;Main.c: 89: acaoBombas();
+"89
+[e ( _acaoBombas ..  ]
+"90
+}
+[e :U 686 ]
+[; ;Main.c: 90: }
+[; ;Main.c: 92: verificarIntervaloTesteBombas();
+"92
+[e ( _verificarIntervaloTesteBombas ..  ]
+[; ;Main.c: 94: setShiftREG();
+"94
+[e ( _setShiftREG ..  ]
+[; ;Main.c: 95: getSinalSIM800L();
+"95
+[e ( _getSinalSIM800L ..  ]
+[; ;Main.c: 98: switch (menu_posi) {
+"98
+[e $U 688  ]
+{
+[; ;Main.c: 99: case 0:
+"99
+[e :U 689 ]
+[; ;Main.c: 100: telaPrincipal();
+"100
+[e ( _telaPrincipal ..  ]
+[; ;Main.c: 101: break;
+"101
+[e $U 687  ]
+[; ;Main.c: 102: case 1:
+"102
+[e :U 690 ]
+[; ;Main.c: 103: sprintf(&line1[1], "DATA/HORA");
+"103
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 115C ]
+[; ;Main.c: 104: sprintf(&line2[1], "PRESSAO DA REDE");
+"104
+[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 116C ]
+[; ;Main.c: 105: sprintf(&line3[1], "PARTIDA COMBUSTAO");
+"105
+[e ( _sprintf (1 , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 117C ]
+[; ;Main.c: 106: sprintf(&line4[1], "TELEFONES");
 "106
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 119C ]
-[; ;Main.c: 107: sprintf(&line2[1], "PRESSAO DA REDE");
+[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 118C ]
+[; ;Main.c: 107: break;
 "107
-[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 120C ]
-[; ;Main.c: 108: sprintf(&line3[1], "PARTIDA COMBUSTAO");
+[e $U 687  ]
+[; ;Main.c: 108: case 2:
 "108
-[e ( _sprintf (1 , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 121C ]
-[; ;Main.c: 109: sprintf(&line4[1], "TELEFONES");
+[e :U 691 ]
+[; ;Main.c: 109: sprintf(&line1[1], "PERIODO DE TESTES");
 "109
-[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 122C ]
-[; ;Main.c: 110: break;
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 119C ]
+[; ;Main.c: 110: sprintf(&line2[1], "DATALOGER");
 "110
-[e $U 678  ]
-[; ;Main.c: 111: case 2:
+[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 120C ]
+[; ;Main.c: 111: sprintf(&line3[1], "INFO VERSAO");
 "111
-[e :U 682 ]
-[; ;Main.c: 112: sprintf(&line1[1], "PERIODO DE TESTES");
+[e ( _sprintf (1 , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 121C ]
+[; ;Main.c: 112: sprintf(&line4[1], "Iniciar Testes");
 "112
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 123C ]
-[; ;Main.c: 113: sprintf(&line2[1], "DATALOGER");
+[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 122C ]
+[; ;Main.c: 113: break;
 "113
-[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 124C ]
-[; ;Main.c: 114: sprintf(&line3[1], "INFO VERSAO");
+[e $U 687  ]
+[; ;Main.c: 114: case 20:
 "114
-[e ( _sprintf (1 , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 125C ]
-[; ;Main.c: 115: sprintf(&line4[1], "Iniciar Testes");
+[e :U 692 ]
+[; ;Main.c: 115: tela_ajusteRTC();
 "115
-[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 126C ]
+[e ( _tela_ajusteRTC ..  ]
 [; ;Main.c: 116: break;
 "116
-[e $U 678  ]
-[; ;Main.c: 117: case 20:
+[e $U 687  ]
+[; ;Main.c: 117: case 21:
 "117
-[e :U 683 ]
-[; ;Main.c: 118: tela_ajusteRTC();
+[e :U 693 ]
+[; ;Main.c: 118: ajusteSP_Bombas();
 "118
-[e ( _tela_ajusteRTC ..  ]
+[e ( _ajusteSP_Bombas ..  ]
 [; ;Main.c: 119: break;
 "119
-[e $U 678  ]
-[; ;Main.c: 120: case 21:
+[e $U 687  ]
+[; ;Main.c: 120: case 22:
 "120
-[e :U 684 ]
-[; ;Main.c: 121: ajusteSP_Bombas();
+[e :U 694 ]
+[; ;Main.c: 121: configurarEstacionaria();
 "121
-[e ( _ajusteSP_Bombas ..  ]
+[e ( _configurarEstacionaria ..  ]
 [; ;Main.c: 122: break;
 "122
-[e $U 678  ]
-[; ;Main.c: 123: case 22:
+[e $U 687  ]
+[; ;Main.c: 123: case 23:
 "123
-[e :U 685 ]
-[; ;Main.c: 124: configurarEstacionaria();
+[e :U 695 ]
+[; ;Main.c: 124: configuraTelefones();
 "124
-[e ( _configurarEstacionaria ..  ]
+[e ( _configuraTelefones ..  ]
 [; ;Main.c: 125: break;
 "125
-[e $U 678  ]
-[; ;Main.c: 126: case 23:
+[e $U 687  ]
+[; ;Main.c: 126: case 24:
 "126
-[e :U 686 ]
-[; ;Main.c: 127: configuraTelefones();
+[e :U 696 ]
+[; ;Main.c: 127: tela_testeBombas();
 "127
-[e ( _configuraTelefones ..  ]
+[e ( _tela_testeBombas ..  ]
 [; ;Main.c: 128: break;
 "128
-[e $U 678  ]
-[; ;Main.c: 129: case 24:
+[e $U 687  ]
+[; ;Main.c: 129: case 25:
 "129
-[e :U 687 ]
-[; ;Main.c: 130: tela_testeBombas();
+[e :U 697 ]
+[; ;Main.c: 130: dataLoger();
 "130
-[e ( _tela_testeBombas ..  ]
+[e ( _dataLoger ..  ]
 [; ;Main.c: 131: break;
 "131
-[e $U 678  ]
-[; ;Main.c: 132: case 25:
+[e $U 687  ]
+[; ;Main.c: 132: case 27:
 "132
-[e :U 688 ]
-[; ;Main.c: 133: dataLoger();
+[e :U 698 ]
+[; ;Main.c: 133: informacoes();
 "133
-[e ( _dataLoger ..  ]
+[e ( _informacoes ..  ]
 [; ;Main.c: 134: break;
 "134
-[e $U 678  ]
-[; ;Main.c: 135: case 27:
+[e $U 687  ]
+[; ;Main.c: 135: case 28:
 "135
-[e :U 689 ]
-[; ;Main.c: 136: informacoes();
+[e :U 699 ]
+[; ;Main.c: 136: acaoTesteBombas();
 "136
-[e ( _informacoes ..  ]
+[e ( _acaoTesteBombas ..  ]
 [; ;Main.c: 137: break;
 "137
-[e $U 678  ]
-[; ;Main.c: 138: case 28:
-"138
-[e :U 690 ]
-[; ;Main.c: 139: acaoTesteBombas();
+[e $U 687  ]
+[; ;Main.c: 139: default:menu_posi = 0;
 "139
-[e ( _acaoTesteBombas ..  ]
+[e :U 700 ]
+[e = _menu_posi -> -> 0 `i `uc ]
 [; ;Main.c: 140: break;
 "140
-[e $U 678  ]
-[; ;Main.c: 142: default:menu_posi = 0;
-"142
-[e :U 691 ]
-[e = _menu_posi -> -> 0 `i `uc ]
-[; ;Main.c: 143: break;
+[e $U 687  ]
+"141
+}
+[; ;Main.c: 141: }
+[e $U 687  ]
+"98
+[e :U 688 ]
+[e [\ _menu_posi , $ -> -> 0 `i `uc 689
+ , $ -> -> 1 `i `uc 690
+ , $ -> -> 2 `i `uc 691
+ , $ -> -> 20 `i `uc 692
+ , $ -> -> 21 `i `uc 693
+ , $ -> -> 22 `i `uc 694
+ , $ -> -> 23 `i `uc 695
+ , $ -> -> 24 `i `uc 696
+ , $ -> -> 25 `i `uc 697
+ , $ -> -> 27 `i `uc 698
+ , $ -> -> 28 `i `uc 699
+ 700 ]
+"141
+[e :U 687 ]
+[; ;Main.c: 143: if (menu_posi == 1 | menu_posi == 2) {
 "143
-[e $U 678  ]
-"144
-}
-[; ;Main.c: 144: }
-[e $U 678  ]
-"100
-[e :U 679 ]
-[e [\ _menu_posi , $ -> -> 0 `i `uc 680
- , $ -> -> 1 `i `uc 681
- , $ -> -> 2 `i `uc 682
- , $ -> -> 20 `i `uc 683
- , $ -> -> 21 `i `uc 684
- , $ -> -> 22 `i `uc 685
- , $ -> -> 23 `i `uc 686
- , $ -> -> 24 `i `uc 687
- , $ -> -> 25 `i `uc 688
- , $ -> -> 27 `i `uc 689
- , $ -> -> 28 `i `uc 690
- 691 ]
-"144
-[e :U 678 ]
-[; ;Main.c: 146: if (menu_posi == 1 | menu_posi == 2) {
+[e $ ! | == -> _menu_posi `i -> 1 `i == -> _menu_posi `i -> 2 `i 701  ]
+{
+[; ;Main.c: 145: switch (sub_menu_posi) {
+"145
+[e $U 703  ]
+{
+[; ;Main.c: 146: case 1:
 "146
-[e $ ! | == -> _menu_posi `i -> 1 `i == -> _menu_posi `i -> 2 `i 692  ]
-{
-[; ;Main.c: 148: switch (sub_menu_posi) {
-"148
-[e $U 694  ]
-{
-[; ;Main.c: 149: case 1:
-"149
-[e :U 695 ]
-[; ;Main.c: 150: menu_posi = 1;
-"150
-[e = _menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 151: line1[0] = '>';
-"151
-[e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 152: if (btPress(4)) {
-"152
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 696  ]
-{
-[; ;Main.c: 153: _menu_posi = menu_posi;
-"153
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 154: menu_posi = 20;
-"154
-[e = _menu_posi -> -> 20 `i `uc ]
-"155
-}
-[e :U 696 ]
-[; ;Main.c: 155: }
-[; ;Main.c: 156: break;
-"156
-[e $U 693  ]
-[; ;Main.c: 157: case 2:
-"157
-[e :U 697 ]
-[; ;Main.c: 158: menu_posi = 1;
-"158
-[e = _menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 159: line2[0] = '>';
-"159
-[e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 160: if (btPress(4)) {
-"160
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 698  ]
-{
-[; ;Main.c: 161: _menu_posi = menu_posi;
-"161
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 162: menu_posi = 21;
-"162
-[e = _menu_posi -> -> 21 `i `uc ]
-"163
-}
-[e :U 698 ]
-[; ;Main.c: 163: }
-[; ;Main.c: 164: break;
-"164
-[e $U 693  ]
-[; ;Main.c: 165: case 3:
-"165
-[e :U 699 ]
-[; ;Main.c: 166: menu_posi = 1;
-"166
-[e = _menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 167: line3[0] = '>';
-"167
-[e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 168: if (btPress(4)) {
-"168
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 700  ]
-{
-[; ;Main.c: 169: _menu_posi = menu_posi;
-"169
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 170: menu_posi = 22;
-"170
-[e = _menu_posi -> -> 22 `i `uc ]
-"171
-}
-[e :U 700 ]
-[; ;Main.c: 171: }
-[; ;Main.c: 172: break;
-"172
-[e $U 693  ]
-[; ;Main.c: 173: case 4:
-"173
-[e :U 701 ]
-[; ;Main.c: 174: menu_posi = 1;
-"174
-[e = _menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 175: line4[0] = '>';
-"175
-[e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 176: if (btPress(4)) {
-"176
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 702  ]
-{
-[; ;Main.c: 177: _menu_posi = menu_posi;
-"177
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 178: menu_posi = 23;
-"178
-[e = _menu_posi -> -> 23 `i `uc ]
-"179
-}
-[e :U 702 ]
-[; ;Main.c: 179: }
-[; ;Main.c: 180: break;
-"180
-[e $U 693  ]
-[; ;Main.c: 181: case 5:
-"181
-[e :U 703 ]
-[; ;Main.c: 182: menu_posi = 2;
-"182
-[e = _menu_posi -> -> 2 `i `uc ]
-[; ;Main.c: 183: line1[0] = '>';
-"183
-[e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 184: if (btPress(4)) {
-"184
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 704  ]
-{
-[; ;Main.c: 185: _menu_posi = menu_posi;
-"185
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 186: menu_posi = 24;
-"186
-[e = _menu_posi -> -> 24 `i `uc ]
-"187
-}
 [e :U 704 ]
-[; ;Main.c: 187: }
-[; ;Main.c: 188: break;
-"188
-[e $U 693  ]
-[; ;Main.c: 189: case 6:
-"189
+[; ;Main.c: 147: menu_posi = 1;
+"147
+[e = _menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 148: line1[0] = '>';
+"148
+[e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 149: if (btPress(4)) {
+"149
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 705  ]
+{
+[; ;Main.c: 150: _menu_posi = menu_posi;
+"150
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 151: menu_posi = 20;
+"151
+[e = _menu_posi -> -> 20 `i `uc ]
+"152
+}
 [e :U 705 ]
-[; ;Main.c: 190: line2[0] = '>';
-"190
-[e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 191: menu_posi = 2;
-"191
-[e = _menu_posi -> -> 2 `i `uc ]
-[; ;Main.c: 192: if (btPress(4)) {
-"192
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 706  ]
-{
-[; ;Main.c: 193: _menu_posi = menu_posi;
-"193
-[e = __menu_posi _menu_posi ]
-[; ;Main.c: 194: menu_posi = 25;
-"194
-[e = _menu_posi -> -> 25 `i `uc ]
-[; ;Main.c: 195: dtl_carregar_log = 1;
-"195
-[e = _dtl_carregar_log -> -> 1 `i `uc ]
-"196
-}
+[; ;Main.c: 152: }
+[; ;Main.c: 153: break;
+"153
+[e $U 702  ]
+[; ;Main.c: 154: case 2:
+"154
 [e :U 706 ]
-[; ;Main.c: 196: }
-[; ;Main.c: 197: break;
-"197
-[e $U 693  ]
-[; ;Main.c: 198: case 7:
-"198
-[e :U 707 ]
-[; ;Main.c: 199: line3[0] = '>';
-"199
-[e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 200: menu_posi = 2;
-"200
-[e = _menu_posi -> -> 2 `i `uc ]
-[; ;Main.c: 201: if (btPress(4)) {
-"201
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 708  ]
+[; ;Main.c: 155: menu_posi = 1;
+"155
+[e = _menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 156: line2[0] = '>';
+"156
+[e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 157: if (btPress(4)) {
+"157
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 707  ]
 {
-[; ;Main.c: 202: _menu_posi = menu_posi;
-"202
+[; ;Main.c: 158: _menu_posi = menu_posi;
+"158
 [e = __menu_posi _menu_posi ]
-[; ;Main.c: 203: menu_posi = 27;
-"203
-[e = _menu_posi -> -> 27 `i `uc ]
-"204
+[; ;Main.c: 159: menu_posi = 21;
+"159
+[e = _menu_posi -> -> 21 `i `uc ]
+"160
 }
+[e :U 707 ]
+[; ;Main.c: 160: }
+[; ;Main.c: 161: break;
+"161
+[e $U 702  ]
+[; ;Main.c: 162: case 3:
+"162
 [e :U 708 ]
-[; ;Main.c: 204: }
-[; ;Main.c: 205: break;
-"205
-[e $U 693  ]
-[; ;Main.c: 206: case 8:
-"206
+[; ;Main.c: 163: menu_posi = 1;
+"163
+[e = _menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 164: line3[0] = '>';
+"164
+[e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 165: if (btPress(4)) {
+"165
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 709  ]
+{
+[; ;Main.c: 166: _menu_posi = menu_posi;
+"166
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 167: menu_posi = 22;
+"167
+[e = _menu_posi -> -> 22 `i `uc ]
+"168
+}
 [e :U 709 ]
-[; ;Main.c: 207: line4[0] = '>';
-"207
+[; ;Main.c: 168: }
+[; ;Main.c: 169: break;
+"169
+[e $U 702  ]
+[; ;Main.c: 170: case 4:
+"170
+[e :U 710 ]
+[; ;Main.c: 171: menu_posi = 1;
+"171
+[e = _menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 172: line4[0] = '>';
+"172
 [e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
-[; ;Main.c: 208: menu_posi = 2;
-"208
-[e = _menu_posi -> -> 2 `i `uc ]
-[; ;Main.c: 209: if (btPress(4)) {
-"209
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 710  ]
+[; ;Main.c: 173: if (btPress(4)) {
+"173
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 711  ]
 {
-[; ;Main.c: 210: if (!ocorrendoIncendio) {
-"210
-[e $ ! ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 711  ]
-{
-[; ;Main.c: 211: menu_posi = 28;
-"211
-[e = _menu_posi -> -> 28 `i `uc ]
-[; ;Main.c: 212: executandoTeste = 1;
-"212
-[e = _executandoTeste -> -> 1 `i `uc ]
-[; ;Main.c: 213: etapaTesteBombas = 0;
-"213
-[e = _etapaTesteBombas -> -> 0 `i `uc ]
-"214
+[; ;Main.c: 174: _menu_posi = menu_posi;
+"174
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 175: menu_posi = 23;
+"175
+[e = _menu_posi -> -> 23 `i `uc ]
+"176
 }
 [e :U 711 ]
-"215
-}
-[e :U 710 ]
-[; ;Main.c: 214: }
-[; ;Main.c: 215: }
-[; ;Main.c: 216: break;
-"216
-[e $U 693  ]
-[; ;Main.c: 217: default:
-"217
+[; ;Main.c: 176: }
+[; ;Main.c: 177: break;
+"177
+[e $U 702  ]
+[; ;Main.c: 178: case 5:
+"178
 [e :U 712 ]
-[; ;Main.c: 218: sub_menu_posi = 1;
-"218
-[e = _sub_menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 219: menu_posi = 1;
-"219
-[e = _menu_posi -> -> 1 `i `uc ]
-[; ;Main.c: 220: break;
-"220
-[e $U 693  ]
-"221
-}
-[; ;Main.c: 221: }
-[e $U 693  ]
-"148
-[e :U 694 ]
-[e [\ _sub_menu_posi , $ -> -> 1 `i `uc 695
- , $ -> -> 2 `i `uc 697
- , $ -> -> 3 `i `uc 699
- , $ -> -> 4 `i `uc 701
- , $ -> -> 5 `i `uc 703
- , $ -> -> 6 `i `uc 705
- , $ -> -> 7 `i `uc 707
- , $ -> -> 8 `i `uc 709
- 712 ]
-"221
-[e :U 693 ]
-[; ;Main.c: 223: if (btPress(3)) {
-"223
-[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 713  ]
+[; ;Main.c: 179: menu_posi = 2;
+"179
+[e = _menu_posi -> -> 2 `i `uc ]
+[; ;Main.c: 180: line1[0] = '>';
+"180
+[e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 181: if (btPress(4)) {
+"181
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 713  ]
 {
-[; ;Main.c: 224: sub_menu_posi--;
-"224
-[e -- _sub_menu_posi -> -> 1 `i `uc ]
-"225
+[; ;Main.c: 182: _menu_posi = menu_posi;
+"182
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 183: menu_posi = 24;
+"183
+[e = _menu_posi -> -> 24 `i `uc ]
+"184
 }
-[; ;Main.c: 225: } else if (btPress(2)) {
-[e $U 714  ]
 [e :U 713 ]
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 715  ]
+[; ;Main.c: 184: }
+[; ;Main.c: 185: break;
+"185
+[e $U 702  ]
+[; ;Main.c: 186: case 6:
+"186
+[e :U 714 ]
+[; ;Main.c: 187: line2[0] = '>';
+"187
+[e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 188: menu_posi = 2;
+"188
+[e = _menu_posi -> -> 2 `i `uc ]
+[; ;Main.c: 189: if (btPress(4)) {
+"189
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 715  ]
 {
-[; ;Main.c: 226: sub_menu_posi++;
-"226
-[e ++ _sub_menu_posi -> -> 1 `i `uc ]
-"227
+[; ;Main.c: 190: _menu_posi = menu_posi;
+"190
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 191: menu_posi = 25;
+"191
+[e = _menu_posi -> -> 25 `i `uc ]
+[; ;Main.c: 192: dtl_carregar_log = 1;
+"192
+[e = _dtl_carregar_log -> -> 1 `i `uc ]
+"193
 }
-[; ;Main.c: 227: } else if (btPress(1)) {
-[e $U 716  ]
 [e :U 715 ]
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 717  ]
+[; ;Main.c: 193: }
+[; ;Main.c: 194: break;
+"194
+[e $U 702  ]
+[; ;Main.c: 195: case 7:
+"195
+[e :U 716 ]
+[; ;Main.c: 196: line3[0] = '>';
+"196
+[e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 197: menu_posi = 2;
+"197
+[e = _menu_posi -> -> 2 `i `uc ]
+[; ;Main.c: 198: if (btPress(4)) {
+"198
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 717  ]
 {
-[; ;Main.c: 228: menu_posi = 0;
-"228
-[e = _menu_posi -> -> 0 `i `uc ]
-[; ;Main.c: 229: option_posi = 0;
-"229
-[e = _option_posi -> -> 0 `i `uc ]
-[; ;Main.c: 230: sub_menu_posi = 1;
-"230
-[e = _sub_menu_posi -> -> 1 `i `uc ]
-"231
+[; ;Main.c: 199: _menu_posi = menu_posi;
+"199
+[e = __menu_posi _menu_posi ]
+[; ;Main.c: 200: menu_posi = 27;
+"200
+[e = _menu_posi -> -> 27 `i `uc ]
+"201
 }
 [e :U 717 ]
-"232
-[e :U 716 ]
-[e :U 714 ]
-}
-[e :U 692 ]
-[; ;Main.c: 231: }
-[; ;Main.c: 232: }
-[; ;Main.c: 234: if (menu_posi != 28) {
-"234
-[e $ ! != -> _menu_posi `i -> 28 `i 718  ]
-{
-[; ;Main.c: 235: executandoTeste = 0;
-"235
-[e = _executandoTeste -> -> 0 `i `uc ]
-[; ;Main.c: 236: shift[2] = 0;
-"236
-[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
-"237
-}
+[; ;Main.c: 201: }
+[; ;Main.c: 202: break;
+"202
+[e $U 702  ]
+[; ;Main.c: 203: case 8:
+"203
 [e :U 718 ]
-[; ;Main.c: 237: }
-[; ;Main.c: 238: atualizarLCD(line1, line2, line3, line4);
+[; ;Main.c: 204: line4[0] = '>';
+"204
+[e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
+[; ;Main.c: 205: menu_posi = 2;
+"205
+[e = _menu_posi -> -> 2 `i `uc ]
+[; ;Main.c: 206: if (btPress(4)) {
+"206
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 719  ]
+{
+[; ;Main.c: 207: if (!ocorrendoIncendio) {
+"207
+[e $ ! ! != -> _ocorrendoIncendio `i -> -> -> 0 `i `uc `i 720  ]
+{
+[; ;Main.c: 208: menu_posi = 28;
+"208
+[e = _menu_posi -> -> 28 `i `uc ]
+[; ;Main.c: 209: executandoTeste = 1;
+"209
+[e = _executandoTeste -> -> 1 `i `uc ]
+[; ;Main.c: 210: etapaTesteBombas = 0;
+"210
+[e = _etapaTesteBombas -> -> 0 `i `uc ]
+"211
+}
+[e :U 720 ]
+"212
+}
+[e :U 719 ]
+[; ;Main.c: 211: }
+[; ;Main.c: 212: }
+[; ;Main.c: 213: break;
+"213
+[e $U 702  ]
+[; ;Main.c: 214: default:
+"214
+[e :U 721 ]
+[; ;Main.c: 215: sub_menu_posi = 1;
+"215
+[e = _sub_menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 216: menu_posi = 1;
+"216
+[e = _menu_posi -> -> 1 `i `uc ]
+[; ;Main.c: 217: break;
+"217
+[e $U 702  ]
+"218
+}
+[; ;Main.c: 218: }
+[e $U 702  ]
+"145
+[e :U 703 ]
+[e [\ _sub_menu_posi , $ -> -> 1 `i `uc 704
+ , $ -> -> 2 `i `uc 706
+ , $ -> -> 3 `i `uc 708
+ , $ -> -> 4 `i `uc 710
+ , $ -> -> 5 `i `uc 712
+ , $ -> -> 6 `i `uc 714
+ , $ -> -> 7 `i `uc 716
+ , $ -> -> 8 `i `uc 718
+ 721 ]
+"218
+[e :U 702 ]
+[; ;Main.c: 220: if (btPress(3)) {
+"220
+[e $ ! != -> ( _btPress (1 -> -> 3 `i `uc `i -> -> -> 0 `i `uc `i 722  ]
+{
+[; ;Main.c: 221: sub_menu_posi--;
+"221
+[e -- _sub_menu_posi -> -> 1 `i `uc ]
+"222
+}
+[; ;Main.c: 222: } else if (btPress(2)) {
+[e $U 723  ]
+[e :U 722 ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 724  ]
+{
+[; ;Main.c: 223: sub_menu_posi++;
+"223
+[e ++ _sub_menu_posi -> -> 1 `i `uc ]
+"224
+}
+[; ;Main.c: 224: } else if (btPress(1)) {
+[e $U 725  ]
+[e :U 724 ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 726  ]
+{
+[; ;Main.c: 225: menu_posi = 0;
+"225
+[e = _menu_posi -> -> 0 `i `uc ]
+[; ;Main.c: 226: option_posi = 0;
+"226
+[e = _option_posi -> -> 0 `i `uc ]
+[; ;Main.c: 227: sub_menu_posi = 1;
+"227
+[e = _sub_menu_posi -> -> 1 `i `uc ]
+"228
+}
+[e :U 726 ]
+"229
+[e :U 725 ]
+[e :U 723 ]
+}
+[e :U 701 ]
+[; ;Main.c: 228: }
+[; ;Main.c: 229: }
+[; ;Main.c: 231: if (menu_posi != 28) {
+"231
+[e $ ! != -> _menu_posi `i -> 28 `i 727  ]
+{
+[; ;Main.c: 232: executandoTeste = 0;
+"232
+[e = _executandoTeste -> -> 0 `i `uc ]
+[; ;Main.c: 233: shift[2] = 0;
+"233
+[e = *U + &U _shift * -> -> -> 2 `i `ui `ux -> -> # *U &U _shift `ui `ux -> -> 0 `i `uc ]
+"234
+}
+[e :U 727 ]
+[; ;Main.c: 234: }
+[; ;Main.c: 236: if(flagMudancaEstadoSaidas){
+"236
+[e $ ! != -> _flagMudancaEstadoSaidas `i -> -> -> 0 `i `uc `i 728  ]
+{
+[; ;Main.c: 237: timerAtualizacaoLCD = 2;
+"237
+[e = _timerAtualizacaoLCD -> -> 2 `i `uc ]
+[; ;Main.c: 238: flagMudancaEstadoSaidas = 0;
 "238
-[e ( _atualizarLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
+[e = _flagMudancaEstadoSaidas -> -> 0 `i `uc ]
 "239
 }
-[e :U 674 ]
-"87
-[e $U 675  ]
-[e :U 676 ]
+[e :U 728 ]
 [; ;Main.c: 239: }
-[; ;Main.c: 240: }
-"240
-[e :UE 673 ]
+[; ;Main.c: 241: if (timerAtualizacaoLCD == 0) {
+"241
+[e $ ! == -> _timerAtualizacaoLCD `i -> 0 `i 729  ]
+{
+[; ;Main.c: 242: atualizarLCD(&line1, &line2, &line3, &line4);
+"242
+[e ( _atualizarLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
+"243
+}
+[e :U 729 ]
+"244
+}
+[e :U 683 ]
+"85
+[e $U 684  ]
+[e :U 685 ]
+[; ;Main.c: 243: }
+[; ;Main.c: 244: }
+[; ;Main.c: 245: }
+"245
+[e :UE 682 ]
 }
 [p f _sprintf 9207940 ]
 [p f _printf 8683652 ]
 [a 62C 32 42 102 97 108 104 97 32 66 46 32 106 111 99 107 101 121 0 ]
 [a 68C 32 80 114 101 115 115 32 69 83 67 32 112 47 32 82 101 115 101 116 0 ]
 [a 91C 83 105 115 116 101 109 97 115 32 101 109 98 97 114 99 97 100 111 115 0 ]
-[a 115C 83 105 115 116 101 109 97 115 32 101 109 98 97 114 99 97 100 111 115 0 ]
-[a 126C 73 110 105 99 105 97 114 32 84 101 115 116 101 115 0 ]
+[a 111C 83 105 115 116 101 109 97 115 32 101 109 98 97 114 99 97 100 111 115 0 ]
+[a 122C 73 110 105 99 105 97 114 32 84 101 115 116 101 115 0 ]
 [a 102C 37 51 100 115 0 ]
 [a 104C 37 51 100 115 0 ]
 [a 39C 65 103 117 97 114 100 101 46 46 46 32 37 100 115 0 ]
@@ -9407,8 +9543,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 108C 80 82 73 78 67 73 80 65 76 32 58 32 37 115 0 ]
 [a 93C 118 101 114 115 97 111 32 45 32 37 115 0 ]
 [a 97C 37 115 0 ]
-[a 110C 37 115 0 ]
-[a 117C 37 115 0 ]
+[a 113C 37 115 0 ]
 [a 66C 69 114 114 111 32 110 111 32 84 114 97 110 115 100 117 116 111 114 0 ]
 [a 100C 67 111 110 102 105 103 117 114 97 99 97 111 32 116 101 109 112 111 0 ]
 [a 64C 32 42 102 97 108 104 97 32 66 46 32 99 111 109 98 117 115 116 97 111 0 ]
@@ -9422,19 +9557,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 79C 68 97 116 97 58 32 37 48 50 100 47 37 48 50 100 47 37 48 50 100 32 37 48 50 100 58 37 48 50 100 0 ]
 [a 70C 37 48 50 100 47 37 48 50 100 47 37 48 50 100 0 ]
 [a 83C 35 37 48 50 100 47 37 48 50 100 0 ]
-[a 58C 32 37 48 50 100 58 37 48 50 100 58 37 48 50 100 32 37 48 50 100 47 37 48 50 100 0 ]
-[a 113C 116 115 105 110 97 108 32 37 100 0 ]
-[a 111C 101 116 97 112 97 32 37 100 0 ]
+[a 58C 32 37 48 50 100 58 37 48 50 100 32 37 48 50 100 47 37 48 50 100 0 ]
 [a 1C 37 115 37 99 0 ]
 [a 2C 37 115 37 99 0 ]
 [a 59C 32 42 102 97 108 104 97 32 101 108 101 116 114 105 99 97 0 ]
 [a 90C 84 69 67 72 78 79 87 0 ]
-[a 114C 84 69 67 72 78 79 87 0 ]
-[a 123C 80 69 82 73 79 68 79 32 68 69 32 84 69 83 84 69 83 0 ]
-[a 122C 84 69 76 69 70 79 78 69 83 0 ]
+[a 110C 84 69 67 72 78 79 87 0 ]
+[a 119C 80 69 82 73 79 68 79 32 68 69 32 84 69 83 84 69 83 0 ]
+[a 118C 84 69 76 69 70 79 78 69 83 0 ]
 [a 17C 69 82 82 79 82 0 ]
 [a 33C 69 82 82 79 82 0 ]
-[a 124C 68 65 84 65 76 79 71 69 82 0 ]
+[a 120C 68 65 84 65 76 79 71 69 82 0 ]
 [a 40C 80 114 101 115 115 97 111 32 37 115 32 66 65 82 0 ]
 [a 67C 80 114 101 115 115 97 111 32 37 115 32 66 65 82 0 ]
 [a 50C 69 82 82 79 0 ]
@@ -9444,8 +9577,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 86C 69 82 82 79 0 ]
 [a 89C 69 82 82 79 0 ]
 [a 65C 32 65 76 69 82 84 65 32 68 69 32 73 78 67 69 78 68 73 79 0 ]
-[a 121C 80 65 82 84 73 68 65 32 67 79 77 66 85 83 84 65 79 0 ]
-[a 125C 73 78 70 79 32 86 69 82 83 65 79 0 ]
+[a 117C 80 65 82 84 73 68 65 32 67 79 77 66 85 83 84 65 79 0 ]
+[a 121C 73 78 70 79 32 86 69 82 83 65 79 0 ]
 [a 60C 32 42 102 97 108 104 97 32 71 83 77 0 ]
 [a 5C 79 75 0 ]
 [a 9C 79 75 0 ]
@@ -9464,8 +9597,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 85C 79 75 0 ]
 [a 88C 79 75 0 ]
 [a 36C 78 79 32 68 73 65 76 84 79 78 69 0 ]
-[a 120C 80 82 69 83 83 65 79 32 68 65 32 82 69 68 69 0 ]
-[a 119C 68 65 84 65 47 72 79 82 65 0 ]
+[a 116C 80 82 69 83 83 65 79 32 68 65 32 82 69 68 69 0 ]
+[a 115C 68 65 84 65 47 72 79 82 65 0 ]
 [a 28C 70 65 76 72 65 0 ]
 [a 30C 70 65 76 72 65 0 ]
 [a 32C 70 65 76 72 65 0 ]
@@ -9475,11 +9608,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 69C 68 65 84 65 58 0 ]
 [a 71C 72 79 82 65 58 0 ]
 [a 101C 77 97 120 46 32 80 65 82 84 73 68 65 58 0 ]
-[a 116C 86 101 114 115 97 111 32 83 111 102 116 46 58 0 ]
-[a 15C 78 111 118 32 50 53 32 50 48 49 57 0 ]
-[a 94C 78 111 118 32 50 53 32 50 48 49 57 0 ]
-[a 118C 78 111 118 32 50 53 32 50 48 49 57 0 ]
+[a 112C 86 101 114 115 97 111 32 83 111 102 116 46 58 0 ]
 [a 92C 32 32 32 52 56 32 57 57 57 48 54 45 53 54 53 49 0 ]
+[a 15C 74 117 110 32 48 49 32 50 48 50 48 0 ]
+[a 94C 74 117 110 32 48 49 32 50 48 50 48 0 ]
+[a 114C 74 117 110 32 48 49 32 50 48 50 48 0 ]
 [a 41C 66 111 109 98 97 32 74 111 99 107 101 121 46 46 46 0 ]
 [a 38C 68 101 115 112 114 101 115 115 117 114 105 122 97 110 100 111 46 46 46 0 ]
 [a 46C 82 101 108 105 103 97 110 100 111 46 46 46 0 ]
@@ -9488,7 +9621,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 45C 76 105 103 97 100 97 46 46 46 0 ]
 [a 57C 101 110 118 105 97 110 100 111 32 83 77 83 46 46 46 0 ]
 [a 47C 84 101 115 116 101 32 67 111 110 99 108 117 105 100 111 33 0 ]
-[a 112C 116 101 116 97 112 97 32 37 100 32 0 ]
 [a 6C 43 67 83 81 58 32 0 ]
 [a 7C 43 67 83 81 58 32 0 ]
 [a 98C 32 97 103 117 97 114 100 101 46 46 46 32 0 ]

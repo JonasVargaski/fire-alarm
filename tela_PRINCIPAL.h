@@ -24,7 +24,7 @@ void resetParametros() {
 
 void telaPrincipal() {
 
-    sprintf(&line1[2], " %02d:%02d:%02d %02d/%02d", _hor, _min, _sec, _dia, _mes);
+    sprintf(&line1[4], " %02d:%02d %02d/%02d", _hor, _min, _dia, _mes);
 
     line1[0] = ICONE_TORRE_SINAL;
     line1[1] = intensidadeSinal;

@@ -13,6 +13,8 @@ void timer() {
     timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
     timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
     timerTrocarTextoLcd = (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
+    timerIntervaloLigarBomba = (timerIntervaloLigarBomba <= 0 ? 0 : --timerIntervaloLigarBomba);
+    timerAtualizacaoLCD = (timerAtualizacaoLCD <= 0 ? 0 : --timerAtualizacaoLCD);
     
     if(!timerTrocarTextoLcd){
         timerTrocarTextoLcd = 2;

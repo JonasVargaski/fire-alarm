@@ -26,6 +26,7 @@ void setShiftREG();
 void clearShiftREG();
 
 unsigned char shift[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+unsigned char _ultimoEstado = 0;
 
 void clearShiftREG() {
     char i = 0;
@@ -35,14 +36,25 @@ void clearShiftREG() {
 }
 
 void setShiftREG() {
+    unsigned char estado = 0; 
     unsigned char i = 0;
     RCLK = 0;
     for (i = 0; i < 8; i++) {
+        if(shift[i]){
+            estado += i;
+        }
+        
         SRCLK = 0;
         SER = shift[i];
+        __delay_ms(3);
         SRCLK = 1;
     }
     RCLK = 1;
+    
+    if(estado != _ultimoEstado){
+        _ultimoEstado = estado;
+        flagMudancaEstadoSaidas = true;
+    }
 }
 
 #endif

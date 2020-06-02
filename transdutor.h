@@ -3,6 +3,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "adc.h"
+#include "variaveisGlobais.h"
 
 void lerTransdutor() {
     char i = 0;
@@ -14,12 +15,14 @@ void lerTransdutor() {
     _tensao += (float) tensao;
     qtd_leitura++;
 
-    if (tensao < 0.4) {
+    if (tensao < 0.3) {
         pressao = -10;
         flagErroTransdutor = true;
+        timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
     } else if (tensao > 4.5) { // Se estiver a leitura fora do range do transdutor o mesmo est� errado.
         flagErroTransdutor = true;
         pressao = 99; // Se der erro as bombas nao vao ligar pois vai indicar pressao maxima
+        timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
     } else if (qtd_leitura >= 6) {
         flagErroTransdutor = false;
         qtd_leitura = 0;

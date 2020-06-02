@@ -16,10 +16,10 @@ void acaoTesteBombas(void);
 void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-    if(executandoTeste){
+    if (executandoTeste) {
         return;
     }
-    
+
     if (pressao >= sp_pressao_rede && !ocorrendoIncendio) { // Se tiver erro na leitura do transdutor desliga as bombas somente se nao tiver incendio
         shift[rl_jockey] = 0;
         shift[rl_principal] = 0;
@@ -28,7 +28,10 @@ void acaoBombas() {
     }
 
     shift[rl_sol_despressurizacao] = 0; // fecha solenoide ladr�o
-    if (pressao <= sp_jockey) { // se abaixar a pressao at� o setpoint da jockey liga a jockey
+    if (pressao <= sp_jockey && timerIntervaloLigarBomba == 0) { // se abaixar a pressao at� o setpoint da jockey liga a jockey
+        if (shift[rl_jockey] == 0) {
+            timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+        }
         shift[rl_jockey] = 1;
     } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
         shift[rl_jockey] = 0;
@@ -36,19 +39,25 @@ void acaoBombas() {
 
     if (pressao <= sp_principal) {
         ocorrendoIncendio = true; // sinaliza e trava que o alarme de incendio esta acionado
-        shift[rl_principal] = 1;
+        if (timerIntervaloLigarBomba == 0) {
+            if (shift[rl_principal] == 0) {
+                timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+            }
+            shift[rl_principal] = 1;
+        }
         //        if (FALTA_ENERGIA) { // liga bomba estacionaria caso nao tenha energia no ligar da principal
         //            partidaBombaEstacionaria(1);
         //        }
-    }
-    if (pressao >= sp_pressao_rede && !ocorrendoIncendio) { // se pressao atingir o desejado, entao desliga todas as bombas, somente se nao tiver incendio
+    } else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) { // se pressao atingir o desejado, entao desliga todas as bombas, somente se nao tiver incendio
         shift[rl_principal] = 0;
         partidaBombaEstacionaria(0);
     }
 
     if (pressao <= sp_estacionaria) {
-        partidaBombaEstacionaria(1); // Passar valor 1 indicando para ligar
         ocorrendoIncendio = true; // sinaliza e trava que o alarme de incendio esta acionado
+        if (timerIntervaloLigarBomba == 0) {
+            partidaBombaEstacionaria(1); // Passar valor 1 indicando para ligar
+        }
     }
 
     if (ocorrendoIncendio) { // se tiver pegando fogo..
@@ -161,16 +170,20 @@ void acaoTesteBombas() {
             shift[rl_sol_despressurizacao] = 1;
             timerTesteBombas = 30;
             etapaTesteBombas = 1;
-            break;
+            timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+            return;
         case 1:
             drenarPressao();
             if (pressao <= (sp_pressao_rede - 10)) { // - 1BAR abaixo do setpoint do sistema
                 shift[rl_sol_despressurizacao] = 0;
-                shift[rl_jockey] = 1;
-                etapaTesteBombas = 2;
-                timerTesteBombas = 50;
+                if (timerIntervaloLigarBomba == 0) {
+                    shift[rl_jockey] = 1;
+                    etapaTesteBombas = 2;
+                    timerTesteBombas = 50;
+                    timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+                }
             }
-            break;
+            return;
         case 2:
             sprintf(line4, "Bomba Jockey...");
             if (pressao >= sp_pressao_rede) {
@@ -183,20 +196,23 @@ void acaoTesteBombas() {
                 etapaTesteBombas = 3;
                 timerTesteBombas = 30;
             }
-            break;
+            return;
         case 3:
-            shift[rl_sol_despressurizacao] = 1;
             etapaTesteBombas = 4;
-            break;
+            shift[rl_sol_despressurizacao] = 1;
+            timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+            return;
         case 4:
             drenarPressao();
             if (pressao <= (sp_pressao_rede - 10)) {
-                shift[rl_principal] = 1;
                 shift[rl_sol_despressurizacao] = 0;
-                etapaTesteBombas = 5;
-                timerTesteBombas = 50;
+                if (timerIntervaloLigarBomba == 0) {
+                    shift[rl_principal] = 1;
+                    etapaTesteBombas = 5;
+                    timerTesteBombas = 50;
+                }
             }
-            break;
+            return;
         case 5:
             sprintf(line4, "Bomba Principal...");
             if (pressao >= sp_pressao_rede) {
@@ -209,19 +225,22 @@ void acaoTesteBombas() {
                 etapaTesteBombas = 6;
                 timerTesteBombas = 30;
             }
-            break;
+            return;
         case 6:
-            shift[rl_sol_despressurizacao] = 1;
             etapaTesteBombas = 7;
-            break;
+            shift[rl_sol_despressurizacao] = 1;
+            timerIntervaloLigarBomba = INTERVALO_LIGACAO_BOMBAS;
+            return;
         case 7:
             drenarPressao();
             if (pressao <= (sp_pressao_rede - 10)) {
                 shift[rl_sol_despressurizacao] = 0;
-                etapaTesteBombas = 8;
-                timerTesteBombas = tempo_limite_estacionaria; // pega tempos das configura�oes;
+                if (timerIntervaloLigarBomba == 0) {
+                    etapaTesteBombas = 8;
+                    timerTesteBombas = tempo_limite_estacionaria; // pega tempos das configura�oes;
+                }
             }
-            break;
+            return;
         case 8:
             sprintf(line4, "Bomba Combustao...");
             partidaBombaEstacionaria(1); // Liga a bomba a combustao
@@ -235,21 +254,21 @@ void acaoTesteBombas() {
                 etapaTesteBombas = 10;
                 status_estacionaria = ERRO;
             }
-            break;
+            return;
         case 9:
-            sprintf(line4, "Bomba %s", SINAL_ESTAC_LIGADO ? "Ligada...": "Religando...");
+            sprintf(line4, "Bomba %s", SINAL_ESTAC_LIGADO ? "Ligada..." : "Religando...");
             partidaBombaEstacionaria(1); // Liga a bomba a combustao
             if (!timerTesteBombas || status_estacionaria == ERRO) {
                 etapaTesteBombas = 10;
             }
-            break;
+            return;
         case 10:
             salvarLOG();
             partidaBombaEstacionaria(2);
             clearShiftREG();
             etapaTesteBombas = 11;
             timerTesteBombas = 10;
-            break;
+            return;
         case 11:
             sprintf(&line1[2], "Teste Concluido!");
             sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
@@ -261,7 +280,7 @@ void acaoTesteBombas() {
                 timerReenvioSMS = 0;
                 gsmOcupado = true;
             }
-            break;
+            return;
         case 12:
             sprintf(&line4[2], "enviando SMS...");
             enviaSMS(2); // somente sms // tipo teste de bombas
@@ -269,11 +288,11 @@ void acaoTesteBombas() {
                 menu_posi = 0;
                 gsmOcupado = false;
             }
-            break;
+            return;
         default:
             etapaTesteBombas = 0;
             menu_posi = 0;
-            break;
+            return;
     }
 }
 
