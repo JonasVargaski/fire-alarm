@@ -6,14 +6,18 @@
 
 void configuraRegistradores() {
     //## ADC ENTRADAS
-    ADCON0 = 0b10000001;
+    ADCON0 = 0b00000001;
     ADCON1 = 0b11001110;
     TRISAbits.RA0 = 1;
     PORTAbits.AN0 = 0;
 
     //##Configura TIMER0
-    T0CON = 0x81;
-    INTCON = 0xE4;
+    //T0CON = 0x81;
+    //INTCON = 0xE4;
+    T0CON = 0b10000001;
+    INTCON = 0b11100100;
+    INTCON2 = 0b00000000;
+    INTCON3 = 0b00000000;
 
     //CONFIGURAÇÃO LCD
     TRISDbits.RD5 = 0;
@@ -42,8 +46,11 @@ void configuraRegistradores() {
     // Configuração inputs
     INTCONbits.RBIE = 0; // desativa interrupçao portrb
     TRISAbits.RA2 = 1; //INPUT sinal de entrada estacionario
+    PORTAbits.RA2 = 1;
     TRISAbits.RA5 = 1; //INPUT sinal de entrada aux 2 
     TRISCbits.RC0 = 1; //INPUT sinal de falta de energia 
+    TRISAbits.RA1 = 0;
+    PORTAbits.RA1 = 1;
 
     //Configuração TECLADO
     TRISBbits.RB2 = 1;
@@ -51,10 +58,23 @@ void configuraRegistradores() {
     TRISBbits.RB4 = 1;
     TRISBbits.RB5 = 1;
 
-    //Configuração shift595
+    //Configuração Saidas
+    TRISDbits.RD7 = 0;
+    TRISAbits.RA3 = 0;
+    TRISAbits.RA4 = 0;
     TRISEbits.RE0 = 0;
     TRISEbits.RE1 = 0;
     TRISEbits.RE2 = 0;
+    TRISCbits.RC1 = 0;
+    //Inicia desligado
+    PORTDbits.RD7 = 0;
+    PORTAbits.RA3 = 0;
+    PORTAbits.RA4 = 0;
+    PORTEbits.RE0 = 0;
+    PORTEbits.RE1 = 0;
+    PORTEbits.RE2 = 0;
+    PORTCbits.RC1 = 0;
+
 }
 #endif	/* XC_HEADER_TEMPLATE_H */
 

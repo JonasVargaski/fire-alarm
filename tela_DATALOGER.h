@@ -16,28 +16,6 @@ void dataLoger() {
     sprintf(line3, "Principal: %s", dtl_principal == 1 ? "OK" : "ERRO");
     sprintf(line4, "Combustao: %s", dtl_estacionaria == 1 ? "OK" : "ERRO");
 
-    if (btPress(b_esc)) {
-        option_posi = 0;
-        menu_posi = _menu_posi;
-    }
-    //    if (btPress(b_ok)) {
-    //        //        apagarLOGS();
-    //        //        salvarLOG();
-    //    }
-    if (btPress(b_menos)) {
-        dtl_posicao -= 8;
-        if (dtl_posicao < 60) {
-            dtl_posicao = 60;
-        }
-        dtl_carregar_log = 1;
-    }
-    if (btPress(b_mais)) {
-        if ((dtl_posi_visualizar + 1) >= totalLogs) {
-            return;
-        }
-        dtl_posicao += 8;
-        dtl_carregar_log = 1;
-    }
 
     if (dtl_carregar_log == 1) { // EVITA FICAR FAZENDO LEITURAS NA EEPROM.
         char logs = readEEPROM_ext(14);
@@ -54,6 +32,23 @@ void dataLoger() {
         dtl_principal = readEEPROM_ext((dtl_posicao + 6));
         dtl_estacionaria = readEEPROM_ext((dtl_posicao + 7));
         dtl_carregar_log = 0;
+    }
+    //#CONTROLE
+    if (btPress(b_esc)) {
+        option_posi = 0;
+        menu_posi = _menu_posi;
+    } else if (btPress(b_menos)) {
+        dtl_posicao -= 8;
+        if (dtl_posicao < 60) {
+            dtl_posicao = 60;
+        }
+        dtl_carregar_log = 1;
+    } else if (btPress(b_mais)) {
+        if ((dtl_posi_visualizar + 1) >= totalLogs) {
+            return;
+        }
+        dtl_posicao += 8;
+        dtl_carregar_log = 1;
     }
 }
 

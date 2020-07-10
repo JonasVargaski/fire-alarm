@@ -2,6 +2,7 @@
 #define	LCD_H
 
 #include "config.h"
+#include "variaveisGlobais.h"
 
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
@@ -118,6 +119,15 @@ void Lcd_Write_Char(char a) {
     EN = 1;
     __delay_us(150);
     EN = 0;
+    __delay_us(100);
+
+    //set pull-up to filter.
+    EN = 1;
+    RS = 1;
+    D4 = 1;
+    D5 = 1;
+    D6 = 1;
+    D7 = 1;
 }
 
 void Lcd_Write_String(char *a) {
@@ -131,16 +141,29 @@ void Lcd_Write_String(char *a) {
 
 void atualizarLCD(char *line1, char *line2, char *line3, char *line4) {
 
-    Lcd_Set_Cursor(1, 1);
-    Lcd_Write_String(line1);
-    Lcd_Set_Cursor(2, 1);
-    Lcd_Write_String(line2);
-    Lcd_Set_Cursor(3, 0);
-    Lcd_Write_String(line3);
-    Lcd_Set_Cursor(4, 0);
-    Lcd_Write_String(line4);
-
     char i = 0;
+    long lcdEstado = 0;
+
+    for (i = 0; i < 20; i++) {
+        lcdEstado += (int) line1[i] + 1;
+        lcdEstado += (int) line2[i] + 2;
+        lcdEstado += (int) line3[i] + 3;
+        lcdEstado += (int) line4[i] + 4;
+    }
+
+    if (lcdEstado != ultimoEstadoLCD) {
+        ultimoEstadoLCD = lcdEstado;
+
+        Lcd_Set_Cursor(1, 1);
+        Lcd_Write_String(line1);
+        Lcd_Set_Cursor(2, 1);
+        Lcd_Write_String(line2);
+        Lcd_Set_Cursor(3, 0);
+        Lcd_Write_String(line3);
+        Lcd_Set_Cursor(4, 0);
+        Lcd_Write_String(line4);
+    }
+
     for (i = 0; i < 20; i++) {
         line1[i] = ' ';
         line2[i] = ' ';
@@ -179,6 +202,13 @@ void blink(char *line, char start, char end) {
     }
 }
 
+void reiniciaLCD(){
+    Lcd_Init(); // Configura TRIS LCD  e inicializa
+    criarCaracteresCGRAM();
+   // Lcd_Clear();
+    timerAtrasoLCD = 1;
+    ultimoEstadoLCD = 0;
+}
 
 #endif	
 

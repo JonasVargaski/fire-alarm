@@ -8,7 +8,6 @@
 #include "comunicacao.h"
 #include "logs.h"
 #include "controle.h"
-#include "shift595.h"
 #include "temporizador.h"
 #include "util.h"
 #include "I2C.h"
@@ -35,19 +34,32 @@ void interrupt TIMER() {
         TMR0H = 0x3C;
         TMR0L = 0xB0;
 
-        base_sec++;
+        timerBase = (unsigned char) (timerBase <= 0 ? 0 : --timerBase);
+        timerPiscarLCD = (unsigned char) (timerPiscarLCD <= 0 ? 0 : --timerPiscarLCD);
+        timerAtrasoLCD = (unsigned char) (timerAtrasoLCD <= 0 ? 0 : --timerAtrasoLCD);
+        timerColetaLeitura = (unsigned char) (timerColetaLeitura <= 0 ? 0 : --timerColetaLeitura);
+        timerTrocarTextoLcd = (unsigned char) (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
+        if (timerTrocarTextoLcd == 0) {
+            timerTrocarTextoLcd = 15;
+            textoAlternativo = ~textoAlternativo;
+        }
+        readButtons();
 
-        if (base_sec == 5) {
+        if (timerPiscarLCD == 0) {
+            timerPiscarLCD = 4;
             blinkk = ~blinkk; // efeito de piscar lcd
         }
 
-        lerTransdutor();
-        readButtons();
-
-        if (base_sec > 9) { // Base de tempo de 1 segundo
-            base_sec = 0;
-            blinkk = ~blinkk; // efeito de piscar lcd
+        if (timerBase == 0) { // Base de tempo de 1 segundo
             timer();
+            timerBase = 10;
+
+            timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
+            timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
+            timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
+            timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
+            timerIntervaloEntreBombas = (timerIntervaloEntreBombas <= 0 ? 0 : --timerIntervaloEntreBombas);
+
             if (RCSTAbits.OERR) { // reset da serial caso travar
                 RCSTAbits.CREN = 0;
                 RCSTAbits.CREN = 1;
@@ -64,7 +76,6 @@ void interrupt TIMER() {
 }
 
 void main() {
-
     configuraRegistradores();
     I2C_Master_Init(100000); //Inicializa I2C modo MASTER em 100KHz clock/
     delay(200);
@@ -76,28 +87,42 @@ void main() {
     criarCaracteresCGRAM();
     delay(100);
     lerParametros(); // Carrega variuaveis da eeprom.
-    delay(50);
+    sprintf(line1, "TECHNOW");
+    sprintf(line2, "Sistemas embarcados");
+    sprintf(line3, "Versao Soft.:");
+    sprintf(&line4[9], "%s", __DATE__);
+    atualizarLCD(line1, line2, line3, line4);
+
+    delay(2500);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     while (1) {
         asm("CLRWDT"); // Reinicia WDT
-
-        if (!executandoTeste || pressao > 99 || pressao < 0) { // se nao tiver em teste das bombas executa.
-            acaoBombas();
+        if (timerColetaLeitura == 0) {
+            timerColetaLeitura = 3;
+            lerTransdutor();
         }
 
-        verificarIntervaloTesteBombas();
+        partidaBombaEstacionaria(out_BOMBA_ESTACIONARIA); // controla partida bomba;
 
-        setShiftREG(); // controle das saidas reles
-        getSinalSIM800L(); // pega intensidade do sinal do modulo gsm
+        if (menu_posi != 28 && !flagErroTransdutor) { // se nao tiver em teste das bombas executa.
+            acaoBombas();
+            verificarIntervaloTesteBombas();
+        }
 
+        if (menu_posi != 28) { // se nao tiver na tela de teste nao interfere no funcionamento
+            out_RL_SOLENOIDE2 = 0;
+        }
+
+        if (!timerVerificarSinal && !gsmOcupado) {
+            getSinalSIM800L(); // pega intensidade do sinal do modulo gsm
+        }
 
         switch (menu_posi) {
             case 0:
                 telaPrincipal();
-                //                telaTeste();
                 break;
-            case 1: // 1 tela do menu
+            case 1:
                 sprintf(&line1[1], "DATA/HORA");
                 sprintf(&line2[1], "PRESSAO DA REDE");
                 sprintf(&line3[1], "PARTIDA COMBUSTAO");
@@ -201,12 +226,9 @@ void main() {
                 case 8:
                     line4[0] = '>';
                     menu_posi = 2;
-                    if (btPress(b_ok)) {
-                        if (!ocorrendoIncendio) {
-                            menu_posi = 28;
-                            executandoTeste = true;
-                            etapaTesteBombas = 0;
-                        }
+                    if (btPress(b_ok) && !ocorrendoIncendio) {
+                        menu_posi = 28;
+                        etapaTesteBombas = 0;
                     }
                     break;
                 default:
@@ -217,20 +239,27 @@ void main() {
 
             if (btPress(b_mais)) { /// NAVEGAÁ√O MENU ///
                 sub_menu_posi--;
-            } else if (btPress(b_menos)) {
+            }
+            if (btPress(b_menos)) {
                 sub_menu_posi++;
-            } else if (btPress(b_esc)) {
+            }
+            if (btPress(b_esc)) {
                 menu_posi = 0;
                 option_posi = 0;
                 sub_menu_posi = 1;
             }
         }
 
-        if (menu_posi != 28) { // se nao tiver na tela de teste nao interfere no funcionamento
-            executandoTeste = false;
-            shift[rl_sol_despressurizacao] = 0; // Garante que a solenoide ladr„o nao seja ativada a nao ser que estaja na tela de teste
+        if (menu_posi == 20) {
+            ajst_rtc = 1;
+        } else {
+            ajst_rtc = 0;
         }
-        atualizarLCD(line1, line2, line3, line4);
+
+        monitorarAlteracaoEstado();
+        if (timerAtrasoLCD == 0) {
+            atualizarLCD(line1, line2, line3, line4);
+        }
     }
 }
 

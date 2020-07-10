@@ -2,33 +2,41 @@
 #define	TRANSDUTOR_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-#include "adc.h"
+#include "variaveisGlobais.h"
+#include "function.h"
 
 void lerTransdutor() {
     char i = 0;
-    float tensao = 0, _pressao = 0;
-    for (i = 0; i < 9; i++) { // Ler o adc 10 vezes para filtrar erros.
-        tensao += readADC()*0.004887586; // Converter para Volts
-    }
-    tensao = tensao / 10; // tira media de 10 leituras
-    _tensao += (float) tensao;
-    qtd_leitura++;
+    int mediaLeitura = 0;
+    int adc = 0;
+    int _pressao = 0;
 
-    if (tensao < 0.4) {
-        pressao = -10;
-    } else if (tensao > 4.5) { // Se estiver a leitura fora do range do transdutor o mesmo está errado.
-        pressao = 99; // Se der erro as bombas nao vao ligar pois vai indicar pressao maxima
-    } else if (qtd_leitura >= 6) {
-        qtd_leitura = 0;
-        tensao = (float) (_tensao / 6);
-        _tensao = 0;
-        _pressao = tensao - 0.5; // tira -0,5 de range do sensor
-        _pressao = _pressao * 10 / 4; // converte para bar
-        if (_pressao < 0) {
-            _pressao = 0;
+        ADCON0bits.CHS = 0b000;
+    for (i = 0; i < 15; i++) { // Ler o adc 10 vezes para filtrar erros.
+        adc = 0;
+        __delay_us(30);
+        ADCON0bits.GO = 1;
+        while (!ADCON0bits.GODONE);
+        adc = ((ADRESH << 8) + ADRESL);
+        mediaLeitura += map(adc, 102, 920, 0, 100);
+        if (adc < 50 && timerIntervaloEntreBombas == 0) {
+            flagErroTransdutor = true;
         }
-        pressao = _pressao * 10; // passa pra numero inteiro para trabalhar com mais desempenho.
     }
+
+    coletaMedias[posicaoColetaLeitura] = (int) mediaLeitura / 15; // passa pra numero inteiro para trabalhar com mais desempenho. 
+
+    if (posicaoColetaLeitura >= 5) {
+        posicaoColetaLeitura = 0;
+    } else {
+        posicaoColetaLeitura++;
+    }
+
+    for (i = 0; i < 5; i++) {
+        _pressao += coletaMedias[i];
+    }
+
+    pressao = (int) _pressao / 5;
 }
 
 #endif	

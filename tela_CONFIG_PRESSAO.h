@@ -11,18 +11,6 @@ void ajusteSP_Bombas() {
     sprintf(line3, "PRINCIPAL : %s", intToFloatStr(sp_principal));
     sprintf(line4, "COMBUSTAO : %s", intToFloatStr(sp_estacionaria));
 
-    if (btPress(b_esc)) {
-        writeEEPROM_ext(0, sp_jockey);
-        writeEEPROM_ext(1, sp_principal);
-        writeEEPROM_ext(2, sp_estacionaria);
-        writeEEPROM_ext(4, sp_pressao_rede);
-        option_posi = 0;
-        menu_posi = _menu_posi;
-    }
-
-    if (btPress(b_ok)) {
-        option_posi++;
-    }
 
     switch (option_posi) {
         case 0:
@@ -75,6 +63,17 @@ void ajusteSP_Bombas() {
             break;
         default: option_posi = 0;
             break;
+    }
+    //#CONTROLE
+    if (btPress(b_esc)) {
+        writeEEPROM_ext(0, sp_jockey);
+        writeEEPROM_ext(1, sp_principal);
+        writeEEPROM_ext(2, sp_estacionaria);
+        writeEEPROM_ext(4, sp_pressao_rede);
+        option_posi = 0;
+        menu_posi = _menu_posi;
+    } else if (btPress(b_ok)) {
+        option_posi++;
     }
 }
 

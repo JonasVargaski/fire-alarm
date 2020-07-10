@@ -96,7 +96,6 @@ void setDS1307Time(RTCCTimeDate* ptrToUserVal) {
 }
 
 void RTC_Init(void) {
-
     I2C_Start();
     I2C_Write(0xD0);
     I2C_Write(0x07);

@@ -11,14 +11,12 @@ ds1307.c  \
 tela_ESTACIONARIA.h  \
 tela_TESTE.h  \
 function.h  \
-shift595.h  \
 lcd.h  \
 tela_TELEFONES.h  \
 controle.h  \
 config.h  \
 tela_DATALOGER.h  \
 GSMSIM800L.h  \
-adc.h  \
 util.h  \
 tela_INFORMACOES.h  \
 tela_TESTE_BOMBAS.h  \

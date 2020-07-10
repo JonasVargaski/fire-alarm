@@ -12,15 +12,6 @@ void tela_testeBombas() {
     sprintf(line3, "HORARIO: %02d horas", horario_de_teste);
     sprintf(line4, "ATIVAR: %s", habilitaTesteAutomatico == 0 ? "Nao" : "Sim");
 
-    if (btPress(b_esc)) {
-        writeEEPROM_ext(6, intervalo_teste_dia);
-        writeEEPROM_ext(11, horario_de_teste);
-        writeEEPROM_ext(15, habilitaTesteAutomatico);
-        menu_posi = _menu_posi;
-    }
-    if (btPress(b_ok)) {
-        option_posi++;
-    }
     switch (option_posi) {
         case 0:
             blink(line2, 11, 14);
@@ -54,6 +45,15 @@ void tela_testeBombas() {
             break;
         default:option_posi = 0;
             break;
+    }
+    //#CONTROLE
+    if (btPress(b_esc)) {
+        writeEEPROM_ext(6, intervalo_teste_dia);
+        writeEEPROM_ext(11, horario_de_teste);
+        writeEEPROM_ext(15, habilitaTesteAutomatico);
+        menu_posi = _menu_posi;
+    } else if (btPress(b_ok)) {
+        option_posi++;
     }
 }
 

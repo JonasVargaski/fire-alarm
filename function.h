@@ -10,5 +10,6 @@ char DECtoBCD(char val);
 char BCDtoDEC(char val);
 int DECtoHEX(int hex);
 char* intToFloatStr(unsigned char valor);
+int map(int x, int in_min, int in_max, int out_min, int out_max);
 
 #endif

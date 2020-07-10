@@ -1,17 +1,17 @@
 
 # 1 "Main.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f452.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f452.h"
 extern volatile unsigned char PORTA @ 0xF80;
 
 asm("PORTA equ 0F80h");
@@ -54,7 +54,7 @@ unsigned ULPWUIN :1;
 } PORTAbits_t;
 extern volatile PORTAbits_t PORTAbits @ 0xF80;
 
-# 193
+# 195
 extern volatile unsigned char PORTB @ 0xF81;
 
 asm("PORTB equ 0F81h");
@@ -92,7 +92,7 @@ unsigned CCP2_PA2 :1;
 } PORTBbits_t;
 extern volatile PORTBbits_t PORTBbits @ 0xF81;
 
-# 317
+# 320
 extern volatile unsigned char PORTC @ 0xF82;
 
 asm("PORTC equ 0F82h");
@@ -137,7 +137,7 @@ unsigned PA1 :1;
 } PORTCbits_t;
 extern volatile PORTCbits_t PORTCbits @ 0xF82;
 
-# 483
+# 487
 extern volatile unsigned char PORTD @ 0xF83;
 
 asm("PORTD equ 0F83h");
@@ -171,7 +171,7 @@ unsigned SS2 :1;
 } PORTDbits_t;
 extern volatile PORTDbits_t PORTDbits @ 0xF83;
 
-# 603
+# 608
 extern volatile unsigned char PORTE @ 0xF84;
 
 asm("PORTE equ 0F84h");
@@ -206,7 +206,7 @@ unsigned PB2 :1;
 } PORTEbits_t;
 extern volatile PORTEbits_t PORTEbits @ 0xF84;
 
-# 714
+# 720
 extern volatile unsigned char LATA @ 0xF89;
 
 asm("LATA equ 0F89h");
@@ -234,7 +234,7 @@ unsigned LA6 :1;
 } LATAbits_t;
 extern volatile LATAbits_t LATAbits @ 0xF89;
 
-# 813
+# 820
 extern volatile unsigned char LATB @ 0xF8A;
 
 asm("LATB equ 0F8Ah");
@@ -264,7 +264,7 @@ unsigned LB7 :1;
 } LATBbits_t;
 extern volatile LATBbits_t LATBbits @ 0xF8A;
 
-# 924
+# 932
 extern volatile unsigned char LATC @ 0xF8B;
 
 asm("LATC equ 0F8Bh");
@@ -294,7 +294,7 @@ unsigned LC7 :1;
 } LATCbits_t;
 extern volatile LATCbits_t LATCbits @ 0xF8B;
 
-# 1035
+# 1044
 extern volatile unsigned char LATD @ 0xF8C;
 
 asm("LATD equ 0F8Ch");
@@ -324,7 +324,7 @@ unsigned LD7 :1;
 } LATDbits_t;
 extern volatile LATDbits_t LATDbits @ 0xF8C;
 
-# 1146
+# 1156
 extern volatile unsigned char LATE @ 0xF8D;
 
 asm("LATE equ 0F8Dh");
@@ -344,7 +344,7 @@ unsigned LE2 :1;
 } LATEbits_t;
 extern volatile LATEbits_t LATEbits @ 0xF8D;
 
-# 1197
+# 1208
 extern volatile unsigned char TRISA @ 0xF92;
 
 asm("TRISA equ 0F92h");
@@ -377,7 +377,7 @@ unsigned RA6 :1;
 } TRISAbits_t;
 extern volatile TRISAbits_t TRISAbits @ 0xF92;
 
-# 1300
+# 1311
 typedef union {
 struct {
 unsigned TRISA0 :1;
@@ -400,7 +400,7 @@ unsigned RA6 :1;
 } DDRAbits_t;
 extern volatile DDRAbits_t DDRAbits @ 0xF92;
 
-# 1394
+# 1406
 extern volatile unsigned char TRISB @ 0xF93;
 
 asm("TRISB equ 0F93h");
@@ -439,7 +439,7 @@ unsigned CCP2 :1;
 } TRISBbits_t;
 extern volatile TRISBbits_t TRISBbits @ 0xF93;
 
-# 1518
+# 1530
 typedef union {
 struct {
 unsigned TRISB0 :1;
@@ -468,7 +468,7 @@ unsigned CCP2 :1;
 } DDRBbits_t;
 extern volatile DDRBbits_t DDRBbits @ 0xF93;
 
-# 1633
+# 1646
 extern volatile unsigned char TRISC @ 0xF94;
 
 asm("TRISC equ 0F94h");
@@ -507,7 +507,7 @@ unsigned CCP2 :1;
 } TRISCbits_t;
 extern volatile TRISCbits_t TRISCbits @ 0xF94;
 
-# 1757
+# 1770
 typedef union {
 struct {
 unsigned TRISC0 :1;
@@ -536,7 +536,7 @@ unsigned CCP2 :1;
 } DDRCbits_t;
 extern volatile DDRCbits_t DDRCbits @ 0xF94;
 
-# 1872
+# 1886
 extern volatile unsigned char TRISD @ 0xF95;
 
 asm("TRISD equ 0F95h");
@@ -571,7 +571,7 @@ unsigned RD7 :1;
 } TRISDbits_t;
 extern volatile TRISDbits_t TRISDbits @ 0xF95;
 
-# 1987
+# 2001
 typedef union {
 struct {
 unsigned TRISD0 :1;
@@ -596,7 +596,7 @@ unsigned RD7 :1;
 } DDRDbits_t;
 extern volatile DDRDbits_t DDRDbits @ 0xF95;
 
-# 2093
+# 2108
 extern volatile unsigned char TRISE @ 0xF96;
 
 asm("TRISE equ 0F96h");
@@ -626,7 +626,7 @@ unsigned RE2 :1;
 } TRISEbits_t;
 extern volatile TRISEbits_t TRISEbits @ 0xF96;
 
-# 2173
+# 2188
 typedef union {
 struct {
 unsigned TRISE0 :1;
@@ -646,7 +646,7 @@ unsigned RE2 :1;
 } DDREbits_t;
 extern volatile DDREbits_t DDREbits @ 0xF96;
 
-# 2244
+# 2260
 extern volatile unsigned char PIE1 @ 0xF9D;
 
 asm("PIE1 equ 0F9Dh");
@@ -671,7 +671,7 @@ unsigned RC1IE :1;
 } PIE1bits_t;
 extern volatile PIE1bits_t PIE1bits @ 0xF9D;
 
-# 2320
+# 2337
 extern volatile unsigned char PIR1 @ 0xF9E;
 
 asm("PIR1 equ 0F9Eh");
@@ -696,7 +696,7 @@ unsigned RC1IF :1;
 } PIR1bits_t;
 extern volatile PIR1bits_t PIR1bits @ 0xF9E;
 
-# 2396
+# 2414
 extern volatile unsigned char IPR1 @ 0xF9F;
 
 asm("IPR1 equ 0F9Fh");
@@ -721,7 +721,7 @@ unsigned RC1IP :1;
 } IPR1bits_t;
 extern volatile IPR1bits_t IPR1bits @ 0xF9F;
 
-# 2472
+# 2491
 extern volatile unsigned char PIE2 @ 0xFA0;
 
 asm("PIE2 equ 0FA0h");
@@ -738,7 +738,7 @@ unsigned EEIE :1;
 } PIE2bits_t;
 extern volatile PIE2bits_t PIE2bits @ 0xFA0;
 
-# 2515
+# 2535
 extern volatile unsigned char PIR2 @ 0xFA1;
 
 asm("PIR2 equ 0FA1h");
@@ -755,7 +755,7 @@ unsigned EEIF :1;
 } PIR2bits_t;
 extern volatile PIR2bits_t PIR2bits @ 0xFA1;
 
-# 2558
+# 2579
 extern volatile unsigned char IPR2 @ 0xFA2;
 
 asm("IPR2 equ 0FA2h");
@@ -772,7 +772,7 @@ unsigned EEIP :1;
 } IPR2bits_t;
 extern volatile IPR2bits_t IPR2bits @ 0xFA2;
 
-# 2601
+# 2623
 extern volatile unsigned char EECON1 @ 0xFA6;
 
 asm("EECON1 equ 0FA6h");
@@ -796,10 +796,11 @@ unsigned EEFS :1;
 } EECON1bits_t;
 extern volatile EECON1bits_t EECON1bits @ 0xFA6;
 
-# 2666
+# 2689
 extern volatile unsigned char EECON2 @ 0xFA7;
 
 asm("EECON2 equ 0FA7h");
+
 
 
 
@@ -809,9 +810,11 @@ asm("EEDATA equ 0FA8h");
 
 
 
+
 extern volatile unsigned char EEADR @ 0xFA9;
 
 asm("EEADR equ 0FA9h");
+
 
 
 
@@ -860,7 +863,7 @@ unsigned SRENA :1;
 } RCSTAbits_t;
 extern volatile RCSTAbits_t RCSTAbits @ 0xFAB;
 
-# 2800
+# 2826
 typedef union {
 struct {
 unsigned RX9D :1;
@@ -896,7 +899,7 @@ unsigned SRENA :1;
 } RCSTA1bits_t;
 extern volatile RCSTA1bits_t RCSTA1bits @ 0xFAB;
 
-# 2907
+# 2934
 extern volatile unsigned char TXSTA @ 0xFAC;
 
 asm("TXSTA equ 0FACh");
@@ -944,7 +947,7 @@ unsigned CSRC1 :1;
 } TXSTAbits_t;
 extern volatile TXSTAbits_t TXSTAbits @ 0xFAC;
 
-# 3045
+# 3072
 typedef union {
 struct {
 unsigned TX9D :1;
@@ -982,7 +985,7 @@ unsigned CSRC1 :1;
 } TXSTA1bits_t;
 extern volatile TXSTA1bits_t TXSTA1bits @ 0xFAC;
 
-# 3174
+# 3202
 extern volatile unsigned char TXREG @ 0xFAD;
 
 asm("TXREG equ 0FADh");
@@ -991,6 +994,7 @@ asm("TXREG equ 0FADh");
 extern volatile unsigned char TXREG1 @ 0xFAD;
 
 asm("TXREG1 equ 0FADh");
+
 
 
 
@@ -1005,6 +1009,7 @@ asm("RCREG1 equ 0FAEh");
 
 
 
+
 extern volatile unsigned char SPBRG @ 0xFAF;
 
 asm("SPBRG equ 0FAFh");
@@ -1013,6 +1018,7 @@ asm("SPBRG equ 0FAFh");
 extern volatile unsigned char SPBRG1 @ 0xFAF;
 
 asm("SPBRG1 equ 0FAFh");
+
 
 
 
@@ -1059,10 +1065,11 @@ unsigned T3RD16 :1;
 } T3CONbits_t;
 extern volatile T3CONbits_t T3CONbits @ 0xFB1;
 
-# 3327
+# 3359
 extern volatile unsigned short TMR3 @ 0xFB2;
 
 asm("TMR3 equ 0FB2h");
+
 
 
 
@@ -1072,9 +1079,11 @@ asm("TMR3L equ 0FB2h");
 
 
 
+
 extern volatile unsigned char TMR3H @ 0xFB3;
 
 asm("TMR3H equ 0FB3h");
+
 
 
 
@@ -1108,10 +1117,11 @@ unsigned DCCPX :1;
 } CCP2CONbits_t;
 extern volatile CCP2CONbits_t CCP2CONbits @ 0xFBA;
 
-# 3432
+# 3468
 extern volatile unsigned short CCPR2 @ 0xFBB;
 
 asm("CCPR2 equ 0FBBh");
+
 
 
 
@@ -1121,9 +1131,11 @@ asm("CCPR2L equ 0FBBh");
 
 
 
+
 extern volatile unsigned char CCPR2H @ 0xFBC;
 
 asm("CCPR2H equ 0FBCh");
+
 
 
 
@@ -1153,10 +1165,11 @@ unsigned CCP1X :1;
 } CCP1CONbits_t;
 extern volatile CCP1CONbits_t CCP1CONbits @ 0xFBD;
 
-# 3528
+# 3568
 extern volatile unsigned short CCPR1 @ 0xFBE;
 
 asm("CCPR1 equ 0FBEh");
+
 
 
 
@@ -1166,9 +1179,11 @@ asm("CCPR1L equ 0FBEh");
 
 
 
+
 extern volatile unsigned char CCPR1H @ 0xFBF;
 
 asm("CCPR1H equ 0FBFh");
+
 
 
 
@@ -1197,7 +1212,7 @@ unsigned CHSN3 :1;
 } ADCON1bits_t;
 extern volatile ADCON1bits_t ADCON1bits @ 0xFC1;
 
-# 3613
+# 3657
 extern volatile unsigned char ADCON0 @ 0xFC2;
 
 asm("ADCON0 equ 0FC2h");
@@ -1251,10 +1266,11 @@ unsigned GODONE :1;
 } ADCON0bits_t;
 extern volatile ADCON0bits_t ADCON0bits @ 0xFC2;
 
-# 3753
+# 3798
 extern volatile unsigned short ADRES @ 0xFC3;
 
 asm("ADRES equ 0FC3h");
+
 
 
 
@@ -1264,9 +1280,11 @@ asm("ADRESL equ 0FC3h");
 
 
 
+
 extern volatile unsigned char ADRESH @ 0xFC4;
 
 asm("ADRESH equ 0FC4h");
+
 
 
 
@@ -1289,7 +1307,7 @@ unsigned GCEN :1;
 } SSPCON2bits_t;
 extern volatile SSPCON2bits_t SSPCON2bits @ 0xFC5;
 
-# 3832
+# 3881
 extern volatile unsigned char SSPCON1 @ 0xFC6;
 
 asm("SSPCON1 equ 0FC6h");
@@ -1312,7 +1330,7 @@ unsigned SSPM3 :1;
 } SSPCON1bits_t;
 extern volatile SSPCON1bits_t SSPCON1bits @ 0xFC6;
 
-# 3901
+# 3951
 extern volatile unsigned char SSPSTAT @ 0xFC7;
 
 asm("SSPSTAT equ 0FC7h");
@@ -1402,16 +1420,18 @@ unsigned NOT_A :1;
 } SSPSTATbits_t;
 extern volatile SSPSTATbits_t SSPSTATbits @ 0xFC7;
 
-# 4157
+# 4208
 extern volatile unsigned char SSPADD @ 0xFC8;
 
 asm("SSPADD equ 0FC8h");
 
 
 
+
 extern volatile unsigned char SSPBUF @ 0xFC9;
 
 asm("SSPBUF equ 0FC9h");
+
 
 
 
@@ -1438,7 +1458,7 @@ unsigned TOUTPS3 :1;
 } T2CONbits_t;
 extern volatile T2CONbits_t T2CONbits @ 0xFCA;
 
-# 4239
+# 4293
 extern volatile unsigned char PR2 @ 0xFCB;
 
 asm("PR2 equ 0FCBh");
@@ -1472,7 +1492,7 @@ unsigned WM1 :1;
 } PR2bits_t;
 extern volatile PR2bits_t PR2bits @ 0xFCB;
 
-# 4298
+# 4352
 typedef union {
 struct {
 unsigned :7;
@@ -1496,10 +1516,11 @@ unsigned WM1 :1;
 } MEMCONbits_t;
 extern volatile MEMCONbits_t MEMCONbits @ 0xFCB;
 
-# 4348
+# 4403
 extern volatile unsigned char TMR2 @ 0xFCC;
 
 asm("TMR2 equ 0FCCh");
+
 
 
 
@@ -1542,10 +1563,11 @@ unsigned T1RD16 :1;
 } T1CONbits_t;
 extern volatile T1CONbits_t T1CONbits @ 0xFCD;
 
-# 4460
+# 4517
 extern volatile unsigned short TMR1 @ 0xFCE;
 
 asm("TMR1 equ 0FCEh");
+
 
 
 
@@ -1555,9 +1577,11 @@ asm("TMR1L equ 0FCEh");
 
 
 
+
 extern volatile unsigned char TMR1H @ 0xFCF;
 
 asm("TMR1H equ 0FCFh");
+
 
 
 
@@ -1611,7 +1635,7 @@ unsigned nIPEN :1;
 } RCONbits_t;
 extern volatile RCONbits_t RCONbits @ 0xFD0;
 
-# 4620
+# 4681
 extern volatile unsigned char WDTCON @ 0xFD1;
 
 asm("WDTCON equ 0FD1h");
@@ -1627,7 +1651,7 @@ unsigned SWDTE :1;
 } WDTCONbits_t;
 extern volatile WDTCONbits_t WDTCONbits @ 0xFD1;
 
-# 4647
+# 4709
 extern volatile unsigned char LVDCON @ 0xFD2;
 
 asm("LVDCON equ 0FD2h");
@@ -1648,7 +1672,7 @@ unsigned LVDL3 :1;
 } LVDCONbits_t;
 extern volatile LVDCONbits_t LVDCONbits @ 0xFD2;
 
-# 4704
+# 4767
 extern volatile unsigned char OSCCON @ 0xFD3;
 
 asm("OSCCON equ 0FD3h");
@@ -1661,7 +1685,7 @@ unsigned SCS :1;
 } OSCCONbits_t;
 extern volatile OSCCONbits_t OSCCONbits @ 0xFD3;
 
-# 4723
+# 4787
 extern volatile unsigned char T0CON @ 0xFD5;
 
 asm("T0CON equ 0FD5h");
@@ -1684,10 +1708,11 @@ unsigned T0PS2 :1;
 } T0CONbits_t;
 extern volatile T0CONbits_t T0CONbits @ 0xFD5;
 
-# 4792
+# 4857
 extern volatile unsigned short TMR0 @ 0xFD6;
 
 asm("TMR0 equ 0FD6h");
+
 
 
 
@@ -1697,9 +1722,11 @@ asm("TMR0L equ 0FD6h");
 
 
 
+
 extern volatile unsigned char TMR0H @ 0xFD7;
 
 asm("TMR0H equ 0FD7h");
+
 
 
 
@@ -1726,10 +1753,11 @@ unsigned NEGATIVE :1;
 } STATUSbits_t;
 extern volatile STATUSbits_t STATUSbits @ 0xFD8;
 
-# 4880
+# 4949
 extern volatile unsigned short FSR2 @ 0xFD9;
 
 asm("FSR2 equ 0FD9h");
+
 
 
 
@@ -1739,9 +1767,11 @@ asm("FSR2L equ 0FD9h");
 
 
 
+
 extern volatile unsigned char FSR2H @ 0xFDA;
 
 asm("FSR2H equ 0FDAh");
+
 
 
 
@@ -1751,9 +1781,11 @@ asm("PLUSW2 equ 0FDBh");
 
 
 
+
 extern volatile unsigned char PREINC2 @ 0xFDC;
 
 asm("PREINC2 equ 0FDCh");
+
 
 
 
@@ -1763,9 +1795,11 @@ asm("POSTDEC2 equ 0FDDh");
 
 
 
+
 extern volatile unsigned char POSTINC2 @ 0xFDE;
 
 asm("POSTINC2 equ 0FDEh");
+
 
 
 
@@ -1775,9 +1809,11 @@ asm("INDF2 equ 0FDFh");
 
 
 
+
 extern volatile unsigned char BSR @ 0xFE0;
 
 asm("BSR equ 0FE0h");
+
 
 
 
@@ -1787,9 +1823,11 @@ asm("FSR1 equ 0FE1h");
 
 
 
+
 extern volatile unsigned char FSR1L @ 0xFE1;
 
 asm("FSR1L equ 0FE1h");
+
 
 
 
@@ -1799,9 +1837,11 @@ asm("FSR1H equ 0FE2h");
 
 
 
+
 extern volatile unsigned char PLUSW1 @ 0xFE3;
 
 asm("PLUSW1 equ 0FE3h");
+
 
 
 
@@ -1811,9 +1851,11 @@ asm("PREINC1 equ 0FE4h");
 
 
 
+
 extern volatile unsigned char POSTDEC1 @ 0xFE5;
 
 asm("POSTDEC1 equ 0FE5h");
+
 
 
 
@@ -1823,9 +1865,11 @@ asm("POSTINC1 equ 0FE6h");
 
 
 
+
 extern volatile unsigned char INDF1 @ 0xFE7;
 
 asm("INDF1 equ 0FE7h");
+
 
 
 
@@ -1833,10 +1877,11 @@ extern volatile unsigned char WREG @ 0xFE8;
 
 asm("WREG equ 0FE8h");
 
-# 4993
+# 5080
 extern volatile unsigned short FSR0 @ 0xFE9;
 
 asm("FSR0 equ 0FE9h");
+
 
 
 
@@ -1846,9 +1891,11 @@ asm("FSR0L equ 0FE9h");
 
 
 
+
 extern volatile unsigned char FSR0H @ 0xFEA;
 
 asm("FSR0H equ 0FEAh");
+
 
 
 
@@ -1858,9 +1905,11 @@ asm("PLUSW0 equ 0FEBh");
 
 
 
+
 extern volatile unsigned char PREINC0 @ 0xFEC;
 
 asm("PREINC0 equ 0FECh");
+
 
 
 
@@ -1870,15 +1919,18 @@ asm("POSTDEC0 equ 0FEDh");
 
 
 
+
 extern volatile unsigned char POSTINC0 @ 0xFEE;
 
 asm("POSTINC0 equ 0FEEh");
 
 
 
+
 extern volatile unsigned char INDF0 @ 0xFEF;
 
 asm("INDF0 equ 0FEFh");
+
 
 
 
@@ -1911,7 +1963,7 @@ unsigned INT2P :1;
 } INTCON3bits_t;
 extern volatile INTCON3bits_t INTCON3bits @ 0xFF0;
 
-# 5132
+# 5228
 extern volatile unsigned char INTCON2 @ 0xFF1;
 
 asm("INTCON2 equ 0FF1h");
@@ -1941,7 +1993,7 @@ unsigned RBPU :1;
 } INTCON2bits_t;
 extern volatile INTCON2bits_t INTCON2bits @ 0xFF1;
 
-# 5208
+# 5305
 extern volatile unsigned char INTCON @ 0xFF2;
 
 asm("INTCON equ 0FF2h");
@@ -1981,7 +2033,7 @@ unsigned GIEH :1;
 } INTCONbits_t;
 extern volatile INTCONbits_t INTCONbits @ 0xFF2;
 
-# 5328
+# 5425
 typedef union {
 struct {
 unsigned RBIF :1;
@@ -2011,10 +2063,11 @@ unsigned GIEH :1;
 } INTCON1bits_t;
 extern volatile INTCON1bits_t INTCON1bits @ 0xFF2;
 
-# 5439
+# 5537
 extern volatile unsigned short PROD @ 0xFF3;
 
 asm("PROD equ 0FF3h");
+
 
 
 
@@ -2024,9 +2077,11 @@ asm("PRODL equ 0FF3h");
 
 
 
+
 extern volatile unsigned char PRODH @ 0xFF4;
 
 asm("PRODH equ 0FF4h");
+
 
 
 
@@ -2034,13 +2089,12 @@ extern volatile unsigned char TABLAT @ 0xFF5;
 
 asm("TABLAT equ 0FF5h");
 
-
-
-
+# 5566
 extern volatile unsigned short long TBLPTR @ 0xFF6;
 
 
 asm("TBLPTR equ 0FF6h");
+
 
 
 
@@ -2050,9 +2104,11 @@ asm("TBLPTRL equ 0FF6h");
 
 
 
+
 extern volatile unsigned char TBLPTRH @ 0xFF7;
 
 asm("TBLPTRH equ 0FF7h");
+
 
 
 
@@ -2060,9 +2116,7 @@ extern volatile unsigned char TBLPTRU @ 0xFF8;
 
 asm("TBLPTRU equ 0FF8h");
 
-
-
-
+# 5596
 extern volatile unsigned short long PCLAT @ 0xFF9;
 
 
@@ -2077,9 +2131,11 @@ asm("PC equ 0FF9h");
 
 
 
+
 extern volatile unsigned char PCL @ 0xFF9;
 
 asm("PCL equ 0FF9h");
+
 
 
 
@@ -2089,9 +2145,11 @@ asm("PCLATH equ 0FFAh");
 
 
 
+
 extern volatile unsigned char PCLATU @ 0xFFB;
 
 asm("PCLATU equ 0FFBh");
+
 
 
 
@@ -2126,11 +2184,12 @@ unsigned SP4 :1;
 } STKPTRbits_t;
 extern volatile STKPTRbits_t STKPTRbits @ 0xFFC;
 
-# 5626
+# 5737
 extern volatile unsigned short long TOS @ 0xFFD;
 
 
 asm("TOS equ 0FFDh");
+
 
 
 
@@ -2140,9 +2199,11 @@ asm("TOSL equ 0FFDh");
 
 
 
+
 extern volatile unsigned char TOSH @ 0xFFE;
 
 asm("TOSH equ 0FFEh");
+
 
 
 
@@ -2150,7 +2211,7 @@ extern volatile unsigned char TOSU @ 0xFFF;
 
 asm("TOSU equ 0FFFh");
 
-# 5657
+# 5771
 extern volatile __bit ACKDT @ (((unsigned) &SSPCON2)*8) + 5;
 
 extern volatile __bit ACKEN @ (((unsigned) &SSPCON2)*8) + 4;
@@ -3135,7 +3196,7 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -3149,8 +3210,12 @@ __attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer suppor
 __attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
 __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
 
+# 155
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
 
-# 160
+
+# 163
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -3212,14 +3277,18 @@ extern __nonreentrant void _delay3(unsigned char);
 # 7 "registradores.h"
 void configuraRegistradores() {
 
-ADCON0 = 0b10000001;
+ADCON0 = 0b00000001;
 ADCON1 = 0b11001110;
 TRISAbits.RA0 = 1;
 PORTAbits.AN0 = 0;
 
 
-T0CON = 0x81;
-INTCON = 0xE4;
+
+
+T0CON = 0b10000001;
+INTCON = 0b11100100;
+INTCON2 = 0b00000000;
+INTCON3 = 0b00000000;
 
 
 TRISDbits.RD5 = 0;
@@ -3248,8 +3317,11 @@ PIE1bits.RCIE = 1;
 
 INTCONbits.RBIE = 0;
 TRISAbits.RA2 = 1;
+PORTAbits.RA2 = 1;
 TRISAbits.RA5 = 1;
 TRISCbits.RC0 = 1;
+TRISAbits.RA1 = 0;
+PORTAbits.RA1 = 1;
 
 
 TRISBbits.RB2 = 1;
@@ -3258,52 +3330,75 @@ TRISBbits.RB4 = 1;
 TRISBbits.RB5 = 1;
 
 
+TRISDbits.RD7 = 0;
+TRISAbits.RA3 = 0;
+TRISAbits.RA4 = 0;
 TRISEbits.RE0 = 0;
 TRISEbits.RE1 = 0;
 TRISEbits.RE2 = 0;
+TRISCbits.RC1 = 0;
+
+PORTDbits.RD7 = 0;
+PORTAbits.RA3 = 0;
+PORTAbits.RA4 = 0;
+PORTEbits.RE0 = 0;
+PORTEbits.RE1 = 0;
+PORTEbits.RE2 = 0;
+PORTCbits.RC1 = 0;
+
 }
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 23 "variaveisGlobais.h"
+# 28 "variaveisGlobais.h"
+unsigned char out_BOMBA_ESTACIONARIA = 0;
+
 unsigned char line1[21];
 unsigned char line2[21];
 unsigned char line3[21];
 unsigned char line4[21];
 
+unsigned char tentativasVerificarGSM = 0;
 unsigned char intensidadeSinal = ' ';
 unsigned char telefoneSelecionado = 0;
 
+unsigned char timerIntervaloEntreBombas = 10;
 unsigned char timerVerificarSinal = 5;
 unsigned char timerReenvioSMS = 0;
 unsigned char timerEtapaComunicacao = 0;
+unsigned char timerTrocarTextoLcd = 0;
+unsigned char timerAtrasoLCD = 0;
+unsigned char timerBase = 0;
+unsigned char timerPiscarLCD = 0;
+unsigned char timerColetaLeitura = 0;
+unsigned int timerTesteBombas = 0;
+
 unsigned int etapaComunicacao = 0;
-unsigned bool gsmOcupado = 0;
+bool gsmOcupado = 0;
+bool textoAlternativo = 0;
 
 unsigned char codigoErro = 0;
-unsigned bool ocorrendoIncendio = 0;
-unsigned bool executandoTeste = 0;
+unsigned char ocorrendoIncendio = 0;
+unsigned char flagErroTransdutor = 0;
 
-unsigned bool flagEstacionariaLigada = 0;
 unsigned bool habilitaTesteAutomatico = 0;
 unsigned char etapaTesteBombas = 0;
+unsigned char ultimoEstadoSaidas = 0;
+long ultimoEstadoLCD = 100;
 
-unsigned int timerTesteBombas = 0;
 unsigned int horimetro = 0;
 
-
-unsigned char base_sec = 0, _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
+unsigned char _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
 unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
-int pressao = 98;
-unsigned char qtd_leitura = 0;
-float _tensao = 0;
+
+int pressao = 0;
+int coletaMedias[5] = {0, 0, 0, 0, 0};
+unsigned char posicaoColetaLeitura = 0;
+
 unsigned bool status_jockey = 1, status_principal = 1, status_estacionaria = 1;
 unsigned char tempo_limite_estacionaria = 0, tempo_partida = 0, tempo_limite_partida = 0, tempo_limite_teste_estacionaria = 0;
-unsigned char tel_selecionado = 0;
-
 unsigned char sp_pressao_rede = 0, sp_jockey = 0, sp_principal = 0, sp_estacionaria = 0;
-
 unsigned char option_posi = 0, menu_posi = 0, _menu_posi = 0, sub_menu_posi = 0, tela_menu_posi = 0;
 unsigned char tel_posi = 0, ajust_tel = 0;
 unsigned bool ajst_rtc = 0, blinkk = 0;
@@ -3362,10 +3457,10 @@ char tel2[12] = {'\0'};
 
 #pragma config EBTRB = ON
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -3374,17 +3469,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -3398,7 +3493,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -3431,93 +3526,41 @@ char DECtoBCD(char val);
 char BCDtoDEC(char val);
 int DECtoHEX(int hex);
 char* intToFloatStr(unsigned char valor);
+int map(int x, int in_min, int in_max, int out_min, int out_max);
 
-
-# 7 "config.h"
-#pragma config OSC = HS
-#pragma config OSCS = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = ON
-#pragma config BORV = 20
-
-
-#pragma config WDT = ON
-#pragma config WDTPS = 128
-
-
-#pragma config CCP2MUX = ON
-
-
-#pragma config STVR = ON
-#pragma config LVP = OFF
-
-
-#pragma config CP0 = ON
-#pragma config CP1 = ON
-#pragma config CP2 = ON
-#pragma config CP3 = ON
-
-
-#pragma config CPB = OFF
-#pragma config CPD = ON
-
-
-#pragma config WRT0 = ON
-#pragma config WRT1 = ON
-#pragma config WRT2 = ON
-#pragma config WRT3 = ON
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = ON
-
-# 8 "adc.h"
-unsigned int readADC() {
-ADCON0bits.GO = 1;
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-while (!ADCON0bits.GODONE) {
-}
-return((ADRESH<<8)+ ADRESL);
-}
-
-# 7 "transdutor.h"
+# 8 "transdutor.h"
 void lerTransdutor() {
 char i = 0;
-float tensao = 0, _pressao = 0;
-for (i = 0; i < 9; i++) {
-tensao += readADC()*0.004887586;
-}
-tensao = tensao / 10;
-_tensao += (float) tensao;
-qtd_leitura++;
+int mediaLeitura = 0;
+int adc = 0;
+int _pressao = 0;
 
-if (tensao < 0.4) {
-pressao = -10;
-} else if (tensao > 4.5) {
-pressao = 99;
-} else if (qtd_leitura >= 6) {
-qtd_leitura = 0;
-tensao = (float) (_tensao / 6);
-_tensao = 0;
-_pressao = tensao - 0.5;
-_pressao = _pressao * 10 / 4;
-if (_pressao < 0) {
-_pressao = 0;
+ADCON0bits.CHS = 0b000;
+for (i = 0; i < 15; i++) {
+adc = 0;
+_delay((unsigned long)((30)*(8000000/4000000.0)));
+ADCON0bits.GO = 1;
+while (!ADCON0bits.GODONE);
+adc = ((ADRESH << 8) + ADRESL);
+mediaLeitura += map(adc, 102, 920, 0, 100);
+if (adc < 50 && timerIntervaloEntreBombas == 0) {
+flagErroTransdutor = 1;
 }
-pressao = _pressao * 10;
 }
+
+coletaMedias[posicaoColetaLeitura] = (int) mediaLeitura / 15;
+
+if (posicaoColetaLeitura >= 5) {
+posicaoColetaLeitura = 0;
+} else {
+posicaoColetaLeitura++;
+}
+
+for (i = 0; i < 5; i++) {
+_pressao += coletaMedias[i];
+}
+
+pressao = (int) _pressao / 5;
 }
 
 
@@ -3571,12 +3614,12 @@ pressao = _pressao * 10;
 
 #pragma config EBTRB = ON
 
-# 14 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\string.h"
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
 extern void * memset(void *, int, size_t);
 
-# 34
+# 36
 extern char * strcat(char *, const char *);
 extern char * strcpy(char *, const char *);
 extern char * strncat(char *, const char *, size_t);
@@ -3650,7 +3693,7 @@ sprintf(bufferAUX, "%s%c", bufferAUX, ret[i]);
 return 0;
 }
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdlib.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
 typedef unsigned short wchar_t;
 
 # 15
@@ -3910,7 +3953,6 @@ I2C_Stop();
 }
 
 void RTC_Init(void) {
-
 I2C_Start();
 I2C_Write(0xD0);
 I2C_Write(0x07);
@@ -3930,14 +3972,13 @@ if (rtc.year > 99) rtc.year = 0;
 
 # 13 "comunicacao.h"
 void getSinalSIM800L() {
-if (!timerVerificarSinal) {
-if (!gsmOcupado) {
 switch (etapaComunicacao) {
 case 0:
 limparBuffer();
 printf("AT+CSQ\r\n");
-timerEtapaComunicacao = 10;
+timerEtapaComunicacao = 5;
 etapaComunicacao = 1;
+telefoneSelecionado = 0;
 break;
 case 1:
 if (!timerEtapaComunicacao) {
@@ -3945,31 +3986,41 @@ printf("AT\r\n");
 delay(100);
 if (aguardaBuffer("OK")) {
 etapaComunicacao = 0;
+tentativasVerificarGSM = 0;
+
+if (codigoErro == 2) {
+codigoErro = 0;
+}
+
 } else {
 etapaComunicacao = 0;
 writeChar(0x1A);
+tentativasVerificarGSM++;
+
+if (tentativasVerificarGSM >= 3) {
+tentativasVerificarGSM = 0;
 intensidadeSinal = 'x';
+codigoErro = 2;
+}
 }
 }
 if (aguardaBuffer("+CSQ: ")) {
 int sinal = atoi(getSerial("+CSQ: ", ','));
-if (sinal < 10) {
+if (sinal < 8) {
 intensidadeSinal = ' ';
-} else if (sinal >= 10 && sinal <= 14) {
+} else if (sinal >= 8 && sinal < 12) {
 intensidadeSinal = 0x02;
-} else if (sinal >= 16 && sinal <= 19) {
+} else if (sinal >= 12 && sinal < 17) {
 intensidadeSinal = 0x03;
-} else if (sinal >= 20 && sinal <= 30) {
+} else if (sinal >= 17 && sinal <= 30) {
 intensidadeSinal = 0x04;
 }
 etapaComunicacao = 0;
-timerVerificarSinal = 6;
+timerVerificarSinal = 5;
 }
 break;
 default:
 etapaComunicacao = 0;
-}
-}
 }
 }
 
@@ -3986,7 +4037,7 @@ if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGF=1\r\n");
 etapaComunicacao++;
-timerEtapaComunicacao = 2;
+timerEtapaComunicacao = 5;
 }
 if (!timerEtapaComunicacao) {
 etapaComunicacao = 0;
@@ -3994,29 +4045,33 @@ writeChar(0x1A);
 }
 break;
 case 2:
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-timerEtapaComunicacao = 2;
+timerEtapaComunicacao = 5;
 etapaComunicacao++;
+break;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
 }
 break;
 case 3:
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer(">")) {
 limparBuffer();
-printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\nVersao do sistema: %s\r",
-_dia, _mes, _ano, _hor, _min, _sec, "Aug 31 2019");
-writeChar(0x1A);
-delay(100);
-writeChar(0x1A);
-delay(100);
+printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
+_dia, _mes, _ano, _hor, _min, _sec, "Jul 09 2020");
+delay(1000);
 writeChar(0x1A);
 etapaComunicacao++;
 timerEtapaComunicacao = 30;
 }
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
 break;
 case 4:
-if (aguardaBuffer("OK") || aguardaBuffer("+CMGS:")) {
+if (aguardaBuffer("OK")) {
 if (telefoneSelecionado == 0) {
 telefoneSelecionado = 1;
 } else {
@@ -4037,6 +4092,12 @@ break;
 }
 
 void enviaSMS(char tipo) {
+if (timerReenvioSMS) {
+gsmOcupado = 0;
+return;
+};
+gsmOcupado = 1;
+
 switch (etapaComunicacao) {
 case 0:
 limparBuffer();
@@ -4049,27 +4110,29 @@ if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGF=1\r\n");
 etapaComunicacao++;
-timerEtapaComunicacao = 2;
+timerEtapaComunicacao = 6;
 }
 if (!timerEtapaComunicacao) {
 writeChar(0x1A);
 delay(15);
-writeChar(0x1A);
 printf("ATH0\r\n");
 etapaComunicacao = 0;
 }
 break;
 case 2:
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer("OK")) {
 limparBuffer();
 printf("AT+CMGS=\"+55%s\"\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-timerEtapaComunicacao = 2;
+timerEtapaComunicacao = 8;
 etapaComunicacao++;
+}
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
 }
 break;
 
 case 3:
-if (!timerEtapaComunicacao) {
+if (aguardaBuffer(">")) {
 limparBuffer();
 if (tipo == 1) {
 printf("DISPARO ALARME DE INCENDIO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\n", _hor, _min, _sec, _dia, _mes, _ano);
@@ -4079,21 +4142,19 @@ printf("TESTE DE BOMBAS REALIZADO\r\nEM %02d:%02d:%02d %02d/%02d/%02d\r\nJOCKEY:
 _hor, _min, _sec, _dia, _mes, _ano, status_jockey == 1 ? "OK" : "FALHA", status_principal == 1 ? "OK" : "FALHA", status_estacionaria == 1 ? "OK" : "FALHA");
 }
 writeChar(0x1A);
-delay(100);
-writeChar(0x1A);
-delay(100);
-writeChar(0x1A);
 timerEtapaComunicacao = 30;
 etapaComunicacao++;
 }
+if (!timerEtapaComunicacao) {
+etapaComunicacao = 0;
+}
 break;
 case 4:
-if (aguardaBuffer("OK") || aguardaBuffer("ERROR") || aguardaBuffer("+CMGS:")) {
+if (aguardaBuffer("ERROR") | aguardaBuffer("OK")) {
 if (tipo == 2) {
 if (telefoneSelecionado == 0) {
 telefoneSelecionado = 1;
 etapaComunicacao = 0;
-return;
 } else {
 telefoneSelecionado = 0;
 gsmOcupado = 0;
@@ -4110,11 +4171,11 @@ break;
 case 5:
 limparBuffer();
 printf("ATD 0%s;\r\n", telefoneSelecionado == 0 ? tel1 : tel2);
-timerEtapaComunicacao = 30;
+timerEtapaComunicacao = 35;
 etapaComunicacao++;
 break;
 case 6:
-if (!timerEtapaComunicacao || aguardaBuffer("NO")) {
+if (aguardaBuffer("NO DIALTONE") || !timerEtapaComunicacao) {
 limparBuffer();
 printf("ATH0\r\n");
 delay(550);
@@ -4123,7 +4184,7 @@ telefoneSelecionado = 1;
 } else {
 telefoneSelecionado = 0;
 gsmOcupado = 0;
-timerReenvioSMS = 120;
+timerReenvioSMS = 100;
 }
 etapaComunicacao = 0;
 }
@@ -4255,127 +4316,69 @@ writeEEPROM_ext(b, 0);
 }
 }
 
-
-# 7 "config.h"
-#pragma config OSC = HS
-#pragma config OSCS = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = ON
-#pragma config BORV = 20
-
-
-#pragma config WDT = ON
-#pragma config WDTPS = 128
-
-
-#pragma config CCP2MUX = ON
-
-
-#pragma config STVR = ON
-#pragma config LVP = OFF
-
-
-#pragma config CP0 = ON
-#pragma config CP1 = ON
-#pragma config CP2 = ON
-#pragma config CP3 = ON
-
-
-#pragma config CPB = OFF
-#pragma config CPD = ON
-
-
-#pragma config WRT0 = ON
-#pragma config WRT1 = ON
-#pragma config WRT2 = ON
-#pragma config WRT3 = ON
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = ON
-
-# 24 "shift595.h"
-void shift_Init();
-void setShiftREG();
-void clearShiftREG();
-
-unsigned char shift[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-
-void clearShiftREG() {
-char i = 0;
-for (i = 0; i < 8; i++) {
-shift[i] = 0;
-}
-}
-
-void setShiftREG() {
-unsigned char i = 0;
-PORTEbits.RE1 = 0;
-for (i = 0; i < 8; i++) {
-PORTEbits.RE0 = 0;
-PORTEbits.RE2 = shift[i];
-PORTEbits.RE0 = 1;
-}
-PORTEbits.RE1 = 1;
-}
-
 # 12 "teclado.h"
 void readButtons(void);
 char btPress(char bt);
 
 
-bool bt_press = 1;
 bool flag_b_esc, _b_esc = 0;
 bool flag_b_menos, _b_menos = 0;
 bool flag_b_mais, _b_mais = 0;
 bool flag_b_ok, _b_ok = 0;
-
-
+bool isPressed = 0;
+char counterPressedTime = 0;
 
 
 void readButtons() {
 if (!PORTBbits.RB2) {
 flag_b_esc = 1;
+if (isPressed) {
+_b_esc = 1;
 }
-if (PORTBbits.RB2 && flag_b_esc) {
+} else if (PORTBbits.RB2 && flag_b_esc) {
 _b_esc = 1;
 flag_b_esc = 0;
 }
 
 if (!PORTBbits.RB4) {
 flag_b_menos = 1;
+if (isPressed) {
+_b_menos = 1;
 }
-if (PORTBbits.RB4 && flag_b_menos) {
+} else if (PORTBbits.RB4 && flag_b_menos) {
 _b_menos = 1;
 flag_b_menos = 0;
 }
 
 if (!PORTBbits.RB5) {
 flag_b_mais = 1;
+if (isPressed) {
+_b_mais = 1;
 }
-if (PORTBbits.RB5 && flag_b_mais) {
+} else if (PORTBbits.RB5 && flag_b_mais) {
 _b_mais = 1;
 flag_b_mais = 0;
 }
 
 if (!PORTBbits.RB3) {
 flag_b_ok = 1;
+if (isPressed) {
+_b_ok = 1;
 }
-if (PORTBbits.RB3 && flag_b_ok) {
+} else if (PORTBbits.RB3 && flag_b_ok) {
 _b_ok = 1;
 flag_b_ok = 0;
+}
+
+if (!PORTBbits.RB2 || !PORTBbits.RB3 || !PORTBbits.RB4 || !PORTBbits.RB5) {
+counterPressedTime++;
+if (counterPressedTime > 15) {
+counterPressedTime = 15;
+isPressed = 1;
+}
+} else {
+isPressed = 0;
+counterPressedTime = 0;
 }
 }
 
@@ -4383,141 +4386,110 @@ char btPress(char bt) {
 switch (bt) {
 case 1: if (_b_esc) {
 _b_esc = 0;
-bt_press = 1;
+if (!isPressed) {
+timerAtrasoLCD = 1;
+}
 return 1;
 }
 return 0;
-case 3: if (_b_mais) {
+case 3:
+if (_b_mais) {
 _b_mais = 0;
-bt_press = 1;
+if (!isPressed) {
+timerAtrasoLCD = 1;
+}
 return 1;
 }
 return 0;
 case 2: if (_b_menos) {
 _b_menos = 0;
-bt_press = 1;
+if (!isPressed) {
+timerAtrasoLCD = 1;
+}
 return 1;
 }
 return 0;
 case 4: if (_b_ok) {
 _b_ok = 0;
-bt_press = 1;
+if (!isPressed) {
+timerAtrasoLCD = 1;
+}
 return 1;
 }
-return 0;
 default: return 0;
 }
 }
 
-# 13 "controle.h"
+# 12 "controle.h"
+void monitorarAlteracaoEstado(void);
 void acaoBombas(void);
 void partidaBombaEstacionaria(unsigned char acao);
 void acaoTesteBombas(void);
 void verificarIntervaloTesteBombas(void);
 
 void acaoBombas() {
-if (pressao >= sp_pressao_rede && !ocorrendoIncendio && !executandoTeste) {
-shift[6] = 0;
-shift[5] = 0;
-partidaBombaEstacionaria(0);
-return;
+if (pressao < sp_jockey && timerIntervaloEntreBombas == 0 && !LATAbits.LATA3) {
+timerIntervaloEntreBombas = 4;
+LATAbits.LATA3 = 1;
+} else if (pressao >= sp_pressao_rede && ocorrendoIncendio == 0) {
+LATAbits.LATA3 = 0;
 }
 
-shift[2] = 0;
-if (pressao <= sp_jockey) {
-shift[6] = 1;
-} else if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
-shift[6] = 0;
-}
-
-if (pressao <= sp_principal) {
+if (pressao <= sp_estacionaria && timerIntervaloEntreBombas == 0 && !out_BOMBA_ESTACIONARIA) {
 ocorrendoIncendio = 1;
-shift[5] = 1;
-if (!PORTCbits.RC0) {
-partidaBombaEstacionaria(1);
-}
-}
-if (pressao >= sp_pressao_rede && !ocorrendoIncendio) {
-shift[5] = 0;
-partidaBombaEstacionaria(0);
+timerIntervaloEntreBombas = 3;
+out_BOMBA_ESTACIONARIA = 1;
 }
 
-if (pressao <= sp_estacionaria) {
-partidaBombaEstacionaria(1);
+if (pressao <= sp_principal && timerIntervaloEntreBombas == 0 && !LATDbits.LATD7) {
+timerIntervaloEntreBombas = 4;
 ocorrendoIncendio = 1;
+LATDbits.LATD7 = 1;
 }
 
-if (ocorrendoIncendio) {
-if(timerReenvioSMS == 0){
+if (ocorrendoIncendio == 1) {
 gsmOcupado = 1;
 enviaSMS(1);
-}
+LATCbits.LATC1 = 1;
 }
 }
 
 void partidaBombaEstacionaria(unsigned char acao) {
-if (acao == 1 && !flagEstacionariaLigada) {
-if (_sec_partida != _sec) {
-_sec_partida = _sec;
-tempo_limite_partida++;
-tempo_partida++;
+if (acao && status_estacionaria == 1) {
+LATEbits.LATE1 = 1;
+
 if (!PORTAbits.RA5) {
-delay(700);
-flagEstacionariaLigada = 1;
-tempo_partida = 0;
-shift[4] = 0;
-}
-}
-}
-if (!flagEstacionariaLigada && status_estacionaria == 1) {
-shift[3] = 1;
+tempo_partida = 11;
+LATEbits.LATE0 = 0;
+} else {
 if (tempo_partida <= 7) {
-shift[4] = 1;
+LATEbits.LATE0 = 1;
 } else if (tempo_partida <= (7 + 8)) {
-shift[4] = 0;
+LATEbits.LATE0 = 0;
 } else {
 tempo_partida = 0;
 }
 }
+
 if (tempo_limite_partida > tempo_limite_estacionaria) {
 tempo_limite_partida = 0;
 status_estacionaria = 0;
-flagEstacionariaLigada = 0;
-shift[3] = 0;
-shift[4] = 0;
 }
 
-
-if (acao == 0) {
-flagEstacionariaLigada = 0;
-shift[4] = 0;
-shift[3] = 0;
-tempo_partida = 0;
-tempo_limite_partida = 0;
-}
-
-if (status_estacionaria == 0) {
-shift[3] = 0;
-shift[4] = 0;
-tempo_partida = 0;
-}
-if (flagEstacionariaLigada) {
-if (!PORTAbits.RA5) {
-shift[4] = 0;
-tempo_limite_partida = 0;
 } else {
-flagEstacionariaLigada = 0;
-}
+LATEbits.LATE0 = 0;
+LATEbits.LATE1 = 0;
+tempo_partida = 0;
+tempo_limite_partida = 0;
 }
 }
 
 void verificarIntervaloTesteBombas() {
-if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1 && !executandoTeste) {
+if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) {
 if (_hor == horario_de_teste) {
 dias_restante_teste = 0;
 writeEEPROM_ext(10, dias_restante_teste);
 etapaTesteBombas = 0;
-executandoTeste = 1;
 menu_posi = 28;
 }
 }
@@ -4526,28 +4498,40 @@ menu_posi = 28;
 void drenarPressao() {
 sprintf(line4, "Despressurizando...");
 if (!timerTesteBombas) {
-executandoTeste = 0;
 codigoErro = 3;
 menu_posi = 0;
 }
 }
 
+void monitorarAlteracaoEstado(void) {
+int estado = 0;
+
+if (LATEbits.LATE0) estado += 1;
+if (LATAbits.LATA3) estado += 2;
+if (LATCbits.LATC1) estado += 3;
+if (LATDbits.LATD7) estado += 4;
+if (LATEbits.LATE1) estado += 5;
+if (LATEbits.LATE2) estado += 6;
+
+if (estado != ultimoEstadoSaidas) {
+ultimoEstadoSaidas = estado;
+timerAtrasoLCD = 13;
+}
+}
+
 void acaoTesteBombas() {
 if (btPress(1)) {
-executandoTeste = 0;
 gsmOcupado = 0;
 etapaTesteBombas = 0;
+out_BOMBA_ESTACIONARIA = 0;
 unsigned char intervalo = readEEPROM_ext(6);
 intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
 menu_posi = _menu_posi;
 char i = 0;
-for (i = 0; i < 8; i++) {
-shift[i] = 0;
-}
 }
 
 if (etapaTesteBombas < 10) {
-sprintf(&line1[4], "Aguarde... %ds", timerTesteBombas);
+sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
 sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
 
@@ -4555,15 +4539,15 @@ switch (etapaTesteBombas) {
 case 0:
 dias_restante_teste = 0;
 writeEEPROM_ext(10, dias_restante_teste);
-shift[2] = 1;
+LATEbits.LATE2 = 1;
 timerTesteBombas = 30;
 etapaTesteBombas = 1;
 break;
 case 1:
 drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
-shift[2] = 0;
-shift[6] = 1;
+LATEbits.LATE2 = 0;
+LATAbits.LATA3 = 1;
 etapaTesteBombas = 2;
 timerTesteBombas = 50;
 }
@@ -4571,7 +4555,7 @@ break;
 case 2:
 sprintf(line4, "Bomba Jockey...");
 if (pressao >= sp_pressao_rede) {
-shift[6] = 0;
+LATAbits.LATA3 = 0;
 status_jockey = 1;
 etapaTesteBombas = 3;
 }
@@ -4582,14 +4566,14 @@ timerTesteBombas = 30;
 }
 break;
 case 3:
-shift[2] = 1;
+LATEbits.LATE2 = 1;
 etapaTesteBombas = 4;
 break;
 case 4:
 drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
-shift[5] = 1;
-shift[2] = 0;
+LATDbits.LATD7 = 1;
+LATEbits.LATE2 = 0;
 etapaTesteBombas = 5;
 timerTesteBombas = 50;
 }
@@ -4597,7 +4581,7 @@ break;
 case 5:
 sprintf(line4, "Bomba Principal...");
 if (pressao >= sp_pressao_rede) {
-shift[5] = 0;
+LATDbits.LATD7 = 0;
 status_principal = 1;
 etapaTesteBombas = 6;
 }
@@ -4608,60 +4592,59 @@ timerTesteBombas = 30;
 }
 break;
 case 6:
-shift[2] = 1;
+LATEbits.LATE2 = 1;
 etapaTesteBombas = 7;
 break;
 case 7:
 drenarPressao();
 if (pressao <= (sp_pressao_rede - 10)) {
-shift[2] = 0;
+LATEbits.LATE2 = 0;
+out_BOMBA_ESTACIONARIA = 1;
 etapaTesteBombas = 8;
 timerTesteBombas = tempo_limite_estacionaria;
 }
 break;
 case 8:
 sprintf(line4, "Bomba Combustao...");
-partidaBombaEstacionaria(1);
-
-if (flagEstacionariaLigada || pressao >= sp_pressao_rede) {
+if (!PORTAbits.RA5 || pressao >= sp_pressao_rede) {
 status_estacionaria = 1;
 timerTesteBombas = tempo_limite_teste_estacionaria;
 etapaTesteBombas = 9;
 }
-if (!timerTesteBombas) {;
+if (status_estacionaria == 0 || !timerTesteBombas) {
 etapaTesteBombas = 10;
 status_estacionaria = 0;
+out_BOMBA_ESTACIONARIA = 0;
 }
 break;
 case 9:
-sprintf(line4, "Bomba Ligada...");
-partidaBombaEstacionaria(1);
-if (!timerTesteBombas) {
+sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada..." : "Religando...");
+if (!timerTesteBombas || status_estacionaria == 0) {
+LATEbits.LATE0 = 0;
 etapaTesteBombas = 10;
 }
 break;
 case 10:
 salvarLOG();
-partidaBombaEstacionaria(2);
-clearShiftREG();
+LATEbits.LATE0 = 0;
 etapaTesteBombas = 11;
 timerTesteBombas = 10;
-executandoTeste = 0;
 break;
 case 11:
 sprintf(&line1[2], "Teste Concluido!");
 sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
 sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
 sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
+out_BOMBA_ESTACIONARIA = 0;
 if (!timerTesteBombas) {
 etapaTesteBombas = 12;
-timerTesteBombas = 90;
+timerTesteBombas = 120;
+timerReenvioSMS = 0;
 gsmOcupado = 1;
 }
 break;
 case 12:
 sprintf(&line4[2], "enviando SMS...");
-gsmOcupado = 1;
 enviaSMS(2);
 if (!timerTesteBombas) {
 menu_posi = 0;
@@ -4671,93 +4654,8 @@ break;
 default:
 etapaTesteBombas = 0;
 menu_posi = 0;
+out_BOMBA_ESTACIONARIA = 0;
 break;
-}
-}
-
-# 9 "temporizador.h"
-void timer() {
-
-timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
-timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
-timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
-timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
-
-if (ajst_rtc) {
-return;
-}
-_sec++;
-if (_sec > 59) {
-_sec = 0;
-_min++;
-if (_min > 59) {
-_min = 0;
-_hor++;
-if (_hor > 23) {
-_hor = 0;
-dias_restante_teste++;
-writeEEPROM_ext(10, dias_restante_teste);
-}
-}
-}
-
-if (rtc.min != _min) {
-
-if (flagEstacionariaLigada) {
-horimetro++;
-writeEEPROM16_ext(8, horimetro);
-}
-getDS1307TimeDate(&rtc);
-if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) {
-
-RTC_Init();
-rtc.sec = _sec;
-rtc.min = _min;
-rtc.hour = _hor;
-rtc.date = _dia;
-rtc.month = _mes;
-rtc.year = _ano;
-return;
-}
-_sec = rtc.sec;
-_min = rtc.min;
-_hor = rtc.hour;
-_dia = rtc.date;
-_mes = rtc.month;
-_ano = rtc.year;
-}
-}
-
-# 9 "util.h"
-void lerParametros() {
-char i = 0;
-char verifica_memoria_nova = 0;
-verifica_memoria_nova = readEEPROM_ext(12);
-if (verifica_memoria_nova != 20) {
-for (i = 0; i < 100; i++) {
-writeEEPROM_ext(i, 0);
-}
-writeEEPROM_ext(12, 20);
-}
-
-sp_jockey = readEEPROM_ext(0);
-sp_principal = readEEPROM_ext(1);
-sp_estacionaria = readEEPROM_ext(2);
-horimetro = readEEPROM16_ext(8);
-sp_pressao_rede = readEEPROM_ext(4);
-intervalo_teste_dia = readEEPROM_ext(6);
-tempo_limite_estacionaria = readEEPROM_ext(7);
-dias_restante_teste = readEEPROM_ext(10);
-horario_de_teste = readEEPROM_ext(11);
-tempo_limite_teste_estacionaria = readEEPROM_ext(13);
-
-habilitaTesteAutomatico = readEEPROM_ext(15);
-
-for (i = 0; i < 11; i++) {
-tel1[i] = readEEPROM_ext(20 + i);
-}
-for (i = 0; i < 11; i++) {
-tel2[i] = readEEPROM_ext(40 + i);
 }
 }
 
@@ -4812,7 +4710,7 @@ tel2[i] = readEEPROM_ext(40 + i);
 
 #pragma config EBTRB = ON
 
-# 6 "lcd.h"
+# 7 "lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
 void Lcd_Write_Char(char a);
@@ -4821,7 +4719,7 @@ void Lcd_Set_Cursor(char a, char b);
 
 void Lcd_Init() {
 
-# 21
+# 22
 Lcd_Port(0x00);
 _delay((unsigned long)((30)*(8000000/4000.0)));
 Lcd_Cmd(0x03);
@@ -4922,6 +4820,15 @@ Lcd_Port(tempp);
 PORTDbits.RD0 = 1;
 _delay((unsigned long)((150)*(8000000/4000000.0)));
 PORTDbits.RD0 = 0;
+_delay((unsigned long)((100)*(8000000/4000000.0)));
+
+
+PORTDbits.RD0 = 1;
+PORTDbits.RD1 = 1;
+PORTDbits.RD2 = 1;
+PORTDbits.RD3 = 1;
+PORTDbits.RD4 = 1;
+PORTDbits.RD5 = 1;
 }
 
 void Lcd_Write_String(char *a) {
@@ -4935,6 +4842,19 @@ Lcd_Write_Char(a[i]);
 
 void atualizarLCD(char *line1, char *line2, char *line3, char *line4) {
 
+char i = 0;
+long lcdEstado = 0;
+
+for (i = 0; i < 20; i++) {
+lcdEstado += (int) line1[i] + 1;
+lcdEstado += (int) line2[i] + 2;
+lcdEstado += (int) line3[i] + 3;
+lcdEstado += (int) line4[i] + 4;
+}
+
+if (lcdEstado != ultimoEstadoLCD) {
+ultimoEstadoLCD = lcdEstado;
+
 Lcd_Set_Cursor(1, 1);
 Lcd_Write_String(line1);
 Lcd_Set_Cursor(2, 1);
@@ -4943,8 +4863,8 @@ Lcd_Set_Cursor(3, 0);
 Lcd_Write_String(line3);
 Lcd_Set_Cursor(4, 0);
 Lcd_Write_String(line4);
+}
 
-char i = 0;
 for (i = 0; i < 20; i++) {
 line1[i] = ' ';
 line2[i] = ' ';
@@ -4983,67 +4903,199 @@ line[i] = ' ';
 }
 }
 
-# 11 "tela_PRINCIPAL.h"
+void reiniciaLCD(){
+Lcd_Init();
+criarCaracteresCGRAM();
+
+timerAtrasoLCD = 1;
+ultimoEstadoLCD = 0;
+}
+
+# 10 "temporizador.h"
+void timer() {
+
+
+if (out_BOMBA_ESTACIONARIA == 1 && status_estacionaria == 1 && !!PORTAbits.RA5) {
+tempo_limite_partida++;
+tempo_partida++;
+}
+
+
+if (ajst_rtc) {
+return;
+}
+
+_sec++;
+if (_sec > 59) {
+reiniciaLCD();
+_sec = 0;
+_min++;
+if (_min > 59) {
+_min = 0;
+_hor++;
+if (_hor > 23) {
+_hor = 0;
+dias_restante_teste++;
+writeEEPROM_ext(10, dias_restante_teste);
+}
+}
+}
+
+if (rtc.min != _min) {
+
+if (!PORTAbits.RA5) {
+horimetro++;
+writeEEPROM16_ext(8, horimetro);
+}
+
+getDS1307TimeDate(&rtc);
+if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) {
+
+RTC_Init();
+rtc.sec = _sec;
+rtc.min = _min;
+rtc.hour = _hor;
+rtc.date = _dia;
+rtc.month = _mes;
+rtc.year = _ano;
+return;
+}
+_sec = rtc.sec;
+_min = rtc.min;
+_hor = rtc.hour;
+_dia = rtc.date;
+_mes = rtc.month;
+_ano = rtc.year;
+}
+}
+
+# 9 "util.h"
+void lerParametros() {
+char i = 0;
+char verifica_memoria_nova = 0;
+verifica_memoria_nova = readEEPROM_ext(12);
+if (verifica_memoria_nova != 20) {
+for (i = 0; i < 100; i++) {
+writeEEPROM_ext(i, 0);
+}
+writeEEPROM_ext(12, 20);
+}
+
+sp_jockey = readEEPROM_ext(0);
+sp_principal = readEEPROM_ext(1);
+sp_estacionaria = readEEPROM_ext(2);
+horimetro = readEEPROM16_ext(8);
+sp_pressao_rede = readEEPROM_ext(4);
+intervalo_teste_dia = readEEPROM_ext(6);
+tempo_limite_estacionaria = readEEPROM_ext(7);
+dias_restante_teste = readEEPROM_ext(10);
+horario_de_teste = readEEPROM_ext(11);
+tempo_limite_teste_estacionaria = readEEPROM_ext(13);
+
+habilitaTesteAutomatico = readEEPROM_ext(15);
+
+for (i = 0; i < 11; i++) {
+tel1[i] = readEEPROM_ext(20 + i);
+}
+for (i = 0; i < 11; i++) {
+tel2[i] = readEEPROM_ext(40 + i);
+}
+}
+
+# 12 "tela_PRINCIPAL.h"
 void resetParametros() {
+timerIntervaloEntreBombas = 3;
 ocorrendoIncendio = 0;
 codigoErro = 0;
 status_estacionaria = 1;
 status_jockey = 1;
 status_principal = 1;
-tempo_limite_partida = 0;
-timerReenvioSMS = 0;
-tempo_partida = 0;
 gsmOcupado = 0;
-clearShiftREG();
+LATDbits.LATD7 = 0;
+LATAbits.LATA3 = 0;
+LATCbits.LATC1 = 0;
+out_BOMBA_ESTACIONARIA = 0;
+tempo_limite_partida = 0;
+tempo_partida = 0;
+flagErroTransdutor = 0;
+reiniciaLCD();
 }
 
 void telaPrincipal() {
 
-sprintf(&line1[2], " %02d:%02d:%02d %02d/%02d", _hor, _min, _sec, _dia, _mes);
+sprintf(&line1[4], " %02d:%02d %02d/%02d", _hor, _min, _dia, _mes);
 
 line1[0] = 0x01;
 line1[1] = intensidadeSinal;
 line1[19] = 0x05;
 
-if (!PORTCbits.RC0) {
-blink(line1, 20, 20);
-
-}
-
 switch (codigoErro) {
 case 1:
-sprintf(&line3[1], "*falta de energia");
-codigoErro = 0;
+sprintf(line4, " *falha eletrica");
+break;
+case 2:
+sprintf(line4, " *falha GSM");
 break;
 case 3:
-sprintf(&line3[1], "*falha val. ladrao");
+sprintf(line4, " *falha val. ladrao");
+LATCbits.LATC1 = 1;
+break;
+case 4:
+sprintf(line4, " *falha B. jockey");
+LATCbits.LATC1 = 1;
+break;
+case 5:
+sprintf(line4, " *falha B. principal");
+LATCbits.LATC1 = 1;
+break;
+case 6:
+sprintf(line4, " *falha B. combustao");
+LATCbits.LATC1 = 1;
 break;
 }
 
-if (ocorrendoIncendio) {
-
-sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+if (ocorrendoIncendio == 1) {
+sprintf(line2, " ALERTA DE INCENDIO");
 }
-if (pressao > 99 || pressao < 0) {
-sprintf(&line2[1], "Erro no Transdutor");
-clearShiftREG();
+
+if (flagErroTransdutor) {
+sprintf(&line3[1], "Erro no Transdutor");
+ocorrendoIncendio = 0;
+LATCbits.LATC1 = 1;
+LATDbits.LATD7 = 0;
+LATAbits.LATA3 = 0;
+out_BOMBA_ESTACIONARIA = 0;
+
 } else {
-sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+sprintf(&line3[2], "Pressao %s BAR", intToFloatStr(pressao));
 }
 
+if (codigoErro > 1 || ocorrendoIncendio == 1) {
+if (textoAlternativo) {
+sprintf(line4, " Press ESC p/ Reset");
+}
+}
 
-if (codigoErro > 1 || ocorrendoIncendio) {
-blink(line3, 1, 19);
-shift[1] = 1;
-sprintf(&line4[1], "Press ESC p/ Reset");
 if (btPress(1)) {
 resetParametros();
+} else if (btPress(4)) {
+menu_posi = 1;
+sub_menu_posi = 1;
+}
+
+if (!PORTCbits.RC0) {
+blink(line1, 20, 20);
+if (codigoErro == 0) {
+codigoErro = 1;
 }
 }
 
-if (btPress(4)) {
-menu_posi = 1;
-sub_menu_posi = 1;
+if (status_jockey == 0) {
+codigoErro = 4;
+} else if (status_principal == 0) {
+codigoErro = 5;
+} else if (status_estacionaria == 0) {
+codigoErro = 6;
 }
 }
 
@@ -5054,17 +5106,6 @@ sprintf(line2, "%02d/%02d/%02d", rtc.date, rtc.month, rtc.year);
 sprintf(&line1[11], "HORA:");
 sprintf(&line2[11], "%02d:%02d:%02d", rtc.hour, rtc.min, rtc.sec);
 
-if (btPress(4)) {
-ajst_rtc = 1;
-option_posi++;
-}
-if (btPress(1)) {
-ajst_rtc = 0;
-option_posi = 0;
-setDS1307TimeDate(&rtc);
-menu_posi = _menu_posi;
-_min++;
-}
 switch (option_posi) {
 case 1:
 blink(line2, 1, 2);
@@ -5124,6 +5165,15 @@ default:option_posi = 1;
 break;
 }
 validaRTC();
+
+if (btPress(4)) {
+option_posi++;
+} else if (btPress(1)) {
+option_posi = 0;
+setDS1307TimeDate(&rtc);
+menu_posi = _menu_posi;
+}
+
 }
 
 # 8 "tela_TESTE_BOMBAS.h"
@@ -5134,15 +5184,6 @@ sprintf(line2, "INTERVALO: %2d dias", intervalo_teste_dia);
 sprintf(line3, "HORARIO: %02d horas", horario_de_teste);
 sprintf(line4, "ATIVAR: %s", habilitaTesteAutomatico == 0 ? "Nao" : "Sim");
 
-if (btPress(1)) {
-writeEEPROM_ext(6, intervalo_teste_dia);
-writeEEPROM_ext(11, horario_de_teste);
-writeEEPROM_ext(15, habilitaTesteAutomatico);
-menu_posi = _menu_posi;
-}
-if (btPress(4)) {
-option_posi++;
-}
 switch (option_posi) {
 case 0:
 blink(line2, 11, 14);
@@ -5177,6 +5218,15 @@ break;
 default:option_posi = 0;
 break;
 }
+
+if (btPress(1)) {
+writeEEPROM_ext(6, intervalo_teste_dia);
+writeEEPROM_ext(11, horario_de_teste);
+writeEEPROM_ext(15, habilitaTesteAutomatico);
+menu_posi = _menu_posi;
+} else if (btPress(4)) {
+option_posi++;
+}
 }
 
 # 9 "tela_DATALOGER.h"
@@ -5190,28 +5240,6 @@ sprintf(&line2[14], "#%02d/%02d", (dtl_posi_visualizar + 1), totalLogs);
 sprintf(line3, "Principal: %s", dtl_principal == 1 ? "OK" : "ERRO");
 sprintf(line4, "Combustao: %s", dtl_estacionaria == 1 ? "OK" : "ERRO");
 
-if (btPress(1)) {
-option_posi = 0;
-menu_posi = _menu_posi;
-}
-
-
-
-
-if (btPress(2)) {
-dtl_posicao -= 8;
-if (dtl_posicao < 60) {
-dtl_posicao = 60;
-}
-dtl_carregar_log = 1;
-}
-if (btPress(3)) {
-if ((dtl_posi_visualizar + 1) >= totalLogs) {
-return;
-}
-dtl_posicao += 8;
-dtl_carregar_log = 1;
-}
 
 if (dtl_carregar_log == 1) {
 char logs = readEEPROM_ext(14);
@@ -5229,14 +5257,32 @@ dtl_principal = readEEPROM_ext((dtl_posicao + 6));
 dtl_estacionaria = readEEPROM_ext((dtl_posicao + 7));
 dtl_carregar_log = 0;
 }
+
+if (btPress(1)) {
+option_posi = 0;
+menu_posi = _menu_posi;
+} else if (btPress(2)) {
+dtl_posicao -= 8;
+if (dtl_posicao < 60) {
+dtl_posicao = 60;
+}
+dtl_carregar_log = 1;
+} else if (btPress(3)) {
+if ((dtl_posi_visualizar + 1) >= totalLogs) {
+return;
+}
+dtl_posicao += 8;
+dtl_carregar_log = 1;
+}
 }
 
 # 7 "tela_INFORMACOES.h"
 void informacoes() {
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
-sprintf(line3, "   48 99906-5651");
-sprintf(line4, "versao - %s", "Aug 31 2019");
+sprintf(line3, "%d-%d-%d-%d-%d-%d > %d-%d", LATAbits.LATA3, LATDbits.LATD7, LATEbits.LATE0, LATEbits.LATE1, LATEbits.LATE2, LATCbits.LATC1, !PORTAbits.RA5, !PORTAbits.RA2);
+sprintf(line4, "versao - %s", "Jul 09 2020");
+
 if (btPress(1)) {
 menu_posi = _menu_posi;
 }
@@ -5278,6 +5324,7 @@ ajust_tel = 0;
 switch (option_posi) {
 case 0:
 line1[0] = '>';
+blink(line1,1,1);
 if (btPress(4)) {
 ajust_tel = 1;
 }
@@ -5300,6 +5347,7 @@ tel1[tel_posi] = 48;
 break;
 case 1:
 line2[0] = '>';
+blink(line2,1,1);
 if (btPress(4)) {
 ajust_tel = 1;
 }
@@ -5322,6 +5370,7 @@ tel2[tel_posi] = 48;
 break;
 case 2:
 line3[0] = '>';
+blink(line3,1,1);
 if (btPress(4) && intensidadeSinal != 'x' && !gsmOcupado) {
 gsmOcupado = 1;
 telefoneSelecionado = 0;
@@ -5334,9 +5383,10 @@ break;
 if (gsmOcupado) {
 comunicarTeste();
 }
+
 }
 
-# 7 "tela_ESTACIONARIA.h"
+# 10 "tela_ESTACIONARIA.h"
 void configurarEstacionaria() {
 
 sprintf(line1, "Configuracao tempo");
@@ -5344,20 +5394,11 @@ sprintf(line2, "Max. PARTIDA:");
 sprintf(&line2[16], "%3ds", tempo_limite_estacionaria);
 sprintf(line3, "Max. TESTE:");
 sprintf(&line3[16], "%3ds", tempo_limite_teste_estacionaria);
-sprintf(line4, "#horimetro:%5d min", horimetro);
+sprintf(line4, "horimetro:%5d min", horimetro);
 
-if (btPress(4)) {
-option_posi++;
-}
-if (btPress(1)) {
-writeEEPROM_ext(7, tempo_limite_estacionaria);
-writeEEPROM_ext(13, tempo_limite_teste_estacionaria);
-option_posi = 0;
-menu_posi = _menu_posi;
-}
 switch (option_posi) {
 case 0:
-blink(line2, 16,20 );
+blink(line2, 16, 20);
 if (btPress(3)) {
 tempo_limite_estacionaria++;
 }
@@ -5366,7 +5407,7 @@ tempo_limite_estacionaria--;
 }
 break;
 case 1:
-blink(line3, 16,20 );
+blink(line3, 16, 20);
 if (btPress(3)) {
 tempo_limite_teste_estacionaria++;
 }
@@ -5374,8 +5415,25 @@ if (btPress(2)) {
 tempo_limite_teste_estacionaria--;
 }
 break;
+case 2:
+blink(line4, 11, 20);
+if (btPress(2)) {
+horimetro = 0;
+writeEEPROM_ext(8, 0);
+}
+break;
 default:option_posi = 0;
 break;
+}
+
+
+if (btPress(4)) {
+option_posi++;
+} else if (btPress(1)) {
+writeEEPROM_ext(7, tempo_limite_estacionaria);
+writeEEPROM_ext(13, tempo_limite_teste_estacionaria);
+option_posi = 0;
+menu_posi = _menu_posi;
 }
 }
 
@@ -5387,18 +5445,6 @@ sprintf(line2, "JOKEY : %s", intToFloatStr(sp_jockey));
 sprintf(line3, "PRINCIPAL : %s", intToFloatStr(sp_principal));
 sprintf(line4, "COMBUSTAO : %s", intToFloatStr(sp_estacionaria));
 
-if (btPress(1)) {
-writeEEPROM_ext(0, sp_jockey);
-writeEEPROM_ext(1, sp_principal);
-writeEEPROM_ext(2, sp_estacionaria);
-writeEEPROM_ext(4, sp_pressao_rede);
-option_posi = 0;
-menu_posi = _menu_posi;
-}
-
-if (btPress(4)) {
-option_posi++;
-}
 
 switch (option_posi) {
 case 0:
@@ -5452,6 +5498,17 @@ break;
 default: option_posi = 0;
 break;
 }
+
+if (btPress(1)) {
+writeEEPROM_ext(0, sp_jockey);
+writeEEPROM_ext(1, sp_principal);
+writeEEPROM_ext(2, sp_estacionaria);
+writeEEPROM_ext(4, sp_pressao_rede);
+option_posi = 0;
+menu_posi = _menu_posi;
+} else if (btPress(4)) {
+option_posi++;
+}
 }
 
 # 10 "tela_TESTE.h"
@@ -5464,26 +5521,39 @@ sprintf(line3, "tetapa %d ", timerEtapaComunicacao);
 sprintf(line4, "tsinal %d", timerVerificarSinal);
 }
 
-# 32 "Main.c"
+# 31 "Main.c"
 void interrupt TIMER() {
 if (TMR0IF) {
 TMR0IF = 0x00;
 TMR0H = 0x3C;
 TMR0L = 0xB0;
 
-base_sec++;
+timerBase = (unsigned char) (timerBase <= 0 ? 0 : --timerBase);
+timerPiscarLCD = (unsigned char) (timerPiscarLCD <= 0 ? 0 : --timerPiscarLCD);
+timerAtrasoLCD = (unsigned char) (timerAtrasoLCD <= 0 ? 0 : --timerAtrasoLCD);
+timerColetaLeitura = (unsigned char) (timerColetaLeitura <= 0 ? 0 : --timerColetaLeitura);
+timerTrocarTextoLcd = (unsigned char) (timerTrocarTextoLcd <= 0 ? 0 : --timerTrocarTextoLcd);
+if (timerTrocarTextoLcd == 0) {
+timerTrocarTextoLcd = 15;
+textoAlternativo = ~textoAlternativo;
+}
+readButtons();
 
-if (base_sec == 5) {
+if (timerPiscarLCD == 0) {
+timerPiscarLCD = 4;
 blinkk = ~blinkk;
 }
 
-lerTransdutor();
-readButtons();
-
-if (base_sec > 9) {
-base_sec = 0;
-blinkk = ~blinkk;
+if (timerBase == 0) {
 timer();
+timerBase = 10;
+
+timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
+timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
+timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
+timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
+timerIntervaloEntreBombas = (timerIntervaloEntreBombas <= 0 ? 0 : --timerIntervaloEntreBombas);
+
 if (RCSTAbits.OERR) {
 RCSTAbits.CREN = 0;
 RCSTAbits.CREN = 1;
@@ -5500,7 +5570,6 @@ if (cbf >= 60) cbf = 0;
 }
 
 void main() {
-
 configuraRegistradores();
 I2C_Master_Init(100000);
 delay(200);
@@ -5512,26 +5581,40 @@ Lcd_Clear();
 criarCaracteresCGRAM();
 delay(100);
 lerParametros();
-delay(50);
+sprintf(line1, "TECHNOW");
+sprintf(line2, "Sistemas embarcados");
+sprintf(line3, "Versao Soft.:");
+sprintf(&line4[9], "%s", "Jul 09 2020");
+atualizarLCD(line1, line2, line3, line4);
+
+delay(2500);
 
 
 while (1) {
 asm("CLRWDT");
-
-if (!executandoTeste || pressao > 99 || pressao < 0) {
-acaoBombas();
+if (timerColetaLeitura == 0) {
+timerColetaLeitura = 3;
+lerTransdutor();
 }
 
+partidaBombaEstacionaria(out_BOMBA_ESTACIONARIA);
+
+if (menu_posi != 28 && !flagErroTransdutor) {
+acaoBombas();
 verificarIntervaloTesteBombas();
+}
 
-setShiftREG();
+if (menu_posi != 28) {
+LATEbits.LATE2 = 0;
+}
+
+if (!timerVerificarSinal && !gsmOcupado) {
 getSinalSIM800L();
-
+}
 
 switch (menu_posi) {
 case 0:
 telaPrincipal();
-
 break;
 case 1:
 sprintf(&line1[1], "DATA/HORA");
@@ -5637,12 +5720,9 @@ break;
 case 8:
 line4[0] = '>';
 menu_posi = 2;
-if (btPress(4)) {
-if (!ocorrendoIncendio) {
+if (btPress(4) && !ocorrendoIncendio) {
 menu_posi = 28;
-executandoTeste = 1;
 etapaTesteBombas = 0;
-}
 }
 break;
 default:
@@ -5653,20 +5733,27 @@ break;
 
 if (btPress(3)) {
 sub_menu_posi--;
-} else if (btPress(2)) {
+}
+if (btPress(2)) {
 sub_menu_posi++;
-} else if (btPress(1)) {
+}
+if (btPress(1)) {
 menu_posi = 0;
 option_posi = 0;
 sub_menu_posi = 1;
 }
 }
 
-if (menu_posi != 28) {
-executandoTeste = 0;
-shift[2] = 0;
+if (menu_posi == 20) {
+ajst_rtc = 1;
+} else {
+ajst_rtc = 0;
 }
+
+monitorarAlteracaoEstado();
+if (timerAtrasoLCD == 0) {
 atualizarLCD(line1, line2, line3, line4);
+}
 }
 }
 

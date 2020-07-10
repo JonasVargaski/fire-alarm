@@ -10,7 +10,7 @@ void configuraTelefones() {
     sprintf(&line1[1], "T1: %s", tel1);
     sprintf(&line2[1], "T2: %s", tel2);
     sprintf(&line3[1], "%s", gsmOcupado ? " aguarde... " : "Enviar sms teste");
-
+    //#CONTROLE
     if (ajust_tel == 0) { // se nao tiver sendo alterado o telefone
         if (btPress(b_mais)) {
             option_posi--;
@@ -41,6 +41,7 @@ void configuraTelefones() {
     switch (option_posi) {
         case 0:
             line1[0] = '>';
+            blink(line1,1,1);
             if (btPress(b_ok)) {
                 ajust_tel = 1;
             }
@@ -63,6 +64,7 @@ void configuraTelefones() {
             break;
         case 1:
             line2[0] = '>';
+            blink(line2,1,1);
             if (btPress(b_ok)) {
                 ajust_tel = 1;
             }
@@ -85,6 +87,7 @@ void configuraTelefones() {
             break;
         case 2:
             line3[0] = '>';
+            blink(line3,1,1);
             if (btPress(b_ok) && intensidadeSinal != 'x' && !gsmOcupado) {
                 gsmOcupado = true;
                 telefoneSelecionado = 0;
@@ -97,6 +100,7 @@ void configuraTelefones() {
     if (gsmOcupado) { // ENVIAR MENSAGENS DE TEXTO PARA TESTE DO MODULO
         comunicarTeste();
     }
+
 }
 
 

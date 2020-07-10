@@ -5,19 +5,24 @@
 #include "variaveisGlobais.h"
 #include "ds1307.h"
 #include "eeprom.h"
+#include "lcd.h"
 
 void timer() {
 
-    timerVerificarSinal = (timerVerificarSinal <= 0 ? 0 : --timerVerificarSinal);
-    timerEtapaComunicacao = (timerEtapaComunicacao <= 0 ? 0 : --timerEtapaComunicacao);
-    timerTesteBombas = (timerTesteBombas <= 0 ? 0 : --timerTesteBombas);
-    timerReenvioSMS = (timerReenvioSMS <= 0 ? 0 : --timerReenvioSMS);
+    //TIMER BOMBA COMBUSTAO
+    if (out_BOMBA_ESTACIONARIA == 1 && status_estacionaria == OK && !SINAL_ESTAC_LIGADO) {
+        tempo_limite_partida++;
+        tempo_partida++;
+    }
+
 
     if (ajst_rtc) { // Se tiver sendo ajustado entao ele nao soma as variavies
         return;
     }
+    
     _sec++;
     if (_sec > 59) {
+        reiniciaLCD();
         _sec = 0;
         _min++;
         if (_min > 59) {
@@ -33,10 +38,11 @@ void timer() {
 
     if (rtc.min != _min) { // Se o minuto for diferente que estiver no rtc, entao sincroniza com timer do pic; // SERVE PARA REALIZAR 1 LEITURA POR MINUTO NO DS1307
 
-        if (flagEstacionariaLigada) {
+        if (SINAL_ESTAC_LIGADO) {
             horimetro++;
             writeEEPROM16_ext(8, horimetro);
         }
+
         getDS1307TimeDate(&rtc); // busca horario no rtc;
         if ((rtc.sec > 60) && (rtc.min > 60) && (rtc.hour > 24)) { // Confirma que o rtc nao está em falha, ou parado;
             // SE DER PROBLEMA NO MODULO RTC, ENTAO NAO COLOCA NUMEROS ESTRANHOS. Continua Somente o timer do pic e acusa falha no modulo relogio(Implemetar falha);

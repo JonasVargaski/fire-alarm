@@ -14,17 +14,6 @@ void tela_ajusteRTC() {
     sprintf(&line1[11], "HORA:");
     sprintf(&line2[11], "%02d:%02d:%02d", rtc.hour, rtc.min, rtc.sec);
 
-    if (btPress(b_ok)) {
-        ajst_rtc = 1; // seta flag que nao deixa a funçao timer alterar o horario.
-        option_posi++;
-    }
-    if (btPress(b_esc)) {
-        ajst_rtc = 0;
-        option_posi = 0;
-        setDS1307TimeDate(&rtc);
-        menu_posi = _menu_posi;
-        _min++; // Adianta 1 minuto somente para quando sair da tela sincronizar
-    }
     switch (option_posi) {
         case 1:
             blink(line2, 1, 2);
@@ -84,6 +73,15 @@ void tela_ajusteRTC() {
             break;
     }
     validaRTC();
+    //#CONTROLE
+    if (btPress(b_ok)) {
+        option_posi++;
+    } else if (btPress(b_esc)) {
+        option_posi = 0;
+        setDS1307TimeDate(&rtc);
+        menu_posi = _menu_posi;
+    }
+
 }
 
 

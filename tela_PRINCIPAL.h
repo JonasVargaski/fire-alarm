@@ -6,68 +6,102 @@
 #include "variaveisGlobais.h"
 #include "teclado.h"
 #include "function.h"
-#include "shift595.h"
+#include "comunicacao.h"
+#include "lcd.h"
 
 void resetParametros() {
-    ocorrendoIncendio = false;
+    timerIntervaloEntreBombas = 3;
+    ocorrendoIncendio = 0;
     codigoErro = 0;
     status_estacionaria = OK;
     status_jockey = OK;
     status_principal = OK;
-    tempo_limite_partida = 0;
-    timerReenvioSMS = 0;
-    tempo_partida = 0;
     gsmOcupado = false;
-    clearShiftREG();
+    out_RL_PRINCIPAL = 0;
+    out_RL_JOCKEY = 0;
+    out_RL_ALARME = 0;
+    out_BOMBA_ESTACIONARIA = 0;
+    tempo_limite_partida = 0;
+    tempo_partida = 0;
+    flagErroTransdutor = false;    
+    reiniciaLCD();
 }
 
 void telaPrincipal() {
 
-    sprintf(&line1[2], " %02d:%02d:%02d %02d/%02d", _hor, _min, _sec, _dia, _mes);
+    sprintf(&line1[4], " %02d:%02d %02d/%02d", _hor, _min, _dia, _mes);
 
     line1[0] = ICONE_TORRE_SINAL;
     line1[1] = intensidadeSinal;
     line1[19] = ICONE_TOMADA;
 
-    if (FALTA_ENERGIA) {
-        blink(line1, 20, 20);
-        //        codigoErro = 1;
-    }
-
     switch (codigoErro) {
         case 1:
-            sprintf(&line3[1], "*falta de energia");
-            codigoErro = 0;
+            sprintf(line4, " *falha eletrica");
+            break;
+        case 2:
+            sprintf(line4, " *falha GSM");
             break;
         case 3:
-            sprintf(&line3[1], "*falha val. ladrao");
+            sprintf(line4, " *falha val. ladrao");
+            out_RL_ALARME = 1;
+            break;
+        case 4:
+            sprintf(line4, " *falha B. jockey");
+            out_RL_ALARME = 1;
+            break;
+        case 5:
+            sprintf(line4, " *falha B. principal");
+            out_RL_ALARME = 1;
+            break;
+        case 6:
+            sprintf(line4, " *falha B. combustao");
+            out_RL_ALARME = 1;
             break;
     }
 
-    if (ocorrendoIncendio) {
-        //        sprintf(line2, " ALERTA DE INCENDIO");
-        sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+    if (ocorrendoIncendio == 1) {
+        sprintf(line2, " ALERTA DE INCENDIO");
     }
-    if (pressao > 99 || pressao < 0) { // Se tiver leitura errada ou tirar o transdutor
-        sprintf(&line2[1], "Erro no Transdutor");
-        clearShiftREG();
+
+    if (flagErroTransdutor) { // Se tiver leitura errada ou tirar o transdutor
+        sprintf(&line3[1], "Erro no Transdutor");
+        ocorrendoIncendio = 0;
+        out_RL_ALARME = 1;
+        out_RL_PRINCIPAL = 0;
+        out_RL_JOCKEY = 0;
+        out_BOMBA_ESTACIONARIA = 0;
+
     } else {
-        sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+        sprintf(&line3[2], "Pressao %s BAR", intToFloatStr(pressao));
     }
 
-
-    if (codigoErro > 1 || ocorrendoIncendio) {
-        blink(line3, 1, 19);
-        shift[rl_alarme] = 1;
-        sprintf(&line4[1], "Press ESC p/ Reset");
-        if (btPress(b_esc)) {
-            resetParametros();
+    if (codigoErro > 1 || ocorrendoIncendio == 1) {
+        if (textoAlternativo) {
+            sprintf(line4, " Press ESC p/ Reset");
         }
     }
 
-    if (btPress(b_ok)) {
+    if (btPress(b_esc)) {
+        resetParametros();
+    } else if (btPress(b_ok)) {
         menu_posi = 1; // entra no menu de ajustes
         sub_menu_posi = 1; // vai para a primeira posição do menu
+    }
+
+    if (FALTA_ENERGIA) {
+        blink(line1, 20, 20);
+        if (codigoErro == 0) {
+            codigoErro = 1;
+        }
+    }
+
+    if (status_jockey == ERRO) {
+        codigoErro = 4;
+    } else if (status_principal == ERRO) {
+        codigoErro = 5;
+    } else if (status_estacionaria == ERRO) {
+        codigoErro = 6;
     }
 }
 
