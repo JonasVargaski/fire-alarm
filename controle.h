@@ -38,7 +38,6 @@ void acaoBombas() {
     if (ocorrendoIncendio == 1) { // se tiver pegando fogo..
         gsmOcupado = true;
         enviaSMS(1); // Enviar SMS de AVISO DE DISPARO
-        out_RL_ALARME = 1; // dispara alarme
     }
 }
 

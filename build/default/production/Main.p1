@@ -338,17 +338,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S36 . . . ]
 "1071
 [v _LATDbits `VS36 ~T0 @X0 0 e@3980 ]
-"938
-[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S34 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"948
-[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S35 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"937
-[u S33 `S34 1 `S35 1 ]
-[n S33 . . . ]
-"959
-[v _LATCbits `VS33 ~T0 @X0 0 e@3979 ]
 "1162
 [s S40 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S40 . LATE0 LATE1 LATE2 ]
@@ -360,6 +349,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S39 . . . ]
 "1173
 [v _LATEbits `VS39 ~T0 @X0 0 e@3981 ]
+"938
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"948
+[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"937
+[u S33 `S34 1 `S35 1 ]
+[n S33 . . . ]
+"959
+[v _LATCbits `VS33 ~T0 @X0 0 e@3979 ]
 "12 function.h
 [v _intToFloatStr `(*uc ~T0 @X0 0 ef1`uc ]
 "7 lcd.h
@@ -4251,7 +4251,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "100
 [e ( _limparBuffer ..  ]
 [; ;comunicacao.h: 101: printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-[; ;comunicacao.h: 102: _dia, _mes, _ano, _hor, _min, _sec, "Jul 09 2020");
+[; ;comunicacao.h: 102: _dia, _mes, _ano, _hor, _min, _sec, "Jul 16 2020");
 "102
 [e ( _printf , , , , , , , (. :s 14C -> __dia `i -> __mes `i -> __ano `i -> __hor `i -> __min `i -> __sec `i :s 15C ]
 [; ;comunicacao.h: 103: delay(1000);
@@ -5391,689 +5391,686 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;controle.h: 40: enviaSMS(1);
 "40
 [e ( _enviaSMS (1 -> -> 1 `i `uc ]
-[; ;controle.h: 41: LATCbits.LATC1 = 1;
 "41
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-"42
 }
 [e :U 402 ]
+[; ;controle.h: 41: }
 [; ;controle.h: 42: }
-[; ;controle.h: 43: }
-"43
+"42
 [e :UE 396 ]
 }
-"45
+"44
 [v _partidaBombaEstacionaria `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;controle.h: 45: void partidaBombaEstacionaria(unsigned char acao) {
+[; ;controle.h: 44: void partidaBombaEstacionaria(unsigned char acao) {
 [e :U _partidaBombaEstacionaria ]
 [v _acao `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;controle.h: 46: if (acao && status_estacionaria == 1) {
-"46
+[; ;controle.h: 45: if (acao && status_estacionaria == 1) {
+"45
 [e $ ! && != -> _acao `i -> -> -> 0 `i `uc `i == -> _status_estacionaria `i -> 1 `i 404  ]
 {
-[; ;controle.h: 47: LATEbits.LATE1 = 1;
-"47
+[; ;controle.h: 46: LATEbits.LATE1 = 1;
+"46
 [e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
-[; ;controle.h: 49: if (!PORTAbits.RA5) {
-"49
+[; ;controle.h: 48: if (!PORTAbits.RA5) {
+"48
 [e $ ! ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i 405  ]
 {
-[; ;controle.h: 50: tempo_partida = 11;
-"50
+[; ;controle.h: 49: tempo_partida = 11;
+"49
 [e = _tempo_partida -> -> 11 `i `uc ]
-[; ;controle.h: 51: LATEbits.LATE0 = 0;
-"51
+[; ;controle.h: 50: LATEbits.LATE0 = 0;
+"50
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-"52
+"51
 }
-[; ;controle.h: 52: } else {
+[; ;controle.h: 51: } else {
 [e $U 406  ]
 [e :U 405 ]
 {
-[; ;controle.h: 53: if (tempo_partida <= 7) {
-"53
+[; ;controle.h: 52: if (tempo_partida <= 7) {
+"52
 [e $ ! <= -> _tempo_partida `i -> 7 `i 407  ]
 {
-[; ;controle.h: 54: LATEbits.LATE0 = 1;
-"54
+[; ;controle.h: 53: LATEbits.LATE0 = 1;
+"53
 [e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
-"55
+"54
 }
-[; ;controle.h: 55: } else if (tempo_partida <= (7 + 8)) {
+[; ;controle.h: 54: } else if (tempo_partida <= (7 + 8)) {
 [e $U 408  ]
 [e :U 407 ]
 [e $ ! <= -> _tempo_partida `i + -> 7 `i -> 8 `i 409  ]
 {
-[; ;controle.h: 56: LATEbits.LATE0 = 0;
-"56
+[; ;controle.h: 55: LATEbits.LATE0 = 0;
+"55
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-"57
+"56
 }
-[; ;controle.h: 57: } else {
+[; ;controle.h: 56: } else {
 [e $U 410  ]
 [e :U 409 ]
 {
-[; ;controle.h: 58: tempo_partida = 0;
-"58
+[; ;controle.h: 57: tempo_partida = 0;
+"57
 [e = _tempo_partida -> -> 0 `i `uc ]
-"59
+"58
 }
 [e :U 410 ]
 [e :U 408 ]
-"60
+"59
 }
 [e :U 406 ]
+[; ;controle.h: 58: }
 [; ;controle.h: 59: }
-[; ;controle.h: 60: }
-[; ;controle.h: 62: if (tempo_limite_partida > tempo_limite_estacionaria) {
-"62
+[; ;controle.h: 61: if (tempo_limite_partida > tempo_limite_estacionaria) {
+"61
 [e $ ! > -> _tempo_limite_partida `i -> _tempo_limite_estacionaria `i 411  ]
 {
-[; ;controle.h: 63: tempo_limite_partida = 0;
-"63
+[; ;controle.h: 62: tempo_limite_partida = 0;
+"62
 [e = _tempo_limite_partida -> -> 0 `i `uc ]
-[; ;controle.h: 64: status_estacionaria = 0;
-"64
+[; ;controle.h: 63: status_estacionaria = 0;
+"63
 [e = _status_estacionaria -> -> 0 `i `uc ]
-"65
+"64
 }
 [e :U 411 ]
-"67
+"66
 }
-[; ;controle.h: 65: }
-[; ;controle.h: 67: } else {
+[; ;controle.h: 64: }
+[; ;controle.h: 66: } else {
 [e $U 412  ]
 [e :U 404 ]
 {
-[; ;controle.h: 68: LATEbits.LATE0 = 0;
-"68
+[; ;controle.h: 67: LATEbits.LATE0 = 0;
+"67
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-[; ;controle.h: 69: LATEbits.LATE1 = 0;
-"69
+[; ;controle.h: 68: LATEbits.LATE1 = 0;
+"68
 [e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;controle.h: 70: tempo_partida = 0;
-"70
+[; ;controle.h: 69: tempo_partida = 0;
+"69
 [e = _tempo_partida -> -> 0 `i `uc ]
-[; ;controle.h: 71: tempo_limite_partida = 0;
-"71
+[; ;controle.h: 70: tempo_limite_partida = 0;
+"70
 [e = _tempo_limite_partida -> -> 0 `i `uc ]
-"72
+"71
 }
 [e :U 412 ]
+[; ;controle.h: 71: }
 [; ;controle.h: 72: }
-[; ;controle.h: 73: }
-"73
+"72
 [e :UE 403 ]
 }
-"75
+"74
 [v _verificarIntervaloTesteBombas `(v ~T0 @X0 1 ef ]
 {
-[; ;controle.h: 75: void verificarIntervaloTesteBombas() {
+[; ;controle.h: 74: void verificarIntervaloTesteBombas() {
 [e :U _verificarIntervaloTesteBombas ]
 [f ]
-[; ;controle.h: 76: if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) {
-"76
+[; ;controle.h: 75: if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) {
+"75
 [e $ ! && >= -> _dias_restante_teste `i -> _intervalo_teste_dia `i == -> _habilitaTesteAutomatico `i -> 1 `i 414  ]
 {
-[; ;controle.h: 77: if (_hor == horario_de_teste) {
-"77
+[; ;controle.h: 76: if (_hor == horario_de_teste) {
+"76
 [e $ ! == -> __hor `i -> _horario_de_teste `i 415  ]
 {
-[; ;controle.h: 78: dias_restante_teste = 0;
-"78
+[; ;controle.h: 77: dias_restante_teste = 0;
+"77
 [e = _dias_restante_teste -> -> 0 `i `uc ]
-[; ;controle.h: 79: writeEEPROM_ext(10, dias_restante_teste);
-"79
+[; ;controle.h: 78: writeEEPROM_ext(10, dias_restante_teste);
+"78
 [e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
-[; ;controle.h: 80: etapaTesteBombas = 0;
-"80
+[; ;controle.h: 79: etapaTesteBombas = 0;
+"79
 [e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 81: menu_posi = 28;
-"81
+[; ;controle.h: 80: menu_posi = 28;
+"80
 [e = _menu_posi -> -> 28 `i `uc ]
-"82
+"81
 }
 [e :U 415 ]
-"83
+"82
 }
 [e :U 414 ]
+[; ;controle.h: 81: }
 [; ;controle.h: 82: }
 [; ;controle.h: 83: }
-[; ;controle.h: 84: }
-"84
+"83
 [e :UE 413 ]
 }
-"86
+"85
 [v _drenarPressao `(v ~T0 @X0 1 ef ]
 {
-[; ;controle.h: 86: void drenarPressao() {
+[; ;controle.h: 85: void drenarPressao() {
 [e :U _drenarPressao ]
 [f ]
-[; ;controle.h: 87: sprintf(line4, "Despressurizando...");
-"87
+[; ;controle.h: 86: sprintf(line4, "Despressurizando...");
+"86
 [e ( _sprintf (1 , &U _line4 :s 38C ]
-[; ;controle.h: 88: if (!timerTesteBombas) {
-"88
+[; ;controle.h: 87: if (!timerTesteBombas) {
+"87
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 417  ]
 {
-[; ;controle.h: 89: codigoErro = 3;
-"89
+[; ;controle.h: 88: codigoErro = 3;
+"88
 [e = _codigoErro -> -> 3 `i `uc ]
-[; ;controle.h: 90: menu_posi = 0;
-"90
+[; ;controle.h: 89: menu_posi = 0;
+"89
 [e = _menu_posi -> -> 0 `i `uc ]
-"91
+"90
 }
 [e :U 417 ]
+[; ;controle.h: 90: }
 [; ;controle.h: 91: }
-[; ;controle.h: 92: }
-"92
+"91
 [e :UE 416 ]
 }
-"94
+"93
 [v _monitorarAlteracaoEstado `(v ~T0 @X0 1 ef ]
 {
-[; ;controle.h: 94: void monitorarAlteracaoEstado(void) {
+[; ;controle.h: 93: void monitorarAlteracaoEstado(void) {
 [e :U _monitorarAlteracaoEstado ]
 [f ]
-"95
+"94
 [v _estado `i ~T0 @X0 1 a ]
-[; ;controle.h: 95: int estado = 0;
+[; ;controle.h: 94: int estado = 0;
 [e = _estado -> 0 `i ]
-[; ;controle.h: 97: if (LATEbits.LATE0) estado += 1;
-"97
+[; ;controle.h: 96: if (LATEbits.LATE0) estado += 1;
+"96
 [e $ ! != -> . . _LATEbits 0 0 `i -> -> -> 0 `i `Vuc `i 419  ]
 [e =+ _estado -> 1 `i ]
 [e :U 419 ]
-[; ;controle.h: 98: if (LATAbits.LATA3) estado += 2;
-"98
+[; ;controle.h: 97: if (LATAbits.LATA3) estado += 2;
+"97
 [e $ ! != -> . . _LATAbits 0 3 `i -> -> -> 0 `i `Vuc `i 420  ]
 [e =+ _estado -> 2 `i ]
 [e :U 420 ]
-[; ;controle.h: 99: if (LATCbits.LATC1) estado += 3;
-"99
+[; ;controle.h: 98: if (LATCbits.LATC1) estado += 3;
+"98
 [e $ ! != -> . . _LATCbits 0 1 `i -> -> -> 0 `i `Vuc `i 421  ]
 [e =+ _estado -> 3 `i ]
 [e :U 421 ]
-[; ;controle.h: 100: if (LATDbits.LATD7) estado += 4;
-"100
+[; ;controle.h: 99: if (LATDbits.LATD7) estado += 4;
+"99
 [e $ ! != -> . . _LATDbits 0 7 `i -> -> -> 0 `i `Vuc `i 422  ]
 [e =+ _estado -> 4 `i ]
 [e :U 422 ]
-[; ;controle.h: 101: if (LATEbits.LATE1) estado += 5;
-"101
+[; ;controle.h: 100: if (LATEbits.LATE1) estado += 5;
+"100
 [e $ ! != -> . . _LATEbits 0 1 `i -> -> -> 0 `i `Vuc `i 423  ]
 [e =+ _estado -> 5 `i ]
 [e :U 423 ]
-[; ;controle.h: 102: if (LATEbits.LATE2) estado += 6;
-"102
+[; ;controle.h: 101: if (LATEbits.LATE2) estado += 6;
+"101
 [e $ ! != -> . . _LATEbits 0 2 `i -> -> -> 0 `i `Vuc `i 424  ]
 [e =+ _estado -> 6 `i ]
 [e :U 424 ]
-[; ;controle.h: 104: if (estado != ultimoEstadoSaidas) {
-"104
+[; ;controle.h: 103: if (estado != ultimoEstadoSaidas) {
+"103
 [e $ ! != _estado -> _ultimoEstadoSaidas `i 425  ]
 {
-[; ;controle.h: 105: ultimoEstadoSaidas = estado;
-"105
+[; ;controle.h: 104: ultimoEstadoSaidas = estado;
+"104
 [e = _ultimoEstadoSaidas -> _estado `uc ]
-[; ;controle.h: 106: timerAtrasoLCD = 13;
-"106
+[; ;controle.h: 105: timerAtrasoLCD = 13;
+"105
 [e = _timerAtrasoLCD -> -> 13 `i `uc ]
-"107
+"106
 }
 [e :U 425 ]
+[; ;controle.h: 106: }
 [; ;controle.h: 107: }
-[; ;controle.h: 108: }
-"108
+"107
 [e :UE 418 ]
 }
-"110
+"109
 [v _acaoTesteBombas `(v ~T0 @X0 1 ef ]
 {
-[; ;controle.h: 110: void acaoTesteBombas() {
+[; ;controle.h: 109: void acaoTesteBombas() {
 [e :U _acaoTesteBombas ]
 [f ]
-[; ;controle.h: 111: if (btPress(1)) {
-"111
+[; ;controle.h: 110: if (btPress(1)) {
+"110
 [e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 427  ]
 {
-[; ;controle.h: 112: gsmOcupado = 0;
-"112
+[; ;controle.h: 111: gsmOcupado = 0;
+"111
 [e = _gsmOcupado -> -> 0 `i `uc ]
-[; ;controle.h: 113: etapaTesteBombas = 0;
-"113
+[; ;controle.h: 112: etapaTesteBombas = 0;
+"112
 [e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 114: out_BOMBA_ESTACIONARIA = 0;
-"114
+[; ;controle.h: 113: out_BOMBA_ESTACIONARIA = 0;
+"113
 [e = _out_BOMBA_ESTACIONARIA -> -> 0 `i `uc ]
-"115
+"114
 [v _intervalo `uc ~T0 @X0 1 a ]
-[; ;controle.h: 115: unsigned char intervalo = readEEPROM_ext(6);
+[; ;controle.h: 114: unsigned char intervalo = readEEPROM_ext(6);
 [e = _intervalo ( _readEEPROM_ext (1 -> -> 6 `i `uc ]
-[; ;controle.h: 116: intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
-"116
+[; ;controle.h: 115: intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
+"115
 [e = _intervalo_teste_dia -> ? > -> _intervalo `i -> 0 `i : -> _intervalo `i -> 1 `i `uc ]
-[; ;controle.h: 117: menu_posi = _menu_posi;
-"117
+[; ;controle.h: 116: menu_posi = _menu_posi;
+"116
 [e = _menu_posi __menu_posi ]
-"118
+"117
 [v _i `uc ~T0 @X0 1 a ]
-[; ;controle.h: 118: char i = 0;
+[; ;controle.h: 117: char i = 0;
 [e = _i -> -> 0 `i `uc ]
-"119
+"118
 }
 [e :U 427 ]
-[; ;controle.h: 119: }
-[; ;controle.h: 121: if (etapaTesteBombas < 10) {
-"121
+[; ;controle.h: 118: }
+[; ;controle.h: 120: if (etapaTesteBombas < 10) {
+"120
 [e $ ! < -> _etapaTesteBombas `i -> 10 `i 428  ]
 {
-[; ;controle.h: 122: sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
-"122
+[; ;controle.h: 121: sprintf(&line1[3], "Aguarde... %ds", timerTesteBombas);
+"121
 [e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 39C _timerTesteBombas ]
-[; ;controle.h: 123: sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
-"123
+[; ;controle.h: 122: sprintf(&line2[2], "Pressao %s BAR", intToFloatStr(pressao));
+"122
 [e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 40C -> ( _intToFloatStr (1 -> _pressao `uc `*Cuc ]
-"124
+"123
 }
 [e :U 428 ]
-[; ;controle.h: 124: }
-[; ;controle.h: 126: switch (etapaTesteBombas) {
-"126
+[; ;controle.h: 123: }
+[; ;controle.h: 125: switch (etapaTesteBombas) {
+"125
 [e $U 430  ]
 {
-[; ;controle.h: 127: case 0:
-"127
+[; ;controle.h: 126: case 0:
+"126
 [e :U 431 ]
-[; ;controle.h: 128: dias_restante_teste = 0;
-"128
+[; ;controle.h: 127: dias_restante_teste = 0;
+"127
 [e = _dias_restante_teste -> -> 0 `i `uc ]
-[; ;controle.h: 129: writeEEPROM_ext(10, dias_restante_teste);
-"129
+[; ;controle.h: 128: writeEEPROM_ext(10, dias_restante_teste);
+"128
 [e ( _writeEEPROM_ext (2 , -> -> 10 `i `uc _dias_restante_teste ]
-[; ;controle.h: 130: LATEbits.LATE2 = 1;
-"130
+[; ;controle.h: 129: LATEbits.LATE2 = 1;
+"129
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
-[; ;controle.h: 131: timerTesteBombas = 30;
-"131
+[; ;controle.h: 130: timerTesteBombas = 30;
+"130
 [e = _timerTesteBombas -> -> 30 `i `ui ]
-[; ;controle.h: 132: etapaTesteBombas = 1;
-"132
+[; ;controle.h: 131: etapaTesteBombas = 1;
+"131
 [e = _etapaTesteBombas -> -> 1 `i `uc ]
-[; ;controle.h: 133: break;
-"133
+[; ;controle.h: 132: break;
+"132
 [e $U 429  ]
-[; ;controle.h: 134: case 1:
-"134
+[; ;controle.h: 133: case 1:
+"133
 [e :U 432 ]
-[; ;controle.h: 135: drenarPressao();
-"135
+[; ;controle.h: 134: drenarPressao();
+"134
 [e ( _drenarPressao ..  ]
-[; ;controle.h: 136: if (pressao <= (sp_pressao_rede - 10)) {
-"136
+[; ;controle.h: 135: if (pressao <= (sp_pressao_rede - 10)) {
+"135
 [e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 433  ]
 {
-[; ;controle.h: 137: LATEbits.LATE2 = 0;
-"137
+[; ;controle.h: 136: LATEbits.LATE2 = 0;
+"136
 [e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-[; ;controle.h: 138: LATAbits.LATA3 = 1;
-"138
+[; ;controle.h: 137: LATAbits.LATA3 = 1;
+"137
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;controle.h: 139: etapaTesteBombas = 2;
-"139
+[; ;controle.h: 138: etapaTesteBombas = 2;
+"138
 [e = _etapaTesteBombas -> -> 2 `i `uc ]
-[; ;controle.h: 140: timerTesteBombas = 50;
-"140
+[; ;controle.h: 139: timerTesteBombas = 50;
+"139
 [e = _timerTesteBombas -> -> 50 `i `ui ]
-"141
+"140
 }
 [e :U 433 ]
-[; ;controle.h: 141: }
-[; ;controle.h: 142: break;
-"142
+[; ;controle.h: 140: }
+[; ;controle.h: 141: break;
+"141
 [e $U 429  ]
-[; ;controle.h: 143: case 2:
-"143
+[; ;controle.h: 142: case 2:
+"142
 [e :U 434 ]
-[; ;controle.h: 144: sprintf(line4, "Bomba Jockey...");
-"144
+[; ;controle.h: 143: sprintf(line4, "Bomba Jockey...");
+"143
 [e ( _sprintf (1 , &U _line4 :s 41C ]
-[; ;controle.h: 145: if (pressao >= sp_pressao_rede) {
-"145
+[; ;controle.h: 144: if (pressao >= sp_pressao_rede) {
+"144
 [e $ ! >= _pressao -> _sp_pressao_rede `i 435  ]
 {
-[; ;controle.h: 146: LATAbits.LATA3 = 0;
-"146
+[; ;controle.h: 145: LATAbits.LATA3 = 0;
+"145
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;controle.h: 147: status_jockey = 1;
-"147
+[; ;controle.h: 146: status_jockey = 1;
+"146
 [e = _status_jockey -> -> 1 `i `uc ]
-[; ;controle.h: 148: etapaTesteBombas = 3;
-"148
+[; ;controle.h: 147: etapaTesteBombas = 3;
+"147
 [e = _etapaTesteBombas -> -> 3 `i `uc ]
-"149
+"148
 }
 [e :U 435 ]
-[; ;controle.h: 149: }
-[; ;controle.h: 150: if (!timerTesteBombas) {
-"150
+[; ;controle.h: 148: }
+[; ;controle.h: 149: if (!timerTesteBombas) {
+"149
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 436  ]
 {
-[; ;controle.h: 151: status_jockey = 0;
-"151
+[; ;controle.h: 150: status_jockey = 0;
+"150
 [e = _status_jockey -> -> 0 `i `uc ]
-[; ;controle.h: 152: etapaTesteBombas = 3;
-"152
+[; ;controle.h: 151: etapaTesteBombas = 3;
+"151
 [e = _etapaTesteBombas -> -> 3 `i `uc ]
-[; ;controle.h: 153: timerTesteBombas = 30;
-"153
+[; ;controle.h: 152: timerTesteBombas = 30;
+"152
 [e = _timerTesteBombas -> -> 30 `i `ui ]
-"154
+"153
 }
 [e :U 436 ]
-[; ;controle.h: 154: }
-[; ;controle.h: 155: break;
+[; ;controle.h: 153: }
+[; ;controle.h: 154: break;
+"154
+[e $U 429  ]
+[; ;controle.h: 155: case 3:
 "155
-[e $U 429  ]
-[; ;controle.h: 156: case 3:
-"156
 [e :U 437 ]
-[; ;controle.h: 157: LATEbits.LATE2 = 1;
-"157
+[; ;controle.h: 156: LATEbits.LATE2 = 1;
+"156
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
-[; ;controle.h: 158: etapaTesteBombas = 4;
-"158
+[; ;controle.h: 157: etapaTesteBombas = 4;
+"157
 [e = _etapaTesteBombas -> -> 4 `i `uc ]
-[; ;controle.h: 159: break;
-"159
+[; ;controle.h: 158: break;
+"158
 [e $U 429  ]
-[; ;controle.h: 160: case 4:
-"160
+[; ;controle.h: 159: case 4:
+"159
 [e :U 438 ]
-[; ;controle.h: 161: drenarPressao();
-"161
+[; ;controle.h: 160: drenarPressao();
+"160
 [e ( _drenarPressao ..  ]
-[; ;controle.h: 162: if (pressao <= (sp_pressao_rede - 10)) {
-"162
+[; ;controle.h: 161: if (pressao <= (sp_pressao_rede - 10)) {
+"161
 [e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 439  ]
 {
-[; ;controle.h: 163: LATDbits.LATD7 = 1;
-"163
+[; ;controle.h: 162: LATDbits.LATD7 = 1;
+"162
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-[; ;controle.h: 164: LATEbits.LATE2 = 0;
-"164
+[; ;controle.h: 163: LATEbits.LATE2 = 0;
+"163
 [e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-[; ;controle.h: 165: etapaTesteBombas = 5;
-"165
+[; ;controle.h: 164: etapaTesteBombas = 5;
+"164
 [e = _etapaTesteBombas -> -> 5 `i `uc ]
-[; ;controle.h: 166: timerTesteBombas = 50;
-"166
+[; ;controle.h: 165: timerTesteBombas = 50;
+"165
 [e = _timerTesteBombas -> -> 50 `i `ui ]
-"167
+"166
 }
 [e :U 439 ]
-[; ;controle.h: 167: }
-[; ;controle.h: 168: break;
-"168
+[; ;controle.h: 166: }
+[; ;controle.h: 167: break;
+"167
 [e $U 429  ]
-[; ;controle.h: 169: case 5:
-"169
+[; ;controle.h: 168: case 5:
+"168
 [e :U 440 ]
-[; ;controle.h: 170: sprintf(line4, "Bomba Principal...");
-"170
+[; ;controle.h: 169: sprintf(line4, "Bomba Principal...");
+"169
 [e ( _sprintf (1 , &U _line4 :s 42C ]
-[; ;controle.h: 171: if (pressao >= sp_pressao_rede) {
-"171
+[; ;controle.h: 170: if (pressao >= sp_pressao_rede) {
+"170
 [e $ ! >= _pressao -> _sp_pressao_rede `i 441  ]
 {
-[; ;controle.h: 172: LATDbits.LATD7 = 0;
-"172
+[; ;controle.h: 171: LATDbits.LATD7 = 0;
+"171
 [e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-[; ;controle.h: 173: status_principal = 1;
-"173
+[; ;controle.h: 172: status_principal = 1;
+"172
 [e = _status_principal -> -> 1 `i `uc ]
-[; ;controle.h: 174: etapaTesteBombas = 6;
-"174
+[; ;controle.h: 173: etapaTesteBombas = 6;
+"173
 [e = _etapaTesteBombas -> -> 6 `i `uc ]
-"175
+"174
 }
 [e :U 441 ]
-[; ;controle.h: 175: }
-[; ;controle.h: 176: if (!timerTesteBombas) {
-"176
+[; ;controle.h: 174: }
+[; ;controle.h: 175: if (!timerTesteBombas) {
+"175
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 442  ]
 {
-[; ;controle.h: 177: status_principal = 0;
-"177
+[; ;controle.h: 176: status_principal = 0;
+"176
 [e = _status_principal -> -> 0 `i `uc ]
-[; ;controle.h: 178: etapaTesteBombas = 6;
-"178
+[; ;controle.h: 177: etapaTesteBombas = 6;
+"177
 [e = _etapaTesteBombas -> -> 6 `i `uc ]
-[; ;controle.h: 179: timerTesteBombas = 30;
-"179
+[; ;controle.h: 178: timerTesteBombas = 30;
+"178
 [e = _timerTesteBombas -> -> 30 `i `ui ]
-"180
+"179
 }
 [e :U 442 ]
-[; ;controle.h: 180: }
-[; ;controle.h: 181: break;
+[; ;controle.h: 179: }
+[; ;controle.h: 180: break;
+"180
+[e $U 429  ]
+[; ;controle.h: 181: case 6:
 "181
-[e $U 429  ]
-[; ;controle.h: 182: case 6:
-"182
 [e :U 443 ]
-[; ;controle.h: 183: LATEbits.LATE2 = 1;
-"183
+[; ;controle.h: 182: LATEbits.LATE2 = 1;
+"182
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
-[; ;controle.h: 184: etapaTesteBombas = 7;
-"184
+[; ;controle.h: 183: etapaTesteBombas = 7;
+"183
 [e = _etapaTesteBombas -> -> 7 `i `uc ]
-[; ;controle.h: 185: break;
-"185
+[; ;controle.h: 184: break;
+"184
 [e $U 429  ]
-[; ;controle.h: 186: case 7:
-"186
+[; ;controle.h: 185: case 7:
+"185
 [e :U 444 ]
-[; ;controle.h: 187: drenarPressao();
-"187
+[; ;controle.h: 186: drenarPressao();
+"186
 [e ( _drenarPressao ..  ]
-[; ;controle.h: 188: if (pressao <= (sp_pressao_rede - 10)) {
-"188
+[; ;controle.h: 187: if (pressao <= (sp_pressao_rede - 10)) {
+"187
 [e $ ! <= _pressao - -> _sp_pressao_rede `i -> 10 `i 445  ]
 {
-[; ;controle.h: 189: LATEbits.LATE2 = 0;
-"189
+[; ;controle.h: 188: LATEbits.LATE2 = 0;
+"188
 [e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-[; ;controle.h: 190: out_BOMBA_ESTACIONARIA = 1;
-"190
+[; ;controle.h: 189: out_BOMBA_ESTACIONARIA = 1;
+"189
 [e = _out_BOMBA_ESTACIONARIA -> -> 1 `i `uc ]
-[; ;controle.h: 191: etapaTesteBombas = 8;
-"191
+[; ;controle.h: 190: etapaTesteBombas = 8;
+"190
 [e = _etapaTesteBombas -> -> 8 `i `uc ]
-[; ;controle.h: 192: timerTesteBombas = tempo_limite_estacionaria;
-"192
+[; ;controle.h: 191: timerTesteBombas = tempo_limite_estacionaria;
+"191
 [e = _timerTesteBombas -> _tempo_limite_estacionaria `ui ]
-"193
+"192
 }
 [e :U 445 ]
-[; ;controle.h: 193: }
-[; ;controle.h: 194: break;
-"194
+[; ;controle.h: 192: }
+[; ;controle.h: 193: break;
+"193
 [e $U 429  ]
-[; ;controle.h: 195: case 8:
-"195
+[; ;controle.h: 194: case 8:
+"194
 [e :U 446 ]
-[; ;controle.h: 196: sprintf(line4, "Bomba Combustao...");
-"196
+[; ;controle.h: 195: sprintf(line4, "Bomba Combustao...");
+"195
 [e ( _sprintf (1 , &U _line4 :s 43C ]
-[; ;controle.h: 197: if (!PORTAbits.RA5 || pressao >= sp_pressao_rede) {
-"197
+[; ;controle.h: 196: if (!PORTAbits.RA5 || pressao >= sp_pressao_rede) {
+"196
 [e $ ! || ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i >= _pressao -> _sp_pressao_rede `i 447  ]
 {
-[; ;controle.h: 198: status_estacionaria = 1;
-"198
+[; ;controle.h: 197: status_estacionaria = 1;
+"197
 [e = _status_estacionaria -> -> 1 `i `uc ]
-[; ;controle.h: 199: timerTesteBombas = tempo_limite_teste_estacionaria;
-"199
+[; ;controle.h: 198: timerTesteBombas = tempo_limite_teste_estacionaria;
+"198
 [e = _timerTesteBombas -> _tempo_limite_teste_estacionaria `ui ]
-[; ;controle.h: 200: etapaTesteBombas = 9;
-"200
+[; ;controle.h: 199: etapaTesteBombas = 9;
+"199
 [e = _etapaTesteBombas -> -> 9 `i `uc ]
-"201
+"200
 }
 [e :U 447 ]
-[; ;controle.h: 201: }
-[; ;controle.h: 202: if (status_estacionaria == 0 || !timerTesteBombas) {
-"202
+[; ;controle.h: 200: }
+[; ;controle.h: 201: if (status_estacionaria == 0 || !timerTesteBombas) {
+"201
 [e $ ! || == -> _status_estacionaria `i -> 0 `i ! != _timerTesteBombas -> -> 0 `i `ui 448  ]
 {
-[; ;controle.h: 203: etapaTesteBombas = 10;
-"203
+[; ;controle.h: 202: etapaTesteBombas = 10;
+"202
 [e = _etapaTesteBombas -> -> 10 `i `uc ]
-[; ;controle.h: 204: status_estacionaria = 0;
-"204
+[; ;controle.h: 203: status_estacionaria = 0;
+"203
 [e = _status_estacionaria -> -> 0 `i `uc ]
-[; ;controle.h: 205: out_BOMBA_ESTACIONARIA = 0;
-"205
+[; ;controle.h: 204: out_BOMBA_ESTACIONARIA = 0;
+"204
 [e = _out_BOMBA_ESTACIONARIA -> -> 0 `i `uc ]
-"206
+"205
 }
 [e :U 448 ]
-[; ;controle.h: 206: }
-[; ;controle.h: 207: break;
-"207
+[; ;controle.h: 205: }
+[; ;controle.h: 206: break;
+"206
 [e $U 429  ]
-[; ;controle.h: 208: case 9:
-"208
+[; ;controle.h: 207: case 9:
+"207
 [e :U 449 ]
-[; ;controle.h: 209: sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada..." : "Religando...");
-"209
+[; ;controle.h: 208: sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada..." : "Religando...");
+"208
 [e ( _sprintf (1 , (. , &U _line4 :s 44C ? ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i : :s 45C :s 46C ]
-[; ;controle.h: 210: if (!timerTesteBombas || status_estacionaria == 0) {
-"210
+[; ;controle.h: 209: if (!timerTesteBombas || status_estacionaria == 0) {
+"209
 [e $ ! || ! != _timerTesteBombas -> -> 0 `i `ui == -> _status_estacionaria `i -> 0 `i 450  ]
 {
-[; ;controle.h: 211: LATEbits.LATE0 = 0;
-"211
+[; ;controle.h: 210: LATEbits.LATE0 = 0;
+"210
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-[; ;controle.h: 212: etapaTesteBombas = 10;
-"212
+[; ;controle.h: 211: etapaTesteBombas = 10;
+"211
 [e = _etapaTesteBombas -> -> 10 `i `uc ]
-"213
+"212
 }
 [e :U 450 ]
-[; ;controle.h: 213: }
-[; ;controle.h: 214: break;
+[; ;controle.h: 212: }
+[; ;controle.h: 213: break;
+"213
+[e $U 429  ]
+[; ;controle.h: 214: case 10:
 "214
-[e $U 429  ]
-[; ;controle.h: 215: case 10:
-"215
 [e :U 451 ]
-[; ;controle.h: 216: salvarLOG();
-"216
+[; ;controle.h: 215: salvarLOG();
+"215
 [e ( _salvarLOG ..  ]
-[; ;controle.h: 217: LATEbits.LATE0 = 0;
-"217
+[; ;controle.h: 216: LATEbits.LATE0 = 0;
+"216
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-[; ;controle.h: 218: etapaTesteBombas = 11;
-"218
+[; ;controle.h: 217: etapaTesteBombas = 11;
+"217
 [e = _etapaTesteBombas -> -> 11 `i `uc ]
-[; ;controle.h: 219: timerTesteBombas = 10;
-"219
+[; ;controle.h: 218: timerTesteBombas = 10;
+"218
 [e = _timerTesteBombas -> -> 10 `i `ui ]
-[; ;controle.h: 220: break;
-"220
+[; ;controle.h: 219: break;
+"219
 [e $U 429  ]
-[; ;controle.h: 221: case 11:
-"221
+[; ;controle.h: 220: case 11:
+"220
 [e :U 452 ]
-[; ;controle.h: 222: sprintf(&line1[2], "Teste Concluido!");
-"222
+[; ;controle.h: 221: sprintf(&line1[2], "Teste Concluido!");
+"221
 [e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 47C ]
-[; ;controle.h: 223: sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
-"223
+[; ;controle.h: 222: sprintf(line2, "JOKEY : %s", status_jockey == 1 ? "OK" : "ERRO");
+"222
 [e ( _sprintf (1 , (. , &U _line2 :s 48C ? == -> _status_jockey `i -> 1 `i : :s 49C :s 50C ]
-[; ;controle.h: 224: sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
-"224
+[; ;controle.h: 223: sprintf(line3, "PRINCIPAL : %s", status_principal == 1 ? "OK" : "ERRO");
+"223
 [e ( _sprintf (1 , (. , &U _line3 :s 51C ? == -> _status_principal `i -> 1 `i : :s 52C :s 53C ]
-[; ;controle.h: 225: sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
-"225
+[; ;controle.h: 224: sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
+"224
 [e ( _sprintf (1 , (. , &U _line4 :s 54C ? == -> _status_estacionaria `i -> 1 `i : :s 55C :s 56C ]
-[; ;controle.h: 226: out_BOMBA_ESTACIONARIA = 0;
-"226
+[; ;controle.h: 225: out_BOMBA_ESTACIONARIA = 0;
+"225
 [e = _out_BOMBA_ESTACIONARIA -> -> 0 `i `uc ]
-[; ;controle.h: 227: if (!timerTesteBombas) {
-"227
+[; ;controle.h: 226: if (!timerTesteBombas) {
+"226
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 453  ]
 {
-[; ;controle.h: 228: etapaTesteBombas = 12;
-"228
+[; ;controle.h: 227: etapaTesteBombas = 12;
+"227
 [e = _etapaTesteBombas -> -> 12 `i `uc ]
-[; ;controle.h: 229: timerTesteBombas = 120;
-"229
+[; ;controle.h: 228: timerTesteBombas = 120;
+"228
 [e = _timerTesteBombas -> -> 120 `i `ui ]
-[; ;controle.h: 230: timerReenvioSMS = 0;
-"230
+[; ;controle.h: 229: timerReenvioSMS = 0;
+"229
 [e = _timerReenvioSMS -> -> 0 `i `uc ]
-[; ;controle.h: 231: gsmOcupado = 1;
-"231
+[; ;controle.h: 230: gsmOcupado = 1;
+"230
 [e = _gsmOcupado -> -> 1 `i `uc ]
-"232
+"231
 }
 [e :U 453 ]
-[; ;controle.h: 232: }
-[; ;controle.h: 233: break;
-"233
+[; ;controle.h: 231: }
+[; ;controle.h: 232: break;
+"232
 [e $U 429  ]
-[; ;controle.h: 234: case 12:
-"234
+[; ;controle.h: 233: case 12:
+"233
 [e :U 454 ]
-[; ;controle.h: 235: sprintf(&line4[2], "enviando SMS...");
-"235
+[; ;controle.h: 234: sprintf(&line4[2], "enviando SMS...");
+"234
 [e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 57C ]
-[; ;controle.h: 236: enviaSMS(2);
-"236
+[; ;controle.h: 235: enviaSMS(2);
+"235
 [e ( _enviaSMS (1 -> -> 2 `i `uc ]
-[; ;controle.h: 237: if (!timerTesteBombas) {
-"237
+[; ;controle.h: 236: if (!timerTesteBombas) {
+"236
 [e $ ! ! != _timerTesteBombas -> -> 0 `i `ui 455  ]
 {
-[; ;controle.h: 238: menu_posi = 0;
-"238
+[; ;controle.h: 237: menu_posi = 0;
+"237
 [e = _menu_posi -> -> 0 `i `uc ]
-[; ;controle.h: 239: gsmOcupado = 0;
-"239
+[; ;controle.h: 238: gsmOcupado = 0;
+"238
 [e = _gsmOcupado -> -> 0 `i `uc ]
-"240
+"239
 }
 [e :U 455 ]
-[; ;controle.h: 240: }
-[; ;controle.h: 241: break;
+[; ;controle.h: 239: }
+[; ;controle.h: 240: break;
+"240
+[e $U 429  ]
+[; ;controle.h: 241: default:
 "241
-[e $U 429  ]
-[; ;controle.h: 242: default:
-"242
 [e :U 456 ]
-[; ;controle.h: 243: etapaTesteBombas = 0;
-"243
+[; ;controle.h: 242: etapaTesteBombas = 0;
+"242
 [e = _etapaTesteBombas -> -> 0 `i `uc ]
-[; ;controle.h: 244: menu_posi = 0;
-"244
+[; ;controle.h: 243: menu_posi = 0;
+"243
 [e = _menu_posi -> -> 0 `i `uc ]
-[; ;controle.h: 245: out_BOMBA_ESTACIONARIA = 0;
-"245
+[; ;controle.h: 244: out_BOMBA_ESTACIONARIA = 0;
+"244
 [e = _out_BOMBA_ESTACIONARIA -> -> 0 `i `uc ]
-[; ;controle.h: 246: break;
+[; ;controle.h: 245: break;
+"245
+[e $U 429  ]
 "246
-[e $U 429  ]
-"247
 }
-[; ;controle.h: 247: }
+[; ;controle.h: 246: }
 [e $U 429  ]
-"126
+"125
 [e :U 430 ]
 [e [\ _etapaTesteBombas , $ -> -> 0 `i `uc 431
  , $ -> -> 1 `i `uc 432
@@ -6089,10 +6086,10 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 11 `i `uc 452
  , $ -> -> 12 `i `uc 454
  456 ]
-"247
+"246
 [e :U 429 ]
-[; ;controle.h: 248: }
-"248
+[; ;controle.h: 247: }
+"247
 [e :UE 426 ]
 }
 [; ;lcd.h: 7: void Lcd_Port(char a);
@@ -8052,7 +8049,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tela_INFORMACOES.h: 10: sprintf(line3, "%d-%d-%d-%d-%d-%d > %d-%d", LATAbits.LATA3, LATDbits.LATD7, LATEbits.LATE0, LATEbits.LATE1, LATEbits.LATE2, LATCbits.LATC1, !PORTAbits.RA5, !PORTAbits.RA2);
 "10
 [e ( _sprintf (1 , , , , , , , , (. , &U _line3 :s 92C -> . . _LATAbits 0 3 `i -> . . _LATDbits 0 7 `i -> . . _LATEbits 0 0 `i -> . . _LATEbits 0 1 `i -> . . _LATEbits 0 2 `i -> . . _LATCbits 0 1 `i -> ! != -> . . _PORTAbits 0 5 `i -> -> -> 0 `i `Vuc `i `i -> ! != -> . . _PORTAbits 0 2 `i -> -> -> 0 `i `Vuc `i `i ]
-[; ;tela_INFORMACOES.h: 11: sprintf(line4, "versao - %s", "Jul 09 2020");
+[; ;tela_INFORMACOES.h: 11: sprintf(line4, "versao - %s", "Jul 16 2020");
 "11
 [e ( _sprintf (1 , (. , &U _line4 :s 93C :s 94C ]
 [; ;tela_INFORMACOES.h: 13: if (btPress(1)) {
@@ -9065,7 +9062,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 92: sprintf(line3, "Versao Soft.:");
 "92
 [e ( _sprintf (1 , &U _line3 :s 116C ]
-[; ;Main.c: 93: sprintf(&line4[9], "%s", "Jul 09 2020");
+[; ;Main.c: 93: sprintf(&line4[9], "%s", "Jul 16 2020");
 "93
 [e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 9 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 117C :s 118C ]
 [; ;Main.c: 94: atualizarLCD(line1, line2, line3, line4);
@@ -9717,9 +9714,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 71C 72 79 82 65 58 0 ]
 [a 101C 77 97 120 46 32 80 65 82 84 73 68 65 58 0 ]
 [a 116C 86 101 114 115 97 111 32 83 111 102 116 46 58 0 ]
-[a 15C 74 117 108 32 48 57 32 50 48 50 48 0 ]
-[a 94C 74 117 108 32 48 57 32 50 48 50 48 0 ]
-[a 118C 74 117 108 32 48 57 32 50 48 50 48 0 ]
+[a 15C 74 117 108 32 49 54 32 50 48 50 48 0 ]
+[a 94C 74 117 108 32 49 54 32 50 48 50 48 0 ]
+[a 118C 74 117 108 32 49 54 32 50 48 50 48 0 ]
 [a 41C 66 111 109 98 97 32 74 111 99 107 101 121 46 46 46 0 ]
 [a 38C 68 101 115 112 114 101 115 115 117 114 105 122 97 110 100 111 46 46 46 0 ]
 [a 46C 82 101 108 105 103 97 110 100 111 46 46 46 0 ]
