@@ -19,7 +19,7 @@ void timer() {
     if (ajst_rtc) { // Se tiver sendo ajustado entao ele nao soma as variavies
         return;
     }
-    
+
     _sec++;
     if (_sec > 59) {
         reiniciaLCD();

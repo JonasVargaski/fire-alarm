@@ -3389,8 +3389,15 @@ long ultimoEstadoLCD = 100;
 
 unsigned int horimetro = 0;
 
-unsigned char _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
-unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
+unsigned char _sec = 0;
+unsigned char _min = 0;
+unsigned char _hor = 0;
+unsigned char _dia = 0;
+unsigned char _mes = 0;
+unsigned char _ano = 0;
+unsigned char intervalo_teste_dia = 15;
+unsigned char dias_restante_teste = 0;
+unsigned char horario_de_teste = 0;
 
 int pressao = 0;
 int coletaMedias[5] = {0, 0, 0, 0, 0};
@@ -4060,7 +4067,7 @@ case 3:
 if (aguardaBuffer(">")) {
 limparBuffer();
 printf("TECHNOW Sistemas embarcados\r\n\r\nTeste manual de comunicacao.\r\nData: %02d/%02d/%02d %02d:%02d:%02d\r\n\r\n\r\nVersao do sistema: %s\r\n",
-_dia, _mes, _ano, _hor, _min, _sec, "Jul 16 2020");
+_dia, _mes, _ano, _hor, _min, _sec, "Jul 18 2020");
 delay(1000);
 writeChar(0x1A);
 etapaComunicacao++;
@@ -4372,8 +4379,8 @@ flag_b_ok = 0;
 
 if (!PORTBbits.RB2 || !PORTBbits.RB3 || !PORTBbits.RB4 || !PORTBbits.RB5) {
 counterPressedTime++;
-if (counterPressedTime > 15) {
-counterPressedTime = 15;
+if (counterPressedTime >= 8) {
+counterPressedTime = 8;
 isPressed = 1;
 }
 } else {
@@ -4457,7 +4464,7 @@ void partidaBombaEstacionaria(unsigned char acao) {
 if (acao && status_estacionaria == 1) {
 LATEbits.LATE1 = 1;
 
-if (!PORTAbits.RA5) {
+if (!PORTAbits.RA2) {
 tempo_partida = 11;
 LATEbits.LATE0 = 0;
 } else {
@@ -4484,7 +4491,7 @@ tempo_limite_partida = 0;
 }
 
 void verificarIntervaloTesteBombas() {
-if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) {
+if (intervalo_teste_dia != 0 && dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) {
 if (_hor == horario_de_teste) {
 dias_restante_teste = 0;
 writeEEPROM_ext(10, dias_restante_teste);
@@ -4523,8 +4530,6 @@ if (btPress(1)) {
 gsmOcupado = 0;
 etapaTesteBombas = 0;
 out_BOMBA_ESTACIONARIA = 0;
-unsigned char intervalo = readEEPROM_ext(6);
-intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
 menu_posi = _menu_posi;
 char i = 0;
 }
@@ -4605,7 +4610,7 @@ timerTesteBombas = tempo_limite_estacionaria;
 break;
 case 8:
 sprintf(line4, "Bomba Combustao...");
-if (!PORTAbits.RA5 || pressao >= sp_pressao_rede) {
+if (!PORTAbits.RA2 || pressao >= sp_pressao_rede) {
 status_estacionaria = 1;
 timerTesteBombas = tempo_limite_teste_estacionaria;
 etapaTesteBombas = 9;
@@ -4617,7 +4622,7 @@ out_BOMBA_ESTACIONARIA = 0;
 }
 break;
 case 9:
-sprintf(line4, "Bomba %s", !PORTAbits.RA5 ? "Ligada..." : "Religando...");
+sprintf(line4, "Bomba %s", !PORTAbits.RA2 ? "Ligada..." : "Religando...");
 if (!timerTesteBombas || status_estacionaria == 0) {
 LATEbits.LATE0 = 0;
 etapaTesteBombas = 10;
@@ -4637,9 +4642,11 @@ sprintf(line4, "COMBUSTAO : %s", status_estacionaria == 1 ? "OK" : "ERRO");
 out_BOMBA_ESTACIONARIA = 0;
 if (!timerTesteBombas) {
 etapaTesteBombas = 12;
-timerTesteBombas = 120;
+timerTesteBombas = 80;
 timerReenvioSMS = 0;
 gsmOcupado = 1;
+dias_restante_teste = 0;
+writeEEPROM_ext(10, dias_restante_teste);
 }
 break;
 case 12:
@@ -4914,7 +4921,7 @@ ultimoEstadoLCD = 0;
 void timer() {
 
 
-if (out_BOMBA_ESTACIONARIA == 1 && status_estacionaria == 1 && !!PORTAbits.RA5) {
+if (out_BOMBA_ESTACIONARIA == 1 && status_estacionaria == 1 && !!PORTAbits.RA2) {
 tempo_limite_partida++;
 tempo_partida++;
 }
@@ -4942,7 +4949,7 @@ writeEEPROM_ext(10, dias_restante_teste);
 
 if (rtc.min != _min) {
 
-if (!PORTAbits.RA5) {
+if (!PORTAbits.RA2) {
 horimetro++;
 writeEEPROM16_ext(8, horimetro);
 }
@@ -5279,8 +5286,8 @@ dtl_carregar_log = 1;
 void informacoes() {
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
-sprintf(line3, "%d-%d-%d-%d-%d-%d > %d-%d", LATAbits.LATA3, LATDbits.LATD7, LATEbits.LATE0, LATEbits.LATE1, LATEbits.LATE2, LATCbits.LATC1, !PORTAbits.RA5, !PORTAbits.RA2);
-sprintf(line4, "versao - %s", "Jul 16 2020");
+sprintf(line3, "%d-%d-%d-%d-%d-%d > %d-%d", LATAbits.LATA3, LATDbits.LATD7, LATEbits.LATE0, LATEbits.LATE1, LATEbits.LATE2, LATCbits.LATC1, !PORTAbits.RA2, !PORTAbits.RA5);
+sprintf(line4, "versao - %s", "Jul 18 2020");
 
 if (btPress(1)) {
 menu_posi = _menu_posi;
@@ -5583,7 +5590,7 @@ lerParametros();
 sprintf(line1, "TECHNOW");
 sprintf(line2, "Sistemas embarcados");
 sprintf(line3, "Versao Soft.:");
-sprintf(&line4[9], "%s", "Jul 16 2020");
+sprintf(&line4[9], "%s", "Jul 18 2020");
 atualizarLCD(line1, line2, line3, line4);
 
 delay(2500);

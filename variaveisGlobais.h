@@ -14,8 +14,8 @@
 #define ERRO 0
 #define OK 1
 
-#define SINAL_ESTAC_LIGADO !PORTAbits.RA5
-#define SINAL_AUX2 !PORTAbits.RA2
+#define SINAL_ESTAC_LIGADO !PORTAbits.RA2
+#define SINAL_AUX2 !PORTAbits.RA5
 #define FALTA_ENERGIA !PORTCbits.RC0
 
 #define out_RL_JOCKEY LATAbits.LATA3
@@ -62,8 +62,15 @@ long ultimoEstadoLCD = 100;
 
 unsigned int horimetro = 0;
 
-unsigned char _sec = 0, _min = 0, _hor = 0, _dia = 0, _mes = 0, _ano = 0, _sec_partida = 0, _sec_aux = 0;
-unsigned char intervalo_teste_dia = 0, dias_restante_teste = 0, horario_de_teste = 0;
+unsigned char _sec = 0;
+unsigned char _min = 0;
+unsigned char _hor = 0;
+unsigned char _dia = 0;
+unsigned char _mes = 0;
+unsigned char _ano = 0;
+unsigned char intervalo_teste_dia = 15;
+unsigned char dias_restante_teste = 0;
+unsigned char horario_de_teste = 0;
 
 int pressao = 0;
 int coletaMedias[5] = {0, 0, 0, 0, 0};

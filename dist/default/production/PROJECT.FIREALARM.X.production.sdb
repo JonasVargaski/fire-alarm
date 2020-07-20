@@ -783,49 +783,56 @@
 [v _horimetro horimetro `ui  1 e 2 0 ]
 "65
 [v __sec _sec `uc  1 e 1 0 ]
-[v __min _min `uc  1 e 1 0 ]
-[v __hor _hor `uc  1 e 1 0 ]
-[v __dia _dia `uc  1 e 1 0 ]
-[v __mes _mes `uc  1 e 1 0 ]
-[v __ano _ano `uc  1 e 1 0 ]
 "66
-[v _intervalo_teste_dia intervalo_teste_dia `uc  1 e 1 0 ]
-[v _dias_restante_teste dias_restante_teste `uc  1 e 1 0 ]
-[v _horario_de_teste horario_de_teste `uc  1 e 1 0 ]
+[v __min _min `uc  1 e 1 0 ]
+"67
+[v __hor _hor `uc  1 e 1 0 ]
 "68
-[v _pressao pressao `i  1 e 2 0 ]
+[v __dia _dia `uc  1 e 1 0 ]
 "69
-[v _coletaMedias coletaMedias `[5]i  1 e 10 0 ]
+[v __mes _mes `uc  1 e 1 0 ]
 "70
-[v _posicaoColetaLeitura posicaoColetaLeitura `uc  1 e 1 0 ]
+[v __ano _ano `uc  1 e 1 0 ]
+"71
+[v _intervalo_teste_dia intervalo_teste_dia `uc  1 e 1 0 ]
 "72
+[v _dias_restante_teste dias_restante_teste `uc  1 e 1 0 ]
+"73
+[v _horario_de_teste horario_de_teste `uc  1 e 1 0 ]
+"75
+[v _pressao pressao `i  1 e 2 0 ]
+"76
+[v _coletaMedias coletaMedias `[5]i  1 e 10 0 ]
+"77
+[v _posicaoColetaLeitura posicaoColetaLeitura `uc  1 e 1 0 ]
+"79
 [v _status_jockey status_jockey `uc  1 e 1 0 ]
 [v _status_principal status_principal `uc  1 e 1 0 ]
 [v _status_estacionaria status_estacionaria `uc  1 e 1 0 ]
-"73
+"80
 [v _tempo_limite_estacionaria tempo_limite_estacionaria `uc  1 e 1 0 ]
 [v _tempo_partida tempo_partida `uc  1 e 1 0 ]
 [v _tempo_limite_partida tempo_limite_partida `uc  1 e 1 0 ]
 [v _tempo_limite_teste_estacionaria tempo_limite_teste_estacionaria `uc  1 e 1 0 ]
-"74
+"81
 [v _sp_pressao_rede sp_pressao_rede `uc  1 e 1 0 ]
 [v _sp_jockey sp_jockey `uc  1 e 1 0 ]
 [v _sp_principal sp_principal `uc  1 e 1 0 ]
 [v _sp_estacionaria sp_estacionaria `uc  1 e 1 0 ]
-"75
+"82
 [v _option_posi option_posi `uc  1 e 1 0 ]
 [v _menu_posi menu_posi `uc  1 e 1 0 ]
 [v __menu_posi _menu_posi `uc  1 e 1 0 ]
 [v _sub_menu_posi sub_menu_posi `uc  1 e 1 0 ]
-"76
+"83
 [v _tel_posi tel_posi `uc  1 e 1 0 ]
 [v _ajust_tel ajust_tel `uc  1 e 1 0 ]
-"77
+"84
 [v _ajst_rtc ajst_rtc `uc  1 e 1 0 ]
 [v _blinkk blinkk `uc  1 e 1 0 ]
-"79
+"86
 [v _tel1 tel1 `[12]uc  1 e 12 0 ]
-"80
+"87
 [v _tel2 tel2 `[12]uc  1 e 12 0 ]
 "78 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\Main.c
 [v _main main `(v  1 e 1 0 ]
@@ -896,7 +903,7 @@
 [v criarCaracteresCGRAM@j j `uc  1 a 1 58 ]
 [v criarCaracteresCGRAM@k k `uc  1 a 1 57 ]
 "175
-[v criarCaracteresCGRAM@F2969 F2969 `C[6][8]uc  1 s 48 F2969 ]
+[v criarCaracteresCGRAM@F2966 F2966 `C[6][8]uc  1 s 48 F2966 ]
 "194
 } 0
 "13
@@ -1149,9 +1156,7 @@
 "109 C:\Users\jonas\MPLABXProjects\PROJECT.FIREALARM.X\controle.h
 [v _acaoTesteBombas acaoTesteBombas `(v  1 e 1 0 ]
 {
-"114
-[v acaoTesteBombas@intervalo intervalo `uc  1 a 1 90 ]
-"117
+"115
 [v acaoTesteBombas@i i `uc  1 a 1 77 ]
 "247
 } 0
@@ -1246,9 +1251,9 @@
 "13 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S1800 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "29
-[v sprintf@pb pb `S1800  1 a 4 55 ]
+[v sprintf@pb pb `S1796  1 a 4 55 ]
 "28
 [v sprintf@ap ap `[1]*.39v  1 a 2 53 ]
 "13
@@ -1286,9 +1291,9 @@
 "13 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
-[s S1800 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "21
-[v printf@pb pb `S1800  1 a 4 55 ]
+[v printf@pb pb `S1796  1 a 4 55 ]
 "15
 [v printf@ap ap `[1]*.39v  1 a 2 53 ]
 "13
@@ -1312,9 +1317,9 @@
 [v __doprnt@flag flag `uc  1 a 1 27 ]
 "506
 [v __doprnt@prec prec `c  1 a 1 22 ]
-[s S1800 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "458
-[v __doprnt@pb pb `*.39S1800  1 p 2 12 ]
+[v __doprnt@pb pb `*.39S1796  1 p 2 12 ]
 [v __doprnt@f f `*.35Cuc  1 p 2 14 ]
 [v __doprnt@ap ap `*.39*.39v  1 p 2 16 ]
 "1541

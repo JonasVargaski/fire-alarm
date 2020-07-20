@@ -64,8 +64,8 @@ void readButtons() {
 
     if (!PORTBbits.RB2 || !PORTBbits.RB3 || !PORTBbits.RB4 || !PORTBbits.RB5) {
         counterPressedTime++;
-        if (counterPressedTime > 15) {
-            counterPressedTime = 15; // 1,5 segundos
+        if (counterPressedTime >= 8) {
+            counterPressedTime = 8; // 800 mili segundos
             isPressed = true;
         }
     } else {

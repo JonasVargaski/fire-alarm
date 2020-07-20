@@ -72,7 +72,7 @@ void partidaBombaEstacionaria(unsigned char acao) { // a��o da bomba : 1 par
 }
 
 void verificarIntervaloTesteBombas() {
-    if (dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) { // Se ajustado intervalo como 0 entao desativa a fun�ao de teste automatico
+    if (intervalo_teste_dia != 0 && dias_restante_teste >= intervalo_teste_dia && habilitaTesteAutomatico == 1) { // Se ajustado intervalo como 0 entao desativa a fun�ao de teste automatico
         if (_hor == horario_de_teste) {
             dias_restante_teste = 0;
             writeEEPROM_ext(10, dias_restante_teste);
@@ -111,8 +111,6 @@ void acaoTesteBombas() {
         gsmOcupado = false;
         etapaTesteBombas = 0;
         out_BOMBA_ESTACIONARIA = 0;
-        unsigned char intervalo = readEEPROM_ext(6);
-        intervalo_teste_dia = intervalo > 0 ? intervalo : 1;
         menu_posi = _menu_posi;
         char i = 0;
     }
@@ -225,7 +223,7 @@ void acaoTesteBombas() {
             out_BOMBA_ESTACIONARIA = 0;
             if (!timerTesteBombas) {
                 etapaTesteBombas = 12;
-                timerTesteBombas = 120;
+                timerTesteBombas = 80;
                 timerReenvioSMS = 0;
                 gsmOcupado = true;
             }
